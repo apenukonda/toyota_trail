@@ -1,8 +1,9 @@
 
 import React from 'react';
+// import logo from '../assets/company-logo.png';
 
 export const ToyotaLogo: React.FC<{ className?: string }> = ({ className }) => (
-  <img src="./assets/company-logo.png" alt="Company Logo" className={className} />
+  <img src="/company-logo.png" alt="Company Logo" className={className} />
 );
 
 export const SunIcon: React.FC<{ className?: string }> = ({ className }) => (

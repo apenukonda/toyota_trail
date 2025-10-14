@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import companyLogo from '../assets/company-logo.png';
+// import companyLogo from '../assets/company-logo.png';
 
 // A reusable section component to keep styling consistent and add animation
 const Section: React.FC<{ title?: string; children: React.ReactNode; className?: string }> = ({ title, children, className = '' }) => (
@@ -74,7 +74,7 @@ const Content: React.FC<ContentProps> = ({ themeLogoSrc, onGetStarted }) => {
             <Section>
   <div className="flex flex-col gap-2 items-center justify-center  bg-blue-50 p-6 rounded-xl shadow-inner">
     <img
-      src={companyLogo}
+      src="/company-logo.png"
       alt="Company Logo"
       className="w-30 h-20 m-0 object-contain order-1"
     />
