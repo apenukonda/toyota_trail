@@ -242,7 +242,7 @@ const VideoTask: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 pt-24 animate-fade-in">
       <button onClick={handleBack} className="absolute top-20 left-4 sm:left-6 lg:left-8 flex items-center gap-2 text-black hover:text-red-500 transition-colors">
-        <ChevronLeftIcon className="w-6 h-6"/>
+        {/* <ChevronLeftIcon className="w-6 h-6"/> */}
         {t('back')}
       </button>
 
