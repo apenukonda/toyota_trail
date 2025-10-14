@@ -14,10 +14,10 @@ export const INITIAL_TASKS: Task[] = [
   },
   {
     id: 'task6',
-    title: 'Advanced Quality Principles',
-    titleKn: 'ಅಧುನಿಕ ಗುಣಮಟ್ಟದ ತತ್ವಗಳು',
-    description: 'Explore key concepts like TPS, A3, and Poka Yoke through video modules and quizzes.',
-    descriptionKn: 'TPS, A3 ಮತ್ತು Poka Yoke ಮುಂತಾದ ಮುಖ್ಯ ತತ್ವಗಳನ್ನು ವೀಡಿಯೊ ಮಾಯೂಡ್ಯೂಲ್‌ಗಳು ಮತ್ತು ಕ್ವಿಜ್‌ಗಳ ಮೂಲಕ ಅನ್ವೇಷಿಸಿ.',
+    title: 'Video awareness and evaluation module',
+    titleKn: 'ವೀಡಿಯೊ ಜಾಗೃತಿ ಮತ್ತು ಮೌಲ್ಯಮಾಪನ ಮಾಡ್ಯೂಲ್',
+    description: 'Self learning courses related to quality with quiz evaluation.',
+    descriptionKn: 'ಗುಣಮಟ್ಟಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಸ್ವಯಂ ಕಲಿಕಾ ಕೋರ್ಸ್‌ಗಳು ಕ್ವಿಜ್ ಮೌಲ್ಯಮಾಪನದೊಂದಿಗೆ.',
     page: Page.VIDEO_TASK,
     totalSteps: 70, // 70 questions total
     completedSteps: 0,
@@ -25,8 +25,8 @@ export const INITIAL_TASKS: Task[] = [
   },
   {
     id: 'task3',
-    title: 'Image Submission',
-    titleKn: 'ಚಿತ್ರ ಸಲ್ಲಿಕೆ',
+    title: 'Cartoon competition',
+    titleKn: 'ಕಾರ್ಟೂನ್ ಸಲ್ಲಿಕೆ',
     description: 'Submit your cartoon image for the quality month contest.',
     descriptionKn: 'ಗುಣಮಟ್ಟದ ತಿಂಗಳ ಸ್ಪರ್ಧೆಗಾಗಿ ನಿಮ್ಮ ಕಾರ್ಟೂನ್ ಚಿತ್ರವನ್ನು ಸಲ್ಲಿಸಿ.',
     page: Page.IMAGE_SUBMISSION,
@@ -36,8 +36,8 @@ export const INITIAL_TASKS: Task[] = [
   },
   {
     id: 'task4',
-    title: 'Slogan Writer',
-    titleKn: 'ಸ್ಲೋಗನ್ ರಚನೆ',
+    title: 'Slogan competition',
+    titleKn: 'ಸ್ಲೋಗನ್ ಸ್ಪರ್ಧೆ',
     description: 'Contribute a slogan for this year\'s quality theme.',
     descriptionKn: 'ಈ ವರ್ಷದ ಗುಣಮಟ್ಟದ ಥೀಮಿಗೆ ಸ್ಲೋಗನ್ ರಚನೆ ಮಾಡಿ.',
     page: Page.SLOGAN_WRITER,
@@ -47,8 +47,8 @@ export const INITIAL_TASKS: Task[] = [
   },
   {
     id: 'task5',
-    title: 'Suggestion Box',
-    titleKn: 'ಸಲಹೆ ಪೆಟ್ಟಿಗೆ',
+    title: 'Kaizen Suggestion',
+    titleKn: 'ಕೈಜೆನ್ ಸಲಹೆ ',
     description: 'Share your ideas for continuous improvement (Kaizen).',
     descriptionKn: 'ನಿರಂತರ ಸುಧಾರಣೆಗೆ (Kaizen) ನಿಮ್ಮ ಆಲೋಚನೆಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ.',
     page: Page.SUGGESTION_BOX,
@@ -223,12 +223,12 @@ export const ADVANCED_MODULES = [
     title: 'Basics of Engine, its parts and functions',
     titleKn: 'ಎಂಜಿನ್ ಆಧಾರಭೂತಗಳು, ಅದರ ಭಾಗಗಳು ಮತ್ತು ಕಾರ್ಯಗಳು',
     videos: [
-      { id: 'WKKILW3Zj_Y', title: 'Video 1' },
-      { id: 'gqK3dCpwzxE', title: 'Video 2' },
-      { id: 'hRYWqdiUlbA', title: 'Video 3' },
-      { id: 'Ad_WHkBIvlo', title: 'Video 4' },
-      { id: 'JqA5Keel6Js', title: 'Video 5' },
-      { id: 'XFVd_fCiO88', title: 'Video 6' },
+      { id: 'WKKILW3Zj_Y', title: 'About TNGA engine working principle' },
+      { id: 'gqK3dCpwzxE', title: 'Basics of engine components and its functions' },
+      { id: 'hRYWqdiUlbA', title: 'Know your Toyota Hybrid vehicle' },
+      { id: 'Ad_WHkBIvlo', title: 'About dynamic force engine' },
+      { id: 'JqA5Keel6Js', title: 'About engine Valvetrain mechanism' },
+      { id: 'XFVd_fCiO88', title: 'Toyota hybrid engine system' },
     ],
     quizzes: [
       // Dummy quiz for video 1: 7 questions
@@ -582,10 +582,10 @@ export const ADVANCED_MODULES = [
     title: 'Basics of Quality tools and its functions',
     titleKn: 'ಗುಣಮಟ್ಟದ ಉಪಕರಣಗಳ ಮೂಲ ಮತ್ತು ಅದರ ಕಾರ್ಯಗಳು',
     videos: [
-      { id: 'gKyecFOnFVI', title: 'Video 1' },
-      { id: 'yuH35ottILU', title: 'Video 2' },
-      { id: 'JQcagDtvkJw', title: 'Video 3' },
-      { id: 'rnAwVnbmm6A', title: 'Video 4' },
+      { id: 'gKyecFOnFVI', title: 'Basics of QMS' },
+      { id: 'yuH35ottILU', title: 'Basics of 7QC tools' },
+      { id: 'JQcagDtvkJw', title: 'Quality core tools' },
+      { id: 'rnAwVnbmm6A', title: '7QC tools - Kannada version' },
     ],
     quizzes: [
       // Dummy quiz for M2 Video 1: 7 questions

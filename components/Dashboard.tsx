@@ -28,10 +28,10 @@ const Dashboard: React.FC = () => {
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 animate-fade-in">
       <header className="text-center mb-12">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight">
-            {language === 'kn' ? 'ಟಯೋಟಾ ಗುಣಮಟ್ಟ ತಿಂಗಳ ಇವೆಂಟ್ ಪೋರ್ಟಲ್‌ಗೆ ಸ್ವಾಗತ' : 'Welcome to Toyota Quality Month Event Portal'}
+            {language === 'kn' ? '2025 - ಗುಣಮಟ್ಟ ತಿಂಗಳ ಇವೆಂಟ್ ಪೋರ್ಟಲ್‌ಗೆ ಸ್ವಾಗತ' : 'Welcome to Quality Month - 2025 Event Portal'}
           </h1>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            {language === 'kn' ? 'ಈ ಕಾರ್ಯಕ್ರಮವನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಕೆಳಗಿನ ಮಾಯೂಡ್ಯೂಲ್‌ಗಳನ್ನು ಪೂರೈಸಿ.' : 'Complete the modules below to finish the event.'}
+            {language === 'kn' ? 'ಅಂಕಗಳನ್ನು ಗಳಿಸಲು ಮತ್ತು ಸ್ಪರ್ಧಿಸಲು ಎಲ್ಲಾ ಮಾದರಿಗಳನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ!.' : 'Complete the modules below to earn your points and compete.'}
           </p>
         <div className="mt-6 flex justify-center items-center gap-4">
             <button

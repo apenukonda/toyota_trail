@@ -37,7 +37,7 @@ const App: React.FC = () => {
       case Page.SLOGAN_WRITER:
           return <PlaceholderTask 
                     taskId="task4" 
-                    title="Slogan Writer" 
+                    title="Slogan Competition" 
                     instructions={[
                         "The theme for this year is 'Think Differently.'",
                         "Craft a catchy and inspiring slogan related to quality and innovation.",
@@ -49,7 +49,7 @@ const App: React.FC = () => {
       case Page.SUGGESTION_BOX:
           return <PlaceholderTask 
                     taskId="task5" 
-                    title="Suggestion Box" 
+                    title="Kaizen Suggestion" 
                     instructions={[
                         "This is your chance to contribute to Kaizen (Continuous Improvement).",
                         "Think about a process in your daily work that could be more efficient or safer.",
