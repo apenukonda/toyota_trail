@@ -57,6 +57,7 @@ const Content: React.FC<ContentProps> = ({ themeLogoSrc, onGetStarted }) => {
     return (
     <div className="space-y-8">
             {/* Introduction */}
+            <p>jai balayya</p>
             <motion.div ref={introRef} initial={{ opacity: 0, y: 50 }} animate={introInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }}>
                 <Section>
                     <p className="text-base md:text-lg text-gray-700 text-center leading-relaxed mb-4">

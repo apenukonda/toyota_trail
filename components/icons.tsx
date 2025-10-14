@@ -2,9 +2,9 @@
 import React from 'react';
 // import logo from '../assets/company-logo.png';
 
-export const ToyotaLogo: React.FC<{ className?: string }> = ({ className }) => (
-  <img src="/company-logo.png" alt="Company Logo" className={className} />
-);
+// export const ToyotaLogo: React.FC<{ className?: string }> = ({ className }) => (
+//   <img src="/company-logo.png" alt="Company Logo" className={className} />
+// );
 
 export const SunIcon: React.FC<{ className?: string }> = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>

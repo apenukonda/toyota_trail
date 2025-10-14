@@ -1,7 +1,7 @@
 import React, { useContext, useState, useRef, useEffect } from 'react';
 import { AppContext } from '../context/AppContext';
 import { Page } from '../types';
-import { ToyotaLogo, HomeIcon } from './icons';
+import {  HomeIcon } from './icons';
 
 // Profile menu with dropdown on click/hover
 const ProfileMenu: React.FC<{ initials: string }> = ({ initials }) => {
@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
         </div>
 
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-             <ToyotaLogo className="h-8 text-red-600 dark:text-red-500 hidden md:block" />
+             <img src="/company-logo.png" alt="company-logo" className="h-8 text-red-600 dark:text-red-500 hidden md:block" />
         </div>
 
         <div className="flex items-center space-x-3">

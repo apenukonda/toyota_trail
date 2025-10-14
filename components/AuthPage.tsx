@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { AppContext } from '../context/AppContext';
 import { Page, Department, Designation } from '../types';
-import { ToyotaLogo } from './icons';
+// import { ToyotaLogo } from './icons';
 
 const AuthPage: React.FC = () => {
   const { currentPage, setCurrentPage, currentUser, login, signup } = useContext(AppContext);
@@ -126,7 +126,7 @@ const AuthPage: React.FC = () => {
     <div className="min-h-screen flex items-center justify-center bg-white animate-fade-in p-4">
       <div className="relative w-full max-w-md bg-white backdrop-blur-lg p-8 rounded-2xl shadow-2xl">
         <div className="flex justify-center mb-6">
-            <ToyotaLogo className="h-12" />
+            <img src="/company-logo.png" alt="company logo" className="h-12" />
         </div>
 
         {isLogin ? (
