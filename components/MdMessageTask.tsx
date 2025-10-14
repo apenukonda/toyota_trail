@@ -76,7 +76,7 @@ const MdMessageTask: React.FC = () => {
             <h1 className="text-4xl font-bold mb-4">{t('md_message_title')}</h1>
       <div>
         {/* Show English poster by default; switch to Kannada poster when language === 'kn' */}
-        <img src={language === 'kn' ? '/assets/MDKan.png' : '/assets/MDEng.png'} alt={t('md_message_title')} className="w-full h-auto rounded-lg mb-4" />
+        <img src={language === 'kn' ? '/MDKan.png' : '/MDEng.png'} alt={t('md_message_title')} className="w-full h-auto rounded-lg mb-4" />
       </div>
             <button onClick={() => setView('quiz')} className="mt-8 px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors">{t('start_quiz')}</button>
         </div>

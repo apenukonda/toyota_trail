@@ -121,7 +121,7 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate }) => 
   };
 
   return (
-    <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg p-8 rounded-2xl shadow-xl w-full max-w-2xl animate-fade-in relative">
+    <div className="bg-white backdrop-blur-lg p-8 rounded-2xl shadow-xl w-full max-w-2xl animate-fade-in relative">
       <button onClick={handleBackClick} className="absolute top-4 left-4 text-gray-600 dark:text-gray-400 hover:text-red-500 transition-colors">
         {t('back')}
       </button>
