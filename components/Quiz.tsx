@@ -149,12 +149,12 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate }) => 
           <div className="flex items-center justify-center gap-2 text-xl font-bold">
             {selectedOption === currentQuestion.correctAnswer ? <CheckCircleIcon className="w-8 h-8 text-green-500" /> : <XCircleIcon className="w-8 h-8 text-red-500" />}
             <span className={selectedOption === currentQuestion.correctAnswer ? 'text-green-500' : 'text-red-500'}>
-              {selectedOption === 'timeout' ? t('time_up_incorrect') : selectedOption === currentQuestion.correctAnswer ? t('correct') : t('incorrect')}
+              {selectedOption === 'timeout' ? t('time up incorrect') : selectedOption === currentQuestion.correctAnswer ? t('correct') : t('incorrect')}
             </span>
           </div>
-          {selectedOption !== currentQuestion.correctAnswer && <p className="mt-2 text-gray-600 dark:text-gray-400">{t('correct_answer_was')} <strong>{localize(currentQuestion.correctAnswer)}</strong></p>}
+          {selectedOption !== currentQuestion.correctAnswer && <p className="mt-2 text-gray-600 dark:text-gray-400">{t('correct answer was')} <strong>{localize(currentQuestion.correctAnswer)}</strong></p>}
           <button onClick={handleNext} className="mt-4 px-8 py-2 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors">
-            {currentQuestionIndex < questions.length - 1 ? t('next_question') : t('finish_quiz')}
+            {currentQuestionIndex < questions.length - 1 ? t('next question') : t('finish quiz')}
           </button>
         </div>
       )}
@@ -171,7 +171,7 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate }) => 
                 {t('cancel')}
               </button>
               <button onClick={confirmBack} className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
-                {t('yes_go_back')}
+                {t('yes go back')}
               </button>
             </div>
           </div>

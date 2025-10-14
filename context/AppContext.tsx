@@ -191,7 +191,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       incorrect: 'Incorrect!',
       next_question: 'Next Question',
       finish_quiz: 'Finish Quiz',
-      back: '← Back',
+      back: 'Back',
       warning_title: 'Warning',
       warning_text_prefix: 'Warning!! You will get only',
       warning_text_suffix: 'points. All others answers will be considered incorrect answers. Are you sure want to do that?',

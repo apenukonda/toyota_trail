@@ -242,7 +242,7 @@ const VideoTask: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 pt-24 animate-fade-in">
       <button onClick={handleBack} className="absolute top-20 left-4 sm:left-6 lg:left-8 flex items-center gap-2 text-black hover:text-red-500 transition-colors">
-        {/* <ChevronLeftIcon className="w-6 h-6"/> */}
+        <ChevronLeftIcon className="w-6 h-6"/>
         {t('back')}
       </button>
 
@@ -251,10 +251,10 @@ const VideoTask: React.FC = () => {
         <div className="bg-white p-8 rounded-2xl shadow-xl text-center">
       <h2 className="text-2xl font-semibold text-black mb-4">{t('Instructions Title') || 'Instructions'}</h2>
             <ul className="list-disc list-inside space-y-2 text-black text-left">
-  <li>{t('Video Task Instruction 1')}</li>
-  <li>{t('Video Task Instruction 2')}</li>
-  <li>{t('Video Task Instruction 3')}</li>
-  <li>{t('Video Task Instruction 4')}</li>
+                <li>This module consists of video lessons and quizzes,worth a total of 70 points.</li>
+                <li>You must watch each video to unlock a 7-point quiz.</li>
+                <li>Complete all videos and quizzes to finish this task.</li>
+                <li>Your progress is saved automatically.</li>
             </ul>
         </div>
     <button onClick={() => setView('modules')} className="mt-8 px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors">
@@ -345,7 +345,7 @@ const VideoTask: React.FC = () => {
             <p className="text-black mb-6">{t('warning_text_prefix')} <strong>{currentQuizScore} {t('points_label')}</strong> {t('warning_text_suffix')}</p>
             <div className="flex gap-4">
               <button onClick={cancelBack} className="flex-1 py-2 bg-white text-black font-bold rounded-lg hover:bg-gray-300 transition-colors">{t('cancel')}</button>
-              <button onClick={confirmBack} className="flex-1 py-2 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors">{t('yes_go_back')}</button>
+              <button onClick={confirmBack} className="flex-1 py-2 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors">{t('yes go back')}</button>
             </div>
           </div>
         </div>
@@ -353,10 +353,10 @@ const VideoTask: React.FC = () => {
 
       <div className={`text-center ${view === 'completed' ? '' : 'hidden'}`}>
     <CheckCircleIcon className="w-24 h-24 text-green-500 mx--auto mb-4" />
-  <h2 className="text-3xl font-bold">{t('task_completed')}</h2>
-  <p className="mt-2 text-lg text-black">{t('video_task_completed_message')}</p>
+  <h2 className="text-3xl font-bold">{t('Task completed')}</h2>
+  <p className="mt-2 text-lg text-black">{t('Video Task Completed Message')}</p>
     <button onClick={() => setCurrentPage(Page.DASHBOARD)} className="mt-6 px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700">
-      {t('return_to_dashboard')}
+      {t('Return to Dashboard')}
     </button>
       </div>
     </div>
