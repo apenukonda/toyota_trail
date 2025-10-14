@@ -171,7 +171,7 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate }) => 
                 {t('cancel')}
               </button>
               <button onClick={confirmBack} className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
-                {t('yes go back')}
+                {t('Yes Go Back')}
               </button>
             </div>
           </div>
