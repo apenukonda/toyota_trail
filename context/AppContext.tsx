@@ -19,8 +19,8 @@ interface AppContextType {
   setLanguage: (lang: 'en' | 'kn') => void;
   // language selection removed; translations are fixed to English
   t: (key: string) => string;
-  login: (userId: string, department: Department) => Promise<{ success: boolean; error?: string }>;
-  signup: (details: { userId: string, name: string, department: Department, designation: Designation }) => Promise<{ success: boolean; error?: string }>;
+  login: (userId: string, passcode: string, role: 'user' | 'admin') => Promise<{ success: boolean; error?: string }>;
+  signup: (details: { userId: string, name: string, department: Department, designation: Designation, passcode: string }) => Promise<{ success: boolean; error?: string }>;
   logout: () => Promise<void>;
   tasks: Task[];
   updateTaskCompletion: (taskId: string, completedSteps: number, scoreEarned: number) => Promise<void>;
@@ -270,56 +270,17 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     return (translations[language] && translations[language][key]) || key;
   };
 
-  const login = async (userId: string, department: Department): Promise<{ success: boolean; error?: string }> => {
+  const login = async (userId: string, passcode: string, role: 'user' | 'admin'): Promise<{ success: boolean; error?: string }> => {
     const trimmedUserId = userId.trim();
     const email = `${trimmedUserId}@quality-event.internal`;
 
-    // Check for existing session first
-    const { data: { session }, error: sessionError } = await supabaseClient.auth.getSession();
-    if (sessionError) {
-      console.error('Error getting session:', sessionError);
-      // Fall through to sign in
-    } else if (session?.user) {
-      // Already signed in, verify designation
-      const { data: profile, error: profileError } = await supabaseClient
-          .from('profiles')
-          .select('*')
-          .eq('id', session.user.id)
-          .single();
+    // Attempt sign in with provided passcode
+    const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password: passcode });
 
-      if (profileError || !profile) {
-          await logout();
-          return { success: false, error: "Could not find user profile." };
-      }
-
-      if (profile.department !== department) {
-          return { success: false, error: "The selected department does not match this User ID." };
-      }
-
-      // Department matches, save session and treat as successful login
-      const user: User = {
-        id: profile.id,
-        userId: profile.user_id,
-        name: profile.name,
-        department: profile.department,
-        designation: profile.designation,
-        score: profile.score,
-      };
-      saveSession(user);
-      setCurrentUser(user);
-      await fetchUserTasks(user.id);
-      setCurrentPage(Page.DASHBOARD);
-      return { success: true };
-    }
-
-    // No existing session or mismatch, attempt sign in
-    const password = trimmedUserId;
-    const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
-
-    if (error) return { success: false, error: "Invalid User ID or you may need to register." };
+    if (error) return { success: false, error: "Invalid credentials or you may need to register." };
     if (!data.user) return { success: false, error: "Authentication failed. Please try again."};
 
-    // Fetch profile to verify designation
+    // Fetch profile to populate app user and verify role in user metadata
     const { data: profile, error: profileError } = await supabaseClient
         .from('profiles')
         .select('*')
@@ -331,8 +292,12 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         return { success: false, error: "Could not find user profile." };
     }
 
-    if (profile.department !== department) {
-        return { success: false, error: "The selected department does not match this User ID." };
+    // Verify role from auth user metadata (Supabase returns user metadata in data.user.user_metadata)
+    // Default to 'user' if metadata missing
+    // @ts-ignore
+    const userMetaRole = (data.user.user_metadata && data.user.user_metadata.role) || 'user';
+    if (userMetaRole !== role) {
+      return { success: false, error: 'Selected role does not match account role.' };
     }
 
     // Success, save session
@@ -351,20 +316,22 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     return { success: true };
   };
   
-  const signup = async (details: { userId: string; name: string; department: Department, designation: Designation }): Promise<{ success: boolean; error?: string }> => {
-    const { userId, name, department, designation } = details;
+  const signup = async (details: { userId: string; name: string; department: Department, designation: Designation, passcode: string }): Promise<{ success: boolean; error?: string }> => {
+    const { userId, name, department, designation, passcode } = details;
     const trimmedUserId = userId.trim();
     const email = `${trimmedUserId}@quality-event.internal`;
-    const password = trimmedUserId;
+    const password = passcode;
 
-    // The trigger 'on_auth_user_created' will create the profile.
-    const { data, error } = await supabaseClient.auth.signUp({
-        email,
-        password,
-        options: {
-            data: { userId: trimmedUserId, name, department, designation }
-        }
-    });
+    // The trigger 'on_auth_user_created' will create the profile. Include role='user' in metadata.
+  const { data, error } = await supabaseClient.auth.signUp({
+    email,
+    password,
+    options: {
+      // include passcode in user metadata so the DB trigger can populate profiles.passcode
+      // NOTE: storing plaintext passcode in metadata is insecure; only do this if expected by your backend.
+      data: { userId: trimmedUserId, name, department, designation, role: 'user', passcode }
+    }
+  });
     if (error) return { success: false, error: error.message };
     if (!data.user) return { success: false, error: "Signup failed. Please try again." };
 

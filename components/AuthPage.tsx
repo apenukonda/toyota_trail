@@ -17,6 +17,8 @@ const AuthPage: React.FC = () => {
   // Login state
   const [userId, setUserId] = useState('');
   const [department, setDepartment] = useState<Department | ''>('');
+  const [passcode, setPasscode] = useState('');
+  const [role, setRole] = useState<'user' | 'admin'>('user');
   const [error, setError] = useState('');
   const [departmentError, setDepartmentError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -26,6 +28,7 @@ const AuthPage: React.FC = () => {
   // Signup state
   const [newUserId, setNewUserId] = useState('');
   const [newName, setNewName] = useState('');
+  const [newPasscode, setNewPasscode] = useState('');
   const [newDepartment, setNewDepartment] = useState<Department | ''>('');
   const [newDesignation, setNewDesignation] = useState<Designation | ''>('');
   const [signupMessage, setSignupMessage] = useState('');
@@ -46,12 +49,12 @@ const AuthPage: React.FC = () => {
     setLoading(true);
     setError('');
     setDepartmentError('');
-    if (!department) {
-      setDepartmentError('Please select a department.');
+    if (!passcode) {
+      setError('Please enter your passcode.');
       setLoading(false);
       return;
     }
-    const result = await login(userId, department as Department);
+    const result = await login(userId, passcode, role);
     if (!result.success) {
       if (result.error === "Invalid User ID or you may need to register.") {
         setShowModal(true);
@@ -85,6 +88,11 @@ const AuthPage: React.FC = () => {
         return;
     }
 
+  if (!newPasscode) {
+    setError('Please provide a passcode (will be used as your password).');
+    return;
+  }
+
     if (!newDesignation) {
         setError("Please select a designation.");
         return;
@@ -94,12 +102,13 @@ const AuthPage: React.FC = () => {
     setError('');
     setSignupMessage('');
 
-    const result = await signup({
-        userId: newUserId,
-        name: newName,
-        department: newDepartment as Department,
-        designation: newDesignation as Designation,
-    });
+  const result = await signup({
+    userId: newUserId,
+    name: newName,
+    department: newDepartment as Department,
+    designation: newDesignation as Designation,
+    passcode: newPasscode,
+  });
 
     if (result.success) {
         setSignupMessage("Account created! Redirecting to dashboard...");
@@ -137,12 +146,21 @@ const AuthPage: React.FC = () => {
               <input type="text" value={userId} onChange={e => setUserId(e.target.value)} className={inputClass} required />
             </div>
             <div>
-              <label className="text-sm font-medium text-gray-600">Department</label>
-               <select value={department} onChange={e => setDepartment(e.target.value as Department)} className={inputClass} required>
-                  <option value="">Select Department</option>
-                  {Object.values(Department).map(dep => <option key={dep} value={dep}>{dep}</option>)}
-              </select>
-              {departmentError && <p className="text-red-500 text-sm mt-1">{departmentError}</p>}
+              <label className="text-sm font-medium text-gray-600">Passcode</label>
+              <input type="password" value={passcode} onChange={e => setPasscode(e.target.value)} className={inputClass} required />
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-600">Role</label>
+              <div className="flex gap-4 mt-2">
+                <label className="inline-flex items-center">
+                  <input type="radio" name="role" value="user" checked={role === 'user'} onChange={() => setRole('user')} />
+                  <span className="ml-2">User</span>
+                </label>
+                <label className="inline-flex items-center">
+                  <input type="radio" name="role" value="admin" checked={role === 'admin'} onChange={() => setRole('admin')} />
+                  <span className="ml-2">Admin</span>
+                </label>
+              </div>
             </div>
             {error && <p className="text-red-500 text-sm">{error}</p>}
             <button type="submit" disabled={loading} className="w-full py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors transform hover:scale-105 disabled:bg-red-400 disabled:scale-100">
@@ -170,6 +188,10 @@ const AuthPage: React.FC = () => {
                   <option value="">Select Department</option>
                   {Object.values(Department).map(dep => <option key={dep} value={dep}>{dep}</option>)}
               </select>
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-600">Passcode</label>
+              <input type="password" value={newPasscode} onChange={e => setNewPasscode(e.target.value)} className={inputClass} required />
             </div>
             <div>
               <label className="text-sm font-medium text-gray-600">Designation</label>
