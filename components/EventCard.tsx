@@ -39,7 +39,9 @@ const EventCard: React.FC<EventCardProps> = ({ task }) => {
       <div>
         <div className="flex justify-between items-start">
       <h3 className="text-xl font-bold text-gray-800 pr-2">{language === 'kn' ? (task.titleKn || task.title) : task.title}</h3>
-  <span className="flex-shrink-0 bg-red-100 text-red-800 text-xs font-bold px-2.5 py-1 rounded-full">{task.maxScore} {t('points_label')}</span>
+  <span className="flex-shrink-0 bg-red-100 text-red-800 text-xs font-bold px-2.5 py-1 rounded-full">
+    {`${task.maxScore} ${language === 'en' ? 'Points' : t('points_label')}`}
+  </span>
         </div>
     <p className="mt-2 text-sm text-gray-600">{language === 'kn' ? (task.descriptionKn || task.description) : task.description}</p>
       </div>

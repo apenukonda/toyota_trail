@@ -177,13 +177,14 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   // Basic translations map used by components via context.t(key)
   const translations: Record<'en' | 'kn', Record<string, string>> = {
     en: {
-  md_message_title: 'A Message from the Managing Director',
-  start_quiz: 'Start Quiz (7 Points)',
-  task_completed_title: 'Task Completed!',
-  task_completed_message: "You've successfully completed the MD Message module.",
+      md_message_title: 'A Message from the Managing Director',
+      start_quiz: 'Start Quiz (7 Points)',
+      task_completed_title: 'Task Completed!',
+      task_completed_message: "You've successfully completed the MD Message module.",
       dashboard: 'Dashboard',
       welcome: 'Welcome,',
       score: 'Score',
+      points: 'Points',
       points_label: 'Points',
       progress_label: 'Progress',
       start_task: 'Start Task',
@@ -271,9 +272,12 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     }
   };
 
-  // Translation helper - uses selected language
+  // Translation helper - uses selected language with English fallback
   const t = (key: string) => {
-    return (translations[language] && translations[language][key]) || key;
+    if (language === 'en' || !translations[language]?.[key]) {
+      return translations['en']?.[key] || key;
+    }
+    return translations[language][key];
   };
 
   const login = async (userId: string, passcode: string, role: 'user' | 'admin'): Promise<{ success: boolean; error?: string }> => {

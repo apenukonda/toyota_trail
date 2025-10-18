@@ -37,11 +37,15 @@ const AuthPage: React.FC = () => {
 
 
   const validateUserId = (id: string): string | null => {
-  // Employee ID should be digits only, length between 1 and 6
-  if (!/^[0-9]{1,6}$/.test(id)) {
-    return "Employee ID must be 1 to 6 digits (numbers only).";
-  }
-  return null;
+    // Employee ID should be digits only, length between 1 and 6
+    const sanitizedId = id.replace(/\D/g, '');
+    if (sanitizedId.length < 1 || sanitizedId.length > 6) {
+      return "Employee ID must be between 1 and 6 digits.";
+    }
+    if (!/^\d+$/.test(sanitizedId)) {
+      return "Employee ID must contain only numbers.";
+    }
+    return null;
   };
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -49,10 +53,10 @@ const AuthPage: React.FC = () => {
     setLoading(true);
     setError('');
     setDepartmentError('');
-    // Ensure userId is exactly 6 digits
+    // Validate userId length between 1 and 6 digits
     const sanitizedUserId = userId.replace(/\D/g, '');
-    if (sanitizedUserId.length !== 6) {
-      setError('Employee ID must be exactly 6 digits.');
+    if (sanitizedUserId.length < 1 || sanitizedUserId.length > 6) {
+      setError('Employee ID must be between 1 and 6 digits.');
       setLoading(false);
       return;
     }
@@ -173,8 +177,9 @@ const AuthPage: React.FC = () => {
               <input
                 type="text"
                 inputMode="numeric"
-                pattern="[0-9]*"
+                pattern="[0-9]{1,6}"
                 maxLength={6}
+                placeholder="Enter 1-6 digits"
                 value={userId}
                 onChange={e => {
                   // Allow only digits and limit to 6 characters for login
@@ -233,8 +238,9 @@ const AuthPage: React.FC = () => {
               <input
                 type="text"
                 inputMode="numeric"
-                pattern="[0-9]*"
+                pattern="[0-9]{1,6}"
                 maxLength={6}
+                placeholder="Enter 1-6 digits"
                 value={newUserId}
                 onChange={e => {
                   // Allow only digits and limit length to 6
