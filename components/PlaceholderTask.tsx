@@ -1,9 +1,5 @@
 import React, { useContext, useState } from 'react';
-// @ts-ignore
-const { createClient } = supabase;
-const supabaseUrl = 'https://kescaddzecbnhnhpifha.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtlc2NhZGR6ZWNibmhuaHBpZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk4MzAxMjksImV4cCI6MjA3NTQwNjEyOX0.h69xRfbJSzq_7xd4bR40AmmXoa9zgcMUjxPeWBmkynM';
-const supabaseClient = createClient(supabaseUrl, supabaseKey);
+import supabaseClient from '../context/supabaseClient';
 import { AppContext } from '../context/AppContext';
 import { Page } from '../types';
 import { ChevronLeftIcon } from './icons';

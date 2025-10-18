@@ -73,10 +73,18 @@ const Navbar: React.FC = () => {
         </div>
 
         <div className="flex items-center space-x-3">
-          {/* score display left of avatar */}
+          {/* score display left of avatar for desktop */}
           <div className="hidden sm:flex flex-col items-end mr-2 text-right">
             <span className="text-sm text-gray-600 dark:text-gray-300">{t('score')}</span>
             <span className="text-lg font-bold text-gray-900 dark:text-white">{currentUser?.score ?? 0}</span>
+          </div>
+
+          {/* compact mobile score badge visible only on small screens */}
+          <div aria-hidden={true} className="sm:hidden flex items-center mr-2">
+            <div className="flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-2 py-1 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm">
+              <span className="text-[10px] text-gray-600 dark:text-gray-300 leading-none">{t('score')}</span>
+              <span className="text-sm font-semibold">{currentUser?.score ?? 0}</span>
+            </div>
           </div>
 
           <ProfileMenu initials={initials} />

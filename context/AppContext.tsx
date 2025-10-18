@@ -2,12 +2,7 @@ import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import { Page, User, Task, Department, Designation } from '../types';
 import { INITIAL_TASKS } from '../constants';
 
-// Supabase is loaded from CDN in index.html
-// @ts-ignore
-const { createClient } = supabase;
-const supabaseUrl = 'https://kescaddzecbnhnhpifha.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtlc2NhZGR6ZWNibmhuaHBpZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk4MzAxMjksImV4cCI6MjA3NTQwNjEyOX0.h69xRfbJSzq_7xd4bR40AmmXoa9zgcMUjxPeWBmkynM';
-const supabaseClient = createClient(supabaseUrl, supabaseKey);
+import supabaseClient from './supabaseClient';
 
 interface AppContextType {
   theme: 'light' | 'dark';
@@ -51,6 +46,16 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     const session = { user, expiry };
     localStorage.setItem(SESSION_KEY, JSON.stringify(session));
   };
+
+  // For compatibility with Supabase password requirements (min length 6),
+  // transform the user-facing 4-digit passcode into a stronger password by
+  // appending a fixed suffix. This keeps the UX of a 4-digit passcode while
+  // ensuring signup/login to Supabase succeeds. The suffix must be kept
+  // consistent between signup and login. Note: storing plaintext passcodes in
+  // metadata (done elsewhere) is insecure but preserved for backward-compatibility
+  // with the existing DB trigger that populates profiles.passcode.
+  const PASSCODE_SUFFIX = '!TQM';
+  const mapPasscodeToPassword = (passcode: string) => `${passcode}${PASSCODE_SUFFIX}`;
 
   const loadSession = (): User | null => {
     const stored = localStorage.getItem(SESSION_KEY);
@@ -272,10 +277,13 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
   const login = async (userId: string, passcode: string, role: 'user' | 'admin'): Promise<{ success: boolean; error?: string }> => {
     const trimmedUserId = userId.trim();
-    const email = `${trimmedUserId}@quality-event.internal`;
+  const email = `${trimmedUserId}@quality-event.internal`;
 
-    // Attempt sign in with provided passcode
-    const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password: passcode });
+  // Map the 4-digit passcode to a Supabase-compliant password
+  const passwordForAuth = mapPasscodeToPassword(passcode);
+
+  // Attempt sign in with provided passcode (transformed)
+  const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password: passwordForAuth });
 
     if (error) return { success: false, error: "Invalid credentials or you may need to register." };
     if (!data.user) return { success: false, error: "Authentication failed. Please try again."};
@@ -319,8 +327,9 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   const signup = async (details: { userId: string; name: string; department: Department, designation: Designation, passcode: string }): Promise<{ success: boolean; error?: string }> => {
     const { userId, name, department, designation, passcode } = details;
     const trimmedUserId = userId.trim();
-    const email = `${trimmedUserId}@quality-event.internal`;
-    const password = passcode;
+  const email = `${trimmedUserId}@quality-event.internal`;
+  // Transform user-facing passcode to a stronger password for Supabase
+  const password = mapPasscodeToPassword(passcode);
 
     // The trigger 'on_auth_user_created' will create the profile. Include role='user' in metadata.
   const { data, error } = await supabaseClient.auth.signUp({
@@ -332,7 +341,14 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       data: { userId: trimmedUserId, name, department, designation, role: 'user', passcode }
     }
   });
-    if (error) return { success: false, error: error.message };
+    if (error) {
+      // Normalize common 'already exists' messages into a friendlier message
+      const em = (error.message || '').toLowerCase();
+      if (em.includes('already registered') || em.includes('already exists') || em.includes('user already')) {
+        return { success: false, error: 'User already registered. Try logging in or use a different Employee ID.' };
+      }
+      return { success: false, error: error.message };
+    }
     if (!data.user) return { success: false, error: "Signup failed. Please try again." };
 
     // Fetch profile with retry to handle trigger delay

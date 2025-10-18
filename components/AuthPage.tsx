@@ -29,19 +29,19 @@ const AuthPage: React.FC = () => {
   const [newUserId, setNewUserId] = useState('');
   const [newName, setNewName] = useState('');
   const [newPasscode, setNewPasscode] = useState('');
+  const [confirmPasscode, setConfirmPasscode] = useState('');
+  const [passcodeError, setPasscodeError] = useState('');
   const [newDepartment, setNewDepartment] = useState<Department | ''>('');
   const [newDesignation, setNewDesignation] = useState<Designation | ''>('');
   const [signupMessage, setSignupMessage] = useState('');
 
 
   const validateUserId = (id: string): string | null => {
-    if (id.length < 6) {
-        return "User ID must be at least 6 characters long.";
-    }
-    if (!/^[a-zA-Z0-9]+$/.test(id)) {
-        return "User ID can only contain letters and numbers.";
-    }
-    return null;
+  // Employee ID should be digits only, length between 1 and 6
+  if (!/^[0-9]{1,6}$/.test(id)) {
+    return "Employee ID must be 1 to 6 digits (numbers only).";
+  }
+  return null;
   };
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -49,8 +49,15 @@ const AuthPage: React.FC = () => {
     setLoading(true);
     setError('');
     setDepartmentError('');
-    if (!passcode) {
+    // Ensure passcode is provided and exactly 4 digits
+    const sanitizedPass = passcode.replace(/\D/g, '');
+    if (!sanitizedPass) {
       setError('Please enter your passcode.');
+      setLoading(false);
+      return;
+    }
+    if (sanitizedPass.length !== 4) {
+      setError('Passcode must be exactly 4 digits.');
       setLoading(false);
       return;
     }
@@ -90,6 +97,18 @@ const AuthPage: React.FC = () => {
 
   if (!newPasscode) {
     setError('Please provide a passcode (will be used as your password).');
+    return;
+  }
+
+  // Ensure passcode is exactly 4 characters
+  if (newPasscode.length !== 4) {
+    setError('Passcode must be exactly 4 characters long.');
+    return;
+  }
+
+  // Check confirm password
+  if (newPasscode !== confirmPasscode) {
+    setError('Passcode and Confirm Passcode do not match.');
     return;
   }
 
@@ -147,7 +166,21 @@ const AuthPage: React.FC = () => {
             </div>
             <div>
               <label className="text-sm font-medium text-gray-600">Passcode</label>
-              <input type="password" value={passcode} onChange={e => setPasscode(e.target.value)} className={inputClass} required />
+              <input
+                type="password"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                maxLength={4}
+                value={passcode}
+                onChange={e => {
+                  // Allow only digits and limit to 4 characters
+                  const v = e.target.value.replace(/\D/g, '').slice(0, 4);
+                  setPasscode(v);
+                  setError('');
+                }}
+                className={inputClass}
+                required
+              />
             </div>
             <div>
               <label className="text-sm font-medium text-gray-600">Role</label>
@@ -173,9 +206,22 @@ const AuthPage: React.FC = () => {
         ) : (
           <form onSubmit={handleSignup} className="space-y-4">
             <h2 className="text-3xl font-bold text-center text-gray-800">Create Account</h2>
-             <div>
+            <div>
               <label className="text-sm font-medium text-gray-600">Employee ID</label>
-              <input type="text" value={newUserId} onChange={e => setNewUserId(e.target.value)} className={inputClass} required />
+              <input
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                maxLength={6}
+                value={newUserId}
+                onChange={e => {
+                  // Allow only digits and limit length to 6
+                  const sanitized = e.target.value.replace(/\D/g, '').slice(0, 6);
+                  setNewUserId(sanitized);
+                }}
+                className={inputClass}
+                required
+              />
 
             </div>
             <div>
@@ -190,17 +236,48 @@ const AuthPage: React.FC = () => {
               </select>
             </div>
             <div>
-              <label className="text-sm font-medium text-gray-600">Passcode</label>
-              <input type="password" value={newPasscode} onChange={e => setNewPasscode(e.target.value)} className={inputClass} required />
-            </div>
-            <div>
               <label className="text-sm font-medium text-gray-600">Designation</label>
               <select value={newDesignation} onChange={e => setNewDesignation(e.target.value as Designation)} className={inputClass} required>
                   <option value="">Select Designation</option>
                   {Object.values(Designation).map(des => <option key={des} value={des}>{des}</option>)}
               </select>
             </div>
+            <div>
+              <label className="text-sm font-medium text-gray-600">Passcode</label>
+              <input
+                type="password"
+                value={newPasscode}
+                maxLength={4}
+                onChange={e => {
+                  // Limit to 4 chars
+                  const v = e.target.value.slice(0, 4);
+                  setNewPasscode(v);
+                  // clear passcode-specific errors when typing
+                  setPasscodeError('');
+                  setError('');
+                }}
+                className={inputClass}
+                required
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-600">Confirm Passcode</label>
+              <input
+                type="password"
+                value={confirmPasscode}
+                maxLength={4}
+                onChange={e => {
+                  const v = e.target.value.slice(0, 4);
+                  setConfirmPasscode(v);
+                  setPasscodeError('');
+                  setError('');
+                }}
+                className={inputClass}
+                required
+              />
+            </div>
 
+            {passcodeError && <p className="text-red-500 text-sm">{passcodeError}</p>}
              {error && <p className="text-red-500 text-sm">{error}</p>}
              {signupMessage && <p className="text-green-500 text-sm">{signupMessage}</p>}
             <button type="submit" disabled={loading} className="w-full py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors transform hover:scale-105 disabled:bg-red-400 disabled:scale-100">
