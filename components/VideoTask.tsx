@@ -42,6 +42,9 @@ const VideoTask: React.FC = () => {
     addScore,
     t,
     language,
+    selectedModuleIndex,
+    setSelectedModuleIndex,
+    getTaskScore,
   } = useContext(AppContext);
   const [view, setView] = useState<View>("instructions");
   const [currentModuleIndex, setCurrentModuleIndex] = useState(0);
@@ -74,6 +77,13 @@ const VideoTask: React.FC = () => {
 
   useEffect(() => {
     fetchInitialProgress();
+    // If a module was pre-selected (from Knowledge Centre), open its videos
+    if (typeof selectedModuleIndex === 'number' && selectedModuleIndex !== null) {
+      setCurrentModuleIndex(selectedModuleIndex);
+      setView('videos');
+      // Clear the selection to avoid re-opening on remount
+      setSelectedModuleIndex(null);
+    }
   }, [fetchInitialProgress]);
 
   // Effect to manage the YouTube Player lifecycle
@@ -230,57 +240,68 @@ const VideoTask: React.FC = () => {
         videoProgress[videoId]?.watchedSeconds || videoDuration,
         true
       );
-      const newProgress = {
-        ...videoProgress,
-        [videoId]: {
-          watchedSeconds:
-            videoProgress[videoId]?.watchedSeconds || videoDuration,
-          isComplete: true,
-        },
-      };
-      setVideoProgress(newProgress);
+      // After we've updated the DB, fetch authoritative progress to avoid stale state
+      try {
+        let freshProgress: VideoProgress = {};
+        if (currentUser) {
+          const fetched = await getVideoProgress(currentUser.id);
+          freshProgress = (fetched as VideoProgress) || {};
+        }
 
-      setQuizScores((prev) => {
-        const updated = { ...prev, [videoId]: score };
-        // Check if current module is fully completed
-        // const moduleVideoIds = currentModule.videos.map(v => v.id);   PREVIOUS CODE
-        // const moduleCompleted = moduleVideoIds.every(id => newProgress[id]?.isComplete);
-        // if (moduleCompleted) {
-        //   // Only update score and steps when module is completed
-        //   const moduleScore = moduleVideoIds.reduce((sum, id) => sum + (updated[id] || 0), 0);
-        //   const questionsPerVideo = 7; // adjust if needed
-        //   updateTaskCompletion('task6', moduleVideoIds.length * questionsPerVideo, moduleScore);
-        // } PREVIOUS CODE
+        // Ensure the current video is marked complete in the local snapshot
+        const updatedVP = {
+          ...freshProgress,
+          [videoId]: {
+            watchedSeconds: freshProgress[videoId]?.watchedSeconds || videoDuration,
+            isComplete: true,
+          },
+        };
+        setVideoProgress(updatedVP);
 
-        // Update score after each quiz completion
-        const completedVideos = Object.values(newProgress).filter(
+        // Persist cumulative per-task score using authoritative progress
+        const questionsPerVideo = 7;
+        const completedVideos = Object.values(updatedVP).filter(
           (p: { isComplete: boolean }) => p.isComplete
         ).length;
-        const totalScore = Object.values(updated).reduce(
-          (sum: number, s: number) => sum + s,
-          0
-        );
-        const questionsPerVideo = 7; // adjust if needed
-        updateTaskCompletion(
-          "task6",
-          completedVideos * questionsPerVideo,
-          totalScore
-        );
-        return updated;
-      });
 
-      // Check if all videos in all modules are completed
-      const completedCount = Object.values(newProgress).filter(
-        (p) => (p as { isComplete: boolean }).isComplete
-      ).length;
-      const totalVideos = ADVANCED_MODULES.reduce(
-        (sum, module) => sum + module.videos.length,
-        0
-      );
-      if (completedCount === totalVideos) {
-        setView("completed");
-      } else {
-        setView("videos");
+        setQuizScores((prevScores) => {
+          const updatedScores = { ...prevScores, [videoId]: score };
+            // Compute authoritative new total by adding this video's score to the stored task score
+            (async () => {
+              try {
+                const stored = await getTaskScore('task6');
+                const newTotal = (Number(stored) || 0) + score;
+                console.debug('handleQuizComplete', { videoId, score, updatedScores, stored, newTotal, completedVideos });
+                await updateTaskCompletion('task6', completedVideos * questionsPerVideo, newTotal);
+              } catch (err) {
+                console.error('Error computing/persisting new task score:', err);
+                // Fallback: persist cumulative per-video estimate
+                const totalScore = Object.values(updatedScores).reduce((sum: number, s: number) => sum + (s || 0), 0);
+                updateTaskCompletion('task6', completedVideos * questionsPerVideo, totalScore).catch((e) => console.error('Fallback update failed', e));
+              }
+            })();
+
+          return updatedScores;
+        });
+
+        const completedCountNow = Object.values(updatedVP).filter(
+          (p) => (p as { isComplete: boolean }).isComplete
+        ).length;
+        const totalVideos = ADVANCED_MODULES.reduce((sum, module) => sum + module.videos.length, 0);
+        if (completedCountNow === totalVideos) {
+          setView('completed');
+        } else {
+          setView('videos');
+        }
+      } catch (err) {
+        console.error('Error fetching fresh video progress after quiz completion:', err);
+        // fallback to previous behavior: update local progress and move to videos view
+        setVideoProgress((prev) => ({
+          ...prev,
+          [videoId]: { watchedSeconds: prev[videoId]?.watchedSeconds || videoDuration, isComplete: true },
+        }));
+        setQuizScores((prev) => ({ ...prev, [videoId]: score }));
+        setView('videos');
       }
     },
     [

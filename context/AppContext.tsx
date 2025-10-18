@@ -25,6 +25,7 @@ interface AppContextType {
   getSubmission: (taskId: string) => Promise<{ data: { image_url: string }[] | null, error: any }>;
   submitImageUrl: (taskId: string, imageUrl: string) => Promise<{ success: boolean; error?: any }>;
   getTopScores: () => Promise<{ name: string; designation: string; score: number }[]>;
+  getTaskScore: (taskId: string) => Promise<number>;
 }
 
 export const AppContext = createContext<AppContextType>({} as AppContextType);
@@ -456,6 +457,8 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         score_earned_in: scoreEarned,
       });
 
+      console.debug('RPC handle_task_completion result:', { rpcData, rpcError });
+
       if (!rpcError && rpcData != null) {
         // rpc can return scalar or an object depending on DB function; try to normalize
         let newScore: number = currentUser.score + scoreEarned;
@@ -484,6 +487,10 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
     // Fallback: update user_tasks and profiles from the client if RPC isn't available.
     // Include the per-task `score` in the upsert so DB-side logic (if any) can depend on it.
+    // Fallback: set the per-task score to the provided `scoreEarned` (this matches the RPC behavior
+    // where the caller passes the intended per-task total score).
+    console.debug('Fallback upsert will set score to passed value (scoreEarned):', { taskId, userId: currentUser.id, scoreEarned, completedSteps });
+
     const { error: taskError } = await supabaseClient
       .from('user_tasks')
       .upsert(
@@ -492,8 +499,10 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       );
 
     if (taskError) {
-      console.error('Error updating task:', taskError.message);
-      return;
+      console.error('Error updating task (upsert):', taskError.message || taskError);
+      // continue to attempt to recalc total from whatever is available
+    } else {
+      console.debug('Upsert successful for user_tasks', { userId: currentUser.id, taskId, scoreEarned, completedSteps });
     }
 
     // Fetch all user_tasks for this user and sum their scores
@@ -502,6 +511,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       .select('score')
       .eq('user_id', currentUser.id);
 
+    console.debug('Fetched all user_tasks for score sum', { allTasks, allTasksError });
     if (allTasksError) {
       console.error('Error fetching user_tasks for score sum:', allTasksError.message);
       return;
@@ -528,6 +538,8 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       .select('*')
       .eq('id', currentUser.id)
       .single();
+
+    console.debug('Fetched userProfile after score update', { userProfile, userProfileError });
 
     setTasks(prevTasks =>
       prevTasks.map(task =>
@@ -560,6 +572,26 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       return [];
     }
     return data;
+  };
+
+  const getTaskScore = async (taskId: string) => {
+    if (!currentUser) return 0;
+    try {
+      const { data, error } = await supabaseClient
+        .from('user_tasks')
+        .select('score')
+        .eq('user_id', currentUser.id)
+        .eq('task_id', taskId)
+        .single();
+      if (error) {
+        console.warn('getTaskScore fetch error:', error.message || error);
+        return 0;
+      }
+      return data?.score || 0;
+    } catch (err) {
+      console.error('getTaskScore exception:', err);
+      return 0;
+    }
   };
 
   const getVideoProgress = async (userId: string) => {
@@ -641,7 +673,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   };
 
   return (
-    <AppContext.Provider value={{ theme, setTheme, currentPage, setCurrentPage, currentUser, language, setLanguage, t, login, signup, logout, tasks, updateTaskCompletion, resetTasks, getVideoProgress, updateVideoProgress, getSubmission, submitImageUrl, getTopScores, addScore }}>
+    <AppContext.Provider value={{ theme, setTheme, currentPage, setCurrentPage, currentUser, language, setLanguage, t, login, signup, logout, tasks, updateTaskCompletion, resetTasks, getVideoProgress, updateVideoProgress, getSubmission, submitImageUrl, getTopScores, getTaskScore, addScore }}>
       {children}
     </AppContext.Provider>
   );

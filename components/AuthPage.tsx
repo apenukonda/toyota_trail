@@ -49,6 +49,14 @@ const AuthPage: React.FC = () => {
     setLoading(true);
     setError('');
     setDepartmentError('');
+    // Ensure userId is exactly 6 digits
+    const sanitizedUserId = userId.replace(/\D/g, '');
+    if (sanitizedUserId.length !== 6) {
+      setError('Employee ID must be exactly 6 digits.');
+      setLoading(false);
+      return;
+    }
+
     // Ensure passcode is provided and exactly 4 digits
     const sanitizedPass = passcode.replace(/\D/g, '');
     if (!sanitizedPass) {
@@ -162,7 +170,21 @@ const AuthPage: React.FC = () => {
             <h2 className="text-3xl font-bold text-center text-gray-800">Login</h2>
             <div>
               <label className="text-sm font-medium text-gray-600">Employee ID</label>
-              <input type="text" value={userId} onChange={e => setUserId(e.target.value)} className={inputClass} required />
+              <input
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                maxLength={6}
+                value={userId}
+                onChange={e => {
+                  // Allow only digits and limit to 6 characters for login
+                  const sanitized = e.target.value.replace(/\D/g, '').slice(0, 6);
+                  setUserId(sanitized);
+                  setError('');
+                }}
+                className={inputClass}
+                required
+              />
             </div>
             <div>
               <label className="text-sm font-medium text-gray-600">Passcode</label>
