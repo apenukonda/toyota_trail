@@ -409,6 +409,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       department: profile.department,
       designation: profile.designation,
       score: profile.score,
+      role: profile.role || 'user',
     };
     saveSession(user);
     setCurrentUser(user);
@@ -475,6 +476,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       department: profile.department,
       designation: profile.designation,
       score: profile.score,
+      role: profile.role || 'user',
     };
     saveSession(user);
     setCurrentUser(user);
