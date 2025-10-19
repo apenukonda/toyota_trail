@@ -19,11 +19,16 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate }) => 
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(TIMER_DURATION);
   const [showFeedback, setShowFeedback] = useState(false);
-  const [showBackWarning, setShowBackWarning] = useState(false);
 
   const currentQuestion = questions[currentQuestionIndex];
   const isCorrect = selectedOption === currentQuestion.correctAnswer;
   const { t, language } = useContext(AppContext);
+  const [langVersion, setLangVersion] = useState(0);
+
+  useEffect(() => {
+    // bump version to cause dependent effects/renders when language changes
+    setLangVersion(v => v + 1);
+  }, [language]);
 
   // helper to get localized text. The codebase sometimes uses strings in the
   // format 'English-Kannada' inside constants. When language === 'kn' prefer
@@ -33,16 +38,29 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate }) => 
     // If translations map has the key, prefer that
     const translated = t(text);
     if (translated !== text) return translated;
-
     // If user selected Kannada and the text contains a dash-separated pair,
     // return the last segment which is often the Kannada version.
-      if (language === 'kn' && text.includes('-')) {
-        const parts = text.split('-');
-        const last = parts[parts.length - 1].trim();
-        return last;
-      }
+    if (language === 'kn' && text.includes('-')) {
+      const parts = text.split('-');
+      const last = parts[parts.length - 1].trim();
+      return last;
+    }
 
     return text;
+  };
+
+  // Prefer per-question Kannada fields where available. This helper will be
+  // used for question text and options below.
+  const localizeQuestionText = (q: Question) => {
+    if (language === 'kn' && (q as any).textKn) return (q as any).textKn as string;
+    return localize(q.text);
+  };
+
+  const localizeOption = (q: Question, idx: number) => {
+    if (language === 'kn' && Array.isArray((q as any).optionsKn) && (q as any).optionsKn[idx]) {
+      return (q as any).optionsKn[idx] as string;
+    }
+    return localize(q.options[idx]);
   };
 
   useEffect(() => {
@@ -65,7 +83,7 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate }) => 
 
     return () => clearInterval(interval);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentQuestionIndex, showFeedback]);
+  }, [currentQuestionIndex, showFeedback, langVersion]);
 
   const handleOptionSelect = (option: string) => {
     if (showFeedback) return;
@@ -106,40 +124,29 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate }) => 
     return 'bg-gray-200 dark:bg-gray-700 opacity-50';
   };
 
-  const handleBackClick = () => {
-    setShowBackWarning(true);
-  };
-
-  const confirmBack = () => {
-    // Calculate points earned so far (correct answers up to current question)
-    const pointsEarned = score;
-    onComplete(pointsEarned);
-  };
-
-  const cancelBack = () => {
-    setShowBackWarning(false);
-  };
+  // Back navigation/confirmation is handled by the parent component (MdMessageTask).
+  // Removing local back UI to avoid duplicate controls and keep a single source
+  // of truth for the confirmation modal.
 
   return (
     <div className="bg-white backdrop-blur-lg p-8 rounded-2xl shadow-xl w-full max-w-2xl animate-fade-in relative">
-      <button onClick={handleBackClick} className="absolute top-4 left-4 text-gray-600 dark:text-gray-400 hover:text-red-500 transition-colors">
-        {t('back')}
-      </button>
-      <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-semibold">{t('question_label')} {currentQuestionIndex + 1}/{questions.length}</h3>
+      {/* Back button removed from inside the quiz card. Parent provides the
+          external back control and confirmation modal (see MdMessageTask). */}
+  <div className="flex justify-between items-center mb-6" data-kn-skip>
+  <h3 className="text-xl font-semibold">{t('question_label')} {currentQuestionIndex + 1}/{questions.length}</h3>
         <div className="text-2xl font-bold text-red-500" style={{'--value': timer} as React.CSSProperties}>{timer}s</div>
       </div>
-  <p className="text-2xl font-bold mb-8">{localize(currentQuestion.text)}</p>
+  <p className="text-2xl font-bold mb-8">{localizeQuestionText(currentQuestion)}</p>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {currentQuestion.options.map(option => (
+        {currentQuestion.options.map((option, idx) => (
           <button
             key={option}
             onClick={() => handleOptionSelect(option)}
             disabled={showFeedback}
             className={`p-4 rounded-lg text-left font-semibold transition-all duration-300 ${getButtonClass(option)}`}
           >
-            {localize(option)}
+            {localizeOption(currentQuestion, idx)}
           </button>
         ))}
       </div>
@@ -149,34 +156,18 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate }) => 
           <div className="flex items-center justify-center gap-2 text-xl font-bold">
             {selectedOption === currentQuestion.correctAnswer ? <CheckCircleIcon className="w-8 h-8 text-green-500" /> : <XCircleIcon className="w-8 h-8 text-red-500" />}
             <span className={selectedOption === currentQuestion.correctAnswer ? 'text-green-500' : 'text-red-500'}>
-              {selectedOption === 'timeout' ? t('time up incorrect') : selectedOption === currentQuestion.correctAnswer ? t('correct') : t('incorrect')}
+              {selectedOption === 'timeout' ? t('time_up_incorrect') : selectedOption === currentQuestion.correctAnswer ? t('correct') : t('incorrect')}
             </span>
           </div>
-          {selectedOption !== currentQuestion.correctAnswer && <p className="mt-2 text-gray-600 dark:text-gray-400">{t('correct answer was')} <strong>{localize(currentQuestion.correctAnswer)}</strong></p>}
+          {selectedOption !== currentQuestion.correctAnswer && <p className="mt-2 text-gray-600 dark:text-gray-400">{t('correct_answer_was').replace(':','')} <strong>{localize(currentQuestion.correctAnswer)}</strong></p>}
           <button onClick={handleNext} className="mt-4 px-8 py-2 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors">
-            {currentQuestionIndex < questions.length - 1 ? t('next question') : t('finish quiz')}
+            {currentQuestionIndex < questions.length - 1 ? t('next_question') : t('finish_quiz')}
           </button>
         </div>
       )}
 
-      {showBackWarning && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-xl max-w-md mx-4">
-            <h3 className="text-xl font-bold text-red-600 mb-4">{t('warning_title')}</h3>
-            <p className="text-gray-700 mb-4">
-              {t('warning_text_prefix')} <strong>{score} {t('score')}</strong> {t('warning_text_suffix')}
-            </p>
-            <div className="flex gap-4 justify-end">
-              <button onClick={cancelBack} className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition-colors">
-                {t('cancel')}
-              </button>
-              <button onClick={confirmBack} className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
-                {t('Yes Go Back')}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Confirmation modal removed from the quiz. Parent component shows the
+          confirmation when the external back button is clicked. */}
     </div>
   );
 };

@@ -126,9 +126,9 @@ const EngineFunctionsTask: React.FC = () => {
                     </div>
                 </div>
             );
-        case 'quiz':
-            // FIX: Renamed to use ADVANCED_QUIZZES.
-            return <Quiz questions={ADVANCED_QUIZZES[currentVideoIndex]} onComplete={handleQuizComplete} />
+    case 'quiz':
+      // FIX: Renamed to use ADVANCED_QUIZZES.
+      return <Quiz questions={ADVANCED_QUIZZES[currentVideoIndex]} onComplete={handleQuizComplete} />
         case 'completed':
             return (
                 <div className="text-center animate-fade-in">

@@ -40,11 +40,13 @@ export default function KnFontScaler({ enabled }: { enabled: boolean }) {
     function processTextNode(tn: Text) {
       if (!tn.nodeValue) return;
       if (!KANNADA_CHAR.test(tn.nodeValue)) return;
-      const parent = tn.parentElement;
+  const parent = tn.parentElement;
       if (!parent) return;
       const tag = parent.tagName.toLowerCase();
-      if (['input', 'textarea', 'select', 'code', 'pre', 'svg', 'script', 'style'].includes(tag)) return;
-      if (parent.closest && parent.closest('span.kn-scaled')) return;
+  // Skip form controls, code blocks and other nodes we shouldn't touch.
+  if (['input', 'textarea', 'select', 'code', 'pre', 'svg', 'script', 'style'].includes(tag)) return;
+  // If an ancestor explicitly opts out from Kannada scaling, skip it.
+  if (parent.closest && (parent.closest('span.kn-scaled') || parent.closest('[data-kn-skip]'))) return;
 
       const parentStyle = window.getComputedStyle(parent);
       const parentFontPx = parsePx(parentStyle.fontSize) || 16;

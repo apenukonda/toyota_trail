@@ -81,7 +81,13 @@ export interface Task {
 
 export interface Question {
   text: string;
+  // Optional Kannada translations colocated with the question to avoid
+  // brittle exact-string lookups in the global translations map.
+  textKn?: string;
   options: string[];
+  // Optional Kannada translations for each option. When present and the
+  // app language is Kannada, the Quiz will prefer these.
+  optionsKn?: string[];
   correctAnswer: string;
 }
 

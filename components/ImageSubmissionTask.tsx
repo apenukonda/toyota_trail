@@ -148,11 +148,12 @@ const ImageSubmissionTask: React.FC = () => {
         return (
              <div className="min-h-screen flex flex-col items-center justify-center p-4 pt-24 text-center animate-fade-in">
                 <button
+                    data-kn-skip
                     onClick={() => setCurrentPage(Page.DASHBOARD)}
-                    className="absolute top-20 left-4 sm:left-6 lg:left-8 flex items-center gap-2 text-black hover:text-red-500 transition-colors"
+                        className="absolute top-20 left-4 sm:left-6 lg:left-8 flex items-center gap-2 text-black hover:text-red-500 transition-colors"
                 >
                     <ChevronLeftIcon className="w-6 h-6"/>
-                    {t('back_to_dashboard')}
+                    {t('back')}
                 </button>
                 
                 <div className="w-full max-w-2xl">
@@ -170,20 +171,21 @@ const ImageSubmissionTask: React.FC = () => {
     return (
         <div className="min-h-screen flex flex-col items-center justify-center p-4 pt-24 animate-fade-in">
             <button
+                data-kn-skip
                 onClick={() => setCurrentPage(Page.DASHBOARD)}
                 className="absolute top-20 left-4 sm:left-6 lg:left-8 flex items-center gap-2 text-black hover:text-red-500 transition-colors"
             >
                 <ChevronLeftIcon className="w-6 h-6"/>
-                {t('back_to_dashboard')}
+                {t('back')}
             </button>
-             <div className="w-full max-w-2xl">
-                <h1 className="text-4xl font-bold mb-4 text-center">{language === 'kn' ? 'ಚಿತ್ರ ಸಲ್ಲಿಕೆ (5 ಅಂಕಗಳು)' : 'Image Submission (5 Points)'}</h1>
+                      <div className="w-full max-w-2xl">
+                          <h1 className="text-4xl font-bold mb-4 text-center">{t('image_submission_title')}</h1>
                  <div className="bg-white p-8 rounded-2xl shadow-xl text-left">
-                    <h2 className="text-2xl font-semibold text-black mb-4">Instructions</h2>
+                        <h2 className="text-2xl font-semibold text-black mb-4">{t('Instructions') || 'Instructions'}</h2>
                      <ul className="list-disc list-inside space-y-2 text-black">
-                        <li>{language === 'kn' ? 'ಗುಣಮಟ್ಟ ಅಥವಾ ತಂಡಕಾರ್ಯಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಕಾರ್ಟೂನ್ ಚಿತ್ರವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ.' : 'Upload an image of a cartoon related to quality or teamwork.'}</li>
-                        <li>{language === 'kn' ? 'ನಿಮ್ಮ ಚಿತ್ರದ ಹಾರ್ಡ್ ಕಾಪಿಯನ್ನು HR ಕಚೇರಿಗೆ ಸಲ್ಲಿಸಿ.' : 'Submit the hard copy of your drawing at the HR office.'}</li>
-                        <li>{language === 'kn' ? 'ಅಪ್‌ಲೋಡ್ ಮಾಡಿದ ಚಿತ್ರದ ಗಾತ್ರವು 500KB ಕಿಂತ ಕಡಿಮೆ ಇರಬೇಕು.' : 'The uploaded image file size must be below 500kb.'}</li>
+                        <li>{t('upload_cartoon_instruction') || (language === 'kn' ? 'ಗುಣಮಟ್ಟ ಅಥವಾ ತಂಡಕಾರ್ಯಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಕಾರ್ಟೂನ್ ಚಿತ್ರವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ.' : 'Upload an image of a cartoon related to quality or teamwork.')}</li>
+                        <li>{t('submit_hardcopy_instruction') || (language === 'kn' ? 'ನಿಮ್ಮ ಚಿತ್ರದ ಹಾರ್ಡ್ ಕಾಪಿಯನ್ನು HR ಕಚೇರಿಗೆ ಸಲ್ಲಿಸಿ.' : 'Submit the hard copy of your drawing at the HR office.')}</li>
+                        <li>{t('file_size_instruction') || (language === 'kn' ? 'ಅಪ್‌ಲೋಡ್ ಮಾಡಿದ ಚಿತ್ರದ ಗಾತ್ರವು 500KB ಕಿಂತ ಕಡಿಮೆ ಇರಬೇಕು.' : 'The uploaded image file size must be below 500kb.')}</li>
                      </ul>
                  </div>
 
@@ -195,7 +197,7 @@ const ImageSubmissionTask: React.FC = () => {
                      )}
                     <label htmlFor="file-upload" className="cursor-pointer w-full flex flex-col items-center justify-center border-2 border-dashed border-black rounded-lg p-6 hover:bg-gray-100 transition-colors">
                          <svg className="w-10 h-10 mb-3 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                        <p className="mb-2 text-sm text-black"><span className="font-semibold">{t('click_to_upload')}</span> {language === 'kn' ? 'ಅಥವಾ ಡ್ರ್ಯಾಗ್ ಮಾಡಿ' : 'or drag and drop'}</p>
+                        <p key={language} className="mb-2 text-sm text-black"><span className="font-semibold">{t('click_to_upload')}</span> {t('or_drag_and_drop')}</p>
                         <p className="text-xs text-black">{t('png_jpg_gif')}</p>
                      </label>
                      <input id="file-upload" type="file" accept="image/*" onChange={handleFileChange} className="hidden" />

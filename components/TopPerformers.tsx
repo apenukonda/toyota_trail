@@ -71,7 +71,7 @@ const TopPerformers: React.FC = () => {
   return (
     <div className="min-h-screen p-6 pt-24 relative">
       {/* Top-right fixed profile/score */}
-      <div className="absolute top-6 right-6 flex items-center gap-3">
+      <div className="absolute top-4 sm:top-6 right-3 sm:right-6 flex items-center gap-3">
         {/* score block: label above, centered pill with the number */}
         <div className="flex flex-col items-end mr-2 text-right">
           <span className="text-xs text-gray-600">{t('score')}</span>
@@ -79,9 +79,9 @@ const TopPerformers: React.FC = () => {
         </div>
         <ProfileMenu />
       </div>
-      <button onClick={() => setCurrentPage(Page.DASHBOARD)} className="flex items-center gap-2 text-black hover:text-red-500 mb-6">
+  <button data-kn-skip onClick={() => setCurrentPage(Page.DASHBOARD)} className="flex items-center gap-2 text-black hover:text-red-500 mb-6">
         <ChevronLeftIcon className="w-6 h-6" />
-        {t('back_to_dashboard')}
+  {t('back')}
       </button>
 
       <div className="max-w-4xl mx-auto bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
@@ -92,17 +92,17 @@ const TopPerformers: React.FC = () => {
             <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-red-500"></div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 gap-3">
             {scores.map((s, i) => (
-              <div key={i} className="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm">
-                <div className={`w-20 h-20 rounded-full flex items-center justify-center text-2xl font-black ${i===0? 'bg-yellow-400 text-black' : i===1? 'bg-gray-300 text-black' : i===2? 'bg-yellow-600 text-white' : 'bg-gray-100 text-black'}`}>
+              <div key={i} className="flex items-center gap-3 sm:gap-4 bg-white p-3 sm:p-4 rounded-xl shadow-sm">
+                <div className={`w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center text-lg sm:text-2xl font-black ${i===0? 'bg-yellow-400 text-black' : i===1? 'bg-gray-300 text-black' : i===2? 'bg-yellow-600 text-white' : 'bg-gray-100 text-black'}`}>
                   {i < 3 ? ['1','2','3'][i] : `#${i+1}`}
                 </div>
                 <div className="flex-1 text-left">
-                  <div className="text-lg font-bold">{s.name}</div>
-                  <div className="text-sm text-gray-500">{s.department || s.designation || ''}</div>
+                  <div className="text-base sm:text-lg font-bold">{s.name}</div>
+                  <div className="text-xs sm:text-sm text-gray-500">{s.department || s.designation || ''}</div>
                 </div>
-                <div className="text-3xl font-extrabold text-red-600">{s.score}</div>
+                <div className="text-xl sm:text-3xl font-extrabold text-red-600">{s.score}</div>
               </div>
             ))}
           </div>

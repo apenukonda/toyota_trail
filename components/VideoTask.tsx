@@ -379,6 +379,7 @@ const VideoTask: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 pt-24 animate-fade-in">
       <button
+        data-kn-skip
         onClick={handleBack}
         className="absolute top-20 left-4 sm:left-6 lg:left-8 flex items-center gap-2 text-black hover:text-red-500 transition-colors"
       >
@@ -399,20 +400,17 @@ const VideoTask: React.FC = () => {
             {t("Instructions Title") || "Instructions"}
           </h2>
           <ul className="list-disc list-inside space-y-2 text-black text-left">
-            <li>
-              This module consists of video lessons and quizzes,worth a total of
-              70 points.
-            </li>
-            <li>You must watch each video to unlock a 7-point quiz.</li>
-            <li>Complete all videos and quizzes to finish this task.</li>
-            <li>Your progress is saved automatically.</li>
+            <li>{t('advanced_instructions_bullet_1') || 'This module consists of video lessons and quizzes, worth a total of 70 points.'}</li>
+            <li>{t('advanced_instructions_bullet_2') || 'You must watch each video to unlock a 7-point quiz.'}</li>
+            <li>{t('advanced_instructions_bullet_3') || 'Complete all videos and quizzes to finish this task.'}</li>
+            <li>{t('advanced_instructions_bullet_4') || 'Your progress is saved automatically.'}</li>
           </ul>
         </div>
         <button
           onClick={() => setView("modules")}
           className="mt-8 px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors"
         >
-          {t("Start Learning")}
+          {t('Start Learning')}
         </button>
       </div>
 

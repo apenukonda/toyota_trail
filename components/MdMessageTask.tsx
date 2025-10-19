@@ -65,10 +65,11 @@ const MdMessageTask: React.FC = () => {
     <div className="min-h-screen flex flex-col items-center justify-center p-4 pt-24 animate-fade-in">
       <button
         onClick={handleBack}
+        data-kn-skip
         className="absolute top-20 left-4 sm:left-6 lg:left-8 flex items-center gap-2 text-black hover:text-red-500 transition-colors"
       >
         <ChevronLeftIcon className="w-6 h-6"/>
-        {t('back_to_dashboard')}
+  {t('back')}
       </button>
 
       {view === 'message' && (
@@ -82,7 +83,7 @@ const MdMessageTask: React.FC = () => {
         </div>
       )}
 
-      {view === 'quiz' && quizQuestions.length > 0 && <Quiz questions={quizQuestions} onComplete={handleQuizComplete} onScoreUpdate={setCurrentQuizScore} />}
+  {view === 'quiz' && quizQuestions.length > 0 && <Quiz questions={quizQuestions} onComplete={handleQuizComplete} onScoreUpdate={setCurrentQuizScore} />}
       
       {view === 'completed' && (
         <div className="text-center animate-fade-in">
@@ -91,7 +92,7 @@ const MdMessageTask: React.FC = () => {
           </div>
           <h2 className="text-3xl font-bold">{t('task_completed_title') || 'Task Completed!'}</h2>
           <p className="mt-2 text-lg text-black">{t('task_completed_message') || "You've successfully completed the MD Message module."}</p>
-          <button onClick={() => setCurrentPage(Page.DASHBOARD)} className="mt-6 px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors">{t('back_to_dashboard')}</button>
+          <button data-kn-skip onClick={() => setCurrentPage(Page.DASHBOARD)} className="mt-6 px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors">{t('back')}</button>
         </div>
       )}
 
