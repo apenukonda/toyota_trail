@@ -62,10 +62,9 @@ const Navbar: React.FC = () => {
     <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/75 backdrop-blur-md border-b border-gray-200/30 dark:border-gray-800/50 shadow-sm z-50 animate-fade-in">
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         <div className="flex items-center space-x-6">
-       <button onClick={() => setCurrentPage(Page.DASHBOARD)} className="flex items-center gap-2 text-gray-800 dark:text-white hover:text-red-600 dark:hover:text-red-500 transition-colors">
-        <HomeIcon className="w-6 h-6" />
-        <span className="font-semibold hidden sm:inline">{t('dashboard')}</span>
-      </button>
+              <button onClick={() => setCurrentPage(Page.DASHBOARD)} className="flex items-center gap-2 text-gray-800 dark:text-white hover:text-red-600 dark:hover:text-red-500 transition-colors">
+                <HomeIcon className="w-6 h-6" />
+              </button>
         </div>
 
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">

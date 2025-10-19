@@ -11,7 +11,7 @@ interface PlaceholderTaskProps {
 
 const PlaceholderTask: React.FC<PlaceholderTaskProps> = ({ taskId, title, instructions }) => {
   // FIX: Renamed 'updateTaskProgress' to 'updateTaskCompletion' to match AppContext provider.
-  const { setCurrentPage, updateTaskCompletion } = useContext(AppContext);
+  const { setCurrentPage, updateTaskCompletion, t } = useContext(AppContext);
 
   const handleComplete = () => {
     // FIX: Called 'updateTaskCompletion' with the required 'score' argument, defaulting to 0.
@@ -37,19 +37,20 @@ const PlaceholderTask: React.FC<PlaceholderTaskProps> = ({ taskId, title, instru
                 {instructions.map((inst, index) => <li key={index}>{inst}</li>)}
             </ul>
         </div>
-        <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg p-8 rounded-2xl shadow-xl">
-            <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-300">Coming Soon!</h2>
-            <p className="mt-4 text-gray-600 dark:text-gray-400">
-                This interactive module is currently under development. Please check back later for the full experience.
-                For now, you can mark this task as complete to proceed.
-            </p>
-        </div>
-        <button 
-            onClick={handleComplete} 
-            className="mt-8 px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors"
-        >
-            Mark as Complete
-        </button>
+    <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg p-8 rounded-2xl shadow-xl">
+      <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-300">{t('coming_soon')}</h2>
+      <p className="mt-4 text-gray-600 dark:text-gray-400">
+        {t('placeholder_dev_line1')}
+        {' '}
+        {t('placeholder_dev_line2')}
+      </p>
+    </div>
+    <button 
+      onClick={handleComplete} 
+      className="mt-8 px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors"
+    >
+      {t('mark_as_complete')}
+    </button>
       </div>
     </div>
   );

@@ -85,7 +85,7 @@ const TopPerformers: React.FC = () => {
       </button>
 
       <div className="max-w-4xl mx-auto bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
-  <h1 className="text-4xl font-extrabold text-gray-900 text-center mb-2">{t('Top Performers') || (language === 'kn' ? 'ಉತ್ತಮ ಪ್ರದರ್ಶಕರು' : 'Top Performers')}</h1>
+  <h1 className="text-4xl font-extrabold text-gray-900 text-center mb-2">{t('top_performers')}</h1>
 
         {loading ? (
           <div className="flex justify-center items-center h-48">

@@ -609,10 +609,10 @@ export const ADVANCED_MODULES = [
     title: 'Basics of Quality tools and its functions',
     titleKn: 'ಗುಣಮಟ್ಟದ ಉಪಕರಣಗಳ ಮೂಲ ಮತ್ತು ಅದರ ಕಾರ್ಯಗಳು',
     videos: [
-      { id: 'gKyecFOnFVI', title: 'Basics of QMS' },
-      { id: 'yuH35ottILU', title: 'Basics of 7QC tools' },
-      { id: 'JQcagDtvkJw', title: 'Quality core tools' },
-      { id: 'rnAwVnbmm6A', title: '7QC tools - Kannada version' },
+  { id: 'gKyecFOnFVI', title: 'Basics of QMS', titleKn: 'QMS ನ ಮೂಲಭೂತಗಳು' },
+  { id: 'yuH35ottILU', title: 'Basics of 7QC tools', titleKn: '7QC ಉಪಕರಣಗಳ ಮೂಲಭೂತಗಳು' },
+  { id: 'JQcagDtvkJw', title: 'Quality core tools', titleKn: 'ಗುಣಮಟ್ಟದ ಪ್ರಮುಖ ಉಪಕರಣಗಳು' },
+  { id: 'rnAwVnbmm6A', title: '7QC tools - Kannada version', titleKn: '7QC ಉಪಕರಣಗಳು - ಕನ್ನಡ ಆವೃತ್ತಿ' },
     ],
     quizzes: [
       // Dummy quiz for M2 Video 1: 7 questions

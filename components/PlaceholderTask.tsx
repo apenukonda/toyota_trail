@@ -107,8 +107,9 @@ const PlaceholderTask: React.FC<PlaceholderTaskProps> = ({ taskId, title, instru
           <div className="bg-white p-8 rounded-2xl shadow-xl">
             <h2 className="text-2xl font-semibold text-black">{t('coming_soon')}</h2>
             <p className="mt-4 text-black">
-              {language === 'kn' ? 'ಈ ಇಂಟರಾಕ್ಟಿವ್ ಮಾಡ್ಯೂಲ್ ಪ್ರಸ್ತುತ ಅಭಿವೃದ್ಧಿಯಲ್ಲಿ ಇದೆ. ಪೂರ್ಣ ಅನುಭವಕ್ಕಾಗಿ ದಯವಿಟ್ಟು ನಂತರ ಪರಿಶೀಲಿಸಿ.' : 'This interactive module is currently under development. Please check back later for the full experience.'}
-              {language === 'kn' ? 'ಈಗ ತಾತ್ಕಾಲಿಕವಾಗಿ ಈ ಟಾಸ್ಕ್ ಅನ್ನು ಪೂರ್ಣಗೊಳಿಸಲಾಗಿದೆ ಎಂದು ಗುರುತಿಸಬಹುದು.' : 'For now, you can mark this task as complete to proceed.'}
+              {t('placeholder_dev_line1')}
+              {' '}
+              {t('placeholder_dev_line2')}
             </p>
           </div>
         )}

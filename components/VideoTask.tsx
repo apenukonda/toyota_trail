@@ -387,6 +387,25 @@ const VideoTask: React.FC = () => {
         {t("back")}
       </button>
 
+      {showBackWarning && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-xl max-w-md mx-4">
+            <h3 className="text-xl font-bold text-red-600 mb-4">{t('warning_title')}</h3>
+            <p className="text-gray-700 mb-4">
+              {t('warning_text_prefix')} <strong>{currentQuizScore} {t('score')}</strong> {t('warning_text_suffix')}
+            </p>
+            <div className="flex gap-4 justify-end">
+              <button onClick={cancelBack} className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition-colors">
+                {t('cancel')}
+              </button>
+              <button onClick={confirmBack} className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                {t('Yes Go Back')}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div
         className={`w-full max-w-2xl text-center ${
           view === "instructions" ? "" : "hidden"

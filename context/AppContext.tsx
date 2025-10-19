@@ -198,6 +198,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       start_task: 'Start Task',
       completed: 'Completed',
       view_top_scores: 'View Top Scores',
+  top_performers: 'Top Performers',
       knowledge_centre: 'Knowledge Centre',
       logout: 'Logout',
       question_label: 'Question',
@@ -230,8 +231,11 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       loading: 'Loading...',
       submit_image: 'Submit Image',
       mark_as_complete: 'Mark as Complete',
-      coming_soon: 'Coming Soon!'
-      ,
+  coming_soon: 'Coming Soon!'
+  ,
+  // Placeholder / development messages
+  placeholder_dev_line1: 'This interactive module is currently under development. Please check back later for the full experience.',
+  placeholder_dev_line2: 'For now, you can mark this task as complete to proceed.',
       correct_answer_was: 'The correct answer was:'
     },
     kn: {
@@ -255,6 +259,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       start_task: 'ಟಾಸ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಿ',
       completed: 'ಸಂಪೂರ್ಣಗೊಂಡಿದೆ',
       view_top_scores: 'ಉತ್ತಮ ಅಂಕಗಳನ್ನು ವೀಕ್ಷಿಸಿ',
+  top_performers: 'ಉತ್ತಮ ಪ್ರದರ್ಶಕರು',
       knowledge_centre: 'ಜ್ಞಾನ ಕೇಂದ್ರ',
       logout: 'ಲಾಗ್ ಔಟ್',
       question_label: 'ಪ್ರಶ್ನೆ',
@@ -287,8 +292,11 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       loading: 'ಲೋಡಿಂಗ್...',
       submit_image: 'ಚಿತ್ರ ಸಲ್ಲಿಸಿ',
       mark_as_complete: 'ಸಂಪೂರ್ಣವಾಗಿದೆ ಎಂದು ಗುರುತಿಸಿ',
-      coming_soon: 'ಶೀಘ್ರದಲ್ಲೇ ಬರುತ್ತದೆ!'
-      ,
+  coming_soon: 'ಶೀಘ್ರದಲ್ಲೇ ಬರುತ್ತದೆ!'
+  ,
+  // Placeholder / development messages
+  placeholder_dev_line1: 'ಈ ಇಂಟರಾಕ್ಟಿವ್ ಮಾಡ್ಯೂಲ್ ಪ್ರಸ್ತುತ ಅಭಿವೃದ್ಧಿಯಲ್ಲಿ ಇದೆ. ಪೂರ್ಣ ಅನುಭವಕ್ಕಾಗಿ ದಯವಿಟ್ಟು ನಂತರ ಪರಿಶೀಲಿಸಿ.',
+  placeholder_dev_line2: 'ಈಗ ತಾತ್ಕಾಲಿಕವಾಗಿ ಈ ಟಾಸ್ಕ್ ಅನ್ನು ಪೂರ್ಣಗೊಳಿಸಲಾಗಿದೆ ಎಂದು ಗುರುತಿಸಬಹುದು.',
       correct_answer_was: 'ಸರಿಯಾದ ಉತ್ತರ:'
       ,
       // Quiz-specific translations (full option strings used as keys)
@@ -349,10 +357,15 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
   // Translation helper - uses selected language with English fallback
   const t = (key: string) => {
-    if (language === 'en' || !translations[language]?.[key]) {
-      return translations['en']?.[key] || key;
+    // Resolve value according to selected language with English fallback
+    const val = (language === 'en' || !translations[language]?.[key]) ? (translations['en']?.[key] || key) : translations[language][key];
+    // Targeted debug: if it's the placeholder text, log what we returned so we can trace language switching issues
+    if (key === 'placeholder_dev_line1' || key === 'placeholder_dev_line2') {
+      // Use debug level to avoid spamming production consoles; helpful during local dev
+      // eslint-disable-next-line no-console
+      console.debug(`[i18n] t(${key}) -> lang=${language} => ${val}`);
     }
-    return translations[language][key];
+    return val;
   };
 
   const login = async (userId: string, passcode: string, role: 'user' | 'admin'): Promise<{ success: boolean; error?: string }> => {
