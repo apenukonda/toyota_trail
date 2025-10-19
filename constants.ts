@@ -16,6 +16,11 @@ export const INITIAL_TASKS: Task[] = [
     id: 'task6',
     title: 'Video awareness and evaluation module',
     titleKn: 'ವೀಡಿಯೊ ಜಾಗೃತಿ ಮತ್ತು ಮೌಲ್ಯಮಾಪನ ಮಾಡ್ಯೂಲ್',
+// NOTE: placeholders for missing Kannada fields (textKn/optionsKn)
+// should be populated as static data (or via an external script that
+// writes updated constants) rather than by running code at module
+// evaluation time. A follow-up step will insert safe, static
+// placeholder copies for any remaining M1/M2 questions.
     description: 'Self learning courses related to quality with quiz evaluation.',
     descriptionKn: 'ಗುಣಮಟ್ಟಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಸ್ವಯಂ ಕಲಿಕಾ ಕೋರ್ಸ್‌ಗಳು ಕ್ವಿಜ್ ಮೌಲ್ಯಮಾಪನದೊಂದಿಗೆ.',
     page: Page.VIDEO_TASK,
@@ -57,6 +62,14 @@ export const INITIAL_TASKS: Task[] = [
     maxScore: 3,
   },
 ];
+
+// NOTE: Do NOT run placeholder population code at module-evaluation time
+// that references `ADVANCED_MODULES` before it is declared — doing so
+// causes a runtime ReferenceError when the module is loaded. Instead,
+// populate `textKn`/`optionsKn` as static edits in this file (preferred)
+// or run a build-time script that writes this file prior to bundling.
+// Placeholder population will be performed in small, explicit patches
+// (see TODO: Populate M1 placeholders - next).
 
 export const MD_MESSAGE_QUIZ: Question[] = [
 
@@ -223,118 +236,118 @@ export const ADVANCED_MODULES = [
     title: 'Basics of Engine, its parts and functions',
     titleKn: 'ಎಂಜಿನ್ ಆಧಾರಭೂತಗಳು, ಅದರ ಭಾಗಗಳು ಮತ್ತು ಕಾರ್ಯಗಳು',
     videos: [
-      { id: 'WKKILW3Zj_Y', title: 'About TNGA engine working principle' },
-      { id: 'gqK3dCpwzxE', title: 'Basics of engine components and its functions' },
-      { id: 'hRYWqdiUlbA', title: 'Know your Toyota Hybrid vehicle' },
-      { id: 'Ad_WHkBIvlo', title: 'About dynamic force engine' },
-      { id: 'JqA5Keel6Js', title: 'About engine Valvetrain mechanism' },
-      { id: 'XFVd_fCiO88', title: 'Toyota hybrid engine system' },
+      { id: 'WKKILW3Zj_Y', title: 'About TNGA engine working principle', titleKn: 'TNGA ಎಂಜಿನ್ ಕಾರ್ಯನಿರ್ವಹಣೆಯ ತತ್ವದ ಬಗ್ಗೆ' },
+      { id: 'gqK3dCpwzxE', title: 'Basics of engine components and its functions', titleKn: 'ಎಂಜಿನ್ ಘಟಕಗಳ ಮೂಲಗಳು ಮತ್ತು ಅದರ ಕಾರ್ಯಗಳು' },
+      { id: 'hRYWqdiUlbA', title: 'Know your Toyota Hybrid vehicle', titleKn: 'ನಿಮ್ಮ ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್ ವಾಹನವನ್ನು ತಿಳಿಯಿರಿ' },
+      { id: 'Ad_WHkBIvlo', title: 'About dynamic force engine', titleKn: 'ಡೈನಾಮಿಕ್ ಫೋರ್ಸ್ ಎಂಜಿನ್ ಬಗ್ಗೆ' },
+      { id: 'JqA5Keel6Js', title: 'About engine Valvetrain mechanism', titleKn: 'ಎಂಜಿನ್ ವರ್ಲ್‌ಟ್ರೈನ್ ಯಂತ್ರವಿಜ್ಞಾನ ಬಗ್ಗೆ' },
+      { id: 'XFVd_fCiO88', title: 'Toyota hybrid engine system', titleKn: 'ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್ ಎಂಜಿನ್ ಸಿಸ್ಟಮ್' },
     ],
     quizzes: [
       // Dummy quiz for video 1: 7 questions
       [
-        { text: 'Who first proposed the Atkinson cycle?', options: ['Nikolaus Otto', 'James Atkinson', 'Rudolf Diesel', 'Karl Benz'], correctAnswer: 'James Atkinson' },
+  { text: 'Who first proposed the Atkinson cycle?', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರವನ್ನು ಮೊದಲು ಪ್ರಸ್ತಾವಿಸಿದವರು ಯಾರು?', options: ['Nikolaus Otto', 'James Atkinson', 'Rudolf Diesel', 'Karl Benz'], optionsKn: ['ನಿಕೊಲಾಸ್ ಓಟ್ಟೋ', 'ಜೆಮ್ಸ್ ಅಟ್ಕಿನ್ಸನ್', 'ರೂಡೊಲ್ಫ್ ಡೀಸೆಲ್', 'ಕಾರ್ಲ್ ಬೆನ್‌ಜ್'], correctAnswer: 'James Atkinson' },
+
+  { text: 'In which year was the Atkinson cycle first proposed?', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರವನ್ನು ಯಾವ ವರ್ಷದಲ್ಲಿ ಪ್ರಸ್ತಾವಿಸಲಾಯಿತು?', options: ['1876', '1882', '1890', '1901'], optionsKn: ['1876', '1882', '1890', '1901'], correctAnswer: '1882' },
+
+  { text: 'The Atkinson cycle uses a different thermodynamic process than which common engine cycle?', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರವು ಯಾವ ಸಾಮಾನ್ಯ ಎಂಜಿನ್ ಚಕ್ರದೊಂದಿಗೆ ಭಿನ್ನ ಥರ್ಮೋಡೈನಾಮಿಕ್ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಬಳಸುತ್ತದೆ?', options: ['Diesel cycle', 'Otto cycle', 'Rankine cycle', 'Brayton cycle'], optionsKn: ['ಡೀಸೆಲ್ ಚಕ್ರ', 'ಒಟ್ಟೋ ಚಕ್ರ', 'ರ್ಯಾಂಕ್‌ಕಿನ್ ಚಕ್ರ', 'ಬ್ರೇಟನ್ ಚಕ್ರ'], correctAnswer: 'Otto cycle' },
+
+  { text: 'Which automobile company commonly uses the Atkinson cycle in its hybrid vehicles?', textKn: 'ಯಾವ ಕಾರು ಕಂಪನಿಯು ಸಾಮಾನ್ಯವಾಗಿ ಹೈಬ್ರಿಡ್ ವಾಹನಗಳಲ್ಲಿ ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರವನ್ನು ಬಳಸುತ್ತದೆ?', options: ['Honda', 'Ford', 'Toyota', 'Hyundai'], optionsKn: ['ಹೋಂಡಾ', 'ಫೋರ್ಡ್', 'ಟೊಯೋಟಾ', 'ಹುಂಡೈ'], correctAnswer: 'Toyota' },
+
+  { text: 'What is the main advantage of the Atkinson cycle over the Otto cycle?', textKn: 'ಒಟ್ಟೋ ಚಕ್ರಕ್ಕಿಂತ ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರದ ಪ್ರಮುಖ ಲಾಭ ಏನು?', options: ['Higher power output', 'Lower fuel consumption', 'Better fuel efficiency', 'Simpler design'], optionsKn: ['ಹೆಚ್ಚು ಶಕ್ತಿ ಉತ್ಪಾದನೆ', 'ಕಡಿಮೆ ಇಂಧನ ಬಳಕೆ', 'ಉತ್ತಮ ಇಂಧನ ದಕ್ಷತೆ', 'ಸರಳ ವಿನ್ಯಾಸ'], correctAnswer: 'Better fuel efficiency' },
+
+  { text: 'What is the main trade-off of using the Atkinson cycle?', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರವನ್ನು ಬಳಸುವ ಮುಖ್ಯ ವ್ಯತ್ಯಾಸ ಏನು?', options: ['Reduced power output', 'Higher emissions', 'Lower fuel efficiency', 'Complex cooling system'], optionsKn: ['ಶಕ್ತಿ ಉತ್ಪಾದನೆ ಕಡಿಮೆಯಾಗುವುದು', 'ಹೆಚ್ಚಿನ ಉತ್ಸರ್ಜನೆಗಳು', 'ಇಂಧನ ದಕ್ಷತೆ ಕಡಿಮೆಯಾಗುವುದು', 'ಸಂಕೀರ್ಣ ಕೂಲಿಂಗ್ ಸಿಸ್ಟಮ್'], correctAnswer: 'Reduced power output' },
+
+  { text: 'How has Toyota compensated for the power loss in non-hybrid vehicles using the Atkinson cycle?', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರ ಬಳಕೆಯಿಂದ ಅಸ್ಹೈಬ್ರಿಡ್ ವಾಹನಗಳಲ್ಲಿ ಶಕ್ತಿ ಕಳೆತವನ್ನು ಟೊಯೋಟಾ ಹೇಗೆ ಪರಿಹರಿಸಿದೆ?', options: ['By using a turbocharger', 'By switching between Atkinson and Otto cycles', 'By adding more cylinders', 'By increasing compression ratio'], optionsKn: ['ಟರ್ಬೊಚಾರ್ಜರ್ ಬಳಸಿ', 'ಅಟ್ಕಿನ್‍ಸನ್ ಮತ್ತು ಒಟ್ಟೋ ಚಕ್ರಗಳನ್ನು ಬದಲಿಸುವ ಮೂಲಕ', 'ಹೆಚ್ಚಿನ ಸಿಲಿಂಡರ್‌ಗಳನ್ನು ಸೇರಿಸಿ', 'ಸಂಕೋಚನ ಅನುಪಾತವನ್ನು ಹೆಚ್ಚಿಸಿ'], correctAnswer: 'By switching between Atkinson and Otto cycles' },
+
+  { text: 'In hybrid vehicles, what component helps overcome the reduced power of the Atkinson cycle?', textKn: 'ಹೈಬ್ರಿಡ್ ವಾಹನಗಳಲ್ಲಿ ಅಟ્કಿನ್‍ಸನ್ ಚಕ್ರದ ಕಡಿಮೆ ಶಕ್ತಿಯನ್ನು which ಘಟಕ ಪರಿಹರಿಸುತ್ತದೆ?', options: ['Electric motor', 'Supercharger', 'Turbocharger', 'Extra piston'], optionsKn: ['ವಿದ್ಯುತ್ ಮೋಟಾರ್', 'ಸೂಪರ್‌ಚಾರ್ಜರ್', 'ಟರ್ಬೊಚಾರ್ಜರ್', 'ಹೆಚ್ಚಿನ ಪಿಸ್ಟನ್'], correctAnswer: 'Electric motor' },
+
+  { text: 'What stores the additional power used by the electric motor in hybrid vehicles?', textKn: 'ಹೈಬ್ರಿಡ್ ವಾಹನಗಳಲ್ಲಿ ವಿದ್ಯುತ್ ಮೋಟಾರ್ ಬಳಸುವ ಹೆಚ್ಚುವರಿ ಶಕ್ತಿಯನ್ನು ಏನು ಸಂಗ್ರಹಿಸುತ್ತದೆ?', options: ['Battery', 'Capacitor', 'Flywheel', 'Fuel cell'], optionsKn: ['ಬ್ಯಾಟರಿ', 'ಕ್ಯಾಪಾಸಿಟರ್', 'ಫ್ಲೈವೀಲ್', 'ಇಂಧನ ಕೋಶ'], correctAnswer: 'Battery' },
         
-        { text: 'In which year was the Atkinson cycle first proposed?', options: ['1876', '1882', '1890', '1901'], correctAnswer: '1882' },
-        
-        { text: 'The Atkinson cycle uses a different thermodynamic process than which common engine cycle?', options: ['Diesel cycle', 'Otto cycle', 'Rankine cycle', 'Brayton cycle'], correctAnswer: 'Otto cycle' },
-        
-        { text: 'Which automobile company commonly uses the Atkinson cycle in its hybrid vehicles?', options: ['Honda', 'Ford', 'Toyota', 'Hyundai'], correctAnswer: 'Toyota' },
-        
-        { text: 'What is the main advantage of the Atkinson cycle over the Otto cycle?', options: ['Higher power output', 'Lower fuel consumption', 'Better fuel efficiency', 'Simpler design'], correctAnswer: 'Better fuel efficiency' },
-        
-        { text: 'What is the main trade-off of using the Atkinson cycle?', options: ['Reduced power output', 'Higher emissions', 'Lower fuel efficiency', 'Complex cooling system'], correctAnswer: 'Reduced power output' },
-        
-        { text: 'How has Toyota compensated for the power loss in non-hybrid vehicles using the Atkinson cycle?', options: ['By using a turbocharger', 'By switching between Atkinson and Otto cycles', 'By adding more cylinders', 'By increasing compression ratio'], correctAnswer: 'By switching between Atkinson and Otto cycles' },
-        
-        { text: 'In hybrid vehicles, what component helps overcome the reduced power of the Atkinson cycle?', options: ['Electric motor', 'Supercharger', 'Turbocharger', 'Extra piston'], correctAnswer: 'Electric motor' },
-        
-        { text: 'What stores the additional power used by the electric motor in hybrid vehicles?', options: ['Battery', 'Capacitor', 'Flywheel', 'Fuel cell'], correctAnswer: 'Battery' },
-        
-        { text: 'In the Otto cycle, how do the compression and expansion strokes compare?', options: ['Expansion is smaller', 'Compression is larger', 'They are equal', 'Expansion doesn’t occur'], correctAnswer: 'They are equal' },
-        
-        { text: 'What does the Atkinson cycle do with the intake valves during the compression stroke?', options: ['Closes them earlier', 'Keeps them open longer', 'Does not open them', 'Opens them partially'], correctAnswer: 'Keeps them open longer' },
-        
-        { text: 'Keeping the intake valves open longer causes some of the air-fuel mixture to be:', options: ['Forced into the cylinder', 'Pushed back into the intake manifold', 'Vaporized completely', 'Leaked into the crankcase'], correctAnswer: 'Pushed back into the intake manifold' },
-        
-        { text: 'Delaying the compression stroke in the Atkinson cycle results in:', options: ['More air entering the cylinder', 'Less air-fuel mixture in the cylinder', 'Higher compression pressure', 'Shorter expansion stroke'], correctAnswer: 'Less air-fuel mixture in the cylinder' },
-        
-        { text: 'Compared to compression, the expansion stroke in the Atkinson cycle is:', options: ['Smaller', 'Equal', 'Larger', 'Eliminated'], correctAnswer: 'Larger' },
-        
-        { text: 'A larger expansion stroke allows what benefit?', options: ['More energy extracted from fuel', 'Faster ignition', 'Less heat loss', 'More fuel burned'], correctAnswer: 'More energy extracted from fuel' },
-        
-        { text: 'With intake valves open during compression, the piston faces:', options: ['Higher resistance', 'Less resistance', 'Equal resistance', 'No resistance'], correctAnswer: 'Less resistance' },
-        
-        { text: 'Reduced pumping losses mean that the engine:', options: ['Consumes less power for self-operation', 'Burns more fuel', 'Requires higher octane fuel', 'Has higher emissions'], correctAnswer: 'Consumes less power for self-operation' },
-        
-        { text: 'In both hybrid and non-hybrid Toyota vehicles, the Atkinson cycle helps optimize:', options: ['Speed', 'Torque', 'Fuel efficiency', 'Engine sound'], correctAnswer: 'Fuel efficiency' },
-        
-        { text: 'What does Toyota use to eliminate any compromise in performance from the Atkinson cycle?', options: ['Turbochargers', 'Advanced engine management and hybrid powertrains', 'Increased fuel injection', 'Cylinder deactivation'], correctAnswer: 'Advanced engine management and hybrid powertrains' },
-        
-        { text: 'According to the video, where should drivers look for detailed feature applicability?', options: ['Toyota website', 'Service manual', 'Owner’s manual', 'Mechanic’s guide'], correctAnswer: 'Owner’s manual' }
+  { text: 'In the Otto cycle, how do the compression and expansion strokes compare?', textKn: 'ಒಟ್ಟೋ ಚಕ್ರದಲ್ಲಿ ಸಂಕುಚನ ಮತ್ತು ವಿಸ್ತರಣೆ ಸ್ಟ್ರೋಕ್‌ಗಳು ಹೇಗೆ ಹೋಲುತ್ತವೆ?', options: ['Expansion is smaller', 'Compression is larger', 'They are equal', 'Expansion doesn’t occur'], optionsKn: ['ವಿಸ್ತರಣೆ ಕಡಿಮೆ', 'ಸಂಕೋಚನ ದೊಡ್ಡದು', 'ಇವು ಸಮಾನ', 'ವಿಸ್ತರಣೆ ಸಂಭವಿಸುವುದಿಲ್ಲ'], correctAnswer: 'They are equal' },
+
+  { text: 'What does the Atkinson cycle do with the intake valves during the compression stroke?', textKn: 'ಸಂಕೋಚನ ಸ್ಟ್ರೋಕ್ ಸಮಯದಲ್ಲಿ ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರ ಇಂಟೇಕ್ ವೆಲ್ವ್ಗಳೊಂದಿಗೆ ಏನು ಮಾಡುತ್ತದೆ?', options: ['Closes them earlier', 'Keeps them open longer', 'Does not open them', 'Opens them partially'], optionsKn: ['ಮುಂಬರುವವಾಗಿ ಮುಚ್ಚುತ್ತದೆ', 'ಹೆಚ್ಚು ಕಾಲ ತೆರೆಯಿಟ್ಟು ಇರುತ್ತದೆ', 'ತೆರೆಯುವುದಿಲ್ಲ', 'ಭಾಗವಾಗಿ ತೆರೆಯುತ್ತದೆ'], correctAnswer: 'Keeps them open longer' },
+
+  { text: 'Keeping the intake valves open longer causes some of the air-fuel mixture to be:', textKn: 'ಇಂಟೇಕ್ ವೆಲ್ವ್‌ಗಳನ್ನು ಹೆಚ್ಚು ಸಮಯ ತೆರೆಯಿಟ್ಟರೆ ಗಾಳಿ-ಇಂಧನ ಮಿಶ್ರಣದ ಕೆಲವು ಭಾಗವು ಏನಾಗುತ್ತದೆ?', options: ['Forced into the cylinder', 'Pushed back into the intake manifold', 'Vaporized completely', 'Leaked into the crankcase'], optionsKn: ['ಸಿಲಿಂಡರ್‌ಗೆ ಒತ್ತಿಹಾಕಲಾಗುತ್ತದೆ', 'ಇಂಟೇಕ್ ಮ್ಯಾನಿಫೋಲ್ಡ್‌ಗೆ ಹಿಂದಕ್ಕೆ ತಳ್ಳಲ್ಪಡುತ್ತದೆ', 'ಪೂರ್ಣವಾಗಿ ವಾಷ್ಪೀಕರಿಸಲಾಗುತ್ತದೆ', 'ಕ್ರ್ಯಾಂಕೇಸ್ಗೆ ರಾಸಾಯನಿಕವಾಗಿ ಹರಿದುಬರುತ್ತದೆ'], correctAnswer: 'Pushed back into the intake manifold' },
+
+  { text: 'Delaying the compression stroke in the Atkinson cycle results in:', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರದಲ್ಲಿ ಸಂಕುಚನ ಸ್ಟ್ರೋಕ್ ವಿಳಂಬವಾದರೆ ಪರಿಣಾಮವೇನು?', options: ['More air entering the cylinder', 'Less air-fuel mixture in the cylinder', 'Higher compression pressure', 'Shorter expansion stroke'], optionsKn: ['ಹೆಚ್ಚಿನ ಗಾಳಿ ಸಿಲಿಂಡರ್‌ಗೆ ಪ್ರವೇಶಿಸುತ್ತದೆ', 'ಸಿಲಿಂಡರ್‌ನಲ್ಲಿನ ಗಾಳಿ-ಇಂಧನ ಮಿಶ್ರಣ ಕಡಿಮೆಯಾಗಿದೆ', 'ಹೆಚ್ಚಿನ ಸಂಕುಚನ ಒತ್ತಡ', 'ಕಡಿಮೆ ವಿಸ್ತರಣೆ ಸ್ಟ್ರೋಕ್'], correctAnswer: 'Less air-fuel mixture in the cylinder' },
+
+  { text: 'Compared to compression, the expansion stroke in the Atkinson cycle is:', textKn: 'ಸಂಕೋಚನದ ಹೋಲಿಕೆಯಲ್ಲಿ ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರದ ವಿಸ್ತರಣೆ ಸ್ಟ್ರೋಕ್ ಹೇಗಿದೆ?', options: ['Smaller', 'Equal', 'Larger', 'Eliminated'], optionsKn: ['ಸಣ್ಣದು', 'ಸಮಾನ', 'ದೊಡ್ಡದು', 'ನಿರಾಕರಿಸಲಾಗಿದೆ'], correctAnswer: 'Larger' },
+
+  { text: 'A larger expansion stroke allows what benefit?', textKn: 'ಹೆಚ್ಚಾದ ವಿಸ್ತರಣೆ ಸ್ಟ್ರೋಕ್ ಯಾವ ಪ್ರಯೋಜನವನ್ನು ಒದಗಿಸುತ್ತದೆ?', options: ['More energy extracted from fuel', 'Faster ignition', 'Less heat loss', 'More fuel burned'], optionsKn: ['ಇಂಧನದಿಂದ ಹೆಚ್ಚು ಶಕ್ತಿ ಹೊರತೆಗೆಯುತ್ತಾರೆ', 'ವೇಗವಾಗಿ ಇಗ್ನಿಷನ್ ಆಗುತ್ತದೆ', 'ಕಡಿಮೆ ತಾಪ ನಷ್ಟ', 'ಹೆಚ್ಚು ಇಂಧನದ ದಹನ'], correctAnswer: 'More energy extracted from fuel' },
+
+  { text: 'With intake valves open during compression, the piston faces:', textKn: 'ಸಂಕುಚನದ ಸಮಯದಲ್ಲಿ ಇಂಟೇಕ್ ವೆಲ್ವ್ ತೆರೆಯಲ್ಪಟ್ಟಾಗ ಪಿಸ್ಟನ್ ಎದುರಿಸುವುದು ಯಾವಾಗ?', options: ['Higher resistance', 'Less resistance', 'Equal resistance', 'No resistance'], optionsKn: ['ಹೆಚ್ಚಿನ ಪ್ರತಿರೋಧ', 'ಕಡಿಮೆ ಪ್ರತಿರೋಧ', 'ಸಮಾನ ಪ್ರತಿರೋಧ', 'ಪ್ರತಿರೋಧವಿಲ್ಲ'], correctAnswer: 'Less resistance' },
+
+  { text: 'Reduced pumping losses mean that the engine:', textKn: 'ಕಡಿಮೆ ಪಂಪಿಂಗ್ ನಷ್ಟಗಳು ಎಂಜಿನ್ ಮೇಲೆ ಏನು ಪರಿಣಾಮ ಬೀರುತ್ತದೆ?', options: ['Consumes less power for self-operation', 'Burns more fuel', 'Requires higher octane fuel', 'Has higher emissions'], optionsKn: ['ಸ್ವಯಂ ಕಾರ್ಯಾಚರಣೆಗಾಗಿ ಕಡಿಮೆ ಶಕ್ತಿ ಬಳಿಸುತ್ತದೆ', 'ಹೆಚ್ಚು ಇಂಧನದ ಬಿರುಗಾಳಿ', 'ಹೆಚ್ಚಿನ ಆಕ್ಟೇನ್ ಇಂಧನ ಅಗತ್ಯ', 'ಹೆಚ್ಚಿನ ಉತ್ಸರ್ಜನೆಗಳು'], correctAnswer: 'Consumes less power for self-operation' },
+
+  { text: 'In both hybrid and non-hybrid Toyota vehicles, the Atkinson cycle helps optimize:', textKn: 'ಹೈಬ್ರಿಡ್ ಮತ್ತು ಅಸ್ಹೈಬ್ರಿಡ್ ಟೊಯೋಟಾ ವಾಹನಗಳಲ್ಲಿ ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರ ಯಾವವನ್ನೂ ಉತ್ತಮಗೊಳಿಸುತ್ತದೆ?', options: ['Speed', 'Torque', 'Fuel efficiency', 'Engine sound'], optionsKn: ['ವೇಗ', 'ಟಾರ್ಕ್', 'ಇಂಧನ ದಕ್ಷತೆ', 'ಎಂಜಿನ್ ಶಬ್ದ'], correctAnswer: 'Fuel efficiency' },
+
+  { text: 'What does Toyota use to eliminate any compromise in performance from the Atkinson cycle?', textKn: 'ಅಟ್ಖಿನ್‍ಸನ್ ಚಕ್ರದಿಂದ ಪರಿಣಾಮದಲ್ಲಿ ಯಾವುದೇ ತೊರೆತನ್ನವನ್ನು ನಿರ್ಮೂಲಗೊಳಿಸಲು ಟೊಯೋಟಾ ಏನು ಬಳಸುತ್ತದೆ?', options: ['Turbochargers', 'Advanced engine management and hybrid powertrains', 'Increased fuel injection', 'Cylinder deactivation'], optionsKn: ['ಟರ್ಬೋಚಾರ್ಜರ್‌ಗಳು', 'ಅಡ್ವಾನ್ಸ್ಡ್ ಎಂಜಿನ್ ನಿರ್ವಹಣೆ ಮತ್ತು ಹೈಬ್ರಿಡ್ ಪವರ್‌ಟ್ರೇನ್ಸ್', 'ಇಂಧನ ಇಂಜೆಕ್ಷನ್ ಹೆಚ್ಚಿಸಲಾಗಿದೆ', 'ಸಿಲಿಂಡರ್ ನಿಷ್ಕ್ರಿಯತೆ'], correctAnswer: 'Advanced engine management and hybrid powertrains' },
+
+  { text: 'According to the video, where should drivers look for detailed feature applicability?', textKn: 'ವೀಡಿಯೋ ಪ್ರಕಾರ, ಚಾಲಕರು ವೈಶಿಷ್ಟ್ಯಗಳ ಅನ್ವಯಿತೆಯನ್ನು ವಿವರವಾಗಿ ಎಲ್ಲಿಂದ ನೋಡಬಹುದು?', options: ['Toyota website', 'Service manual', 'Owner’s manual', 'Mechanic’s guide'], optionsKn: ['ಟೊಯೋಟಾ ವೆಬ್‌ಸೈಟ್', 'ಸೇವಾ ಕೈಪಿಡಿ', 'ಮಾಲೀಕರಿನ ಕೈಪുസ്തಕ', 'ಯಂತ್ರ ತಜ್ಞರ ಮಾರ್ಗದರ್ಶಿ'], correctAnswer: 'Owner’s manual' }
       ]
       ,
       // Repeat for other videos in M1
       [
-        { text: 'What is the main source of power for a typical automobile?', options: ['Battery', 'Engine', 'Motor', 'Transmission'], correctAnswer: 'Engine' },
-      
-        { text: 'What is the main purpose of an automobile engine?', options: ['Pump air', 'Rotate the crankshaft to drive the wheels', 'Burn fuel for heat', 'Store electricity'], correctAnswer: 'Rotate the crankshaft to drive the wheels' },
-      
-        { text: 'The crankshaft in an engine is responsible for:', options: ['Opening valves', 'Rotating the wheels', 'Cooling the engine', 'Controlling the exhaust'], correctAnswer: 'Rotating the wheels' },
-      
-        { text: 'Pistons move due to:', options: ['Oil pressure', 'Combustion of air and gasoline', 'Electric current', 'Cooling system'], correctAnswer: 'Combustion of air and gasoline' },
-      
-        { text: 'What are the two main parts of an engine?', options: ['Head and block', 'Cylinder and carburetor', 'Crankshaft and piston', 'Gearbox and clutch'], correctAnswer: 'Head and block' },
-      
-        { text: 'Which part of the engine houses pistons, cylinders, and the crankshaft?', options: ['Cylinder head', 'Engine block', 'Fuel chamber', 'Crankcase cover'], correctAnswer: 'Engine block' },
-      
-        { text: 'The cylinder head manages combustion through which systems?', options: ['Fuel, oil, cooling', 'Valvetrain, fuel injection, ignition', 'Lubrication, exhaust, intake', 'Turbo, valve, pressure'], correctAnswer: 'Valvetrain, fuel injection, ignition' },
-      
-        { text: 'How many stages of operation does a four-stroke engine have?', options: ['Two', 'Three', 'Four', 'Five'], correctAnswer: 'Four' },
-      
-        { text: 'During the intake stroke, the piston moves:', options: ['Upward', 'Downward', 'Sideways', 'Remains still'], correctAnswer: 'Downward' },
-      
-        { text: 'What happens when the piston moves down in the first stroke?', options: ['Air is compressed', 'Air-fuel mixture is ejected', 'Air is drawn into the cylinder', 'Fuel is ignited'], correctAnswer: 'Air is drawn into the cylinder' },
-      
-        { text: 'Which valves control the air entering the cylinder?', options: ['Exhaust valves', 'Intake valves', 'Relief valves', 'Spark valves'], correctAnswer: 'Intake valves' },
-      
-        { text: 'What occurs during the compression stroke?', options: ['Air-fuel mixture ignites', 'Air-fuel mixture is compressed', 'Exhaust gases exit', 'Valves open'], correctAnswer: 'Air-fuel mixture is compressed' },
-      
-        { text: 'The spark plug creates a spark during which stroke?', options: ['Compression', 'Power', 'Exhaust', 'Intake'], correctAnswer: 'Power' },
-      
-        { text: 'What happens as a result of the spark plug ignition?', options: ['Fuel evaporates', 'Controlled explosion pushes piston down', 'Crankshaft stops rotating', 'Valves open'], correctAnswer: 'Controlled explosion pushes piston down' },
-      
-        { text: 'During the exhaust stroke, the piston moves:', options: ['Down', 'Up', 'Sideways', 'Stationary'], correctAnswer: 'Up' },
-      
-        { text: 'Exhaust gases exit through:', options: ['Intake valves', 'Exhaust valves', 'Crankshaft ports', 'Fuel injectors'], correctAnswer: 'Exhaust valves' },
-      
-        { text: 'Multiple cylinders working together help:', options: ['Reduce power', 'Balance the four-stroke process', 'Increase fuel usage', 'Cool the engine'], correctAnswer: 'Balance the four-stroke process' },
-      
-        { text: 'What is the most common engine configuration today?', options: ['V8', 'Inline-four', 'V6', 'Boxer'], correctAnswer: 'Inline-four' },
-      
-        { text: 'In a V6 engine, how are the cylinders arranged?', options: ['All in one line', 'In two banks of three cylinders', 'In three rows', 'Horizontally opposite'], correctAnswer: 'In two banks of three cylinders' },
-      
-        { text: 'What is a boxer or flat engine?', options: ['V-shaped engine', 'Inline engine', '180-degree flat engine', 'Hybrid electric engine'], correctAnswer: '180-degree flat engine' },
-      
-        { text: 'What does the number 2.0 or 3.5 refer to in engines?', options: ['Fuel capacity', 'Cylinder diameter', 'Engine displacement', 'Compression ratio'], correctAnswer: 'Engine displacement' },
-      
-        { text: 'Engine displacement is measured in:', options: ['Gallons', 'Liters', 'Kilograms', 'Horsepower'], correctAnswer: 'Liters' },
-      
-        { text: 'A 2.0-liter engine with four cylinders displaces how much per cylinder?', options: ['1 liter', '0.5 liter', '0.25 liter', '2 liters'], correctAnswer: '0.5 liter' },
-      
-        { text: 'Torque refers to:', options: ['Speed of the engine', 'Strength with which crankshaft turns', 'Fuel efficiency', 'Compression ratio'], correctAnswer: 'Strength with which crankshaft turns' },
-      
-        { text: 'Torque is measured in:', options: ['Horsepower', 'Newton meters', 'Pound-feet', 'RPM'], correctAnswer: 'Pound-feet' },
-      
-        { text: 'Horsepower is defined as:', options: ['Torque over time', 'Torque per cycle', 'RPM per stroke', 'Cylinder pressure'], correctAnswer: 'Torque over time' },
-      
-        { text: 'Horsepower increases when:', options: ['Torque decreases', 'Engine speed increases', 'Fuel injection stops', 'Pistons move slower'], correctAnswer: 'Engine speed increases' },
-      
-        { text: 'The formula for horsepower in simple terms is:', options: ['Torque + RPM', 'Torque × RPM', 'Torque ÷ RPM', 'RPM ÷ Torque'], correctAnswer: 'Torque × RPM' },
-      
-        { text: 'Why can’t engines simply spin faster to make more horsepower?', options: ['High speed reduces torque and efficiency', 'Air supply stops', 'Fuel leaks occur', 'Crankshaft breaks easily'], correctAnswer: 'High speed reduces torque and efficiency' },
-      
-        { text: 'Why are transmissions important for engine performance?', options: ['They reduce fuel', 'They keep the engine in its torque-power sweet spot', 'They control spark timing', 'They clean the exhaust gases'], correctAnswer: 'They keep the engine in its torque-power sweet spot' }
+        { text: 'What is the main source of power for a typical automobile?', textKn: 'ಸಾಮಾನ್ಯ ಕಾರಿನ ಪ್ರಮುಖ ಶಕ್ತಿ ಮೂಲವೇನು?', options: ['Battery', 'Engine', 'Motor', 'Transmission'], optionsKn: ['ಬ್ಯಾಟರಿ', 'ಎಂಜಿನ್', 'ಮೋಟಾರ್', 'ಟ್ರಾನ್ಸ್ಮಿಷನ್'], correctAnswer: 'Engine' },
+
+        { text: 'What is the main purpose of an automobile engine?', textKn: 'ಕಾರಿನ ಎಂಜಿನ್‌ನ ಮುಖ್ಯ ಉದ್ದೇಶ ಏನು?', options: ['Pump air', 'Rotate the crankshaft to drive the wheels', 'Burn fuel for heat', 'Store electricity'], optionsKn: ['ಗಾಳಿಯನ್ನು ಪಂಪ್ ಮಾಡುವುದು', 'ಚಕ್ರಗಳನ್ನು ಚಾಲನೆ ಮಾಡಲು ಕ್ರಾಂಕ್ಶಾಫ್ಟ್ ಅನ್ನು ತಿರುಗಿಸುವುದು', 'ಬಾಲೆಗೆ ಇಂಧನವನ್ನು ದಹಿಸುವುದು', 'ವಿದ್ಯುತ್ ಸಂಗ್ರಹಿಸುವುದು'], correctAnswer: 'Rotate the crankshaft to drive the wheels' },
+
+        { text: 'The crankshaft in an engine is responsible for:', textKn: 'ಎಂಜಿನ್‌ನಲ್ಲಿನ ಕ್ರಾಂಕ್ಶಾಫ್ಟ್ ಯಾವದಕ್ಕೆ ಜವಾಬ್ದಾರಿ?', options: ['Opening valves', 'Rotating the wheels', 'Cooling the engine', 'Controlling the exhaust'], optionsKn: ['ವೆಲ್ವ್‌ಗಳನ್ನು ತೆರೆಯುವುದು', 'ಚಕ್ರಗಳನ್ನು ತಿರುಗಿಸುವುದು', 'ಎಂಜಿನ್ ಅನ್ನು ತಣಿಸುವುದು', 'ಏಗಜಾಸ್ಟ್ ಆಯಂತ್ರಣ'], correctAnswer: 'Rotating the wheels' },
+
+        { text: 'Pistons move due to:', textKn: 'ಪಿಸ್ಟನ್‌ಗಳು ಏಕೆ ಸರಿಯಾಗುತ್ತವೆ?', options: ['Oil pressure', 'Combustion of air and gasoline', 'Electric current', 'Cooling system'], optionsKn: ['ಎಣ್ಣೆ ಒತ್ತಡ', 'ಗಾಳಿ ಮತ್ತು ಗುಲೀಸಘಟಕದ ದಹನ', 'ವಿದ್ಯುತ್ ಹರಿವು', 'ತಂಪು ವ್ಯವಸ್ಥೆ'], correctAnswer: 'Combustion of air and gasoline' },
+
+        { text: 'What are the two main parts of an engine?', textKn: 'ಎಂಜಿನ್‌ನ ಎರಡು ಪ್ರಮುಖ ಭಾಗಗಳು ಯಾವುವು?', options: ['Head and block', 'Cylinder and carburetor', 'Crankshaft and piston', 'Gearbox and clutch'], optionsKn: ['ಹೆಡ್ ಮತ್ತು ಬ್ಲಾಕ್', 'ಸಿಲಿಂಡರ್ ಮತ್ತು ಕಾರ್ಭುರೇಟರ್', 'ಕ್ರಾಂಕ್ಶಾಫ್ಟ್ ಮತ್ತು ಪಿಸ್ಟನ್', 'ಗಿಯರ್ಬಾಕ್ಸ್ ಮತ್ತು ಕ್ಲಚ್'], correctAnswer: 'Head and block' },
+
+        { text: 'Which part of the engine houses pistons, cylinders, and the crankshaft?', textKn: 'ಎಂಜಿನ್‌ನ ಯಾವ ಭಾಗವು ಪಿಸ್ಟನ್‌ಗಳು, ಸಿಲಿಂಡರ್‌ಗಳು ಮತ್ತು ಕ್ರಾಂಕ್ಶಾಫ್ಟ್‌ ಅನ್ನು ಒಳಗೊಂಡಿದೆ?', options: ['Cylinder head', 'Engine block', 'Fuel chamber', 'Crankcase cover'], optionsKn: ['ಸಿಲಿಂಡರ್ ಹೆಡ್', 'ಎಂಜಿನ್ ಬ್ಲಾಕ್', 'ಇಂಧನ ಚೇಂಬರ್', 'ಕ್ರ್ಯಾಂಕೇಸ್ ಮುಚ್ಚುಣ'], correctAnswer: 'Engine block' },
+
+        { text: 'The cylinder head manages combustion through which systems?', textKn: 'ಸಿಲಿಂಡರ್ ಹೆಡ್ ಯಾವುದೇ ವ್ಯವಸ್ಥೆಗಳ ಮೂಲಕ ದಹನವನ್ನು ನಿರ್ವಹಿಸುತ್ತದೆ?', options: ['Fuel, oil, cooling', 'Valvetrain, fuel injection, ignition', 'Lubrication, exhaust, intake', 'Turbo, valve, pressure'], optionsKn: ['ಇಂಧನ, ಎಣ್ಣೆ, ತಂಪೀಕರಣ', 'ವೆಲ್ವ್‌ಟ್ರೈನ್, ಇಂಧನ ಇಂಜೆಕ್ಷನ್, ಇಗ್ನಿಷನ್', 'ಸ್ನಿಗ್ಧೀಕರಣ, ಏಗಜಾಸ್ಟ್, ಇಂಟೇಕ್', 'ಟರ್ಬೊ, ವೆಲ್ವ್, ಒತ್ತಡ'], correctAnswer: 'Valvetrain, fuel injection, ignition' },
+
+        { text: 'How many stages of operation does a four-stroke engine have?', textKn: 'ನಾಲ್ಕು-ಸ्ट्रೋಕ್ ಎಂಜಿನ್‌ಗೆ ಎಷ್ಟು ಕಾರ್ಯ ಚರಣಗಳಿವೆ?', options: ['Two', 'Three', 'Four', 'Five'], optionsKn: ['ಎರಡು', 'ಮೂರು', 'ನಾಲ್ಕು', 'ಐದು'], correctAnswer: 'Four' },
+
+        { text: 'During the intake stroke, the piston moves:', textKn: 'ಇಂಟೇಕ್ ಸ್ಟ್ರೋಕ್ ಸಮಯದಲ್ಲಿ ಪಿಸ್ಟನ್ ಹೇಗೆ ಚಲಿಸುತ್ತದೆ?', options: ['Upward', 'Downward', 'Sideways', 'Remains still'], optionsKn: ['ಮೇಲಕ್ಕೆ', 'ಡೌನ್', 'ಬದಕ್ಕೆ', 'ಸ್ಥಿರವಾಗಿರುತ್ತದೆ'], correctAnswer: 'Downward' },
+
+        { text: 'What happens when the piston moves down in the first stroke?', textKn: 'ಪ್ರಥಮ ಸ್ಟ್ರೋಕ್‌ನಲ್ಲಿ ಪಿಸ್ಟನ್ ಕೆಳಗೆ ಹೋದಾಗ ಏನಾಗುತ್ತದೆ?', options: ['Air is compressed', 'Air-fuel mixture is ejected', 'Air is drawn into the cylinder', 'Fuel is ignited'], optionsKn: ['ಗಾಳಿ ಒತ್ತಡಗೊಳ್ಳುತ್ತದೆ', 'ಗಾಳಿ-ಇಂಧನ ಮಿಶ್ರಣ ಹೊರಗೆ ಹೊರಡುತ್ತದೆ', 'ಗಾಳಿ ಸಿಲಿಂಡರ್‌ಗೆ ಸೆಳೆಯುತ್ತದೆ', 'ಇಂಧನ ಇಗ್ನೈಟ್ ಆಗುತ್ತದೆ'], correctAnswer: 'Air is drawn into the cylinder' },
+
+        { text: 'Which valves control the air entering the cylinder?', textKn: 'ಸಿಲಿಂಡರ್‌ಗೆ ಹೊಂದುತ್ತಿರುವ ಗಾಳಿಯನ್ನು ಯಾವ ವೆಲ್ವ್‌ಗಳು ನಿಯಂತ್ರಿಸುತ್ತವೆ?', options: ['Exhaust valves', 'Intake valves', 'Relief valves', 'Spark valves'], optionsKn: ['ಏಗಜಾಸ್ಟ್ ವೆಲ್ವ್‌ಗಳು', 'ಇಂಟೇಕ್ ವೆಲ್ವ್‌ಗಳು', 'ರಿಲೀಫ್ ವೆಲ್ವ್‌ಗಳು', 'ಸ್ಪಾರ್ಕ್ ವೆಲ್ವ್‌ಗಳು'], correctAnswer: 'Intake valves' },
+
+        { text: 'What occurs during the compression stroke?', textKn: 'ಸಂಕುಚನ ಸ್ಟ್ರೋಕ್ ಸಮಯದಲ್ಲಿ ಏನಾಗುತ್ತದೆ?', options: ['Air-fuel mixture ignites', 'Air-fuel mixture is compressed', 'Exhaust gases exit', 'Valves open'], optionsKn: ['ಗಾಳಿ-ಇಂಧನ ಮಿಶ್ರಣ ಇಗ್ನೈಟ್ ಆಗುತ್ತದೆ', 'ಗಾಳಿ-ಇಂಧನ ಮಿಶ್ರಣ ಸುಂಕಲಾಗಿದೆ', 'ಏಗಜಾಸ್ಟ್ ಅನಿಲಗಳು ಹೊರಹೋಗುತ್ತವೆ', 'ವೆಲ್ವ್‌ಗಳು ತೆರೆಯುತ್ತವೆ'], correctAnswer: 'Air-fuel mixture is compressed' },
+
+        { text: 'The spark plug creates a spark during which stroke?', textKn: 'ಸ್ಪಾರ್ಕ್ ಪ್ಲಗ್ ಯಾವ ಸ್ಟ್ರೋಕ್‌ನಲ್ಲಿ ಸ್ಪಾರ್ಕ್ ಉಂಟುಮಾಡುತ್ತದೆ?', options: ['Compression', 'Power', 'Exhaust', 'Intake'], optionsKn: ['ಸಂಕುಚನ', 'ಪವರ್', 'ಏಗಜಾಸ್ಟ್', 'ಇಂಟೇಕ್'], correctAnswer: 'Power' },
+
+        { text: 'What happens as a result of the spark plug ignition?', textKn: 'ಸ್ಪಾರ್ಕ್ ಪ್ಲಗ್ ಇಗ್ನಿಷನ್ ಫಲವಾಗಿ ಏನಾಗುತ್ತದೆ?', options: ['Fuel evaporates', 'Controlled explosion pushes piston down', 'Crankshaft stops rotating', 'Valves open'], optionsKn: ['ಇಂಧನ ವಾಷ್ಟಿ ಆಗುತ್ತದೆ', 'ನಿಯಂತ್ರಿತ ಸ್ಫೋಟ ಪಿಸ್ಟನನ್ನು ಕೆಳಗೆ ಒತ್ತುತ್ತದೆ', 'ಕ್ರಾಂಕ್ಶಾಫ್ಟ್ ತಿರುಗುವುದು ನಿಲ್ಲುತ್ತದೆ', 'ವೆಲ್ವ್‌ಗಳು ತೆರೆಯುತ್ತವೆ'], correctAnswer: 'Controlled explosion pushes piston down' },
+
+        { text: 'During the exhaust stroke, the piston moves:', textKn: 'ಏಗಜಾಸ್ಟ್ ಸ್ಟ್ರೋಕ್ ಸಮಯದಲ್ಲಿ ಪಿಸ್ಟನ್ ಹೇಗೆ ಚಲಿಸುತ್ತದೆ?', options: ['Down', 'Up', 'Sideways', 'Stationary'], optionsKn: ['ಕೆಳಗೆ', 'ಮೇಲಕ್ಕೆ', 'ಬದಕ್ಕೆ', 'ಸ್ಥಿರ'], correctAnswer: 'Up' },
+
+        { text: 'Exhaust gases exit through:', textKn: 'ಏಗಜಾಸ್ಟ್ ಅನಿಲಗಳು ಮೂಲಕ ಹೊರಹೊಮ್ಮುತ್ತವೆ:', options: ['Intake valves', 'Exhaust valves', 'Crankshaft ports', 'Fuel injectors'], optionsKn: ['ಇಂಟೇಕ್ ವೆಲ್ವ್‌ಗಳು', 'ಏಗಜಾಸ್ಟ್ ವೆಲ್ವ್‌ಗಳು', 'ಕ್ರಾಂಕ್ಶಾಫ್ಟ್ ಪೋರ್ಟ್ಸ್', 'ಇಂಧನ ಇಂಜೆಕ್ಟರ್‌ಗಳು'], correctAnswer: 'Exhaust valves' },
+
+        { text: 'Multiple cylinders working together help:', textKn: 'ಬಹು ಸಿಲಿಂಡರ್‌ಗಳು ಒಟ್ಟಿಗೆ ಕೆಲಸ ಮಾಡಿದಾಗ ಸಹಾಯಮಾಡುವುದು:', options: ['Reduce power', 'Balance the four-stroke process', 'Increase fuel usage', 'Cool the engine'], optionsKn: ['ಶಕ್ತಿ ಕಡಿಮೆ', 'ನಾಲ್ಕು-ಸ್ಟ್ರೋಕ್ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಸಮತೋಲಗೊಳಿಸುತ್ತದೆ', 'ಇಂಧನ ಬಳಕೆ ಹೆಚ್ಚಿಸುತ್ತದೆ', 'ಎಂಜಿನ್ ತಣಿಸುತ್ತದೆ'], correctAnswer: 'Balance the four-stroke process' },
+
+        { text: 'What is the most common engine configuration today?', textKn: 'ಇಂದು ಅತ್ಯಂತ ಸಾಮಾನ್ಯ ಎಂಜಿನ್ ವಿನ್ಯಾಸ ಯಾವುದು?', options: ['V8', 'Inline-four', 'V6', 'Boxer'], optionsKn: ['V8', 'ಇನ್‍ಲೈನ್-ನಾಲ್ಕು', 'V6', 'ಬಾಕ್ಸರ್'], correctAnswer: 'Inline-four' },
+
+        { text: 'In a V6 engine, how are the cylinders arranged?', textKn: 'V6 ಎಂಜಿನ್‌ನಲ್ಲಿ ಸಿಲಿಂಡರ್‌ಗಳು ಹೇಗೆ ವ್ಯವಸ್ಥೆಗೊಳ್ಳುತ್ತವೆ?', options: ['All in one line', 'In two banks of three cylinders', 'In three rows', 'Horizontally opposite'], optionsKn: ['ಎಲ್ಲಾ ಒಂದೇ ಸಾಲಿನಲ್ಲಿ', 'ಮೂರು ಸಿಲಿಂಡರ್‌ಗಳ ಎರಡು ಬ್ಯಾಂಕ್‌ಗಳಲ್ಲಿ', 'ಮೂರು ಸರಣಿಗಳಲ್ಲಿ', 'ಅಡ್ಡದಿಕ್ಕಿನಲ್ಲಿ ಎದುರಿಗೆ'], correctAnswer: 'In two banks of three cylinders' },
+
+        { text: 'What is a boxer or flat engine?', textKn: 'ಬಾಕ್ಸರ್ ಅಥವಾ ಫ್ಲಾಟ್ ಎಂಜಿನ್ ಎಂದರೆ ಏನು?', options: ['V-shaped engine', 'Inline engine', '180-degree flat engine', 'Hybrid electric engine'], optionsKn: ['V-ಆಕಾರದ ಎಂಜಿನ್', 'ಇನ್‍ಲೈನ್ ಎಂಜಿನ್', '180-ಡಿಗ್ರಿ ಫ್ಲಾಟ್ ಎಂಜಿನ್', 'ಹೈಬ್ರಿಡ್ ಎಲೆಕ್ಟ್ರಿಕ್ ಎಂಜಿನ್'], correctAnswer: '180-degree flat engine' },
+
+        { text: 'What does the number 2.0 or 3.5 refer to in engines?', textKn: 'ಎಂಜಿನ್ ಸಂಖ್ಯೆ 2.0 ಅಥವಾ 3.5 ಯಾವವನ್ನು ಸೂಚಿಸುತ್ತದೆ?', options: ['Fuel capacity', 'Cylinder diameter', 'Engine displacement', 'Compression ratio'], optionsKn: ['ಇಂಧನ ಸಾಮರ್ಥ್ಯ', 'ಸಿಲಿಂಡರ್ ವ್ಯಾಸ', 'ಎಂಜಿನ್ ಡಿಸ್ಪ್ಲೇಸ್‌ಮೆಂಟ್', 'ಕಂಪ್ರೆಷನ್ ಅನುಪಾತ'], correctAnswer: 'Engine displacement' },
+
+        { text: 'Engine displacement is measured in:', textKn: 'ಎಂಜಿನ್ ಡಿಸ್ಪ್ಲೇಸ್‌ಮೆಂಟ್ ಯಾವ ಘಟಕದಲ್ಲಿ ಅಳೆಯಲಾಗುತ್ತದೆ?', options: ['Gallons', 'Liters', 'Kilograms', 'Horsepower'], optionsKn: ['ಗ್ಯಾಲನ್', 'ಲೀಟರ್', 'ಕಿಲೋಗ್ರಾಂ', 'ಹಾರ್ಸ್‌ಪವರ್'], correctAnswer: 'Liters' },
+
+        { text: 'A 2.0-liter engine with four cylinders displaces how much per cylinder?', textKn: 'ನಾಲ್ಕು ಸಿಲಿಂಡರ್‌ಗಳೊಂದಿಗೆ 2.0-ಲೀಟರ್ ಎಂಜಿನ್ ಪ್ರತಿ ಸಿಲಿಂಡರ್‌ಗೆ ಎಷ್ಟು ಡಿಸ್ಪ್ಲೇಸ್ ಮಾಡುತ್ತದೆ?', options: ['1 liter', '0.5 liter', '0.25 liter', '2 liters'], optionsKn: ['1 ಲೀಟರ್', '0.5 ಲೀಟರ್', '0.25 ಲೀಟರ್', '2 ಲೀಟರ್'], correctAnswer: '0.5 liter' },
+
+        { text: 'Torque refers to:', textKn: 'ಟಾರ್ಕ್ ಎಂದರೆ ಏನು?', options: ['Speed of the engine', 'Strength with which crankshaft turns', 'Fuel efficiency', 'Compression ratio'], optionsKn: ['ಎಂಜಿನ್ ವೇಗ', 'ಕ್ರಾಂಕ್ಶಾಫ್ಟ್ ತಿರುಗುವ ಶಕ್ತಿ', 'ಇಂಧನ ದಕ್ಷತೆ', 'ಕಂಪ್ರೆಷನ್ ಅನುಪಾತ'], correctAnswer: 'Strength with which crankshaft turns' },
+
+        { text: 'Torque is measured in:', textKn: 'ಟಾರ್ಕ್ ಅನ್ನು ಯಾವ ಘಟಕದಲ್ಲಿ ಅಳೆಯುತ್ತಾರೆ?', options: ['Horsepower', 'Newton meters', 'Pound-feet', 'RPM'], optionsKn: ['ಹಾರ್ಸ್‌ಪವರ್', 'ನ್ಯೂಟನ್ ಮೀಟರ್', 'ಪೌಂಡ್-ಫೀಟ್', 'ಆರ್‌ಪಿಎಂ'], correctAnswer: 'Pound-feet' },
+
+        { text: 'Horsepower is defined as:', textKn: 'ಹಾರ್ಸ್‌ಪವರ್ ಅನ್ನು ಹೇಗೆ ವ್ಯಾಖ್ಯಾನಿಸಲಾಗುತ್ತದೆ?', options: ['Torque over time', 'Torque per cycle', 'RPM per stroke', 'Cylinder pressure'], optionsKn: ['ಸಮಯಕ್ಕೆ ಟಾರ್ಕ್', 'ಪ್ರತಿ ಚಕ್ರಕ್ಕೆ ಟಾರ್ಕ್', 'ಪ್ರತಿ ಸ್ಟ್ರೋಕ್‌ಗೆ ಆರ್‌ಪಿಎಂ', 'ಸಿಲಿಂಡರ್ ಒತ್ತಡ'], correctAnswer: 'Torque over time' },
+
+        { text: 'Horsepower increases when:', textKn: 'ಹಾರ್ಸ್‌ಪವರ್ ಯಾವಾಗ ಹೆಚ್ಚುತ್ತದೆ?', options: ['Torque decreases', 'Engine speed increases', 'Fuel injection stops', 'Pistons move slower'], optionsKn: ['ಟಾರ್ಕ್ ಕಡಿಮೆಯಾಗುತ್ತದೆ', 'ಎಂಜಿನ್ ವೇಗ ಹೆಚ್ಚುತ್ತದೆ', 'ಇಂಧನ ಇಂಜೆಕ್ಷನ್ ನಿಲ್ಲುತ್ತದೆ', 'ಪಿಸ್ಟನ್ಗಳು ನಿಧಾನವಾಗುತ್ತವೆ'], correctAnswer: 'Engine speed increases' },
+
+        { text: 'The formula for horsepower in simple terms is:', textKn: 'ಸರಳವಾಗಿ ಹೇಳುವ ಹಾರ್ಸ್‌ಪವರ್ ಸೂತ್ರ ಯಾವುದು?', options: ['Torque + RPM', 'Torque × RPM', 'Torque ÷ RPM', 'RPM ÷ Torque'], optionsKn: ['ಟಾರ್ಕ್ + ಆರ್‌ಪಿಎಂ', 'ಟಾರ್ಕ್ × ಆರ್‌ಪಿಎಂ', 'ಟಾರ್ಕ್ ÷ ಆರ್‌ಪಿಎಂ', 'ಆರ್‌ಪಿಎಂ ÷ ಟಾರ್ಕ್'], correctAnswer: 'Torque × RPM' },
+
+        { text: 'Why can’t engines simply spin faster to make more horsepower?', textKn: 'ಅಧಿಕ ಹಾರ್ಸ್‌ಪವರ್ ಪಡೆಯಲು ಎಂಜಿನ್‌ಗಳು ಸರಳವಾಗಿ ಹೆಚ್ಚು ವೇಗವಾಗಿ ತಿರುಗಲು ಸಾಧ್ಯವಿಲ್ಲ ಏಕೆ?', options: ['High speed reduces torque and efficiency', 'Air supply stops', 'Fuel leaks occur', 'Crankshaft breaks easily'], optionsKn: ['ಉচ্চ ವೇಗ ಟಾರ್ಕ್ ಮತ್ತು ದಕ್ಷತೆಯನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ', 'ಗಾಳಿ ಪೂರೈಕೆ ನಿಲ್ಲುತ್ತದೆ', 'ಇಂಧನ ಲೀಕ್ ಆಗಬಹುದು', 'ಕ್ರಾಂಕ್ಶಾಫ್ಟ್ ಸುಲಭವಾಗಿ ಮುರಿಯುತ್ತದೆ'], correctAnswer: 'High speed reduces torque and efficiency' },
+
+        { text: 'Why are transmissions important for engine performance?', textKn: 'ಎಂಜಿನ್ ಪ್ರದರ್ಶನಕ್ಕೆ ಗಿಯರ್ಬಾಕ್ಸ್‌ಗಳು ಪ್ರಮುಖವಾದುದು ಏಕೆ?', options: ['They reduce fuel', 'They keep the engine in its torque-power sweet spot', 'They control spark timing', 'They clean the exhaust gases'], optionsKn: ['ಅವು ಇಂಧನ ಕಡಿಮೆ ಮಾಡುತ್ತವೆ', 'ಅವು ಎಂಜಿನ್ ಅನ್ನು ಅದರ ಟಾರ್ಕ್-ಶಕ್ತಿ ಸೂಟ್ ಸ್ಪಾಟ್‌ನಲ್ಲಿರಿಸುತ್ತವೆ', 'ಅವು ಸ್ಪಾರ್ಕ್ ಟೈಮಿಂಗ್ ಅನ್ನು ನಿಯಂತ್ರಿಸುತ್ತವೆ', 'ಅವು ಏಗಜಾಸ್ಟ್ ಅನಿಲಗಳನ್ನು ಶುದ್ಧಗೊಳಿಸುತ್ತವೆ'], correctAnswer: 'They keep the engine in its torque-power sweet spot' }
       ]
       ,
       [
@@ -398,15 +411,22 @@ export const ADVANCED_MODULES = [
       
         { text: 'What does the rear motor generator do besides powering the rear wheels?', options: ['Cools the engine', 'Generates power during braking or coasting', 'Charges headlights', 'Controls air pressure'], correctAnswer: 'Generates power during braking or coasting' }
       ]
+      
+      // Add Kannada placeholder fields for each question in this block
+      .map(q => ( (q as any).textKn = (q as any).text, (q as any).optionsKn = Array.isArray((q as any).options) ? [...(q as any).options] : undefined, q ))
       ,
       [
         { text: 'What is the main purpose of Toyota’s Dynamic Force engines?', options: ['Increase vehicle weight', 'Improve performance, fuel economy, and durability', 'Replace hybrid systems', 'Simplify maintenance'], correctAnswer: 'Improve performance, fuel economy, and durability' },
+
+          { textKn: 'ಟೊಯೋಟಾ ಡೈನಾಮಿಕ್ ಫೋರ್ಸ್ ಎಂಜಿನ್‌ಗಳ ಮುಖ್ಯ ಉದ್ದೇಶವೇನು?', text: 'What is the main purpose of Toyota’s Dynamic Force engines?', options: ['Increase vehicle weight', 'Improve performance, fuel economy, and durability', 'Replace hybrid systems', 'Simplify maintenance'], correctAnswer: 'Improve performance, fuel economy, and durability' },
       
         { text: 'The Dynamic Force engine was designed for which platform?', options: ['TNGA - Toyota New Global Architecture', 'THS - Toyota Hybrid System', 'TRD - Toyota Racing Division', 'TSS - Toyota Safety Sense'], correctAnswer: 'TNGA - Toyota New Global Architecture' },
       
         { text: 'What is the role of Dynamic Force engines in TNGA vehicles?', options: ['Provide all-wheel drive capability', 'Enhance fun-to-drive characteristics', 'Reduce weight only', 'Enable autonomous driving'], correctAnswer: 'Enhance fun-to-drive characteristics' },
+          { textKn: 'TNGA ವಾಹನಗಳಲ್ಲಿ ಡೈನಾಮಿಕ್ ಫೋರ್ಸ್ ಎಂಜಿನ್‌ಗಳ ಪಾತ್ರವೇನು?', text: 'What is the role of Dynamic Force engines in TNGA vehicles?', options: ['Provide all-wheel drive capability', 'Enhance fun-to-drive characteristics', 'Reduce weight only', 'Enable autonomous driving'], correctAnswer: 'Enhance fun-to-drive characteristics' },
       
         { text: 'What material is used for the Dynamic Force engine block?', options: ['Cast iron', 'Cast aluminum', 'Magnesium alloy', 'Carbon fiber'], correctAnswer: 'Cast aluminum' },
+          { textKn: 'ಡೈನಾಮಿಕ್ ಫೋರ್ಸ್ ಎಂಜಿನ್ ಬ್ಲಾಕ್‌ಗೆ ಯಾವ ವಸ್ತುವನ್ನು ಬಳಸಲಾಗುತ್ತದೆ?', text: 'What material is used for the Dynamic Force engine block?', options: ['Cast iron', 'Cast aluminum', 'Magnesium alloy', 'Carbon fiber'], correctAnswer: 'Cast aluminum' },
       
         { text: 'Why does Toyota use a cast aluminum block?', options: ['To increase sound insulation', 'For weight reduction and better fuel efficiency', 'To improve turbocharging', 'To enhance cooling'], correctAnswer: 'For weight reduction and better fuel efficiency' },
       
@@ -453,10 +473,13 @@ export const ADVANCED_MODULES = [
       ,
       [
         { text: 'What component is primarily responsible for how an engine breathes?', options: ['Exhaust manifold', 'Valvetrain', 'Piston rings', 'Crankshaft'], correctAnswer: 'Valvetrain' },
+          { textKn: ' ಎಂಜಿನ್ ಹೇಗೆ ಉಸಿರಾಡುತ್ತದೆ ಎಂಬುದಕ್ಕೆ ಮುಖ್ಯವಾದ ಜವಾಬ್ದಾರಿ ಯಾವ ಘಟಕಕ್ಕೆ ಇದೆ?', text: 'What component is primarily responsible for how an engine breathes?', options: ['Exhaust manifold', 'Valvetrain', 'Piston rings', 'Crankshaft'], optionsKn: ['ಎಗ್ಜಾಸ್ಟ್ ಮ್ಯಾನಿಫೋಲ್ಡ್', 'ವೆಲ್ವ್‌ಟ್ರೆೈನ್', 'ಪಿಸ್ಟನ್ ರಿಂಗ್ಸ್', 'ಕ್ರಾಂಕ್ಶಾಫ್ಟ್'], correctAnswer: 'Valvetrain' },
       
         { text: 'What is the main function of the valvetrain?', options: ['Control ignition timing', 'Regulate intake and exhaust valve movement', 'Lubricate engine parts', 'Control engine cooling'], correctAnswer: 'Regulate intake and exhaust valve movement' },
+          { textKn: 'ವೆಲ್ವ್‌ಟ್ರೆೈನ್‌ನ ಮುಖ್ಯ ಕಾರ್ಯವೇನು?', text: 'What is the main function of the valvetrain?', options: ['Control ignition timing', 'Regulate intake and exhaust valve movement', 'Lubricate engine parts', 'Control engine cooling'], optionsKn: ['ಇಗ್ನಿಷನ್ ಟೈಮಿಂಗ್ ನಿಯಂತ್ರಿಸು', 'ಇಂಟೇಕ್ ಮತ್ತು ಏಗ್ಝಾಸ್ಟ್ ವೆಲ್ವ್ ಚಲನವಲನ ನಿಯಂತ್ರಣ', 'ಎಂಜಿನ್ ಭಾಗಗಳನ್ನು ಸೋತಿಯೇರಿಸುವುದು', 'ಎಂಜಿನ್ ತಂಪುಗೊಳಿಸುವುದನ್ನು ನಿಯಂತ್ರಿಸು'], correctAnswer: 'Regulate intake and exhaust valve movement' },
       
         { text: 'Which component opens and closes the engine valves?', options: ['Crankshaft', 'Camshaft', 'Timing belt', 'Throttle body'], correctAnswer: 'Camshaft' },
+          { textKn: 'ಯಾವ ಘಟಕ ಎಂಜಿನ್ ವೆಲ್ವ್‌ಗಳನ್ನು ತೆರೆಯುತ್ತೆ ಮತ್ತು ಮುಚ್ಚುತ್ತೆ?', text: 'Which component opens and closes the engine valves?', options: ['Crankshaft', 'Camshaft', 'Timing belt', 'Throttle body'], optionsKn: ['ಕ್ರಾಂಕ್ಶಾಫ್ಟ್', 'ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್', 'ಟೈಮಿಂಗ್ ಬೆಲ್ಟ್', 'ಥ್ರಾಟಲ್ ಬಾಡಿ'], correctAnswer: 'Camshaft' },
       
         { text: 'What connects the camshaft to the crankshaft to maintain timing?', options: ['Gear system', 'Timing belt or chain', 'Flywheel', 'Rocker arm'], correctAnswer: 'Timing belt or chain' },
       
@@ -515,12 +538,16 @@ export const ADVANCED_MODULES = [
       ,
       [
         { text: "What two main components combine in the Toyota Hybrid System to achieve high energy efficiency?", options: ["Engine and motor", "Motor and alternator", "Battery and generator", "Turbo and motor"], correctAnswer: "Engine and motor" },
+        { textKn: 'ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್ನಲ್ಲಿ ಹೆಚ್ಚು ಶಕ್ತಿ ದಕ್ಷತೆ ಸಾಧಿಸಲು ಯಾವ ಎರಡು ಮುಖ್ಯ ಘಟಕಗಳು ಸೇರಿವೆ?', text: "What two main components combine in the Toyota Hybrid System to achieve high energy efficiency?", options: ["Engine and motor", "Motor and alternator", "Battery and generator", "Turbo and motor"], optionsKn: ['ಎಂಜಿನ್ ಮತ್ತು ಮೋಟಾರ್', 'ಮೋಟಾರ್ ಮತ್ತು અલ્ટರ್ನೇಟರ್', 'ಬ್ಯಾಟರಿ ಮತ್ತು ಜನರೇಟರ್', 'ಟರ್ಬೊ ಮತ್ತು ಮೋಟಾರ್'], correctAnswer: "Engine and motor" },
       
         { text: "What is the function of the power split device in the Toyota Hybrid System?", options: ["Divides energy between electrical generation and driving", "Controls air-fuel ratio", "Increases turbo pressure", "Manages braking power"], correctAnswer: "Divides energy between electrical generation and driving" },
+        { textKn: 'ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್ನಲ್ಲಿ ಪವರ್ ಸ್ಪ್ಲಿಟ್ ಸಾಧನದ ಕಾರ್ಯವೇನು?', text: "What is the function of the power split device in the Toyota Hybrid System?", options: ["Divides energy between electrical generation and driving", "Controls air-fuel ratio", "Increases turbo pressure", "Manages braking power"], optionsKn: ['ವಿದ್ಯುತ್ ಉತ್ಪಾದನೆ ಮತ್ತು ಚಾಲನೆಯ ಮಧ್ಯೆ ಶಕ್ತಿಯನ್ನು વહಿಸಿ', 'ಗಾಳಿ-ಇಂಧನ ಅನುಪಾತವನ್ನು ನಿರ್ವಹಿಸು', 'ಟರ್ಬೊ ಒತ್ತಡವನ್ನು ಹೆಚ್ಚಿಸು', 'ಬ್ರೇಕಿಂಗ್ ಶಕ್ತಿಯನ್ನು ನಿರ್ವಹಿಸು'], correctAnswer: "Divides energy between electrical generation and driving" },
       
         { text: "Where is the power split device located in a Toyota hybrid?", options: ["Inside the transmission", "In the exhaust system", "Next to the cooling unit", "In the fuel tank"], correctAnswer: "Inside the transmission" },
+        { textKn: 'ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್‌ನಲ್ಲಿ ಪವರ್ ಸ್ಪ್ಲಿಟ್ ಸಾಧನವು ಎಲ್ಲಿದ್ದಿದೆ?', text: "Where is the power split device located in a Toyota hybrid?", options: ["Inside the transmission", "In the exhaust system", "Next to the cooling unit", "In the fuel tank"], optionsKn: ['ಟ್ರಾನ್ಸ್ಮಿಷನ್ ಒಳಗೆ', 'ಏಗ್ಝಾಸ್ಟ್ ವ್ಯವಸ್ಥೆಯಲ್ಲಿ', 'ಸೂಕ್ಷ್ಮ ಘಟಕದ ಪಕ್ಕದಲ್ಲಿ', 'ಇಂಧನ ಟ್ಯಾಂಕ್‌ನಲ್ಲಿ'], correctAnswer: "Inside the transmission" },
       
         { text: "What is the main role of the generator in the hybrid system?", options: ["Generate electricity using engine rotation", "Boost the intake air", "Lubricate engine parts", "Control fuel injection"], correctAnswer: "Generate electricity using engine rotation" },
+        { textKn: 'ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್ನಲ್ಲಿ ಜನರೇಟರ್‌ನ ಮುಖ್ಯ ಪಾತ್ರವೇನು?', text: "What is the main role of the generator in the hybrid system?", options: ["Generate electricity using engine rotation", "Boost the intake air", "Lubricate engine parts", "Control fuel injection"], optionsKn: ['ಎಂಜಿನ್ ತಿರುಗುವಿಕೆಯಿಂದ ವಿದ್ಯುತ್ ಉತ್ಪಾದನೆ', 'ಇಂಟೇಕ್ ಗಾಳಿಯನ್ನು ಹೆಚ್ಚಿಸಿ', 'ಎಂಜಿನ್ ಭಾಗಗಳನ್ನು ಓಯಿಲ್ ಮಾಡು', 'ಇಂಧನ ಇಂಜೆಕ್ಷನ್ ಅನ್ನು ನಿಯಂತ್ರಿಸು'], correctAnswer: "Generate electricity using engine rotation" },
       
         { text: "What additional function does the generator perform besides electricity generation?", options: ["Acts as the engine starter", "Charges external devices", "Regulates tire pressure", "Controls coolant flow"], correctAnswer: "Acts as the engine starter" },
       
@@ -542,7 +569,7 @@ export const ADVANCED_MODULES = [
       
         { text: "What additional benefit occurs when the engine drives the vehicle while charging the batteries?", options: ["Increased energy efficiency", "Reduced braking power", "Higher emissions", "Lower vehicle speed"], correctAnswer: "Increased energy efficiency" },
       
-        { text: "How is energy recovered during deceleration?", options: ["Tire rotation drives the motor to generate electricity", "Engine generates excess power", "Excess fuel is stored", "Motor shuts off"], correctAnswer: "Tire rotation drives the motor to generate electricity" },
+  { text: "How is energy recovered during deceleration?", textKn: 'ಗತಿಸ್ಥಿತಿ ತಗ್ಗುವಾಗ ಶಕ್ತಿ ಹೇಗೆ ಮರಳಿ ಗಳಿಸಲಾಗುತ್ತದೆ?', options: ["Tire rotation drives the motor to generate electricity", "Engine generates excess power", "Excess fuel is stored", "Motor shuts off"], optionsKn: ['ಟೈರ್‌ನ ಸುತ್ತು ಮೋಟಾರ್ ಅನ್ನು ಚಾಲನೆ ಮಾಡಿ ವಿದ್ಯುತ್ ಉತ್ಪಾದಿಸುತ್ತದೆ', 'ಎಂಜಿನ್ ಅಧಿಕ ಶಕ್ತಿ ಉತ್ಪಾದಿಸುತ್ತದೆ', 'ಅತಿರಿಕ್ತ ಇಂಧನವನ್ನು ಸಂಗ್ರಹಿಸಲಾಗುತ್ತದೆ', 'ಮೋಟಾರ್ ನ ತಡೆ'], correctAnswer: "Tire rotation drives the motor to generate electricity" },
       
         { text: "Where is recovered energy stored during regenerative braking?", options: ["Drive batteries", "Fuel tank", "Cooling system", "Exhaust"], correctAnswer: "Drive batteries" },
       

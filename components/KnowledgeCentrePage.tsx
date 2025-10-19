@@ -11,9 +11,9 @@ const KnowledgeCentrePage: React.FC = () => {
   return (
     <div className="min-h-screen p-6 pt-24 bg-gray-50">
       <div className="max-w-6xl mx-auto">
-        <button onClick={() => setCurrentPage(Page.DASHBOARD)} className="flex items-center gap-2 text-black hover:text-red-500 mb-6">
+  <button data-kn-skip onClick={() => setCurrentPage(Page.DASHBOARD)} className="flex items-center gap-2 text-black hover:text-red-500 mb-6">
           <ChevronLeftIcon className="w-6 h-6" />
-          {t('back_to_dashboard')}
+          {t('back')}
         </button>
 
         <header className="mb-8 text-center">

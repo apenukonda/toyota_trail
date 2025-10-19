@@ -41,15 +41,16 @@ const PlaceholderTask: React.FC<PlaceholderTaskProps> = ({ taskId, title, instru
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 pt-24 text-center animate-fade-in">
       <button 
+        data-kn-skip
         onClick={() => setCurrentPage(Page.DASHBOARD)} 
         className="absolute top-20 left-4 sm:left-6 lg:left-8 flex items-center gap-2 text-black hover:text-red-500 transition-colors"
       >
         <ChevronLeftIcon className="w-6 h-6"/>
-        {t('back_to_dashboard')}
+          {t('back')}
       </button>
 
       <div className="w-full max-w-2xl">
-  <h1 className="text-4xl font-bold mb-4">{language === 'kn' && (title === 'Slogan Writer' || title === 'Suggestion Box') ? (title === 'Slogan Writer' ? 'ಸ್ಲೋಗನ್ ರಚನೆ' : 'ಸಲಹೆ ಪೆಟ್ಟಿಗೆ') : title}</h1>
+  <h1 className="text-4xl font-bold mb-4">{language === 'kn' && (title === 'Slogan Writer' || title === 'Suggestion Box' || title === 'Slogan Competition' || title === 'Kaizen Suggestion') ? (title === 'Slogan Writer' ? 'ಸ್ಲೋಗನ್ ರಚನೆ' : title === 'Suggestion Box' ? 'ಸಲಹೆ ಪೆಟ್ಟಿಗೆ' : title === 'Slogan Competition' ? 'ಸ್ಲೋಗನ್ ಸ್ಪರ್ಧೆ' : 'ಕೈಝೆನ್ ಸಲಹೆ') : title}</h1>
         <div className="bg-white p-8 rounded-2xl shadow-xl text-left mb-8">
       <h2 className="text-2xl font-semibold text-black mb-4">{language === 'kn' ? 'ಸೂಚನೆಗಳು' : 'Instructions'}</h2>
             <ul className="list-disc list-inside space-y-2 text-black">
@@ -123,6 +124,7 @@ function translateInstruction(inst: string) {
     "The theme for this year is 'Think Differently.'": 'ಈ ವರ್ಷದ ವಿಷಯ: ವಿಭಿನ್ನವಾಗಿ ಯೋಚಿಸಿ.',
     "Craft a catchy and inspiring slogan related to quality and innovation.": 'ಗುಣಮಟ್ಟ ಮತ್ತು ನಾವೀನ್ಯತೆಗೆ ಸಂಬಂಧಿಸಿದ ಕ್ಯಾಚಿ ಮತ್ತು ಪ್ರೇರಣಾದಾಯಕ ಸ್ಲೋಗನ್ ರಚಿಸಿ.',
     "Submissions will be reviewed by the management committee.": 'ಸಲ್ಲಿಕೆಗಳನ್ನು ನಿರ್ವಹಣಾ ಸಮಿತಿ ಪರಿಶೀಲಿಸುವುದು.' ,
+    "The winning slogan will be featured in next month's company-wide newsletter.": 'ವಿಜೇತ ಸ್ಲೋಗನ್ ಮುಂದಿನ ತಿಂಗಳ ಸಂಸ್ಥಾಪ್ರಚಾರ ಪತ್ರಿಕೆಯಲ್ಲಿ ಪ್ರದರ್ಶಿಸಲಾಗುತ್ತದೆ.',
     "This is your chance to contribute to Kaizen (Continuous Improvement).": 'ಕೈಝೆನ್ (ನಿರಂತರ ಸುಧಾರಣೆ) ಗೆ ನಿಮ್ಮ ಕೊಡುಗೆ ನೀಡಲು ಇದು ನಿಮ್ಮ ಅವಕಾಶ.',
     "Think about a process in your daily work that could be more efficient or safer.": 'ನಿಮ್ಮ ದೈನಂದಿನ ಕೆಲಸದಲ್ಲಿನ ಹೆಚ್ಚು ಕಾರ್ಯಕ್ಷಮ ಅಥವಾ ಸುರಕ್ಷಿತವಾಗಲು ಸಾಧ್ಯವಾಗುವ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಕುರಿತು ಯೋಚಿಸಿ.' ,
     "Describe the problem and your proposed solution.": 'ಸಮಸ್ಯೆಯನ್ನು ಮತ್ತು ನಿಮಗೆ ತೋರಿಸಿದ ಪರಿಹಾರವನ್ನು ವಿವರಿಸಿ.' ,

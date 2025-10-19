@@ -32,32 +32,32 @@ const App: React.FC = () => {
         return <KnowledgeCentrePage />;
       case Page.VIDEO_TASK:
         return <VideoTask />;
-      case Page.IMAGE_SUBMISSION:
-          return <ImageSubmissionTask />;
-      case Page.SLOGAN_WRITER:
-          return <PlaceholderTask 
-                    taskId="task4" 
-                    title="Slogan Competition" 
-                    instructions={[
-                        "The theme for this year is 'Think Differently.'",
-                        "Craft a catchy and inspiring slogan related to quality and innovation.",
-                        "Submissions will be reviewed by the management committee.",
-                        "The winning slogan will be featured in next month's company-wide newsletter."
-                    ]}
-                    score={3}
-                 />;
-      case Page.SUGGESTION_BOX:
-          return <PlaceholderTask 
-                    taskId="task5" 
-                    title="Kaizen Suggestion" 
-                    instructions={[
-                        "This is your chance to contribute to Kaizen (Continuous Improvement).",
-                        "Think about a process in your daily work that could be more efficient or safer.",
-                        "Describe the problem and your proposed solution.",
-                        "All suggestions will be evaluated for feasibility and impact."
-                    ]}
-                    score={3}
-                 />;
+    case Page.IMAGE_SUBMISSION:
+      return <ImageSubmissionTask />;
+    case Page.SLOGAN_WRITER:
+      return <PlaceholderTask
+          taskId="task4" 
+          title="Slogan Competition" 
+          instructions={[
+            "The theme for this year is 'Think Differently.'",
+            "Craft a catchy and inspiring slogan related to quality and innovation.",
+            "Submissions will be reviewed by the management committee.",
+            "The winning slogan will be featured in next month's company-wide newsletter."
+          ]}
+          score={3}
+         />;
+    case Page.SUGGESTION_BOX:
+      return <PlaceholderTask
+          taskId="task5" 
+          title="Kaizen Suggestion" 
+          instructions={[
+            "This is your chance to contribute to Kaizen (Continuous Improvement).",
+            "Think about a process in your daily work that could be more efficient or safer.",
+            "Describe the problem and your proposed solution.",
+            "All suggestions will be evaluated for feasibility and impact."
+          ]}
+          score={3}
+         />;
       case Page.HOME:
       default:
         return <HomePage />;
