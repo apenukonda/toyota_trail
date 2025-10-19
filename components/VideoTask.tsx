@@ -8,7 +8,11 @@ import React, {
 import { AppContext } from "../context/AppContext";
 import { Page, Question } from "../types";
 import Quiz from "./Quiz";
-import { ADVANCED_MODULES } from "../constants";
+import { ADVANCED_MODULES, M2_TASK3_QUIZ, M2_TASK1_QUIZ } from "../constants";
+import { M2_TASK3_QUIZ_KN, M2_TASK1_QUIZ_KN, M2_TASK2_QUIZ_KN } from "../constants_kn";
+import { M2_TASK4_QUIZ_KN } from "../constants_kn";
+import { M2_TASK2_QUIZ } from "../constants";
+import { M2_TASK4_QUIZ } from "../constants";
 import {
   ChevronLeftIcon,
   PlayIcon,
@@ -46,14 +50,53 @@ const VideoTask: React.FC = () => {
     setSelectedModuleIndex,
     getTaskScore,
   } = useContext(AppContext);
+
+  // Helper: ensure question objects include Kannada fields when language === 'kn'
+  const attachKannadaFields = (qs: Question[] | undefined) => {
+    if (!qs) return qs || [];
+    // no-op
+
+    return qs.map(qOrig => {
+      const q = { ...(qOrig as any) } as any;
+      try {
+        // Fill textKn: prefer existing, then translation map, then dash-split fallback
+        if (language === 'kn') {
+          if (!q.textKn || q.textKn === q.text) {
+            const translated = t(q.text || '');
+            if (translated && translated !== q.text) {
+              q.textKn = translated;
+            } else {
+              const parts = (q.text || '').split(/[-–—]/).map((s: string) => s.trim()).filter(Boolean);
+              if (parts.length >= 2) q.textKn = parts[parts.length - 1];
+            }
+          }
+          // Options: prefer optionsKn if present, otherwise try translations/dash-split per option
+          if (!Array.isArray(q.optionsKn) || q.optionsKn.length !== q.options.length) {
+            q.optionsKn = q.options.map((opt: string, idx: number) => {
+              // If an optionsKn exists at idx and is different, keep it
+              if (Array.isArray(qOrig.optionsKn) && qOrig.optionsKn[idx]) return qOrig.optionsKn[idx];
+              const translatedOpt = t(opt);
+              if (translatedOpt && translatedOpt !== opt) return translatedOpt;
+              const optParts = opt.split(/[-–—]/).map((s: string) => s.trim()).filter(Boolean);
+              if (optParts.length >= 2) return optParts[optParts.length - 1];
+              return opt;
+            });
+          }
+        }
+      } catch (e) {
+        // Defensive: if anything fails, return shallow copy
+        return { ...(qOrig as any) } as Question;
+      }
+      // end per-question processing
+      return q as Question;
+    });
+  };
   const [view, setView] = useState<View>("instructions");
   const [currentModuleIndex, setCurrentModuleIndex] = useState(0);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [videoProgress, setVideoProgress] = useState<VideoProgress>({});
   const [videoDuration, setVideoDuration] = useState(0);
-  const [currentQuizQuestions, setCurrentQuizQuestions] = useState<Question[]>(
-    []
-  );
+  const [currentQuizQuestions, setCurrentQuizQuestions] = useState<Question[]>([]);
   
   const [startedQuiz, setStartedQuiz] = useState(false);
   const [showBackWarning, setShowBackWarning] = useState(false);
@@ -65,6 +108,8 @@ const VideoTask: React.FC = () => {
 
   const playerRef = useRef<any>(null);
   const playerContainerRef = useRef<HTMLDivElement>(null);
+
+  // (currentModule/currentVideo are declared later in the file; effects reference module by index)
 
   const fetchInitialProgress = useCallback(async () => {
     if (currentUser) {
@@ -85,6 +130,68 @@ const VideoTask: React.FC = () => {
       setSelectedModuleIndex(null);
     }
   }, [fetchInitialProgress]);
+
+  // Fix: Reset quiz questions when language changes for M2 Task 1, Task 2, and Task 3
+  useEffect(() => {
+    if (view === 'quiz' && currentModule?.id === 'M2') {
+      if (currentVideoIndex === 0) {
+        const quizArr = language === 'kn' ? M2_TASK1_QUIZ_KN : M2_TASK1_QUIZ;
+        setCurrentQuizQuestions([...quizArr]);
+      } else if (currentVideoIndex === 1) {
+        const quizArr = language === 'kn' ? M2_TASK2_QUIZ_KN : M2_TASK2_QUIZ;
+        setCurrentQuizQuestions([...quizArr]);
+      } else if (currentVideoIndex === 2) {
+        const quizArr = language === 'kn' ? M2_TASK3_QUIZ_KN : M2_TASK3_QUIZ;
+        setCurrentQuizQuestions([...quizArr]);
+      } else if (currentVideoIndex === 3) {
+        const quizArr = language === 'kn' ? M2_TASK4_QUIZ_KN : M2_TASK4_QUIZ;
+        setCurrentQuizQuestions([...quizArr]);
+      }
+    }
+    // eslint-disable-next-line
+  }, [language, currentModuleIndex]);
+
+  // Ensure non-M2 quizzes (e.g., M1) re-render their displayed text when the
+  // language changes, without resetting quiz progress. We do this by
+  // shallow-cloning the questions array and its objects so the Quiz component
+  // receives a new prop reference and re-renders localized strings, while the
+  // Quiz component itself preserves the currentQuestionIndex/score because
+  // it resets only on quizId changes.
+  useEffect(() => {
+    if (view === 'quiz' && currentModule?.id && currentModule.id !== 'M2') {
+      setCurrentQuizQuestions(prev => {
+        if (!prev || prev.length === 0) return prev;
+        try {
+          return attachKannadaFields(prev as Question[]);
+        } catch (e) {
+          // Fallback to a shallow clone if attach fails for any reason
+          return (prev as Question[]).map(q => ({ ...(q as Question) }));
+        }
+      });
+    }
+    // Intentionally run whenever language changes
+  }, [language]);
+
+  // Initialize/reset quiz questions when entering the quiz view or when the current video index changes
+  useEffect(() => {
+    if (view === 'quiz' && currentModule?.id === 'M2') {
+      // Same selection logic as above but triggered on view/index changes to ensure initial language is respected
+      if (currentVideoIndex === 0) {
+        const quizArr = language === 'kn' ? M2_TASK1_QUIZ_KN : M2_TASK1_QUIZ;
+        setCurrentQuizQuestions(attachKannadaFields([...quizArr]));
+      } else if (currentVideoIndex === 1) {
+        const quizArr = language === 'kn' ? M2_TASK2_QUIZ_KN : M2_TASK2_QUIZ;
+        setCurrentQuizQuestions(attachKannadaFields([...quizArr]));
+      } else if (currentVideoIndex === 2) {
+        const quizArr = language === 'kn' ? M2_TASK3_QUIZ_KN : M2_TASK3_QUIZ;
+        setCurrentQuizQuestions(attachKannadaFields([...quizArr]));
+      } else if (currentVideoIndex === 3) {
+        const quizArr = language === 'kn' ? M2_TASK4_QUIZ_KN : M2_TASK4_QUIZ;
+        setCurrentQuizQuestions(attachKannadaFields([...quizArr]));
+      }
+    }
+    // We intentionally include view and currentVideoIndex so this runs on entering quiz and when index changes
+  }, [view, currentVideoIndex, currentModuleIndex, language]);
 
   // Effect to manage the YouTube Player lifecycle
   useEffect(() => {
@@ -376,6 +483,9 @@ const VideoTask: React.FC = () => {
         videoDuration * 0.95 &&
         videoDuration > 0));
 
+  // Derived boolean indicating whether the currently selected module is M2
+  const isM2Module = ADVANCED_MODULES[currentModuleIndex]?.id === 'M2';
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 pt-24 animate-fade-in">
       <button
@@ -554,11 +664,21 @@ const VideoTask: React.FC = () => {
             <button
               onClick={() => {
                 if (currentQuizQuestions.length === 0) {
-                  const quizQuestions = getRandomQuestions(
-                    currentModule?.quizzes[currentVideoIndex] || [],
-                    7
-                  );
-                  setCurrentQuizQuestions(quizQuestions);
+                  // M2 Task 1: Use static quiz arrays for this module
+                  if (currentModule?.id === 'M2' && currentVideoIndex === 0) {
+                    const quizArr = language === 'kn' ? M2_TASK1_QUIZ_KN : M2_TASK1_QUIZ;
+                    setCurrentQuizQuestions(attachKannadaFields(getRandomQuestions(quizArr, quizArr.length)));
+                  } else if (currentModule?.id === 'M2' && currentVideoIndex === 2) {
+                    // M2 Task 3: Use static quiz arrays for this module
+                    const quizArr = language === 'kn' ? M2_TASK3_QUIZ_KN : M2_TASK3_QUIZ;
+                    setCurrentQuizQuestions(attachKannadaFields(getRandomQuestions(quizArr, quizArr.length)));
+                  } else {
+                    const quizQuestions = getRandomQuestions(
+                      currentModule?.quizzes[currentVideoIndex] || [],
+                      7
+                    );
+                    setCurrentQuizQuestions(attachKannadaFields(quizQuestions));
+                  }
                 }
                 setStartedQuiz(true);
                 setView("quiz");
@@ -580,6 +700,7 @@ const VideoTask: React.FC = () => {
           questions={currentQuizQuestions}
           onComplete={handleQuizComplete}
           onScoreUpdate={setCurrentQuizScore}
+          quizId={`${currentModule?.id || 'M'}-${currentVideoIndex}`}
         />
       )}
 

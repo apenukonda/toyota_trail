@@ -8,11 +8,12 @@ interface QuizProps {
   questions: Question[];
   onComplete: (score: number) => void;
   onScoreUpdate?: (score: number) => void;
+  quizId?: string;
 }
 
 const TIMER_DURATION = 20;
 
-const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate }) => {
+const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate, quizId }) => {
   // Parent component should persist the quiz score (via updateTaskCompletion or addScore)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -20,8 +21,8 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate }) => 
   const [timer, setTimer] = useState(TIMER_DURATION);
   const [showFeedback, setShowFeedback] = useState(false);
 
-  const currentQuestion = questions[currentQuestionIndex];
-  const isCorrect = selectedOption === currentQuestion.correctAnswer;
+  const currentQuestion = questions && questions.length > 0 ? questions[currentQuestionIndex] : undefined;
+  const isCorrect = currentQuestion ? selectedOption === currentQuestion.correctAnswer : false;
   const { t, language } = useContext(AppContext);
   const [langVersion, setLangVersion] = useState(0);
 
@@ -40,10 +41,13 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate }) => 
     if (translated !== text) return translated;
     // If user selected Kannada and the text contains a dash-separated pair,
     // return the last segment which is often the Kannada version.
-    if (language === 'kn' && text.includes('-')) {
-      const parts = text.split('-');
-      const last = parts[parts.length - 1].trim();
-      return last;
+    // Be liberal about dash characters: support hyphen-minus, en-dash and em-dash.
+    if (language === 'kn') {
+      const dashSplit = text.split(/[-–—]/).map(s => s.trim()).filter(Boolean);
+      if (dashSplit.length >= 2) {
+        // prefer the last segment as the Kannada portion
+        return dashSplit[dashSplit.length - 1];
+      }
     }
 
     return text;
@@ -87,6 +91,7 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate }) => 
 
   const handleOptionSelect = (option: string) => {
     if (showFeedback) return;
+    if (!currentQuestion) return;
     setSelectedOption(option);
     if (option === currentQuestion.correctAnswer) {
       setScore(s => {
@@ -115,6 +120,7 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate }) => 
     if (!showFeedback) {
       return 'bg-gray-200 dark:bg-gray-700 hover:bg-red-200 dark:hover:bg-red-900/50';
     }
+    if (!currentQuestion) return 'bg-gray-200 dark:bg-gray-700 opacity-50';
     if (option === currentQuestion.correctAnswer) {
       return 'bg-green-500 text-white';
     }
@@ -128,8 +134,38 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate }) => 
   // Removing local back UI to avoid duplicate controls and keep a single source
   // of truth for the confirmation modal.
 
+  // Reset local quiz state only when the quiz identity changes (new quiz load).
+  // This prevents language-only updates to the questions array from resetting
+  // the user's progress during an in-progress quiz.
+  useEffect(() => {
+    setCurrentQuestionIndex(0);
+    setSelectedOption(null);
+    setScore(0);
+    setTimer(TIMER_DURATION);
+    setShowFeedback(false);
+  }, [quizId]);
+
+  // If there are no questions or currentQuestion is undefined, render a loading fallback
+  if (!questions || questions.length === 0 || !currentQuestion) {
+    return (
+      <div className="bg-white backdrop-blur-lg p-8 rounded-2xl shadow-xl w-full max-w-2xl animate-fade-in relative">
+        <div className="flex justify-between items-center mb-6">
+          <h3 className="text-xl font-semibold">{t('question_label') || 'Question'}</h3>
+        </div>
+        <p className="text-lg mb-4">{t('loading_questions') || 'Loading questions...'}</p>
+      </div>
+    );
+  }
+
+  // Diagnostic: log whether currentQuestion includes Kannada fields when rendering
+  try {
+    // eslint-disable-next-line no-console
+    console.log('[i18n][Quiz] render language=', language, 'currentQuestion.textKn=', (currentQuestion as any)?.textKn);
+  } catch (e) {}
+
   return (
     <div className="bg-white backdrop-blur-lg p-8 rounded-2xl shadow-xl w-full max-w-2xl animate-fade-in relative">
+      {/* debug overlay removed */}
       {/* Back button removed from inside the quiz card. Parent provides the
           external back control and confirmation modal (see MdMessageTask). */}
   <div className="flex justify-between items-center mb-6" data-kn-skip>
