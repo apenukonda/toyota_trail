@@ -62,6 +62,8 @@ export interface User {
   department: Department;
   designation: Designation;
   score: number;
+  // role stored in profiles table (e.g. 'user' or 'admin')
+  role?: string;
 }
 
 export interface Task {

@@ -209,19 +209,8 @@ const AuthPage: React.FC = () => {
                 required
               />
             </div>
-            <div>
-              <label className="text-sm font-medium text-gray-600">Role</label>
-              <div className="flex gap-4 mt-2">
-                <label className="inline-flex items-center">
-                  <input type="radio" name="role" value="user" checked={role === 'user'} onChange={() => setRole('user')} />
-                  <span className="ml-2">User</span>
-                </label>
-                <label className="inline-flex items-center">
-                  <input type="radio" name="role" value="admin" checked={role === 'admin'} onChange={() => setRole('admin')} />
-                  <span className="ml-2">Admin</span>
-                </label>
-              </div>
-            </div>
+
+
             {error && <p className="text-red-500 text-sm">{error}</p>}
             <button type="submit" disabled={loading} className="w-full py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors transform hover:scale-105 disabled:bg-red-400 disabled:scale-100">
               {loading ? 'Logging in...' : 'Login'}

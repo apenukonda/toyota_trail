@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AppContext } from './context/AppContext';
 import { Page } from './types';
 import HomePage from './components/HomePage';
@@ -12,17 +12,31 @@ import ImageSubmissionTask from './components/ImageSubmissionTask';
 import TopPerformers from './components/TopPerformers';
 import KnowledgeCentrePage from './components/KnowledgeCentrePage';
 import KnFontScaler from './components/KnFontScaler';
+import Admin from './components/admin/Admin';
 
 const App: React.FC = () => {
   const { currentPage, theme, currentUser } = useContext(AppContext);
   const { language } = useContext(AppContext);
 
   const renderPage = () => {
+    const isAdmin = currentUser && (currentUser.role === 'admin' || currentUser.role === 'ADMIN');
+    const pathnameIsAdmin = typeof window !== 'undefined' && window.location.pathname === '/admin';
+
+    // If user directly navigates to /admin, handle it first
+    if (pathnameIsAdmin) {
+      if (isAdmin) return <Admin />;
+      // non-admin trying to access /admin -> fall back to home
+      return <HomePage />;
+    }
     switch (currentPage) {
       case Page.LOGIN:
       case Page.SIGNUP:
         return <AuthPage />;
       case Page.DASHBOARD:
+        // if the logged in user has an admin role, show the admin landing
+        if (isAdmin) {
+          return <Admin />;
+        }
         return <Dashboard />;
       case Page.MD_MESSAGE:
         return <MdMessageTask />;
@@ -63,6 +77,23 @@ const App: React.FC = () => {
         return <HomePage />;
     }
   };
+
+  // Keep the browser URL in sync: if an admin is viewing dashboard, push /admin.
+  useEffect(() => {
+    const isAdmin = currentUser && (currentUser.role === 'admin' || currentUser.role === 'ADMIN');
+    if (typeof window === 'undefined') return;
+
+    if (isAdmin && (currentPage === Page.DASHBOARD || window.location.pathname === '/admin')) {
+      if (window.location.pathname !== '/admin') {
+        window.history.replaceState(null, '', '/admin');
+      }
+    } else {
+      // if a non-admin is on /admin, push them to home
+      if (window.location.pathname === '/admin' && !isAdmin) {
+        window.history.replaceState(null, '', '/');
+      }
+    }
+  }, [currentUser, currentPage]);
 
   return (
     <div className={`${theme} transition-colors duration-500`}>
