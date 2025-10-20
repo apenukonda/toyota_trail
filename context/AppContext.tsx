@@ -25,7 +25,7 @@ interface AppContextType {
   updateVideoProgress: (videoId: string, watchedSeconds: number, isComplete: boolean) => Promise<void>;
   getSubmission: (taskId: string) => Promise<{ data: { image_url: string }[] | null, error: any }>;
   submitImageUrl: (taskId: string, imageUrl: string) => Promise<{ success: boolean; error?: any }>;
-  getTopScores: () => Promise<{ name: string; designation: string; score: number }[]>;
+  getTopScores: (department?: string) => Promise<{ name: string; department: string; score: number }[]>;
   getTaskScore: (taskId: string) => Promise<number>;
 }
 
@@ -613,18 +613,25 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     }
   };
 
-  const getTopScores = async (): Promise<{ name: string; department: string; score: number }[]> => {
-    const { data, error } = await supabaseClient
+  const getTopScores = async (department?: string): Promise<{ name: string; department: string; score: number }[]> => {
+    let query = supabaseClient
       .from('profiles')
       .select('name, department, score')
       .order('score', { ascending: false })
-  .limit(5);
+      .limit(5);
+
+    if (department) {
+      // filter by department string as stored in profiles.department
+      query = query.eq('department', department) as any;
+    }
+
+    const { data, error } = await query;
 
     if (error) {
       console.error('Error fetching top scores:', error);
       return [];
     }
-    return data;
+  return data;
   };
 
   const getTaskScore = async (taskId: string) => {

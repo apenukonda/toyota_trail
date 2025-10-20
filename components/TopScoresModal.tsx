@@ -18,6 +18,7 @@ const TopScoresModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        // no department passed -> top across all departments (default behavior)
         getTopScores().then(data => {
             setScores(data);
             setLoading(false);
