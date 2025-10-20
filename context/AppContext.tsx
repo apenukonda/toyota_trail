@@ -494,49 +494,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     await supabaseClient.auth.signOut();
   };
 
-  const addScore = async (points: number) => {
-    if (!currentUser) return;
 
-    console.log('Adding score:', points);
-
-    // Get current score
-    const { data: profile, error: fetchError } = await supabaseClient
-      .from('profiles')
-      .select('score')
-      .eq('id', currentUser.id)
-      .single();
-
-    if (fetchError) {
-      console.error('Error fetching score:', fetchError.message);
-      return;
-    }
-
-    console.log('Current score from DB:', profile.score);
-
-    const newScore = profile.score + points;
-
-    console.log('New score to be set:', newScore);
-
-    // Update total score
-    const { error: scoreError } = await supabaseClient
-      .from('profiles')
-      .update({ score: newScore })
-      .eq('id', currentUser.id);
-
-    if (scoreError) {
-      console.error('Error updating score:', scoreError.message);
-      return;
-    }
-
-    console.log('Score updated successfully in DB');
-
-    // Update local state
-    const updatedUser = { ...currentUser, score: newScore };
-    setCurrentUser(updatedUser);
-    saveSession(updatedUser);
-
-    console.log('Local state updated, new user score:', updatedUser.score);
-  };
 
   const updateTaskCompletion = async (taskId: string, completedSteps: number, scoreEarned: number) => {
     if (!currentUser) return;
@@ -787,7 +745,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   };
 
   return (
-    <AppContext.Provider value={{ theme, setTheme, currentPage, setCurrentPage, currentUser, language, setLanguage, t, login, signup, logout, tasks, updateTaskCompletion, updateModuleTask, resetTasks, getVideoProgress, updateVideoProgress, getSubmission, submitImageUrl, getTopScores, getTaskScore, addScore }}>
+    <AppContext.Provider value={{ theme, setTheme, currentPage, setCurrentPage, currentUser, language, setLanguage, t, login, signup, logout, tasks, updateTaskCompletion, resetTasks, getVideoProgress, updateVideoProgress, getSubmission, submitImageUrl, getTopScores, getTaskScore }}>
       {children}
     </AppContext.Provider>
   );

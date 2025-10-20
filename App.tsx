@@ -13,6 +13,7 @@ import TopPerformers from './components/TopPerformers';
 import KnowledgeCentrePage from './components/KnowledgeCentrePage';
 import KnFontScaler from './components/KnFontScaler';
 import Admin from './components/admin/Admin';
+import KaizenSuggestionTask from './components/KaizenSuggestionTask';
 
 const App: React.FC = () => {
   const { currentPage, theme, currentUser } = useContext(AppContext);
@@ -62,8 +63,8 @@ const App: React.FC = () => {
          />;
     case Page.SUGGESTION_BOX:
       return <PlaceholderTask
-          taskId="task5" 
-          title="Kaizen Suggestion" 
+          taskId="task5"
+          title="Kaizen Suggestion"
           instructions={[
             "This is your chance to contribute to Kaizen (Continuous Improvement).",
             "Think about a process in your daily work that could be more efficient or safer.",

@@ -38,6 +38,20 @@ const PlaceholderTask: React.FC<PlaceholderTaskProps> = ({ taskId, title, instru
     }
   };
 
+  const handleKaizenComplete = async () => {
+    setSubmitting(true);
+    setError('');
+    try {
+      // Just update task completion, no data submission to our DB for this one.
+      await updateTaskCompletion(taskId, 1, score);
+      setSuccess(true);
+      setTimeout(() => setCurrentPage(Page.DASHBOARD), 1200);
+    } catch (e: any)      {
+      setError(e.message || 'Failed to mark as complete.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 pt-24 text-center animate-fade-in">
       <button 
@@ -102,6 +116,30 @@ const PlaceholderTask: React.FC<PlaceholderTaskProps> = ({ taskId, title, instru
             )}
             {error && <div className="mt-2 text-red-600">{error}</div>}
             {success && <div className="mt-2 text-green-600">{language === 'kn' ? 'ಸ್ಲೋಗನ್ ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಸಲಾಗಿದೆ!' : 'Slogan submitted successfully!'}</div>}
+          </div>
+        ) : title === 'Kaizen Suggestion' ? (
+          <div className="bg-white p-8 rounded-2xl shadow-xl text-center">
+            <h2 className="text-2xl font-semibold text-black mb-4">{language === 'kn' ? 'ಸಲಹೆ ಫಾರ್ಮ್' : 'Suggestion Form'}</h2>
+            <p className="text-black mb-6">{language === 'kn' ? 'ನಿಮ್ಮ ಕೈಜೆನ್ ಸಲಹೆಯನ್ನು ಸಲ್ಲಿಸಲು ದಯವಿಟ್ಟು ಕೆಳಗಿನ ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ. ಫಾರ್ಮ್ ಅನ್ನು ಪೂರ್ಣಗೊಳಿಸಿದ ನಂತರ, ಅಂಕಗಳನ್ನು ಪಡೆಯಲು ಇಲ್ಲಿಗೆ ಹಿಂತಿರುಗಿ ಮತ್ತು "ಪೂರ್ಣಗೊಂಡಿದೆ ಎಂದು ಗುರುತಿಸಿ" ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ.' : 'Please click the button below to open the Google Form to submit your Kaizen suggestion. After completing the form, return here and click "Mark as Complete" to get your points.'}</p>
+            <a 
+              href="https://forms.office.com/r/vJ2dA7FUGW" // <-- TODO: Replace with your actual Google Form URL
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block px-8 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors mb-6"
+            >
+              {language === 'kn' ? 'Google ಫಾರ್ಮ್ ತೆರೆಯಿರಿ' : 'Open Google Form'}
+            </a>
+            <hr className="my-4 border-gray-200" />
+            <p className="text-sm text-gray-600 mb-4">{language === 'kn' ? 'ಫಾರ್ಮ್ ಸಲ್ಲಿಸಿದ ನಂತರ, ದಯವಿಟ್ಟು ಕೆಳಗೆ ಕ್ಲಿಕ್ ಮಾಡಿ:' : 'Once you have submitted the form, please click below:'}</p>
+            <button
+              onClick={handleKaizenComplete}
+              className="px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50"
+              disabled={submitting || success}
+            >
+              {submitting ? (language === 'kn' ? 'ಸಲ್ಲಿಸಲಾಗುತ್ತಿದೆ...' : 'Submitting...') : success ? (language === 'kn' ? 'ಪೂರ್ಣಗೊಂಡಿದೆ!' : 'Completed!') : (language === 'kn' ? 'ಪೂರ್ಣಗೊಂಡಿದೆ ಎಂದು ಗುರುತಿಸಿ' : 'Mark as Complete')}
+            </button>
+            {error && <div className="mt-2 text-red-600">{error}</div>}
+            {success && <div className="mt-2 text-green-600">{language === 'kn' ? 'ಕಾರ್ಯ ಯಶಸ್ವಿಯಾಗಿ ಪೂರ್ಣಗೊಂಡಿದೆ!' : 'Task completed successfully!'}</div>}
           </div>
         ) : (
           <div className="bg-white p-8 rounded-2xl shadow-xl">
