@@ -539,47 +539,30 @@ export const ADVANCED_MODULES = [
     ],
     quizzes: [
       // Dummy quiz for video 1: 7 questions
-      [
-  { text: 'Who first proposed the Atkinson cycle?', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರವನ್ನು ಮೊದಲು ಪ್ರಸ್ತಾವಿಸಿದವರು ಯಾರು?', options: ['Nikolaus Otto', 'James Atkinson', 'Rudolf Diesel', 'Karl Benz'], optionsKn: ['ನಿಕೊಲಾಸ್ ಓಟ್ಟೋ', 'ಜೆಮ್ಸ್ ಅಟ್ಕಿನ್ಸನ್', 'ರೂಡೊಲ್ಫ್ ಡೀಸೆಲ್', 'ಕಾರ್ಲ್ ಬೆನ್‌ಜ್'], correctAnswer: 'James Atkinson' },
+  
+[
+ { text: 'Who first proposed the Atkinson cycle?', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರವನ್ನು ಮೊದಲು ಪ್ರಸ್ತಾವಿಸಿದವರು ಯಾರು?', options: ['Nikolaus Otto', 'James Atkinson', 'Rudolf Diesel', 'Karl Benz'], optionsKn: ['ನಿಕೊಲಾಸ್ ಓಟ್ಟೋ', 'ಜೆಮ್ಸ್ ಅಟ್ಕಿನ್ಸನ್', 'ರೂಡೊಲ್ಫ್ ಡೀಸೆಲ್', 'ಕಾರ್ಲ್ ಬೆನ್‌ಜ್'], correctAnswer: 'James Atkinson', correctAnswerKn: 'ಜೆಮ್ಸ್ ಅಟ್ಕಿನ್ಸನ್' },
+ { text: 'In which year was the Atkinson cycle first proposed?', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರವನ್ನು ಯಾವ ವರ್ಷದಲ್ಲಿ ಪ್ರಸ್ತಾವಿಸಲಾಯಿತು?', options: ['1876', '1882', '1890', '1901'], optionsKn: ['1876', '1882', '1890', '1901'], correctAnswer: '1882', correctAnswerKn: '1882' },
+ { text: 'The Atkinson cycle uses a different thermodynamic process than which common engine cycle?', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರವು ಯಾವ ಸಾಮಾನ್ಯ ಎಂಜಿನ್ ಚಕ್ರದೊಂದಿಗೆ ಭಿನ್ನ ಥರ್ಮೋಡೈನಾಮಿಕ್ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಬಳಸುತ್ತದೆ?', options: ['Diesel cycle', 'Otto cycle', 'Rankine cycle', 'Brayton cycle'], optionsKn: ['ಡೀಸೆಲ್ ಚಕ್ರ', 'ಒಟ್ಟೋ ಚಕ್ರ', 'ರ್ಯಾಂಕ್‌ಕಿನ್ ಚಕ್ರ', 'ಬ್ರೇಟನ್ ಚಕ್ರ'], correctAnswer: 'Otto cycle', correctAnswerKn: 'ಒಟ್ಟೋ ಚಕ್ರ' },
+ { text: 'Which automobile company commonly uses the Atkinson cycle in its hybrid vehicles?', textKn: 'ಯಾವ ಕಾರು ಕಂಪನಿಯು ಸಾಮಾನ್ಯವಾಗಿ ಹೈಬ್ರಿಡ್ ವಾಹನಗಳಲ್ಲಿ ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರವನ್ನು ಬಳಸುತ್ತದೆ?', options: ['Honda', 'Ford', 'Toyota', 'Hyundai'], optionsKn: ['ಹೋಂಡಾ', 'ಫೋರ್ಡ್', 'ಟೊಯೋಟಾ', 'ಹುಂಡೈ'], correctAnswer: 'Toyota', correctAnswerKn: 'ಟೊಯೋಟಾ' },
+ { text: 'What is the main advantage of the Atkinson cycle over the Otto cycle?', textKn: 'ಒಟ್ಟೋ ಚಕ್ರಕ್ಕಿಂತ ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರದ ಪ್ರಮುಖ ಲಾಭ ಏನು?', options: ['Higher power output', 'Lower fuel consumption', 'Better fuel efficiency', 'Simpler design'], optionsKn: ['ಹೆಚ್ಚು ಶಕ್ತಿ ಉತ್ಪಾದನೆ', 'ಕಡಿಮೆ ಇಂಧನ ಬಳಕೆ', 'ಉತ್ತಮ ಇಂಧನ ದಕ್ಷತೆ', 'ಸರಳ ವಿನ್ಯಾಸ'], correctAnswer: 'Better fuel efficiency', correctAnswerKn: 'ಉತ್ತಮ ಇಂಧನ ದಕ್ಷತೆ' },
+ { text: 'What is the main trade-off of using the Atkinson cycle?', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರವನ್ನು ಬಳಸುವ ಮುಖ್ಯ ವ್ಯತ್ಯಾಸ ಏನು?', options: ['Reduced power output', 'Higher emissions', 'Lower fuel efficiency', 'Complex cooling system'], optionsKn: ['ಶಕ್ತಿ ಉತ್ಪಾದನೆ ಕಡಿಮೆಯಾಗುವುದು', 'ಹೆಚ್ಚಿನ ಉತ್ಸರ್ಜನೆಗಳು', 'ಇಂಧನ ದಕ್ಷತೆ ಕಡಿಮೆಯಾಗುವುದು', 'ಸಂಕೀರ್ಣ ಕೂಲಿಂಗ್ ಸಿಸ್ಟಮ್'], correctAnswer: 'Reduced power output', correctAnswerKn: 'ಶಕ್ತಿ ಉತ್ಪಾದನೆ ಕಡಿಮೆಯಾಗುವುದು' },
+ { text: 'How has Toyota compensated for the power loss in non-hybrid vehicles using the Atkinson cycle?', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರ ಬಳಕೆಯಿಂದ ಅಸ್ಹೈಬ್ರಿಡ್ ವಾಹನಗಳಲ್ಲಿ ಶಕ್ತಿ ಕಳೆತವನ್ನು ಟೊಯೋಟಾ ಹೇಗೆ ಪರಿಹರಿಸಿದೆ?', options: ['By using a turbocharger', 'By switching between Atkinson and Otto cycles', 'By adding more cylinders', 'By increasing compression ratio'], optionsKn: ['ಟರ್ಬೊಚಾರ್ಜರ್ ಬಳಸಿ', 'ಅಟ್ಕಿನ್‍ಸನ್ ಮತ್ತು ಒಟ್ಟೋ ಚಕ್ರಗಳನ್ನು ಬದಲಿಸುವ ಮೂಲಕ', 'ಹೆಚ್ಚಿನ ಸಿಲಿಂಡರ್‌ಗಳನ್ನು ಸೇರಿಸಿ', 'ಸಂಕೋಚನ ಅನುಪಾತವನ್ನು ಹೆಚ್ಚಿಸಿ'], correctAnswer: 'By switching between Atkinson and Otto cycles', correctAnswerKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಮತ್ತು ಒಟ್ಟೋ ಚಕ್ರಗಳನ್ನು ಬದಲಿಸುವ ಮೂಲಕ' },
+ { text: 'In hybrid vehicles, what component helps overcome the reduced power of the Atkinson cycle?', textKn: 'ಹೈಬ್ರಿಡ್ ವಾಹನಗಳಲ್ಲಿ ಅಟ્કಿನ್‍ಸನ್ ಚಕ್ರದ ಕಡಿಮೆ ಶಕ್ತಿಯನ್ನು which ಘಟಕ ಪರಿಹರಿಸುತ್ತದೆ?', options: ['Electric motor', 'Supercharger', 'Turbocharger', 'Extra piston'], optionsKn: ['ವಿದ್ಯುತ್ ಮೋಟಾರ್', 'ಸೂಪರ್‌ಚಾರ್ಜರ್', 'ಟರ್ಬೊಚಾರ್ಜರ್', 'ಹೆಚ್ಚಿನ ಪಿಸ್ಟನ್'], correctAnswer: 'Electric motor', correctAnswerKn: 'ವಿದ್ಯುತ್ ಮೋಟಾರ್' },
+ { text: 'What stores the additional power used by the electric motor in hybrid vehicles?', textKn: 'ಹೈಬ್ರಿಡ್ ವಾಹನಗಳಲ್ಲಿ ವಿದ್ಯುತ್ ಮೋಟಾರ್ ಬಳಸುವ ಹೆಚ್ಚುವರಿ ಶಕ್ತಿಯನ್ನು ಏನು ಸಂಗ್ರಹಿಸುತ್ತದೆ?', options: ['Battery', 'Capacitor', 'Flywheel', 'Fuel cell'], optionsKn: ['ಬ್ಯಾಟರಿ', 'ಕ್ಯಾಪಾಸಿಟರ್', 'ಫ್ಲೈವೀಲ್', 'ಇಂಧನ ಕೋಶ'], correctAnswer: 'Battery', correctAnswerKn: 'ಬ್ಯಾಟರಿ' },
+ { text: 'In the Otto cycle, how do the compression and expansion strokes compare?', textKn: 'ಒಟ್ಟೋ ಚಕ್ರದಲ್ಲಿ ಸಂಕುಚನ ಮತ್ತು ವಿಸ್ತರಣೆ ಸ್ಟ್ರೋಕ್‌ಗಳು ಹೇಗೆ ಹೋಲುತ್ತವೆ?', options: ['Expansion is smaller', 'Compression is larger', 'They are equal', 'Expansion doesn’t occur'], optionsKn: ['ವಿಸ್ತರಣೆ ಕಡಿಮೆ', 'ಸಂಕೋಚನ ದೊಡ್ಡದು', 'ಇವು ಸಮಾನ', 'ವಿಸ್ತರಣೆ ಸಂಭವಿಸುವುದಿಲ್ಲ'], correctAnswer: 'They are equal', correctAnswerKn: 'ಇವು ಸಮಾನ' },
+ { text: 'What does the Atkinson cycle do with the intake valves during the compression stroke?', textKn: 'ಸಂಕೋಚನ ಸ್ಟ್ರೋಕ್ ಸಮಯದಲ್ಲಿ ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರ ಇಂಟೇಕ್ ವೆಲ್ವ್ಗಳೊಂದಿಗೆ ಏನು ಮಾಡುತ್ತದೆ?', options: ['Closes them earlier', 'Keeps them open longer', 'Does not open them', 'Opens them partially'], optionsKn: ['ಮುಂಬರುವವಾಗಿ ಮುಚ್ಚುತ್ತದೆ', 'ಹೆಚ್ಚು ಕಾಲ ತೆರೆಯಿಟ್ಟು ಇರುತ್ತದೆ', 'ತೆರೆಯುವುದಿಲ್ಲ', 'ಭಾಗವಾಗಿ ತೆರೆಯುತ್ತದೆ'], correctAnswer: 'Keeps them open longer', correctAnswerKn: 'ಹೆಚ್ಚು ಕಾಲ ತೆರೆಯಿಟ್ಟು ಇರುತ್ತದೆ' },
+ { text: 'Keeping the intake valves open longer causes some of the air-fuel mixture to be:', textKn: 'ಇಂಟೇಕ್ ವೆಲ್ವ್‌ಗಳನ್ನು ಹೆಚ್ಚು ಸಮಯ ತೆರೆಯಿಟ್ಟರೆ ಗಾಳಿ-ಇಂಧನ ಮಿಶ್ರಣದ ಕೆಲವು ಭಾಗವು ಏನಾಗುತ್ತದೆ?', options: ['Forced into the cylinder', 'Pushed back into the intake manifold', 'Vaporized completely', 'Leaked into the crankcase'], optionsKn: ['ಸಿಲಿಂಡರ್‌ಗೆ ಒತ್ತಿಹಾಕಲಾಗುತ್ತದೆ', 'ಇಂಟೇಕ್ ಮ್ಯಾನಿಫೋಲ್ಡ್‌ಗೆ ಹಿಂದಕ್ಕೆ ತಳ್ಳಲ್ಪಡುತ್ತದೆ', 'ಪೂರ್ಣವಾಗಿ ವಾಷ್ಪೀಕರಿಸಲಾಗುತ್ತದೆ', 'ಕ್ರ್ಯಾಂಕೇಸ್ಗೆ ರಾಸಾಯನಿಕವಾಗಿ ಹರಿದುಬರುತ್ತದೆ'], correctAnswer: 'Pushed back into the intake manifold', correctAnswerKn: 'ಇಂಟೇಕ್ ಮ್ಯಾನಿಫೋಲ್ಡ್‌ಗೆ ಹಿಂದಕ್ಕೆ ತಳ್ಳಲ್ಪಡುತ್ತದೆ' },
+ { text: 'Delaying the compression stroke in the Atkinson cycle results in:', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರದಲ್ಲಿ ಸಂಕುಚನ ಸ್ಟ್ರೋಕ್ ವಿಳಂಬವಾದರೆ ಪರಿಣಾಮವೇನು?', options: ['More air entering the cylinder', 'Less air-fuel mixture in the cylinder', 'Higher compression pressure', 'Shorter expansion stroke'], optionsKn: ['ಹೆಚ್ಚಿನ ಗಾಳಿ ಸಿಲಿಂಡರ್‌ಗೆ ಪ್ರವೇಶಿಸುತ್ತದೆ', 'ಸಿಲಿಂಡರ್‌ನಲ್ಲಿನ ಗಾಳಿ-ಇಂಧನ ಮಿಶ್ರಣ ಕಡಿಮೆಯಾಗಿದೆ', 'ಹೆಚ್ಚಿನ ಸಂಕುಚನ ಒತ್ತಡ', 'ಕಡಿಮೆ ವಿಸ್ತರಣೆ ಸ್ಟ್ರೋಕ್'], correctAnswer: 'Less air-fuel mixture in the cylinder', correctAnswerKn: 'ಸಿಲಿಂಡರ್‌ನಲ್ಲಿನ ಗಾಳಿ-ಇಂಧನ ಮಿಶ್ರಣ ಕಡಿಮೆಯಾಗಿದೆ' },
+ { text: 'Compared to compression, the expansion stroke in the Atkinson cycle is:', textKn: 'ಸಂಕೋಚನದ ಹೋಲಿಕೆಯಲ್ಲಿ ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರದ ವಿಸ್ತರಣೆ ಸ್ಟ್ರೋಕ್ ಹೇಗಿದೆ?', options: ['Smaller', 'Equal', 'Larger', 'Eliminated'], optionsKn: ['ಸಣ್ಣದು', 'ಸಮಾನ', 'ದೊಡ್ಡದು', 'ನಿರಾಕರಿಸಲಾಗಿದೆ'], correctAnswer: 'Larger', correctAnswerKn: 'ದೊಡ್ಡದು' },
+ { text: 'A larger expansion stroke allows what benefit?', textKn: 'ಹೆಚ್ಚಾದ ವಿಸ್ತರಣೆ ಸ್ಟ್ರೋಕ್ ಯಾವ ಪ್ರಯೋಜನವನ್ನು ಒದಗಿಸುತ್ತದೆ?', options: ['More energy extracted from fuel', 'Faster ignition', 'Less heat loss', 'More fuel burned'], optionsKn: ['ಇಂಧನದಿಂದ ಹೆಚ್ಚು ಶಕ್ತಿ ಹೊರತೆಗೆಯುತ್ತಾರೆ', 'ವೇಗವಾಗಿ ಇಗ್ನಿಷನ್ ಆಗುತ್ತದೆ', 'ಕಡಿಮೆ ತಾಪ ನಷ್ಟ', 'ಹೆಚ್ಚು ಇಂಧನದ ದಹನ'], correctAnswer: 'More energy extracted from fuel', correctAnswerKn: 'ಇಂಧನದಿಂದ ಹೆಚ್ಚು ಶಕ್ತಿ ಹೊರತೆಗೆಯುತ್ತಾರೆ' },
+ { text: 'With intake valves open during compression, the piston faces:', textKn: 'ಸಂಕುಚನದ ಸಮಯದಲ್ಲಿ ಇಂಟೇಕ್ ವೆಲ್ವ್ ತೆರೆಯಲ್ಪಟ್ಟಾಗ ಪಿಸ್ಟನ್ ಎದುರಿಸುವುದು ಯಾವಾಗ?', options: ['Higher resistance', 'Less resistance', 'Equal resistance', 'No resistance'], optionsKn: ['ಹೆಚ್ಚಿನ ಪ್ರತಿರೋಧ', 'ಕಡಿಮೆ ಪ್ರತಿರೋಧ', 'ಸಮಾನ ಪ್ರತಿರೋಧ', 'ಪ್ರತಿರೋಧವಿಲ್ಲ'], correctAnswer: 'Less resistance', correctAnswerKn: 'ಕಡಿಮೆ ಪ್ರತಿರೋಧ' },
+ { text: 'Reduced pumping losses mean that the engine:', textKn: 'ಕಡಿಮೆ ಪಂಪಿಂಗ್ ನಷ್ಟಗಳು ಎಂಜಿನ್ ಮೇಲೆ ಏನು ಪರಿಣಾಮ ಬೀರುತ್ತದೆ?', options: ['Consumes less power for self-operation', 'Burns more fuel', 'Requires higher octane fuel', 'Has higher emissions'], optionsKn: ['ಸ್ವಯಂ ಕಾರ್ಯಾಚರಣೆಗಾಗಿ ಕಡಿಮೆ ಶಕ್ತಿ ಬಳಿಸುತ್ತದೆ', 'ಹೆಚ್ಚು ಇಂಧನದ ಬಿರುಗಾಳಿ', 'ಹೆಚ್ಚಿನ ಆಕ್ಟೇನ್ ಇಂಧನ ಅಗತ್ಯ', 'ಹೆಚ್ಚಿನ ಉತ್ಸರ್ಜನೆಗಳು'], correctAnswer: 'Consumes less power for self-operation', correctAnswerKn: 'ಸ್ವಯಂ ಕಾರ್ಯಾಚರಣೆಗಾಗಿ ಕಡಿಮೆ ಶಕ್ತಿ ಬಳಿಸುತ್ತದೆ' },
+ { text: 'In both hybrid and non-hybrid Toyota vehicles, the Atkinson cycle helps optimize:', textKn: 'ಹೈಬ್ರಿಡ್ ಮತ್ತು ಅಸ್ಹೈಬ್ರಿಡ್ ಟೊಯೋಟಾ ವಾಹನಗಳಲ್ಲಿ ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರ ಯಾವವನ್ನೂ ಉತ್ತಮಗೊಳಿಸುತ್ತದೆ?', options: ['Speed', 'Torque', 'Fuel efficiency', 'Engine sound'], optionsKn: ['ವೇಗ', 'ಟಾರ್ಕ್', 'ಇಂಧನ ದಕ್ಷತೆ', 'ಎಂಜಿನ್ ಶಬ್ದ'], correctAnswer: 'Fuel efficiency', correctAnswerKn: 'ಇಂಧನ ದಕ್ಷತೆ' },
+ { text: 'What does Toyota use to eliminate any compromise in performance from the Atkinson cycle?', textKn: 'ಅಟ್ಖಿನ್‍ಸನ್ ಚಕ್ರದಿಂದ ಪರಿಣಾಮದಲ್ಲಿ ಯಾವುದೇ ತೊರೆತನ್ನವನ್ನು ನಿರ್ಮೂಲಗೊಳಿಸಲು ಟೊಯೋಟಾ ಏನು ಬಳಸುತ್ತದೆ?', options: ['Turbochargers', 'Advanced engine management and hybrid powertrains', 'Increased fuel injection', 'Cylinder deactivation'], optionsKn: ['ಟರ್ಬೋಚಾರ್ಜರ್‌ಗಳು', 'ಅಡ್ವಾನ್ಸ್ಡ್ ಎಂಜಿನ್ ನಿರ್ವಹಣೆ ಮತ್ತು ಹೈಬ್ರಿಡ್ ಪವರ್‌ಟ್ರೇನ್ಸ್', 'ಇಂಧನ ಇಂಜೆಕ್ಷನ್ ಹೆಚ್ಚಿಸಲಾಗಿದೆ', 'ಸಿಲಿಂಡರ್ ನಿಷ್ಕ್ರಿಯತೆ'], correctAnswer: 'Advanced engine management and hybrid powertfrains', correctAnswerKn: 'ಅಡ್ವಾನ್ಸ್ಡ್ ಎಂಜಿನ್ ನಿರ್ವಹಣೆ ಮತ್ತು ಹೈಬ್ರಿಡ್ ಪವರ್‌ಟ್ರೇನ್ಸ್' },
+ { text: 'According to the video, where should drivers look for detailed feature applicability?', textKn: 'ವೀಡಿಯೋ ಪ್ರಕಾರ, ಚಾಲಕರು ವೈಶಿಷ್ಟ್ಯಗಳ ಅನ್ವಯಿತೆಯನ್ನು ವಿವರವಾಗಿ ಎಲ್ಲಿಂದ ನೋಡಬಹುದು?', options: ['Toyota website', 'Service manual', 'Owner’s manual', 'Mechanic’s guide'], optionsKn: ['ಟೊಯೋಟಾ ವೆಬ್‌ಸೈಟ್', 'ಸೇವಾ ಕೈಪಿಡಿ', 'ಮಾಲೀಕರಿನ ಕೈಪസ്തಕ', 'ಯಂತ್ರ ತಜ್ಞರ ಮಾರ್ಗದರ್ಶಿ'], correctAnswer: 'Owner’s manual', correctAnswerKn: 'ಮಾಲೀಕರಿನ ಕೈಪസ്തಕ' }
+]
 
-  { text: 'In which year was the Atkinson cycle first proposed?', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರವನ್ನು ಯಾವ ವರ್ಷದಲ್ಲಿ ಪ್ರಸ್ತಾವಿಸಲಾಯಿತು?', options: ['1876', '1882', '1890', '1901'], optionsKn: ['1876', '1882', '1890', '1901'], correctAnswer: '1882' },
-
-  { text: 'The Atkinson cycle uses a different thermodynamic process than which common engine cycle?', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರವು ಯಾವ ಸಾಮಾನ್ಯ ಎಂಜಿನ್ ಚಕ್ರದೊಂದಿಗೆ ಭಿನ್ನ ಥರ್ಮೋಡೈನಾಮಿಕ್ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಬಳಸುತ್ತದೆ?', options: ['Diesel cycle', 'Otto cycle', 'Rankine cycle', 'Brayton cycle'], optionsKn: ['ಡೀಸೆಲ್ ಚಕ್ರ', 'ಒಟ್ಟೋ ಚಕ್ರ', 'ರ್ಯಾಂಕ್‌ಕಿನ್ ಚಕ್ರ', 'ಬ್ರೇಟನ್ ಚಕ್ರ'], correctAnswer: 'Otto cycle' },
-
-  { text: 'Which automobile company commonly uses the Atkinson cycle in its hybrid vehicles?', textKn: 'ಯಾವ ಕಾರು ಕಂಪನಿಯು ಸಾಮಾನ್ಯವಾಗಿ ಹೈಬ್ರಿಡ್ ವಾಹನಗಳಲ್ಲಿ ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರವನ್ನು ಬಳಸುತ್ತದೆ?', options: ['Honda', 'Ford', 'Toyota', 'Hyundai'], optionsKn: ['ಹೋಂಡಾ', 'ಫೋರ್ಡ್', 'ಟೊಯೋಟಾ', 'ಹುಂಡೈ'], correctAnswer: 'Toyota' },
-
-  { text: 'What is the main advantage of the Atkinson cycle over the Otto cycle?', textKn: 'ಒಟ್ಟೋ ಚಕ್ರಕ್ಕಿಂತ ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರದ ಪ್ರಮುಖ ಲಾಭ ಏನು?', options: ['Higher power output', 'Lower fuel consumption', 'Better fuel efficiency', 'Simpler design'], optionsKn: ['ಹೆಚ್ಚು ಶಕ್ತಿ ಉತ್ಪಾದನೆ', 'ಕಡಿಮೆ ಇಂಧನ ಬಳಕೆ', 'ಉತ್ತಮ ಇಂಧನ ದಕ್ಷತೆ', 'ಸರಳ ವಿನ್ಯಾಸ'], correctAnswer: 'Better fuel efficiency' },
-
-  { text: 'What is the main trade-off of using the Atkinson cycle?', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರವನ್ನು ಬಳಸುವ ಮುಖ್ಯ ವ್ಯತ್ಯಾಸ ಏನು?', options: ['Reduced power output', 'Higher emissions', 'Lower fuel efficiency', 'Complex cooling system'], optionsKn: ['ಶಕ್ತಿ ಉತ್ಪಾದನೆ ಕಡಿಮೆಯಾಗುವುದು', 'ಹೆಚ್ಚಿನ ಉತ್ಸರ್ಜನೆಗಳು', 'ಇಂಧನ ದಕ್ಷತೆ ಕಡಿಮೆಯಾಗುವುದು', 'ಸಂಕೀರ್ಣ ಕೂಲಿಂಗ್ ಸಿಸ್ಟಮ್'], correctAnswer: 'Reduced power output' },
-
-  { text: 'How has Toyota compensated for the power loss in non-hybrid vehicles using the Atkinson cycle?', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರ ಬಳಕೆಯಿಂದ ಅಸ್ಹೈಬ್ರಿಡ್ ವಾಹನಗಳಲ್ಲಿ ಶಕ್ತಿ ಕಳೆತವನ್ನು ಟೊಯೋಟಾ ಹೇಗೆ ಪರಿಹರಿಸಿದೆ?', options: ['By using a turbocharger', 'By switching between Atkinson and Otto cycles', 'By adding more cylinders', 'By increasing compression ratio'], optionsKn: ['ಟರ್ಬೊಚಾರ್ಜರ್ ಬಳಸಿ', 'ಅಟ್ಕಿನ್‍ಸನ್ ಮತ್ತು ಒಟ್ಟೋ ಚಕ್ರಗಳನ್ನು ಬದಲಿಸುವ ಮೂಲಕ', 'ಹೆಚ್ಚಿನ ಸಿಲಿಂಡರ್‌ಗಳನ್ನು ಸೇರಿಸಿ', 'ಸಂಕೋಚನ ಅನುಪಾತವನ್ನು ಹೆಚ್ಚಿಸಿ'], correctAnswer: 'By switching between Atkinson and Otto cycles' },
-
-  { text: 'In hybrid vehicles, what component helps overcome the reduced power of the Atkinson cycle?', textKn: 'ಹೈಬ್ರಿಡ್ ವಾಹನಗಳಲ್ಲಿ ಅಟ્કಿನ್‍ಸನ್ ಚಕ್ರದ ಕಡಿಮೆ ಶಕ್ತಿಯನ್ನು which ಘಟಕ ಪರಿಹರಿಸುತ್ತದೆ?', options: ['Electric motor', 'Supercharger', 'Turbocharger', 'Extra piston'], optionsKn: ['ವಿದ್ಯುತ್ ಮೋಟಾರ್', 'ಸೂಪರ್‌ಚಾರ್ಜರ್', 'ಟರ್ಬೊಚಾರ್ಜರ್', 'ಹೆಚ್ಚಿನ ಪಿಸ್ಟನ್'], correctAnswer: 'Electric motor' },
-
-  { text: 'What stores the additional power used by the electric motor in hybrid vehicles?', textKn: 'ಹೈಬ್ರಿಡ್ ವಾಹನಗಳಲ್ಲಿ ವಿದ್ಯುತ್ ಮೋಟಾರ್ ಬಳಸುವ ಹೆಚ್ಚುವರಿ ಶಕ್ತಿಯನ್ನು ಏನು ಸಂಗ್ರಹಿಸುತ್ತದೆ?', options: ['Battery', 'Capacitor', 'Flywheel', 'Fuel cell'], optionsKn: ['ಬ್ಯಾಟರಿ', 'ಕ್ಯಾಪಾಸಿಟರ್', 'ಫ್ಲೈವೀಲ್', 'ಇಂಧನ ಕೋಶ'], correctAnswer: 'Battery' },
-        
-  { text: 'In the Otto cycle, how do the compression and expansion strokes compare?', textKn: 'ಒಟ್ಟೋ ಚಕ್ರದಲ್ಲಿ ಸಂಕುಚನ ಮತ್ತು ವಿಸ್ತರಣೆ ಸ್ಟ್ರೋಕ್‌ಗಳು ಹೇಗೆ ಹೋಲುತ್ತವೆ?', options: ['Expansion is smaller', 'Compression is larger', 'They are equal', 'Expansion doesn’t occur'], optionsKn: ['ವಿಸ್ತರಣೆ ಕಡಿಮೆ', 'ಸಂಕೋಚನ ದೊಡ್ಡದು', 'ಇವು ಸಮಾನ', 'ವಿಸ್ತರಣೆ ಸಂಭವಿಸುವುದಿಲ್ಲ'], correctAnswer: 'They are equal' },
-
-  { text: 'What does the Atkinson cycle do with the intake valves during the compression stroke?', textKn: 'ಸಂಕೋಚನ ಸ್ಟ್ರೋಕ್ ಸಮಯದಲ್ಲಿ ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರ ಇಂಟೇಕ್ ವೆಲ್ವ್ಗಳೊಂದಿಗೆ ಏನು ಮಾಡುತ್ತದೆ?', options: ['Closes them earlier', 'Keeps them open longer', 'Does not open them', 'Opens them partially'], optionsKn: ['ಮುಂಬರುವವಾಗಿ ಮುಚ್ಚುತ್ತದೆ', 'ಹೆಚ್ಚು ಕಾಲ ತೆರೆಯಿಟ್ಟು ಇರುತ್ತದೆ', 'ತೆರೆಯುವುದಿಲ್ಲ', 'ಭಾಗವಾಗಿ ತೆರೆಯುತ್ತದೆ'], correctAnswer: 'Keeps them open longer' },
-
-  { text: 'Keeping the intake valves open longer causes some of the air-fuel mixture to be:', textKn: 'ಇಂಟೇಕ್ ವೆಲ್ವ್‌ಗಳನ್ನು ಹೆಚ್ಚು ಸಮಯ ತೆರೆಯಿಟ್ಟರೆ ಗಾಳಿ-ಇಂಧನ ಮಿಶ್ರಣದ ಕೆಲವು ಭಾಗವು ಏನಾಗುತ್ತದೆ?', options: ['Forced into the cylinder', 'Pushed back into the intake manifold', 'Vaporized completely', 'Leaked into the crankcase'], optionsKn: ['ಸಿಲಿಂಡರ್‌ಗೆ ಒತ್ತಿಹಾಕಲಾಗುತ್ತದೆ', 'ಇಂಟೇಕ್ ಮ್ಯಾನಿಫೋಲ್ಡ್‌ಗೆ ಹಿಂದಕ್ಕೆ ತಳ್ಳಲ್ಪಡುತ್ತದೆ', 'ಪೂರ್ಣವಾಗಿ ವಾಷ್ಪೀಕರಿಸಲಾಗುತ್ತದೆ', 'ಕ್ರ್ಯಾಂಕೇಸ್ಗೆ ರಾಸಾಯನಿಕವಾಗಿ ಹರಿದುಬರುತ್ತದೆ'], correctAnswer: 'Pushed back into the intake manifold' },
-
-  { text: 'Delaying the compression stroke in the Atkinson cycle results in:', textKn: 'ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರದಲ್ಲಿ ಸಂಕುಚನ ಸ್ಟ್ರೋಕ್ ವಿಳಂಬವಾದರೆ ಪರಿಣಾಮವೇನು?', options: ['More air entering the cylinder', 'Less air-fuel mixture in the cylinder', 'Higher compression pressure', 'Shorter expansion stroke'], optionsKn: ['ಹೆಚ್ಚಿನ ಗಾಳಿ ಸಿಲಿಂಡರ್‌ಗೆ ಪ್ರವೇಶಿಸುತ್ತದೆ', 'ಸಿಲಿಂಡರ್‌ನಲ್ಲಿನ ಗಾಳಿ-ಇಂಧನ ಮಿಶ್ರಣ ಕಡಿಮೆಯಾಗಿದೆ', 'ಹೆಚ್ಚಿನ ಸಂಕುಚನ ಒತ್ತಡ', 'ಕಡಿಮೆ ವಿಸ್ತರಣೆ ಸ್ಟ್ರೋಕ್'], correctAnswer: 'Less air-fuel mixture in the cylinder' },
-
-  { text: 'Compared to compression, the expansion stroke in the Atkinson cycle is:', textKn: 'ಸಂಕೋಚನದ ಹೋಲಿಕೆಯಲ್ಲಿ ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರದ ವಿಸ್ತರಣೆ ಸ್ಟ್ರೋಕ್ ಹೇಗಿದೆ?', options: ['Smaller', 'Equal', 'Larger', 'Eliminated'], optionsKn: ['ಸಣ್ಣದು', 'ಸಮಾನ', 'ದೊಡ್ಡದು', 'ನಿರಾಕರಿಸಲಾಗಿದೆ'], correctAnswer: 'Larger' },
-
-  { text: 'A larger expansion stroke allows what benefit?', textKn: 'ಹೆಚ್ಚಾದ ವಿಸ್ತರಣೆ ಸ್ಟ್ರೋಕ್ ಯಾವ ಪ್ರಯೋಜನವನ್ನು ಒದಗಿಸುತ್ತದೆ?', options: ['More energy extracted from fuel', 'Faster ignition', 'Less heat loss', 'More fuel burned'], optionsKn: ['ಇಂಧನದಿಂದ ಹೆಚ್ಚು ಶಕ್ತಿ ಹೊರತೆಗೆಯುತ್ತಾರೆ', 'ವೇಗವಾಗಿ ಇಗ್ನಿಷನ್ ಆಗುತ್ತದೆ', 'ಕಡಿಮೆ ತಾಪ ನಷ್ಟ', 'ಹೆಚ್ಚು ಇಂಧನದ ದಹನ'], correctAnswer: 'More energy extracted from fuel' },
-
-  { text: 'With intake valves open during compression, the piston faces:', textKn: 'ಸಂಕುಚನದ ಸಮಯದಲ್ಲಿ ಇಂಟೇಕ್ ವೆಲ್ವ್ ತೆರೆಯಲ್ಪಟ್ಟಾಗ ಪಿಸ್ಟನ್ ಎದುರಿಸುವುದು ಯಾವಾಗ?', options: ['Higher resistance', 'Less resistance', 'Equal resistance', 'No resistance'], optionsKn: ['ಹೆಚ್ಚಿನ ಪ್ರತಿರೋಧ', 'ಕಡಿಮೆ ಪ್ರತಿರೋಧ', 'ಸಮಾನ ಪ್ರತಿರೋಧ', 'ಪ್ರತಿರೋಧವಿಲ್ಲ'], correctAnswer: 'Less resistance' },
-
-  { text: 'Reduced pumping losses mean that the engine:', textKn: 'ಕಡಿಮೆ ಪಂಪಿಂಗ್ ನಷ್ಟಗಳು ಎಂಜಿನ್ ಮೇಲೆ ಏನು ಪರಿಣಾಮ ಬೀರುತ್ತದೆ?', options: ['Consumes less power for self-operation', 'Burns more fuel', 'Requires higher octane fuel', 'Has higher emissions'], optionsKn: ['ಸ್ವಯಂ ಕಾರ್ಯಾಚರಣೆಗಾಗಿ ಕಡಿಮೆ ಶಕ್ತಿ ಬಳಿಸುತ್ತದೆ', 'ಹೆಚ್ಚು ಇಂಧನದ ಬಿರುಗಾಳಿ', 'ಹೆಚ್ಚಿನ ಆಕ್ಟೇನ್ ಇಂಧನ ಅಗತ್ಯ', 'ಹೆಚ್ಚಿನ ಉತ್ಸರ್ಜನೆಗಳು'], correctAnswer: 'Consumes less power for self-operation' },
-
-  { text: 'In both hybrid and non-hybrid Toyota vehicles, the Atkinson cycle helps optimize:', textKn: 'ಹೈಬ್ರಿಡ್ ಮತ್ತು ಅಸ್ಹೈಬ್ರಿಡ್ ಟೊಯೋಟಾ ವಾಹನಗಳಲ್ಲಿ ಅಟ್ಕಿನ್‍ಸನ್ ಚಕ್ರ ಯಾವವನ್ನೂ ಉತ್ತಮಗೊಳಿಸುತ್ತದೆ?', options: ['Speed', 'Torque', 'Fuel efficiency', 'Engine sound'], optionsKn: ['ವೇಗ', 'ಟಾರ್ಕ್', 'ಇಂಧನ ದಕ್ಷತೆ', 'ಎಂಜಿನ್ ಶಬ್ದ'], correctAnswer: 'Fuel efficiency' },
-
-  { text: 'What does Toyota use to eliminate any compromise in performance from the Atkinson cycle?', textKn: 'ಅಟ್ಖಿನ್‍ಸನ್ ಚಕ್ರದಿಂದ ಪರಿಣಾಮದಲ್ಲಿ ಯಾವುದೇ ತೊರೆತನ್ನವನ್ನು ನಿರ್ಮೂಲಗೊಳಿಸಲು ಟೊಯೋಟಾ ಏನು ಬಳಸುತ್ತದೆ?', options: ['Turbochargers', 'Advanced engine management and hybrid powertrains', 'Increased fuel injection', 'Cylinder deactivation'], optionsKn: ['ಟರ್ಬೋಚಾರ್ಜರ್‌ಗಳು', 'ಅಡ್ವಾನ್ಸ್ಡ್ ಎಂಜಿನ್ ನಿರ್ವಹಣೆ ಮತ್ತು ಹೈಬ್ರಿಡ್ ಪವರ್‌ಟ್ರೇನ್ಸ್', 'ಇಂಧನ ಇಂಜೆಕ್ಷನ್ ಹೆಚ್ಚಿಸಲಾಗಿದೆ', 'ಸಿಲಿಂಡರ್ ನಿಷ್ಕ್ರಿಯತೆ'], correctAnswer: 'Advanced engine management and hybrid powertrains' },
-
-  { text: 'According to the video, where should drivers look for detailed feature applicability?', textKn: 'ವೀಡಿಯೋ ಪ್ರಕಾರ, ಚಾಲಕರು ವೈಶಿಷ್ಟ್ಯಗಳ ಅನ್ವಯಿತೆಯನ್ನು ವಿವರವಾಗಿ ಎಲ್ಲಿಂದ ನೋಡಬಹುದು?', options: ['Toyota website', 'Service manual', 'Owner’s manual', 'Mechanic’s guide'], optionsKn: ['ಟೊಯೋಟಾ ವೆಬ್‌ಸೈಟ್', 'ಸೇವಾ ಕೈಪಿಡಿ', 'ಮಾಲೀಕರಿನ ಕೈಪുസ്തಕ', 'ಯಂತ್ರ ತಜ್ಞರ ಮಾರ್ಗದರ್ಶಿ'], correctAnswer: 'Owner’s manual' }
-      ]
 
       // Repeat for other videos in M1
       // Only populate Kannada fallback fields when they are missing.
@@ -1941,1458 +1924,2461 @@ export const ADVANCED_MODULES = [
       { id: 'o2ZwjSRuGeg', title: 'GD&T SYMBOLS', titleKn: 'ಜಿಡಿ&ಟಿ ಚಿಹ್ನೆಗಳು' } // GD&T Chihnnegalu
     ],
     quizzes: [
-      [   
-  {
-    text: "Why should engineers understand different CNC machine types?",
-    options: [
-      "To reduce tool wear",
-      "To design effectively by knowing each type’s capabilities",
-      "To avoid using cutting tools",
-      "To simplify drawings"
-    ],
-    correctAnswer: "To design effectively by knowing each type’s capabilities"
-  },
-  {
-    text: "Which CNC machines were discussed in the video?",
-    options: [
-      "Machines that remove material using cutting tools",
-      "Only additive systems",
-      "Only EDM machines",
-      "Laser cutters only"
-    ],
-    correctAnswer: "Machines that remove material using cutting tools"
-  },
-  {
-    text: "Which are the main CNC machine categories?",
-    options: [
-      "3-axis and multi-axis machines",
-      "Lathe and plasma machines",
-      "Milling and laser cutters",
-      "Turning and grinding systems"
-    ],
-    correctAnswer: "3-axis and multi-axis machines"
-  },
-  {
-    text: "Which are common 3-axis CNC machines?",
-    options: [
-      "CNC drilling and milling machines",
-      "CNC milling and CNC turning machines",
-      "CNC laser and EDM machines",
-      "CNC plasma cutters"
-    ],
-    correctAnswer: "CNC milling and CNC turning machines"
-  },
-  {
-    text: "Why are 3-axis milling machines popular?",
-    options: [
-      "They are easy to program and cost-effective",
-      "They machine all shapes without limits",
-      "They use automatic tool changers only",
-      "They require no supervision"
-    ],
-    correctAnswer: "They are easy to program and cost-effective"
-  },
-  {
-    text: "What is a limitation of 3-axis CNC milling machines?",
-    options: [
-      "Limited tool access to certain areas",
-      "High power consumption",
-      "Cannot handle soft materials",
-      "Difficult spindle setup"
-    ],
-    correctAnswer: "Limited tool access to certain areas"
-  },
-  {
-    text: "How does a CNC lathe differ from a milling machine?",
-    options: [
-      "The workpiece rotates while the tool is stationary",
-      "The tool rotates while the workpiece is fixed",
-      "Both remain stationary",
-      "Both rotate together"
-    ],
-    correctAnswer: "The workpiece rotates while the tool is stationary"
-  },
-  {
-    text: "CNC lathes are ideal for which parts?",
-    options: [
-      "Cylindrical parts",
-      "Flat sheets",
-      "Complex organic shapes",
-      "Rectangular plates"
-    ],
-    correctAnswer: "Cylindrical parts"
-  },
-  {
-    text: "How many axes do multi-axis CNC machines typically have?",
-    options: ["Three", "Four", "Five or more", "Two"],
-    correctAnswer: "Five or more"
-  },
-  {
-    text: "What is a main benefit of 5-axis machining?",
-    options: [
-      "It enables complex geometries using two extra axes",
-      "It reduces tool wear automatically",
-      "It uses fewer G-codes",
-      "It eliminates programming steps"
-    ],
-    correctAnswer: "It enables complex geometries using two extra axes"
-  },
-  {
-    text: "What describes an indexed 5-axis CNC machine?",
-    options: [
-      "The bed or head rotates between operations",
-      "All five axes move together",
-      "It uses manual tool control",
-      "It is limited to one tool"
-    ],
-    correctAnswer: "The bed or head rotates between operations"
-  },
-  {
-    text: "How does a continuous 5-axis CNC differ from an indexed one?",
-    options: [
-      "All five axes move simultaneously during machining",
-      "It needs manual repositioning",
-      "It performs only rough cuts",
-      "It can only cut flat surfaces"
-    ],
-    correctAnswer: "All five axes move simultaneously during machining"
-  },
-  {
-    text: "What is a Mill-Turn CNC center?",
-    options: [
-      "A hybrid combining milling and turning",
-      "A manual grinding setup",
-      "A laser cutter",
-      "A basic plasma machine"
-    ],
-    correctAnswer: "A hybrid combining milling and turning"
-  },
-  {
-    text: "What is the advantage of a Mill-Turn CNC center?",
-    options: [
-      "Reduces setup time and cost",
-      "Eliminates tool requirements",
-      "Produces flat parts only",
-      "Needs multiple setups"
-    ],
-    correctAnswer: "Reduces setup time and cost"
-  },
-  {
-    text: "Which term defines CNC motion precision?",
-    options: ["Accuracy", "Resolution", "Feed rate", "Tolerance"],
-    correctAnswer: "Resolution"
-  },
-  {
-    text: "What is G-code used for?",
-    options: [
-      "Controlling tool movements and paths",
-      "Activating coolant systems",
-      "Defining machine start delay",
-      "Monitoring power usage"
-    ],
-    correctAnswer: "Controlling tool movements and paths"
-  },
-  {
-    text: "What is the role of M-code?",
-    options: [
-      "Controls machine functions like spindle and coolant",
-      "Defines work coordinate systems",
-      "Adjusts feed rate",
-      "Creates tool offsets"
-    ],
-    correctAnswer: "Controls machine functions like spindle and coolant"
-  },
-  {
-    text: "Which CNC axis moves vertically?",
-    options: ["X-axis", "Y-axis", "Z-axis", "A-axis"],
-    correctAnswer: "Z-axis"
-  },
-  {
-    text: "Which CNC component rotates the cutting tool?",
-    options: ["Spindle", "Chuck", "Turret", "Tailstock"],
-    correctAnswer: "Spindle"
-  },
-  {
-    text: "What is backlash in CNC systems?",
-    options: [
-      "Mechanical play between drive components",
-      "Excessive spindle heat",
-      "Feed rate increase",
-      "Tool vibration"
-    ],
-    correctAnswer: "Mechanical play between drive components"
-  },
-  {
-    text: "What part interprets and executes CNC programs?",
-    options: ["Controller", "Fixture", "Tool post", "Coolant pump"],
-    correctAnswer: "Controller"
-  },
-  {
-    text: "What does feed rate mean in CNC machining?",
-    options: [
-      "Speed of tool movement relative to workpiece",
-      "Spindle rotation speed",
-      "Power consumption rate",
-      "Lubricant flow rate"
-    ],
-    correctAnswer: "Speed of tool movement relative to workpiece"
-  },
-  {
-    text: "What does the tool turret on a CNC lathe do?",
-    options: [
-      "Holds multiple tools for automatic selection",
-      "Rotates the workpiece",
-      "Supports the tailstock",
-      "Moves the spindle"
-    ],
-    correctAnswer: "Holds multiple tools for automatic selection"
-  },
-  {
-    text: "Which CNC machine uses a thin wire for cutting?",
-    options: ["EDM machine", "Lathe", "Router", "Grinder"],
-    correctAnswer: "EDM machine"
-  },
-  {
-    text: "In CNC machining, what is interpolation?",
-    options: [
-      "Movement of the tool along a programmed path",
-      "Manual spindle control",
-      "Tool alignment check",
-      "Coolant flow adjustment"
-    ],
-    correctAnswer: "Movement of the tool along a programmed path"
-  },
-  {
-    text: "What does tool offset compensate for?",
-    options: [
-      "Tool length or diameter differences",
-      "Workpiece hardness",
-      "Tool wear vibration",
-      "Spindle misalignment"
-    ],
-    correctAnswer: "Tool length or diameter differences"
-  },
-  {
-    text: "Which metal is most commonly machined using CNC?",
-    options: ["Aluminum", "Copper", "Iron", "Zinc"],
-    correctAnswer: "Aluminum"
-  },
-  {
-    text: "What is the key advantage of CNC over manual machining?",
-    options: [
-      "Greater precision and repeatability",
-      "No programming needed",
-      "No cutting fluids required",
-      "Always faster than manual machining"
-    ],
-    correctAnswer: "Greater precision and repeatability"
-  },
-  {
-    text: "Which CNC machine is ideal for wood and plastic engraving?",
-    options: ["CNC router", "CNC lathe", "EDM machine", "Grinder"],
-    correctAnswer: "CNC router"
-  },
-  {
-    text: "Which is a key safety practice in CNC operation?",
-    options: [
-      "Wearing protective eyewear and securing clothing",
-      "Touching the tool to check sharpness",
-      "Disabling interlocks during setup",
-      "Leaning near the spindle while running"
-    ],
-    correctAnswer: "Wearing protective eyewear and securing clothing"
-  },
-  {
-    text: "What summarizes the main takeaway of CNC machine types?",
-    options: [
-      "Each type has distinct strengths and applications",
-      "All CNC machines perform the same function",
-      "3-axis systems are outdated",
-      "Only turning machines are widely used"
-    ],
-    correctAnswer: "Each type has distinct strengths and applications"
-  }
-      ],[
-        
-  {
-    text: "What does CNC stand for?",
-    options: [
-      "Central Numeric Calculation",
-      "Computer Numerical Control",
-      "Calculated Numeric Coding",
-      "Controlled Network Computing"
-    ],
-    correctAnswer: "Computer Numerical Control"
-  },
-  {
-    text: "Which industries commonly rely on CNC machining?",
-    options: [
-      "Education and Tourism",
-      "Agriculture and Forestry",
-      "Aerospace, Automotive, and Medical",
-      "Textile and Food"
-    ],
-    correctAnswer: "Aerospace, Automotive, and Medical"
-  },
-  {
-    text: "What is CNC machining primarily used for?",
-    options: [
-      "Transforming raw materials into precise parts using computer-guided controls",
-      "Painting or polishing metallic surfaces for appearance",
-      "Smoothing metal components using abrasive wheels",
-      "Joining materials using high-pressure welding techniques"
-    ],
-    correctAnswer: "Transforming raw materials into precise parts using computer-guided controls"
-  },
-  {
-    text: "Which characteristic best describes CNC machining?",
-    options: [
-      "Manual operation with limited precision",
-      "High precision, efficiency, and repeatability",
-      "Low reliability in mass production environments",
-      "Dependence on operator hand adjustments"
-    ],
-    correctAnswer: "High precision, efficiency, and repeatability"
-  },
-  {
-    text: "What is the main function of CNC milling?",
-    options: [
-      "Uses electrical current to melt and shape materials",
-      "Uses rotating cutting tools to remove material from a surface",
-      "Uses pressurized air to cool and shape materials",
-      "Rotates the workpiece instead of the tool to remove material"
-    ],
-    correctAnswer: "Uses rotating cutting tools to remove material from a surface"
-  },
-  {
-    text: "CNC milling is ideal for creating which types of parts?",
-    options: [
-      "Flat wooden panels with uniform texture",
-      "Complex 3D shapes with tight tolerances",
-      "Cylindrical rods and round pipes",
-      "Simple plastic housings only"
-    ],
-    correctAnswer: "Complex 3D shapes with tight tolerances"
-  },
-  {
-    text: "Which of the following components are typically produced by CNC milling?",
-    options: [
-      "Electrical cables and wires",
-      "Rubber seals and soft gaskets",
-      "Molds, aerospace components, and automotive parts",
-      "Printed labels and packaging molds"
-    ],
-    correctAnswer: "Molds, aerospace components, and automotive parts"
-  },
-  {
-    text: "In CNC turning, what rotates during machining?",
-    options: [
-      "The cutting tool rotates while the workpiece stays fixed",
-      "The spindle housing rotates to adjust feed rate",
-      "The machine bed rotates to balance vibration",
-      "The workpiece rotates while the cutting tool remains stationary"
-    ],
-    correctAnswer: "The workpiece rotates while the cutting tool remains stationary"
-  },
-  {
-    text: "What is CNC turning best suited for?",
-    options: [
-      "Flat plates and mold cavities",
-      "Cylindrical parts like shafts, bushings, and threaded components",
-      "Curved sheet-metal surfaces",
-      "Thin plastic panels and rods"
-    ],
-    correctAnswer: "Cylindrical parts like shafts, bushings, and threaded components"
-  },
-  {
-    text: "What advantage does CNC turning provide?",
-    options: [
-      "Smooth finishes and high accuracy for rotational parts",
-      "Limited material compatibility and slow machining rate",
-      "Inconsistent cutting speeds and tool wear",
-      "Manual adjustments between every cycle"
-    ],
-    correctAnswer: "Smooth finishes and high accuracy for rotational parts"
-  },
-  {
-    text: "Which materials can CNC turning process effectively?",
-    options: [
-      "Ceramics only due to high hardness",
-      "Both metals and plastics with proper tooling",
-      "Only non-conductive materials",
-      "Soft materials such as rubber or cloth"
-    ],
-    correctAnswer: "Both metals and plastics with proper tooling"
-  },
-  {
-    text: "What is CNC drilling mainly used for?",
-    options: [
-      "Creating holes with extreme precision and repeatability",
-      "Milling slots and external profiles",
-      "Finishing the surface with abrasive compounds",
-      "Forming threads using high heat"
-    ],
-    correctAnswer: "Creating holes with extreme precision and repeatability"
-  },
-  {
-    text: "CNC drilling is suitable for which of the following applications?",
-    options: [
-      "Medical devices and industrial machinery parts",
-      "Wood carving and decoration work",
-      "Plastic toy manufacturing only",
-      "Printing press cylinder making"
-    ],
-    correctAnswer: "Medical devices and industrial machinery parts"
-  },
-  {
-    text: "What is the main focus of CNC drilling?",
-    options: [
-      "Manual positioning of cutting tools",
-      "High accuracy and dimensional consistency",
-      "Color coating after drilling",
-      "Surface engraving for aesthetics"
-    ],
-    correctAnswer: "High accuracy and dimensional consistency"
-  },
-  {
-    text: "What does Wire EDM stand for?",
-    options: [
-      "Electrical Discharge Machining",
-      "Electronic Data Mechanism",
-      "Energy Distribution Module",
-      "Electro Dynamic Molding"
-    ],
-    correctAnswer: "Electrical Discharge Machining"
-  },
-  {
-    text: "How does Wire EDM remove material?",
-    options: [
-      "Using a high-speed abrasive belt to cut metals",
-      "Using an electrically charged wire to erode conductive material",
-      "Using compressed air to grind the surface",
-      "Using mechanical vibration to separate material"
-    ],
-    correctAnswer: "Using an electrically charged wire to erode conductive material"
-  },
-  {
-    text: "Which materials are best suited for Wire EDM?",
-    options: [
-      "Non-conductive plastics and ceramics",
-      "Conductive metals and hard alloys",
-      "Soft polymers and rubbers",
-      "Composites reinforced with fibers"
-    ],
-    correctAnswer: "Conductive metals and hard alloys"
-  },
-  {
-    text: "Give an example of a component produced by Wire EDM.",
-    options: [
-      "High-precision dies and aerospace turbine blades",
-      "Rubber gaskets and seals",
-      "Plastic containers and bottles",
-      "Printed circuit boards and resistors"
-    ],
-    correctAnswer: "High-precision dies and aerospace turbine blades"
-  },
-  {
-    text: "What is a key advantage of Wire EDM?",
-    options: [
-      "Cuts very hard materials with exceptional precision",
-      "Consumes no electricity during operation",
-      "Cuts only wooden materials efficiently",
-      "Removes material through heat conduction"
-    ],
-    correctAnswer: "Cuts very hard materials with exceptional precision"
-  },
-  {
-    text: "What are examples of specialized CNC machining processes?",
-    options: [
-      "CNC laser cutting and CNC plasma cutting",
-      "Manual engraving and hammer forging",
-      "Casting and thermal spraying",
-      "Cold rolling and polishing"
-    ],
-    correctAnswer: "CNC laser cutting and CNC plasma cutting"
-  },
-  {
-    text: "What is the main purpose of CNC laser and plasma cutting?",
-    options: [
-      "Cutting materials quickly and efficiently with precision",
-      "Heating surfaces to apply coatings",
-      "Joining sheets through spot welding",
-      "Forming wires into coils for machining"
-    ],
-    correctAnswer: "Cutting materials quickly and efficiently with precision"
-  },
-  {
-    text: "Which CNC process is ideal for both thin and thick materials?",
-    options: [
-      "CNC laser and plasma cutting",
-      "CNC drilling and tapping",
-      "CNC turning and grinding",
-      "CNC polishing and engraving"
-    ],
-    correctAnswer: "CNC laser and plasma cutting"
-  },
-  {
-    text: "Which CNC process is best for creating molds and aerospace components?",
-    options: [
-      "CNC milling for 3D contour machining",
-      "CNC turning for cylindrical features",
-      "CNC drilling for deep holes",
-      "Wire EDM for rough cuts"
-    ],
-    correctAnswer: "CNC milling for 3D contour machining"
-  },
-  {
-    text: "Which CNC process is essential for cylindrical parts?",
-    options: [
-      "CNC turning for round geometries",
-      "CNC milling for flat profiles",
-      "CNC drilling for through holes",
-      "CNC plasma cutting for metal sheets"
-    ],
-    correctAnswer: "CNC turning for round geometries"
-  },
-  {
-    text: "Which industries commonly use CNC drilling?",
-    options: [
-      "Medical and industrial manufacturing sectors",
-      "Textile and food processing sectors",
-      "Forestry and agriculture operations",
-      "Education and tourism sectors"
-    ],
-    correctAnswer: "Medical and industrial manufacturing sectors"
-  },
-  {
-    text: "What makes CNC machining vital in modern manufacturing?",
-    options: [
-      "Precision and versatility across materials",
-      "Manual control and guesswork",
-      "High waste and slower output",
-      "Random tolerance variation"
-    ],
-    correctAnswer: "Precision and versatility across materials"
-  },
-  {
-    text: "Which property makes CNC machining essential across industries?",
-    options: [
-      "Unmatched precision, efficiency, and repeatability",
-      "High energy use and low repeatability",
-      "Complex manual setup with low tolerance",
-      "Variable accuracy under supervision"
-    ],
-    correctAnswer: "Unmatched precision, efficiency, and repeatability"
-  },
-  {
-    text: "What does YIJEN Hardware specialize in?",
-    options: [
-      "Delivering high-quality CNC solutions tailored to needs",
-      "Producing manual lathe components only",
-      "Importing sheet metals for retail use",
-      "Building wooden furniture and molds"
-    ],
-    correctAnswer: "Delivering high-quality CNC solutions tailored to needs"
-  },
-  {
-  text: "Which CNC process is commonly used for producing high-precision aerospace components?",
-  options: [
-    "CNC turning",
-    "CNC milling",
-    "Wire EDM",
-    "CNC laser cutting"
-  ],
-  correctAnswer: "Wire EDM"
-},
-  {
-    text: "What is the main takeaway from the CNC machining video?",
-    options: [
-      "CNC machining provides precision and versatility across industries",
-      "Manual machining remains faster for all parts",
-      "CNC tools cannot produce detailed geometries",
-      "CNC processes are limited to wooden materials"
-    ],
-    correctAnswer: "CNC machining provides precision and versatility across industries"
-  }
+  
+[
+    {
+        text: "Why should engineers understand different CNC machine types?",
+        textKn: " பொறியನಿಯರ್‌ಗಳು ವಿಭಿನ್ನ CNC ಯಂತ್ರ ಪ್ರಕಾರಗಳನ್ನು ಏಕೆ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಬೇಕು?",
+        options: [
+            "To reduce tool wear",
+            "To design effectively by knowing each type’s capabilities",
+            "To avoid using cutting tools",
+            "To simplify drawings"
+        ],
+        optionsKn: [
+            "ಟೂಲ್ ಸವೆತವನ್ನು ಕಡಿಮೆ ಮಾಡಲು",
+            "ಪ್ರತಿ ಪ್ರಕಾರದ ಸಾಮರ್ಥ್ಯಗಳನ್ನು ತಿಳಿದುಕೊಳ್ಳುವ ಮೂಲಕ ಪರಿಣಾಮಕಾರಿಯಾಗಿ ವಿನ್ಯಾಸಗೊಳಿಸಲು",
+            "ಕತ್ತರಿಸುವ ಉಪಕರಣಗಳನ್ನು ಬಳಸುವುದನ್ನು ತಪ್ಪಿಸಲು",
+            "ಡ್ರಾಯಿಂಗ್‌ಗಳನ್ನು ಸರಳಗೊಳಿಸಲು"
+        ],
+        correctAnswer: "To design effectively by knowing each type’s capabilities"
+    },
+    {
+        text: "Which CNC machines were discussed in the video?",
+        textKn: "ವೀಡಿಯೊದಲ್ಲಿ ಯಾವ CNC ಯಂತ್ರಗಳ ಬಗ್ಗೆ ಚರ್ಚಿಸಲಾಗಿದೆ?",
+        options: [
+            "Machines that remove material using cutting tools",
+            "Only additive systems",
+            "Only EDM machines",
+            "Laser cutters only"
+        ],
+        optionsKn: [
+            "ಕತ್ತರಿಸುವ ಉಪಕರಣಗಳನ್ನು ಬಳಸಿ ವಸ್ತುವನ್ನು ತೆಗೆದುಹಾಕುವ ಯಂತ್ರಗಳು",
+            "ಕೇವಲ ಸಂಯೋಜಕ ವ್ಯವಸ್ಥೆಗಳು (additive systems)",
+            "ಕೇವಲ EDM ಯಂತ್ರಗಳು",
+            "ಲೇಸರ್ ಕಟ್ಟರ್‌ಗಳು ಮಾತ್ರ"
+        ],
+        correctAnswer: "Machines that remove material using cutting tools"
+    },
+    {
+        text: "Which are the main CNC machine categories?",
+        textKn: "ಮುಖ್ಯ CNC ಯಂತ್ರ ವರ್ಗಗಳು ಯಾವುವು?",
+        options: [
+            "3-axis and multi-axis machines",
+            "Lathe and plasma machines",
+            "Milling and laser cutters",
+            "Turning and grinding systems"
+        ],
+        optionsKn: [
+            "3-ಆಕ್ಸಿಸ್ ಮತ್ತು ಮಲ್ಟಿ-ಆಕ್ಸಿಸ್ ಯಂತ್ರಗಳು",
+            "ಲೇತ್ ಮತ್ತು ಪ್ಲಾಸ್ಮಾ ಯಂತ್ರಗಳು",
+            "ಮಿಲ್ಲಿಂಗ್ ಮತ್ತು ಲೇಸರ್ ಕಟ್ಟರ್‌ಗಳು",
+            "ಟರ್ನಿಂಗ್ ಮತ್ತು ಗ್ರೈಂಡಿಂಗ್ ವ್ಯವಸ್ಥೆಗಳು"
+        ],
+        correctAnswer: "3-axis and multi-axis machines"
+    },
+    {
+        text: "Which are common 3-axis CNC machines?",
+        textKn: "ಸಾಮಾನ್ಯ 3-ಆಕ್ಸಿಸ್ CNC ಯಂತ್ರಗಳು ಯಾವುವು?",
+        options: [
+            "CNC drilling and milling machines",
+            "CNC milling and CNC turning machines",
+            "CNC laser and EDM machines",
+            "CNC plasma cutters"
+        ],
+        optionsKn: [
+            "CNC ಡ್ರಿಲ್ಲಿಂಗ್ ಮತ್ತು ಮಿಲ್ಲಿಂಗ್ ಯಂತ್ರಗಳು",
+            "CNC ಮಿಲ್ಲಿಂಗ್ ಮತ್ತು CNC ಟರ್ನಿಂಗ್ ಯಂತ್ರಗಳು",
+            "CNC ಲೇಸರ್ ಮತ್ತು EDM ಯಂತ್ರಗಳು",
+            "CNC ಪ್ಲಾಸ್ಮಾ ಕಟ್ಟರ್‌ಗಳು"
+        ],
+        correctAnswer: "CNC milling and CNC turning machines"
+    },
+    {
+        text: "Why are 3-axis milling machines popular?",
+        textKn: "3-ಆಕ್ಸಿಸ್ ಮಿಲ್ಲಿಂಗ್ ಯಂತ್ರಗಳು ಏಕೆ ಜನಪ್ರಿಯವಾಗಿವೆ?",
+        options: [
+            "They are easy to program and cost-effective",
+            "They machine all shapes without limits",
+            "They use automatic tool changers only",
+            "They require no supervision"
+        ],
+        optionsKn: [
+            "ಅವು ಪ್ರೋಗ್ರಾಂ ಮಾಡಲು ಸುಲಭ ಮತ್ತು ವೆಚ್ಚ-ಪರಿಣಾಮಕಾರಿ",
+            "ಅವು ಮಿತಿಯಿಲ್ಲದೆ ಎಲ್ಲಾ ಆಕಾರಗಳನ್ನು ಯಂತ್ರಿಸುತ್ತವೆ",
+            "ಅವು ಸ್ವಯಂಚಾಲಿತ ಟೂಲ್ ಚೇಂಜರ್‌ಗಳನ್ನು ಮಾತ್ರ ಬಳಸುತ್ತವೆ",
+            "ಅವುಗಳಿಗೆ ಯಾವುದೇ ಮೇಲ್ವಿಚಾರಣೆ ಅಗತ್ಯವಿಲ್ಲ"
+        ],
+        correctAnswer: "They are easy to program and cost-effective"
+    },
+    {
+        text: "What is a limitation of 3-axis CNC milling machines?",
+        textKn: "3-ಆಕ್ಸಿಸ್ CNC ಮಿಲ್ಲಿಂಗ್ ಯಂತ್ರಗಳ ಮಿತಿ ಏನು?",
+        options: [
+            "Limited tool access to certain areas",
+            "High power consumption",
+            "Cannot handle soft materials",
+            "Difficult spindle setup"
+        ],
+        optionsKn: [
+            "ಕೆಲವು ಪ್ರದೇಶಗಳಿಗೆ ಸೀಮಿತ ಟೂಲ್ ಪ್ರವೇಶ",
+            "ಹೆಚ್ಚಿನ ವಿದ್ಯುತ್ ಬಳಕೆ",
+            "ಮೃದುವಾದ ವಸ್ತುಗಳನ್ನು ನಿಭಾಯಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ",
+            "ಕಷ್ಟಕರವಾದ ಸ್ಪಿಂಡಲ್ ಸೆಟಪ್"
+        ],
+        correctAnswer: "Limited tool access to certain areas"
+    },
+    {
+        text: "How does a CNC lathe differ from a milling machine?",
+        textKn: "CNC ಲೇತ್ ಮಿಲ್ಲಿಂಗ್ ಯಂತ್ರಕ್ಕಿಂತ ಹೇಗೆ ಭಿನ್ನವಾಗಿದೆ?",
+        options: [
+            "The workpiece rotates while the tool is stationary",
+            "The tool rotates while the workpiece is fixed",
+            "Both remain stationary",
+            "Both rotate together"
+        ],
+        optionsKn: [
+            "ಟೂಲ್ ಸ್ಥಿರವಾಗಿರುವಾಗ ವರ್ಕ್‌ಪೀಸ್ ತಿರುಗುತ್ತದೆ",
+            "ವರ್ಕ್‌ಪೀಸ್ ಸ್ಥಿರವಾಗಿರುವಾಗ ಟೂಲ್ ತಿರುಗುತ್ತದೆ",
+            "ಎರಡೂ ಸ್ಥಿರವಾಗಿರುತ್ತವೆ",
+            "ಎರಡೂ ಒಟ್ಟಿಗೆ ತಿರುಗುತ್ತವೆ"
+        ],
+        correctAnswer: "The workpiece rotates while the tool is stationary"
+    },
+    {
+        text: "CNC lathes are ideal for which parts?",
+        textKn: "CNC ಲೇತ್‌ಗಳು ಯಾವ ಭಾಗಗಳಿಗೆ ಸೂಕ್ತವಾಗಿವೆ?",
+        options: [
+            "Cylindrical parts",
+            "Flat sheets",
+            "Complex organic shapes",
+            "Rectangular plates"
+        ],
+        optionsKn: [
+            "ಸಿಲಿಂಡರಾಕಾರದ ಭಾಗಗಳು",
+            "ಚಪ್ಪಟೆಯಾದ ಹಾಳೆಗಳು",
+            "ಸಂಕೀರ್ಣ ಸಾವಯವ ಆಕಾರಗಳು",
+            "ಆಯತಾಕಾರದ ಪ್ಲೇಟ್‌ಗಳು"
+        ],
+        correctAnswer: "Cylindrical parts"
+    },
+    {
+        text: "How many axes do multi-axis CNC machines typically have?",
+        textKn: "ಮಲ್ಟಿ-ಆಕ್ಸಿಸ್ CNC ಯಂತ್ರಗಳು ಸಾಮಾನ್ಯವಾಗಿ ಎಷ್ಟು ಆಕ್ಸಿಸ್‌ಗಳನ್ನು ಹೊಂದಿರುತ್ತವೆ?",
+        options: ["Three", "Four", "Five or more", "Two"],
+        optionsKn: ["ಮೂರು", "ನಾಲ್ಕು", "ಐದು ಅಥವಾ ಹೆಚ್ಚು", "ಎರಡು"],
+        correctAnswer: "Five or more"
+    },
+    {
+        text: "What is a main benefit of 5-axis machining?",
+        textKn: "5-ಆಕ್ಸಿಸ್ ಮಶೀನಿಂಗ್‌ನ ಪ್ರಮುಖ ಪ್ರಯೋಜನವೇನು?",
+        options: [
+            "It enables complex geometries using two extra axes",
+            "It reduces tool wear automatically",
+            "It uses fewer G-codes",
+            "It eliminates programming steps"
+        ],
+        optionsKn: [
+            "ಇದು ಎರಡು ಹೆಚ್ಚುವರಿ ಆಕ್ಸಿಸ್‌ಗಳನ್ನು ಬಳಸಿಕೊಂಡು ಸಂಕೀರ್ಣ ಜ್ಯಾಮಿತಿಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುತ್ತದೆ",
+            "ಇದು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಟೂಲ್ ಸವೆತವನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ",
+            "ಇದು ಕಡಿಮೆ G-ಕೋಡ್‌ಗಳನ್ನು ಬಳಸುತ್ತದೆ",
+            "ಇದು ಪ್ರೋಗ್ರಾಮಿಂಗ್ ಹಂತಗಳನ್ನು ನಿವಾರಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "It enables complex geometries using two extra axes"
+    },
+    {
+        text: "What describes an indexed 5-axis CNC machine?",
+        textKn: "ಇಂಡೆಕ್ಸ್ಡ್ 5-ಆಕ್ಸಿಸ್ CNC ಯಂತ್ರವನ್ನು ಯಾವುದು ವಿವರಿಸುತ್ತದೆ?",
+        options: [
+            "The bed or head rotates between operations",
+            "All five axes move together",
+            "It uses manual tool control",
+            "It is limited to one tool"
+        ],
+        optionsKn: [
+            "ಕಾರ್ಯಾಚರಣೆಗಳ ನಡುವೆ ಬೆಡ್ ಅಥವಾ ಹೆಡ್ ತಿರುಗುತ್ತದೆ",
+            "ಎಲ್ಲಾ ಐದು ಆಕ್ಸಿಸ್‌ಗಳು ಒಟ್ಟಿಗೆ ಚಲಿಸುತ್ತವೆ",
+            "ಇದು ಹಸ್ತಚಾಲಿತ ಟೂಲ್ ನಿಯಂತ್ರಣವನ್ನು ಬಳಸುತ್ತದೆ",
+            "ಇದು ಒಂದು ಟೂಲ್‌ಗೆ ಸೀಮಿತವಾಗಿದೆ"
+        ],
+        correctAnswer: "The bed or head rotates between operations"
+    },
+    {
+        text: "How does a continuous 5-axis CNC differ from an indexed one?",
+        textKn: "ಕಂಟಿನ್ಯೂಯಸ್ 5-ಆಕ್ಸಿಸ್ CNC ಇಂಡೆಕ್ಸ್ಡ್ ಒಂದಕ್ಕಿಂತ ಹೇಗೆ ಭಿನ್ನವಾಗಿದೆ?",
+        options: [
+            "All five axes move simultaneously during machining",
+            "It needs manual repositioning",
+            "It performs only rough cuts",
+            "It can only cut flat surfaces"
+        ],
+        optionsKn: [
+            "ಮಶೀನಿಂಗ್ ಸಮಯದಲ್ಲಿ ಎಲ್ಲಾ ಐದು ಆಕ್ಸಿಸ್‌ಗಳು ಏಕಕಾಲದಲ್ಲಿ ಚಲಿಸುತ್ತವೆ",
+            "ಇದಕ್ಕೆ ಹಸ್ತಚಾಲಿತ ಮರುಸ್ಥಾಪನೆ ಅಗತ್ಯವಿದೆ",
+            "ಇದು ಕೇವಲ ಒರಟು ಕಟ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸುತ್ತದೆ",
+            "ಇದು ಕೇವಲ ಚಪ್ಪಟೆ ಮೇಲ್ಮೈಗಳನ್ನು ಕತ್ತರಿಸಬಲ್ಲದು"
+        ],
+        correctAnswer: "All five axes move simultaneously during machining"
+    },
+    {
+        text: "What is a Mill-Turn CNC center?",
+        textKn: "ಮಿಲ್-ಟರ್ನ್ CNC ಸೆಂಟರ್ ಎಂದರೇನು?",
+        options: [
+            "A hybrid combining milling and turning",
+            "A manual grinding setup",
+            "A laser cutter",
+            "A basic plasma machine"
+        ],
+        optionsKn: [
+            "ಮಿಲ್ಲಿಂಗ್ ಮತ್ತು ಟರ್ನಿಂಗ್ ಅನ್ನು ಸಂಯೋಜಿಸುವ ಹೈಬ್ರಿಡ್",
+            "ಹಸ್ತಚಾಲಿತ ಗ್ರೈಂಡಿಂಗ್ ಸೆಟಪ್",
+            "ಒಂದು ಲೇಸರ್ ಕಟ್ಟರ್",
+            "ಒಂದು ಮೂಲಭೂತ ಪ್ಲಾಸ್ಮಾ ಯಂತ್ರ"
+        ],
+        correctAnswer: "A hybrid combining milling and turning"
+    },
+    {
+        text: "What is the advantage of a Mill-Turn CNC center?",
+        textKn: "ಮಿಲ್-ಟರ್ನ್ CNC ಸೆಂಟರ್‌ನ ಪ್ರಯೋಜನವೇನು?",
+        options: [
+            "Reduces setup time and cost",
+            "Eliminates tool requirements",
+            "Produces flat parts only",
+            "Needs multiple setups"
+        ],
+        optionsKn: [
+            "ಸೆಟಪ್ ಸಮಯ ಮತ್ತು ವೆಚ್ಚವನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ",
+            "ಟೂಲ್ ಅವಶ್ಯಕತೆಗಳನ್ನು ನಿವಾರಿಸುತ್ತದೆ",
+            "ಚಪ್ಪಟೆ ಭಾಗಗಳನ್ನು ಮಾತ್ರ ಉತ್ಪಾದಿಸುತ್ತದೆ",
+            "ಬಹು ಸೆಟಪ್‌ಗಳ ಅಗತ್ಯವಿದೆ"
+        ],
+        correctAnswer: "Reduces setup time and cost"
+    },
+    {
+        text: "Which term defines CNC motion precision?",
+        textKn: "ಯಾವ ಪದವು CNC ಚಲನೆಯ ನಿಖರತೆಯನ್ನು ವ್ಯಾಖ್ಯಾನಿಸುತ್ತದೆ?",
+        options: ["Accuracy", "Resolution", "Feed rate", "Tolerance"],
+        optionsKn: ["ಅಕ್ಯುರೆಸಿ (ನಿಖರತೆ)", "ರೆಸಲ್ಯೂಶನ್ (ಸ್ಪಷ್ಟತೆ)", "ಫೀಡ್ ರೇಟ್ (ಪೂರೈಕೆ ದರ)", "ಟಾಲರೆನ್ಸ್ (ಸಹಿಷ್ಣುತೆ)"],
+        correctAnswer: "Resolution"
+    },
+    {
+        text: "What is G-code used for?",
+        textKn: "G-ಕೋಡ್ ಅನ್ನು ಯಾವುದಕ್ಕಾಗಿ ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Controlling tool movements and paths",
+            "Activating coolant systems",
+            "Defining machine start delay",
+            "Monitoring power usage"
+        ],
+        optionsKn: [
+            "ಟೂಲ್ ಚಲನೆಗಳು ಮತ್ತು ಮಾರ್ಗಗಳನ್ನು ನಿಯಂತ್ರಿಸುವುದು",
+            "ಕೂಲೆಂಟ್ ವ್ಯವಸ್ಥೆಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುವುದು",
+            "ಯಂತ್ರ ಪ್ರಾರಂಭದ ವಿಳಂಬವನ್ನು ವ್ಯಾಖ್ಯಾನಿಸುವುದು",
+            "ವಿದ್ಯುತ್ ಬಳಕೆಯನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುವುದು"
+        ],
+        correctAnswer: "Controlling tool movements and paths"
+    },
+    {
+        text: "What is the role of M-code?",
+        textKn: "M-ಕೋಡ್‌ನ ಪಾತ್ರವೇನು?",
+        options: [
+            "Controls machine functions like spindle and coolant",
+            "Defines work coordinate systems",
+            "Adjusts feed rate",
+            "Creates tool offsets"
+        ],
+        optionsKn: [
+            "ಸ್ಪಿಂಡಲ್ ಮತ್ತು ಕೂಲೆಂಟ್‌ನಂತಹ ಯಂತ್ರ ಕಾರ್ಯಗಳನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ",
+            "ವರ್ಕ್ ಕೋಆರ್ಡಿನೇಟ್ ಸಿಸ್ಟಮ್‌ಗಳನ್ನು ವ್ಯಾಖ್ಯಾನಿಸುತ್ತದೆ",
+            "ಫೀಡ್ ದರವನ್ನು ಸರಿಹೊಂದಿಸುತ್ತದೆ",
+            "ಟೂಲ್ ಆಫ್‌ಸೆಟ್‌ಗಳನ್ನು ರಚಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Controls machine functions like spindle and coolant"
+    },
+    {
+        text: "Which CNC axis moves vertically?",
+        textKn: "ಯಾವ CNC ಆಕ್ಸಿಸ್ ಲಂಬವಾಗಿ ಚಲಿಸುತ್ತದೆ?",
+        options: ["X-axis", "Y-axis", "Z-axis", "A-axis"],
+        optionsKn: ["X-ಆಕ್ಸಿಸ್", "Y-ಆಕ್ಸಿಸ್", "Z-ಆಕ್ಸಿಸ್", "A-ಆಕ್ಸಿಸ್"],
+        correctAnswer: "Z-axis"
+    },
+    {
+        text: "Which CNC component rotates the cutting tool?",
+        textKn: "ಯಾವ CNC ಘಟಕವು ಕತ್ತರಿಸುವ ಟೂಲ್ ಅನ್ನು ತಿರುಗಿಸುತ್ತದೆ?",
+        options: ["Spindle", "Chuck", "Turret", "Tailstock"],
+        optionsKn: ["ಸ್ಪಿಂಡಲ್", "ಚಕ್", "ಟರ್ರೆಟ್", "ಟೈಲ್‌ಸ್ಟಾಕ್"],
+        correctAnswer: "Spindle"
+    },
+    {
+        text: "What is backlash in CNC systems?",
+        textKn: "CNC ವ್ಯವಸ್ಥೆಗಳಲ್ಲಿ ಬ್ಯಾಕ್‌ಲ್ಯಾಶ್ ಎಂದರೇನು?",
+        options: [
+            "Mechanical play between drive components",
+            "Excessive spindle heat",
+            "Feed rate increase",
+            "Tool vibration"
+        ],
+        optionsKn: [
+            "ಡ್ರೈವ್ ಘಟಕಗಳ ನಡುವಿನ ಯಾಂತ್ರಿಕ ಅಂತರ (ಪ್ಲೇ)",
+            "ಅತಿಯಾದ ಸ್ಪಿಂಡಲ್ ಶಾಖ",
+            "ಫೀಡ್ ದರ ಹೆಚ್ಚಳ",
+            "ಟೂಲ್ ಕಂಪನ"
+        ],
+        correctAnswer: "Mechanical play between drive components"
+    },
+    {
+        text: "What part interprets and executes CNC programs?",
+        textKn: "ಯಾವ ಭಾಗವು CNC ಪ್ರೋಗ್ರಾಂಗಳನ್ನು ವ್ಯಾಖ್ಯಾನಿಸುತ್ತದೆ ಮತ್ತು ಕಾರ್ಯಗತಗೊಳಿಸುತ್ತದೆ?",
+        options: ["Controller", "Fixture", "Tool post", "Coolant pump"],
+        optionsKn: ["ಕಂಟ್ರೋಲರ್", "ಫಿಕ್ಸ್ಚರ್", "ಟೂಲ್ ಪೋಸ್ಟ್", "ಕೂಲೆಂಟ್ ಪಂಪ್"],
+        correctAnswer: "Controller"
+    },
+    {
+        text: "What does feed rate mean in CNC machining?",
+        textKn: "CNC ಮಶೀನಿಂಗ್‌ನಲ್ಲಿ ಫೀಡ್ ರೇಟ್ (feed rate) ಎಂದರೇನು?",
+        options: [
+            "Speed of tool movement relative to workpiece",
+            "Spindle rotation speed",
+            "Power consumption rate",
+            "Lubricant flow rate"
+        ],
+        optionsKn: [
+            "ವರ್ಕ್‌ಪೀಸ್‌ಗೆ ಹೋಲಿಸಿದರೆ ಟೂಲ್ ಚಲನೆಯ ವೇಗ",
+            "ಸ್ಪಿಂಡಲ್ ತಿರುಗುವಿಕೆಯ ವೇಗ",
+            "ವಿದ್ಯುತ್ ಬಳಕೆಯ ದರ",
+            "ಲೂಬ್ರಿಕಂಟ್ ಹರಿವಿನ ದರ"
+        ],
+        correctAnswer: "Speed of tool movement relative to workpiece"
+    },
+    {
+        text: "What does the tool turret on a CNC lathe do?",
+        textKn: "CNC ಲೇತ್‌ನಲ್ಲಿರುವ ಟೂಲ್ ಟರ್ರೆಟ್ ಏನು ಮಾಡುತ್ತದೆ?",
+        options: [
+            "Holds multiple tools for automatic selection",
+            "Rotates the workpiece",
+            "Supports the tailstock",
+            "Moves the spindle"
+        ],
+        optionsKn: [
+            "ಸ್ವಯಂಚಾಲಿತ ಆಯ್ಕೆಗಾಗಿ ಬಹು ಟೂಲ್‌ಗಳನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ",
+            "ವರ್ಕ್‌ಪೀಸ್ ಅನ್ನು ತಿರುಗಿಸುತ್ತದೆ",
+            "ಟೈಲ್‌ಸ್ಟಾಕ್ ಅನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆ",
+            "ಸ್ಪಿಂಡಲ್ ಅನ್ನು ಚಲಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Holds multiple tools for automatic selection"
+    },
+    {
+        text: "Which CNC machine uses a thin wire for cutting?",
+        textKn: "ಯಾವ CNC ಯಂತ್ರವು ಕತ್ತರಿಸಲು ತೆಳುವಾದ ತಂತಿಯನ್ನು ಬಳಸುತ್ತದೆ?",
+        options: ["EDM machine", "Lathe", "Router", "Grinder"],
+        optionsKn: ["EDM ಯಂತ್ರ", "ಲೇತ್", "ರೂಟರ್", "ಗ್ರೈಂಡರ್"],
+        correctAnswer: "EDM machine"
+    },
+    {
+        text: "In CNC machining, what is interpolation?",
+        textKn: "CNC ಮಶೀನಿಂಗ್‌ನಲ್ಲಿ, ಇಂಟರ್ಪೋಲೇಷನ್ ಎಂದರೇನು?",
+        options: [
+            "Movement of the tool along a programmed path",
+            "Manual spindle control",
+            "Tool alignment check",
+            "Coolant flow adjustment"
+        ],
+        optionsKn: [
+            "ಪ್ರೋಗ್ರಾಮ್ ಮಾಡಲಾದ ಮಾರ್ಗದಲ್ಲಿ ಟೂಲ್‌ನ ಚಲನೆ",
+            "ಹಸ್ತಚಾಲಿತ ಸ್ಪಿಂಡಲ್ ನಿಯಂತ್ರಣ",
+            "ಟೂಲ್ ಜೋಡಣೆ ಪರಿಶೀಲನೆ",
+            "ಕೂಲೆಂಟ್ ಹರಿವಿನ ಹೊಂದಾಣಿಕೆ"
+        ],
+        correctAnswer: "Movement of the tool along a programmed path"
+    },
+    {
+        text: "What does tool offset compensate for?",
+        textKn: "ಟೂಲ್ ಆಫ್‌ಸೆಟ್ ಯಾವುದನ್ನು ಸರಿದೂಗಿಸುತ್ತದೆ?",
+        options: [
+            "Tool length or diameter differences",
+            "Workpiece hardness",
+            "Tool wear vibration",
+            "Spindle misalignment"
+        ],
+        optionsKn: [
+            "ಟೂಲ್ ಉದ್ದ ಅಥವಾ ವ್ಯಾಸದ ವ್ಯತ್ಯಾಸಗಳು",
+            "ವರ್ಕ್‌ಪೀಸ್ ಗಡಸುತನ",
+            "ಟೂಲ್ ಸವೆತದ ಕಂಪನ",
+            "ಸ್ಪಿಂಡಲ್ ತಪ್ಪಾಗಿ ಜೋಡಣೆಗೊಂಡಿರುವುದು"
+        ],
+        correctAnswer: "Tool length or diameter differences"
+    },
+    {
+        text: "Which metal is most commonly machined using CNC?",
+        textKn: "CNC ಬಳಸಿ ಸಾಮಾನ್ಯವಾಗಿ ಯಾವ ಲೋಹವನ್ನು ಮಶೀನ್ ಮಾಡಲಾಗುತ್ತದೆ?",
+        options: ["Aluminum", "Copper", "Iron", "Zinc"],
+        optionsKn: ["ಅಲ್ಯೂಮಿನಿಯಂ", "ತಾಮ್ರ", "ಕಬ್ಬಿಣ", "ಸತು"],
+        correctAnswer: "Aluminum"
+    },
+    {
+        text: "What is the key advantage of CNC over manual machining?",
+        textKn: "ಹಸ್ತಚಾಲಿತ ಮಶೀನಿಂಗ್‌ಗಿಂತ CNC ಯ ಪ್ರಮುಖ ಪ್ರಯೋಜನವೇನು?",
+        options: [
+            "Greater precision and repeatability",
+            "No programming needed",
+            "No cutting fluids required",
+            "Always faster than manual machining"
+        ],
+        optionsKn: [
+            "ಹೆಚ್ಚಿನ ನಿಖರತೆ ಮತ್ತು ಪುನರಾವರ್ತನೆ (repeatability)",
+            "ಯಾವುದೇ ಪ್ರೋಗ್ರಾಮಿಂಗ್ ಅಗತ್ಯವಿಲ್ಲ",
+            "ಕತ್ತರಿಸುವ ದ್ರವಗಳ ಅಗತ್ಯವಿಲ್ಲ",
+            "ಯಾವಾಗಲೂ ಹಸ್ತಚಾಲಿತ ಮಶೀನಿಂಗ್‌ಗಿಂತ ವೇಗವಾಗಿರುತ್ತದೆ"
+        ],
+        correctAnswer: "Greater precision and repeatability"
+    },
+    {
+        text: "Which CNC machine is ideal for wood and plastic engraving?",
+        textKn: "ಮರ ಮತ್ತು ಪ್ಲಾಸ್ಟಿಕ್ ಕೆತ್ತನೆಗೆ ಯಾವ CNC ಯಂತ್ರ ಸೂಕ್ತವಾಗಿದೆ?",
+        options: ["CNC router", "CNC lathe", "EDM machine", "Grinder"],
+        optionsKn: ["CNC ರೂಟರ್", "CNC ಲೇತ್", "EDM ಯಂತ್ರ", "ಗ್ರೈಂಡರ್"],
+        correctAnswer: "CNC router"
+    },
+    {
+        text: "Which is a key safety practice in CNC operation?",
+        textKn: "CNC ಕಾರ್ಯಾಚರಣೆಯಲ್ಲಿ ಪ್ರಮುಖ ಸುರಕ್ಷತಾ ಅಭ್ಯಾಸ ಯಾವುದು?",
+        options: [
+            "Wearing protective eyewear and securing clothing",
+            "Touching the tool to check sharpness",
+            "Disabling interlocks during setup",
+            "Leaning near the spindle while running"
+        ],
+        optionsKn: [
+            "ಸುರಕ್ಷತಾ ಕನ್ನಡಕಗಳನ್ನು ಧರಿಸುವುದು ಮತ್ತು ಬಟ್ಟೆಗಳನ್ನು ಭದ್ರಪಡಿಸುವುದು",
+            "ತೀಕ್ಷ್ಣತೆಯನ್ನು ಪರೀಕ್ಷಿಸಲು ಟೂಲ್ ಅನ್ನು ಸ್ಪರ್ಶಿಸುವುದು",
+            "ಸೆಟಪ್ ಸಮಯದಲ್ಲಿ ಇಂಟರ್‌ಲಾಕ್‌ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವುದು",
+            "ಚಾಲನೆಯಲ್ಲಿರುವಾಗ ಸ್ಪಿಂಡಲ್ ಬಳಿ ವಾಲಿಕೊಳ್ಳುವುದು"
+        ],
+        correctAnswer: "Wearing protective eyewear and securing clothing"
+    },
+    {
+        text: "What summarizes the main takeaway of CNC machine types?",
+        textKn: "CNC ಯಂತ್ರ ಪ್ರಕಾರಗಳ ಮುಖ್ಯ ಸಾರಾಂಶವೇನು?",
+        options: [
+            "Each type has distinct strengths and applications",
+            "All CNC machines perform the same function",
+            "3-axis systems are outdated",
+            "Only turning machines are widely used"
+        ],
+        optionsKn: [
+            "ಪ್ರತಿ ಪ್ರಕಾರವು ವಿಶಿಷ್ಟ ಸಾಮರ್ಥ್ಯಗಳನ್ನು ಮತ್ತು ಅನ್ವಯಿಕೆಗಳನ್ನು ಹೊಂದಿದೆ",
+            "ಎಲ್ಲಾ CNC ಯಂತ್ರಗಳು ಒಂದೇ ಕಾರ್ಯವನ್ನು ನಿರ್ವಹಿಸುತ್ತವೆ",
+            "3-ಆಕ್ಸಿಸ್ ವ್ಯವಸ್ಥೆಗಳು ಹಳತಾಗಿವೆ",
+            "ಟರ್ನಿಂಗ್ ಯಂತ್ರಗಳನ್ನು ಮಾತ್ರ ವ್ಯಾಪಕವಾಗಿ ಬಳಸಲಾಗುತ್ತದೆ"
+        ],
+        correctAnswer: "Each type has distinct strengths and applications"
+    }
+],
+      
+[
+    {
+        text: "What does CNC stand for?",
+        textKn: "CNC ಯ ಪೂರ್ಣ ರೂಪವೇನು?",
+        options: [
+            "Central Numeric Calculation",
+            "Computer Numerical Control",
+            "Calculated Numeric Coding",
+            "Controlled Network Computing"
+        ],
+        optionsKn: [
+            "ಸೆಂಟ್ರಲ್ ನ್ಯೂಮರಿಕ್ ಕ್ಯಾಲ್ಕುಲೇಶನ್",
+            "ಕಂಪ್ಯೂಟರ್ ನ್ಯೂಮರಿಕಲ್ ಕಂಟ್ರೋಲ್",
+            "ಕ್ಯಾಲ್ಕುಲೇಟೆಡ್ ನ್ಯೂಮರಿಕ್ ಕೋಡಿಂಗ್",
+            "ಕಂಟ್ರೋಲ್ಡ್ ನೆಟ್ವರ್ಕ್ ಕಂಪ್ಯೂಟಿಂಗ್"
+        ],
+        correctAnswer: "Computer Numerical Control"
+    },
+    {
+        text: "Which industries commonly rely on CNC machining?",
+        textKn: "ಯಾವ ಉದ್ಯಮಗಳು ಸಾಮಾನ್ಯವಾಗಿ CNC ಮಶೀನಿಂಗ್ ಅನ್ನು ಅವಲಂಬಿಸಿವೆ?",
+        options: [
+            "Education and Tourism",
+            "Agriculture and Forestry",
+            "Aerospace, Automotive, and Medical",
+            "Textile and Food"
+        ],
+        optionsKn: [
+            "ಶಿಕ್ಷಣ ಮತ್ತು ಪ್ರವಾಸೋದ್ಯಮ",
+            "ಕೃಷಿ ಮತ್ತು ಅರಣ್ಯ",
+            "ಏರೋಸ್ಪೇಸ್, ಆಟೋಮೋಟಿವ್, ಮತ್ತು ವೈದ್ಯಕೀಯ",
+            "ಜವಳಿ ಮತ್ತು ಆಹಾರ"
+        ],
+        correctAnswer: "Aerospace, Automotive, and Medical"
+    },
+    {
+        text: "What is CNC machining primarily used for?",
+        textKn: "CNC ಮಶೀನಿಂಗ್ ಅನ್ನು ಪ್ರಾಥಮಿಕವಾಗಿ ಯಾವುದಕ್ಕಾಗಿ ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Transforming raw materials into precise parts using computer-guided controls",
+            "Painting or polishing metallic surfaces for appearance",
+            "Smoothing metal components using abrasive wheels",
+            "Joining materials using high-pressure welding techniques"
+        ],
+        optionsKn: [
+            "ಕಂಪ್ಯೂಟರ್-ಮಾರ್ಗದರ್ಶಿ ನಿಯಂತ್ರಣಗಳನ್ನು ಬಳಸಿಕೊಂಡು ಕಚ್ಚಾ ವಸ್ತುಗಳನ್ನು ನಿಖರ ಭಾಗಗಳಾಗಿ ಪರಿವರ್ತಿಸುವುದು",
+            "ನೋಟಕ್ಕಾಗಿ ಲೋಹೀಯ ಮೇಲ್ಮೈಗಳನ್ನು ಪೇಂಟಿಂಗ್ ಮಾಡುವುದು ಅಥವಾ ಪಾಲಿಶ್ ಮಾಡುವುದು",
+            "ಅಪಘರ್ಷಕ ಚಕ್ರಗಳನ್ನು ಬಳಸಿ ಲೋಹದ ಘಟಕಗಳನ್ನು ನಯಗೊಳಿಸುವುದು",
+            "ಹೆಚ್ಚಿನ ಒತ್ತಡದ ವೆಲ್ಡಿಂಗ್ ತಂತ್ರಗಳನ್ನು ಬಳಸಿ ವಸ್ತುಗಳನ್ನು ಸೇರಿಸುವುದು"
+        ],
+        correctAnswer: "Transforming raw materials into precise parts using computer-guided controls"
+    },
+    {
+        text: "Which characteristic best describes CNC machining?",
+        textKn: "ಯಾವ ಗುಣಲಕ್ಷಣವು CNC ಮಶೀನಿಂಗ್ ಅನ್ನು ಉತ್ತಮವಾಗಿ ವಿವರಿಸುತ್ತದೆ?",
+        options: [
+            "Manual operation with limited precision",
+            "High precision, efficiency, and repeatability",
+            "Low reliability in mass production environments",
+            "Dependence on operator hand adjustments"
+        ],
+        optionsKn: [
+            "ಸೀಮಿತ ನಿಖರತೆಯೊಂದಿಗೆ ಹಸ್ತಚಾಲಿತ ಕಾರ್ಯಾಚರಣೆ",
+            "ಹೆಚ್ಚಿನ ನಿಖರತೆ, ದಕ್ಷತೆ, ಮತ್ತು ಪುನರಾವರ್ತನೆ",
+            "ಸಮೂಹ ಉತ್ಪಾದನಾ ಪರಿಸರದಲ್ಲಿ ಕಡಿಮೆ ವಿಶ್ವಾಸಾರ್ಹತೆ",
+            "ಆಪರೇಟರ್ ಕೈ ಹೊಂದಾಣಿಕೆಗಳ ಮೇಲೆ ಅವಲಂಬನೆ"
+        ],
+        correctAnswer: "High precision, efficiency, and repeatability"
+    },
+    {
+        text: "What is the main function of CNC milling?",
+        textKn: "CNC ಮಿಲ್ಲಿಂಗ್‌ನ ಮುಖ್ಯ ಕಾರ್ಯವೇನು?",
+        options: [
+            "Uses electrical current to melt and shape materials",
+            "Uses rotating cutting tools to remove material from a surface",
+            "Uses pressurized air to cool and shape materials",
+            "Rotates the workpiece instead of the tool to remove material"
+        ],
+        optionsKn: [
+            "ವಸ್ತುಗಳನ್ನು ಕರಗಿಸಲು ಮತ್ತು ಆಕಾರಗೊಳಿಸಲು ವಿದ್ಯುತ್ ಪ್ರವಾಹವನ್ನು ಬಳಸುತ್ತದೆ",
+            "ಮೇಲ್ಮೈಯಿಂದ ವಸ್ತುವನ್ನು ತೆಗೆದುಹಾಕಲು ತಿರುಗುವ ಕತ್ತರಿಸುವ ಉಪಕರಣಗಳನ್ನು ಬಳಸುತ್ತದೆ",
+            "ವಸ್ತುಗಳನ್ನು ತಂಪಾಗಿಸಲು ಮತ್ತು ಆಕಾರಗೊಳಿಸಲು ಒತ್ತಡದ ಗಾಳಿಯನ್ನು ಬಳಸುತ್ತದೆ",
+            "ವಸ್ತುವನ್ನು ತೆಗೆದುಹಾಕಲು ಟೂಲ್ ಬದಲು ವರ್ಕ್‌ಪೀಸ್ ಅನ್ನು ತಿರುಗಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Uses rotating cutting tools to remove material from a surface"
+    },
+    {
+        text: "CNC milling is ideal for creating which types of parts?",
+        textKn: "ಯಾವ ರೀತಿಯ ಭಾಗಗಳನ್ನು ರಚಿಸಲು CNC ಮಿಲ್ಲಿಂಗ್ ಸೂಕ್ತವಾಗಿದೆ?",
+        options: [
+            "Flat wooden panels with uniform texture",
+            "Complex 3D shapes with tight tolerances",
+            "Cylindrical rods and round pipes",
+            "Simple plastic housings only"
+        ],
+        optionsKn: [
+            "ಏಕರೂಪದ ವಿನ್ಯಾಸದೊಂದಿಗೆ ಚಪ್ಪಟೆಯಾದ ಮರದ ಫಲಕಗಳು",
+            "ಬಿಗಿಯಾದ ಟಾಲರೆನ್ಸ್ ಹೊಂದಿರುವ ಸಂಕೀರ್ಣ 3D ಆಕಾರಗಳು",
+            "ಸಿಲಿಂಡರಾಕಾರದ ರಾಡ್‌ಗಳು ಮತ್ತು ದುಂಡಗಿನ ಪೈಪ್‌ಗಳು",
+            "ಸರಳ ಪ್ಲಾಸ್ಟಿಕ್ ಹೌಸಿಂಗ್‌ಗಳು ಮಾತ್ರ"
+        ],
+        correctAnswer: "Complex 3D shapes with tight tolerances"
+    },
+    {
+        text: "Which of the following components are typically produced by CNC milling?",
+        textKn: "ಕೆಳಗಿನ ಯಾವ ಘಟಕಗಳನ್ನು ಸಾಮಾನ್ಯವಾಗಿ CNC ಮಿಲ್ಲಿಂಗ್ ಮೂಲಕ ಉತ್ಪಾದಿಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Electrical cables and wires",
+            "Rubber seals and soft gaskets",
+            "Molds, aerospace components, and automotive parts",
+            "Printed labels and packaging molds"
+        ],
+        optionsKn: [
+            "ವಿದ್ಯುತ್ ಕೇಬಲ್‌ಗಳು ಮತ್ತು ತಂತಿಗಳು",
+            "ರಬ್ಬರ್ ಸೀಲ್‌ಗಳು ಮತ್ತು ಮೃದುವಾದ ಗ್ಯಾಸ್ಕೆಟ್‌ಗಳು",
+            "ಮೋಲ್ಡ್‌ಗಳು, ಏರೋಸ್ಪೇಸ್ ಘಟಕಗಳು, ಮತ್ತು ಆಟೋಮೋಟಿವ್ ಭಾಗಗಳು",
+            "ಮುದ್ರಿತ ಲೇಬಲ್‌ಗಳು ಮತ್ತು ಪ್ಯಾಕೇಜಿಂಗ್ ಮೋಲ್ಡ್‌ಗಳು"
+        ],
+        correctAnswer: "Molds, aerospace components, and automotive parts"
+    },
+    {
+        text: "In CNC turning, what rotates during machining?",
+        textKn: "CNC ಟರ್ನಿಂಗ್‌ನಲ್ಲಿ, ಮಶೀನಿಂಗ್ ಸಮಯದಲ್ಲಿ ಯಾವುದು ತಿರುಗುತ್ತದೆ?",
+        options: [
+            "The cutting tool rotates while the workpiece stays fixed",
+            "The spindle housing rotates to adjust feed rate",
+            "The machine bed rotates to balance vibration",
+            "The workpiece rotates while the cutting tool remains stationary"
+        ],
+        optionsKn: [
+            "ವರ್ಕ್‌ಪೀಸ್ ಸ್ಥಿರವಾಗಿರುವಾಗ ಕತ್ತರಿಸುವ ಟೂಲ್ ತಿರುಗುತ್ತದೆ",
+            "ಫೀಡ್ ದರವನ್ನು ಸರಿಹೊಂದಿಸಲು ಸ್ಪಿಂಡಲ್ ಹೌಸಿಂಗ್ ತಿರುಗುತ್ತದೆ",
+            "ಕಂಪನವನ್ನು ಸಮತೋಲನಗೊಳಿಸಲು ಯಂತ್ರದ ಬೆಡ್ ತಿರುಗುತ್ತದೆ",
+            "ಕತ್ತರಿಸುವ ಟೂಲ್ ಸ್ಥಿರವಾಗಿರುವಾಗ ವರ್ಕ್‌ಪೀಸ್ ತಿರುಗುತ್ತದೆ"
+        ],
+        correctAnswer: "The workpiece rotates while the cutting tool remains stationary"
+    },
+    {
+        text: "What is CNC turning best suited for?",
+        textKn: "CNC ಟರ್ನಿಂಗ್ ಯಾವುದಕ್ಕೆ ಸೂಕ್ತವಾಗಿದೆ?",
+        options: [
+            "Flat plates and mold cavities",
+            "Cylindrical parts like shafts, bushings, and threaded components",
+            "Curved sheet-metal surfaces",
+            "Thin plastic panels and rods"
+        ],
+        optionsKn: [
+            "ಚಪ್ಪಟೆಯಾದ ಪ್ಲೇಟ್‌ಗಳು ಮತ್ತು ಮೋಲ್ಡ್ ಕ್ಯಾವಿಟಿಗಳು",
+            "ಶಾಫ್ಟ್‌ಗಳು, ಬುಶಿಂಗ್‌ಗಳು, ಮತ್ತು ಥ್ರೆಡೆಡ್ ಘಟಕಗಳಂತಹ ಸಿಲಿಂಡರಾಕಾರದ ಭಾಗಗಳು",
+            "ಬಾಗಿದ ಶೀಟ್-ಮೆಟಲ್ ಮೇಲ್ಮೈಗಳು",
+            "ತೆಳುವಾದ ಪ್ಲಾಸ್ಟಿಕ್ ಪ್ಯಾನಲ್‌ಗಳು ಮತ್ತು ರಾಡ್‌ಗಳು"
+        ],
+        correctAnswer: "Cylindrical parts like shafts, bushings, and threaded components"
+    },
+    {
+        text: "What advantage does CNC turning provide?",
+        textKn: "CNC ಟರ್ನಿಂಗ್ ಯಾವ ಪ್ರಯೋಜನವನ್ನು ಒದಗಿಸುತ್ತದೆ?",
+        options: [
+            "Smooth finishes and high accuracy for rotational parts",
+            "Limited material compatibility and slow machining rate",
+            "Inconsistent cutting speeds and tool wear",
+            "Manual adjustments between every cycle"
+        ],
+        optionsKn: [
+            "ತಿರುಗುವ ಭಾಗಗಳಿಗೆ ನಯವಾದ ಫಿನಿಶ್ ಮತ್ತು ಹೆಚ್ಚಿನ ನಿಖರತೆ",
+            "ಸೀಮಿತ ವಸ್ತು ಹೊಂದಾಣಿಕೆ ಮತ್ತು ನಿಧಾನವಾದ ಮಶೀನಿಂಗ್ ದರ",
+            "ಅಸ್ಥಿರವಾದ ಕತ್ತರಿಸುವ ವೇಗ ಮತ್ತು ಟೂಲ್ ಸವೆತ",
+            "ಪ್ರತಿ ಸೈಕಲ್ ನಡುವೆ ಹಸ್ತಚಾಲಿತ ಹೊಂದಾಣಿಕೆಗಳು"
+        ],
+        correctAnswer: "Smooth finishes and high accuracy for rotational parts"
+    },
+    {
+        text: "Which materials can CNC turning process effectively?",
+        textKn: "ಯಾವ ವಸ್ತುಗಳನ್ನು CNC ಟರ್ನಿಂಗ್ ಪರಿಣಾಮಕಾರಿಯಾಗಿ ಸಂಸ್ಕರಿಸಬಹುದು?",
+        options: [
+            "Ceramics only due to high hardness",
+            "Both metals and plastics with proper tooling",
+            "Only non-conductive materials",
+            "Soft materials such as rubber or cloth"
+        ],
+        optionsKn: [
+            "ಹೆಚ್ಚಿನ ಗಡಸುತನದಿಂದಾಗಿ ಸೆರಾಮಿಕ್ಸ್ ಮಾತ್ರ",
+            "ಸರಿಯಾದ ಟೂಲಿಂಗ್‌ನೊಂದಿಗೆ ಲೋಹಗಳು ಮತ್ತು ಪ್ಲಾಸ್ಟಿಕ್‌ಗಳೆರಡೂ",
+            "ವಾಹಕವಲ್ಲದ ವಸ್ತುಗಳು ಮಾತ್ರ",
+            "ರಬ್ಬರ್ ಅಥವಾ ಬಟ್ಟೆಯಂತಹ ಮೃದುವಾದ ವಸ್ತುಗಳು"
+        ],
+        correctAnswer: "Both metals and plastics with proper tooling"
+    },
+    {
+        text: "What is CNC drilling mainly used for?",
+        textKn: "CNC ಡ್ರಿಲ್ಲಿಂಗ್ ಅನ್ನು ಮುಖ್ಯವಾಗಿ ಯಾವುದಕ್ಕಾಗಿ ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Creating holes with extreme precision and repeatability",
+            "Milling slots and external profiles",
+            "Finishing the surface with abrasive compounds",
+            "Forming threads using high heat"
+        ],
+        optionsKn: [
+            "ಅತ್ಯಂತ ನಿಖರತೆ ಮತ್ತು ಪುನರಾವರ್ತನೆಯೊಂದಿಗೆ ರಂಧ್ರಗಳನ್ನು ರಚಿಸುವುದು",
+            "ಸ್ಲಾಟ್‌ಗಳು ಮತ್ತು ಬಾಹ್ಯ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಮಿಲ್ಲಿಂಗ್ ಮಾಡುವುದು",
+            "ಅಪಘರ್ಷಕ ಸಂಯುಕ್ತಗಳೊಂದಿಗೆ ಮೇಲ್ಮೈಯನ್ನು ಫಿನಿಶಿಂಗ್ ಮಾಡುವುದು",
+            "ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಬಳಸಿ ಥ್ರೆಡ್‌ಗಳನ್ನು ರೂಪಿಸುವುದು"
+        ],
+        correctAnswer: "Creating holes with extreme precision and repeatability"
+    },
+    {
+        text: "CNC drilling is suitable for which of the following applications?",
+        textKn: "ಕೆಳಗಿನ ಯಾವ ಅನ್ವಯಿಕೆಗಳಿಗೆ CNC ಡ್ರಿಲ್ಲಿಂಗ್ ಸೂಕ್ತವಾಗಿದೆ?",
+        options: [
+            "Medical devices and industrial machinery parts",
+            "Wood carving and decoration work",
+            "Plastic toy manufacturing only",
+            "Printing press cylinder making"
+        ],
+        optionsKn: [
+            "ವೈದ್ಯಕೀಯ ಸಾಧನಗಳು ಮತ್ತು ಕೈಗಾರಿಕಾ ಯಂತ್ರೋಪಕರಣಗಳ ಭಾಗಗಳು",
+            "ಮರದ ಕೆತ್ತನೆ ಮತ್ತು ಅಲಂಕಾರ ಕೆಲಸ",
+            "ಪ್ಲಾಸ್ಟಿಕ್ ಆಟಿಕೆ ತಯಾರಿಕೆ ಮಾತ್ರ",
+            "ಮುದ್ರಣ ಯಂತ್ರದ ಸಿಲಿಂಡರ್ ತಯಾರಿಕೆ"
+        ],
+        correctAnswer: "Medical devices and industrial machinery parts"
+    },
+    {
+        text: "What is the main focus of CNC drilling?",
+        textKn: "CNC ಡ್ರಿಲ್ಲಿಂಗ್‌ನ ಮುಖ್ಯ ಗಮನವೇನು?",
+        options: [
+            "Manual positioning of cutting tools",
+            "High accuracy and dimensional consistency",
+            "Color coating after drilling",
+            "Surface engraving for aesthetics"
+        ],
+        optionsKn: [
+            "ಕತ್ತರಿಸುವ ಉಪಕರಣಗಳ ಹಸ್ತಚಾಲಿತ ಸ್ಥಾನೀಕರಣ",
+            "ಹೆಚ್ಚಿನ ನಿಖರತೆ ಮತ್ತು ಆಯಾಮದ ಸ್ಥಿರತೆ",
+            "ಡ್ರಿಲ್ಲಿಂಗ್ ನಂತರ ಬಣ್ಣದ ಲೇಪನ",
+            "ಸೌಂದರ್ಯಕ್ಕಾಗಿ ಮೇಲ್ಮೈ ಕೆತ್ತನೆ"
+        ],
+        correctAnswer: "High accuracy and dimensional consistency"
+    },
+    {
+        text: "What does Wire EDM stand for?",
+        textKn: "ವೈರ್ EDM (Wire EDM) ಯ ಪೂರ್ಣ ರೂಪವೇನು?",
+        options: [
+            "Electrical Discharge Machining",
+            "Electronic Data Mechanism",
+            "Energy Distribution Module",
+            "Electro Dynamic Molding"
+        ],
+        optionsKn: [
+            "ಎಲೆಕ್ಟ್ರಿಕಲ್ ಡಿಸ್ಚಾರ್ಜ್ ಮಶೀನಿಂಗ್",
+            "ಎಲೆಕ್ಟ್ರಾನಿಕ್ ಡೇಟಾ ಮೆಕ್ಯಾನಿಸಂ",
+            "ಎನರ್ಜಿ ಡಿಸ್ಟ್ರಿಬ್ಯೂಷನ್ ಮಾಡ್ಯೂಲ್",
+            "ಎಲೆಕ್ಟ್ರೋ ಡೈನಾಮಿಕ್ ಮೋಲ್ಡಿಂಗ್"
+        ],
+        correctAnswer: "Electrical Discharge Machining"
+    },
+    {
+        text: "How does Wire EDM remove material?",
+        textKn: "ವೈರ್ EDM ವಸ್ತುವನ್ನು ಹೇಗೆ ತೆಗೆದುಹಾಕುತ್ತದೆ?",
+        options: [
+            "Using a high-speed abrasive belt to cut metals",
+            "Using an electrically charged wire to erode conductive material",
+            "Using compressed air to grind the surface",
+            "Using mechanical vibration to separate material"
+        ],
+        optionsKn: [
+            "ಲೋಹಗಳನ್ನು ಕತ್ತರಿಸಲು ಹೆಚ್ಚಿನ ವೇಗದ ಅಪಘರ್ಷಕ ಬೆಲ್ಟ್ ಬಳಸುವುದು",
+            "ವಾಹಕ ವಸ್ತುವನ್ನು ಸವೆಸಲು ವಿದ್ಯುತ್ ಚಾರ್ಜ್ಡ್ ತಂತಿಯನ್ನು ಬಳಸುವುದು",
+            "ಮೇಲ್ಮೈಯನ್ನು ಗ್ರೈಂಡ್ ಮಾಡಲು ಸಂಕುಚಿತ ಗಾಳಿಯನ್ನು ಬಳಸುವುದು",
+            "ವಸ್ತುವನ್ನು ಬೇರ್ಪಡಿಸಲು ಯಾಂತ್ರಿಕ ಕಂಪನವನ್ನು ಬಳಸುವುದು"
+        ],
+        correctAnswer: "Using an electrically charged wire to erode conductive material"
+    },
+    {
+        text: "Which materials are best suited for Wire EDM?",
+        textKn: "ವೈರ್ EDM ಗೆ ಯಾವ ವಸ್ತುಗಳು ಸೂಕ್ತವಾಗಿವೆ?",
+        options: [
+            "Non-conductive plastics and ceramics",
+            "Conductive metals and hard alloys",
+            "Soft polymers and rubbers",
+            "Composites reinforced with fibers"
+        ],
+        optionsKn: [
+            "ವಾಹಕವಲ್ಲದ ಪ್ಲಾಸ್ಟಿಕ್‌ಗಳು ಮತ್ತು ಸೆರಾಮಿಕ್ಸ್",
+            "ವಾಹಕ ಲೋಹಗಳು ಮತ್ತು ಗಟ್ಟಿ ಮಿಶ್ರಲೋಹಗಳು",
+            "ಮೃದು ಪಾಲಿಮರ್‌ಗಳು ಮತ್ತು ರಬ್ಬರ್‌ಗಳು",
+            "ಫೈಬರ್‌ಗಳಿಂದ ಬಲವರ್ಧಿತವಾದ ಕಾಂಪೊಸಿಟ್‌ಗಳು"
+        ],
+        correctAnswer: "Conductive metals and hard alloys"
+    },
+    {
+        text: "Give an example of a component produced by Wire EDM.",
+        textKn: "ವೈರ್ EDM ನಿಂದ ಉತ್ಪಾದಿಸಲಾದ ಒಂದು ಘಟಕದ ಉದಾಹರಣೆ ನೀಡಿ.",
+        options: [
+            "High-precision dies and aerospace turbine blades",
+            "Rubber gaskets and seals",
+            "Plastic containers and bottles",
+            "Printed circuit boards and resistors"
+        ],
+        optionsKn: [
+            "ಹೆಚ್ಚಿನ-ನಿಖರತೆಯ ಡೈಗಳು ಮತ್ತು ಏರೋಸ್ಪೇಸ್ ಟರ್ಬೈನ್ ಬ್ಲೇಡ್‌ಗಳು",
+            "ರಬ್ಬರ್ ಗ್ಯಾಸ್ಕೆಟ್‌ಗಳು ಮತ್ತು ಸೀಲ್‌ಗಳು",
+            "ಪ್ಲಾಸ್ಟಿಕ್ ಕಂಟೇನರ್‌ಗಳು ಮತ್ತು ಬಾಟಲಿಗಳು",
+            "ಮುದ್ರಿತ ಸರ್ಕ್ಯೂಟ್ ಬೋರ್ಡ್‌ಗಳು ಮತ್ತು ರೆಸಿಸ್ಟರ್‌ಗಳು"
+        ],
+        correctAnswer: "High-precision dies and aerospace turbine blades"
+    },
+    {
+        text: "What is a key advantage of Wire EDM?",
+        textKn: "ವೈರ್ EDM ನ ಪ್ರಮುಖ ಪ್ರಯೋಜನವೇನು?",
+        options: [
+            "Cuts very hard materials with exceptional precision",
+            "Consumes no electricity during operation",
+            "Cuts only wooden materials efficiently",
+            "Removes material through heat conduction"
+        ],
+        optionsKn: [
+            "ಅಸಾಧಾರಣ ನಿಖರತೆಯೊಂದಿಗೆ ತುಂಬಾ ಗಟ್ಟಿಯಾದ ವಸ್ತುಗಳನ್ನು ಕತ್ತರಿಸುತ್ತದೆ",
+            "ಕಾರ್ಯಾಚರಣೆಯ ಸಮಯದಲ್ಲಿ ಯಾವುದೇ ವಿದ್ಯುತ್ ಬಳಸುವುದಿಲ್ಲ",
+            "ಮರದ ವಸ್ತುಗಳನ್ನು ಮಾತ್ರ ದಕ್ಷತೆಯಿಂದ ಕತ್ತರಿಸುತ್ತದೆ",
+            "ಶಾಖ ವಹನದ ಮೂಲಕ ವಸ್ತುವನ್ನು ತೆಗೆದುಹಾಕುತ್ತದೆ"
+        ],
+        correctAnswer: "Cuts very hard materials with exceptional precision"
+    },
+    {
+        text: "What are examples of specialized CNC machining processes?",
+        textKn: "ವಿಶೇಷ CNC ಮಶೀನಿಂಗ್ ಪ್ರಕ್ರಿಯೆಗಳಿಗೆ ಉದಾಹರಣೆಗಳೇನು?",
+        options: [
+            "CNC laser cutting and CNC plasma cutting",
+            "Manual engraving and hammer forging",
+            "Casting and thermal spraying",
+            "Cold rolling and polishing"
+        ],
+        optionsKn: [
+            "CNC ಲೇಸರ್ ಕಟಿಂಗ್ ಮತ್ತು CNC ಪ್ಲಾಸ್ಮಾ ಕಟಿಂಗ್",
+            "ಹಸ್ತಚಾಲಿತ ಕೆತ್ತನೆ ಮತ್ತು ಹ್ಯಾಮರ್ ಫೋರ್ಜಿಂಗ್",
+            " ಎರಕ ಹೊಯ್ಯುವುದು ಮತ್ತು ಥರ್ಮಲ್ ಸ್ಪ್ರೇಯಿಂಗ್",
+            "ಕೋಲ್ಡ್ ರೋಲಿಂಗ್ ಮತ್ತು ಪಾಲಿಶಿಂಗ್"
+        ],
+        correctAnswer: "CNC laser cutting and CNC plasma cutting"
+    },
+    {
+        text: "What is the main purpose of CNC laser and plasma cutting?",
+        textKn: "CNC ಲೇಸರ್ ಮತ್ತು ಪ್ಲಾಸ್ಮಾ ಕಟಿಂಗ್‌ನ ಮುಖ್ಯ ಉದ್ದೇಶವೇನು?",
+        options: [
+            "Cutting materials quickly and efficiently with precision",
+            "Heating surfaces to apply coatings",
+            "Joining sheets through spot welding",
+            "Forming wires into coils for machining"
+        ],
+        optionsKn: [
+            "ನಿಖರತೆಯೊಂದಿಗೆ ವಸ್ತುಗಳನ್ನು ತ್ವರಿತವಾಗಿ ಮತ್ತು ಪರಿಣಾಮಕಾರಿಯಾಗಿ ಕತ್ತರಿಸುವುದು",
+            "ಲೇಪನಗಳನ್ನು ಹಚ್ಚಲು ಮೇಲ್ಮೈಗಳನ್ನು ಬಿಸಿ ಮಾಡುವುದು",
+            "ಸ್ಪಾಟ್ ವೆಲ್ಡಿಂಗ್ ಮೂಲಕ ಶೀಟ್‌ಗಳನ್ನು ಸೇರಿಸುವುದು",
+            "ಮಶೀನಿಂಗ್‌ಗಾಗಿ ತಂತಿಗಳನ್ನು ಕಾಯಿಲ್‌ಗಳಾಗಿ ರೂಪಿಸುವುದು"
+        ],
+        correctAnswer: "Cutting materials quickly and efficiently with precision"
+    },
+    {
+        text: "Which CNC process is ideal for both thin and thick materials?",
+        textKn: "ತೆಳುವಾದ ಮತ್ತು ದಪ್ಪವಾದ ಎರಡೂ ವಸ್ತುಗಳಿಗೆ ಯಾವ CNC ಪ್ರಕ್ರಿಯೆಯು ಸೂಕ್ತವಾಗಿದೆ?",
+        options: [
+            "CNC laser and plasma cutting",
+            "CNC drilling and tapping",
+            "CNC turning and grinding",
+            "CNC polishing and engraving"
+        ],
+        optionsKn: [
+            "CNC ಲೇಸರ್ ಮತ್ತು ಪ್ಲಾಸ್ಮಾ ಕಟಿಂಗ್",
+            "CNC ಡ್ರಿಲ್ಲಿಂಗ್ ಮತ್ತು ಟ್ಯಾಪಿಂಗ್",
+            "CNC ಟರ್ನಿಂಗ್ ಮತ್ತು ಗ್ರೈಂಡಿಂಗ್",
+            "CNC ಪಾಲಿಶಿಂಗ್ ಮತ್ತು ಕೆತ್ತನೆ"
+        ],
+        correctAnswer: "CNC laser and plasma cutting"
+    },
+    {
+        text: "Which CNC process is best for creating molds and aerospace components?",
+        textKn: "ಮೋಲ್ಡ್‌ಗಳು ಮತ್ತು ಏರೋಸ್ಪೇಸ್ ಘಟಕಗಳನ್ನು ರಚಿಸಲು ಯಾವ CNC ಪ್ರಕ್ರಿಯೆಯು ಉತ್ತಮವಾಗಿದೆ?",
+        options: [
+            "CNC milling for 3D contour machining",
+            "CNC turning for cylindrical features",
+            "CNC drilling for deep holes",
+            "Wire EDM for rough cuts"
+        ],
+        optionsKn: [
+            "3D ಕಾಂಟೂರ್ ಮಶೀನಿಂಗ್‌ಗಾಗಿ CNC ಮಿಲ್ಲಿಂಗ್",
+            "ಸಿಲಿಂಡರಾಕಾರದ ವೈಶಿಷ್ಟ್ಯಗಳಿಗಾಗಿ CNC ಟರ್ನಿಂಗ್",
+            "ಆಳವಾದ ರಂಧ್ರಗಳಿಗಾಗಿ CNC ಡ್ರಿಲ್ಲಿಂಗ್",
+            "ಒರಟು ಕಟ್‌ಗಳಿಗಾಗಿ ವೈರ್ EDM"
+        ],
+        correctAnswer: "CNC milling for 3D contour machining"
+    },
+    {
+        text: "Which CNC process is essential for cylindrical parts?",
+        textKn: "ಸಿಲಿಂಡರಾಕಾರದ ಭಾಗಗಳಿಗೆ ಯಾವ CNC ಪ್ರಕ್ರಿಯೆಯು ಅವಶ್ಯಕವಾಗಿದೆ?",
+        options: [
+            "CNC turning for round geometries",
+            "CNC milling for flat profiles",
+            "CNC drilling for through holes",
+            "CNC plasma cutting for metal sheets"
+        ],
+        optionsKn: [
+            "ದುಂಡಗಿನ ಜ್ಯಾಮಿತಿಗಳಿಗಾಗಿ CNC ಟರ್ನಿಂಗ್",
+            "ಚಪ್ಪಟೆ ಪ್ರೊಫೈಲ್‌ಗಳಿಗಾಗಿ CNC ಮಿಲ್ಲಿಂಗ್",
+            "ತೂತು ರಂಧ್ರಗಳಿಗಾಗಿ (through holes) CNC ಡ್ರಿಲ್ಲಿಂಗ್",
+            "ಲೋಹದ ಹಾಳೆಗಳಿಗಾಗಿ CNC ಪ್ಲಾಸ್ಮಾ ಕಟಿಂಗ್"
+        ],
+        correctAnswer: "CNC turning for round geometries"
+    },
+    {
+        text: "Which industries commonly use CNC drilling?",
+        textKn: "ಯಾವ ಉದ್ಯಮಗಳು ಸಾಮಾನ್ಯವಾಗಿ CNC ಡ್ರಿಲ್ಲಿಂಗ್ ಅನ್ನು ಬಳಸುತ್ತವೆ?",
+        options: [
+            "Medical and industrial manufacturing sectors",
+            "Textile and food processing sectors",
+            "Forestry and agriculture operations",
+            "Education and tourism sectors"
+        ],
+        optionsKn: [
+            "ವೈದ್ಯಕೀಯ ಮತ್ತು ಕೈಗಾರಿಕಾ ಉತ್ಪಾದನಾ ವಲಯಗಳು",
+            "ಜವಳಿ ಮತ್ತು ಆಹಾರ ಸಂಸ್ಕರಣಾ ವಲಯಗಳು",
+            "ಅರಣ್ಯ ಮತ್ತು ಕೃಷಿ ಕಾರ್ಯಾಚರಣೆಗಳು",
+            "ಶಿಕ್ಷಣ ಮತ್ತು ಪ್ರವಾಸೋದ್ಯಮ ವಲಯಗಳು"
+        ],
+        correctAnswer: "Medical and industrial manufacturing sectors"
+    },
+    {
+        text: "What makes CNC machining vital in modern manufacturing?",
+        textKn: "ಆಧುನಿಕ ಉತ್ಪಾದನೆಯಲ್ಲಿ CNC ಮಶೀನಿಂಗ್ ಅನ್ನು ಯಾವುದು ಪ್ರಮುಖವಾಗಿಸುತ್ತದೆ?",
+        options: [
+            "Precision and versatility across materials",
+            "Manual control and guesswork",
+            "High waste and slower output",
+            "Random tolerance variation"
+        ],
+        optionsKn: [
+            "ವಸ್ತುಗಳಾದ್ಯಂತ ನಿಖರತೆ ಮತ್ತು ಬಹುಮುಖತೆ",
+            "ಹಸ್ತಚಾಲಿತ ನಿಯಂತ್ರಣ ಮತ್ತು ಊಹೆ",
+            "ಹೆಚ್ಚಿನ ತ್ಯಾಜ್ಯ ಮತ್ತು ನಿಧಾನವಾದ ಉತ್ಪಾದನೆ",
+            "ಯಾದೃಚ್ಛಿಕ ಟಾಲರೆನ್ಸ್ ವ್ಯತ್ಯಾಸ"
+        ],
+        correctAnswer: "Precision and versatility across materials"
+    },
+    {
+        text: "Which property makes CNC machining essential across industries?",
+        textKn: "ಯಾವ ಗುಣಲಕ್ಷಣವು ಉದ್ಯಮಗಳಾದ್ಯಂತ CNC ಮಶೀನಿಂಗ್ ಅನ್ನು ಅತ್ಯಗತ್ಯವಾಗಿಸುತ್ತದೆ?",
+        options: [
+            "Unmatched precision, efficiency, and repeatability",
+            "High energy use and low repeatability",
+            "Complex manual setup with low tolerance",
+            "Variable accuracy under supervision"
+        ],
+        optionsKn: [
+            "ಸಾಟಿಯಿಲ್ಲದ ನಿಖರತೆ, ದಕ್ಷತೆ, ಮತ್ತು ಪುನರಾವರ್ತನೆ",
+            "ಹೆಚ್ಚಿನ ಶಕ್ತಿ ಬಳಕೆ ಮತ್ತು ಕಡಿಮೆ ಪುನರಾವರ್ತನೆ",
+            "ಕಡಿಮೆ ಟಾಲರೆನ್ಸ್‌ನೊಂದಿಗೆ ಸಂಕೀರ್ಣ ಹಸ್ತಚಾಲಿತ ಸೆಟಪ್",
+            "ಮೇಲ್ವಿಚಾರಣೆಯಲ್ಲಿ ಬದಲಾಗುವ ನಿಖರತೆ"
+        ],
+        correctAnswer: "Unmatched precision, efficiency, and repeatability"
+    },
+    {
+        text: "What does YIJEN Hardware specialize in?",
+        textKn: "YIJEN ಹಾರ್ಡ್‌ವೇರ್ ಯಾವುದರಲ್ಲಿ ಪರಿಣತಿ ಹೊಂದಿದೆ?",
+        options: [
+            "Delivering high-quality CNC solutions tailored to needs",
+            "Producing manual lathe components only",
+            "Importing sheet metals for retail use",
+            "Building wooden furniture and molds"
+        ],
+        optionsKn: [
+            "ಅಗತ್ಯಗಳಿಗೆ ತಕ್ಕಂತೆ ಉತ್ತಮ-ಗುಣಮಟ್ಟದ CNC ಪರಿಹಾರಗಳನ್ನು ನೀಡುವುದು",
+            "ಹಸ್ತಚಾಲಿತ ಲೇತ್ ಘಟಕಗಳನ್ನು ಮಾತ್ರ ಉತ್ಪಾದಿಸುವುದು",
+            "ಚಿಲ್ಲರೆ ಬಳಕೆಗಾಗಿ ಶೀಟ್ ಮೆಟಲ್‌ಗಳನ್ನು ಆಮದು ಮಾಡಿಕೊಳ್ಳುವುದು",
+            "ಮರದ ಪೀಠೋಪಕರಣಗಳು ಮತ್ತು ಮೋಲ್ಡ್‌ಗಳನ್ನು ನಿರ್ಮಿಸುವುದು"
+        ],
+        correctAnswer: "Delivering high-quality CNC solutions tailored to needs"
+    },
+    {
+        text: "Which CNC process is commonly used for producing high-precision aerospace components?",
+        textKn: "ಹೆಚ್ಚಿನ-ನಿಖರತೆಯ ಏರೋಸ್ಪೇಸ್ ಘಟಕಗಳನ್ನು ಉತ್ಪಾದಿಸಲು ಸಾಮಾನ್ಯವಾಗಿ ಯಾವ CNC ಪ್ರಕ್ರಿಯೆಯನ್ನು ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "CNC turning",
+            "CNC milling",
+            "Wire EDM",
+            "CNC laser cutting"
+        ],
+        optionsKn: [
+            "CNC ಟರ್ನಿಂಗ್",
+            "CNC ಮಿಲ್ಲಿಂಗ್",
+            "ವೈರ್ EDM",
+            "CNC ಲೇಸರ್ ಕಟಿಂಗ್"
+        ],
+        correctAnswer: "Wire EDM"
+    },
+    {
+        text: "What is the main takeaway from the CNC machining video?",
+        textKn: "CNC ಮಶೀನಿಂಗ್ ವೀಡಿಯೊದಿಂದ ಮುಖ್ಯವಾದ ಅಂಶ ಯಾವುದು?",
+        options: [
+            "CNC machining provides precision and versatility across industries",
+            "Manual machining remains faster for all parts",
+            "CNC tools cannot produce detailed geometries",
+            "CNC processes are limited to wooden materials"
+        ],
+        optionsKn: [
+            "CNC ಮಶೀನಿಂಗ್ ಉದ್ಯಮಗಳಾದ್ಯಂತ ನಿಖರತೆ ಮತ್ತು ಬಹುಮುಖತೆಯನ್ನು ಒದಗಿಸುತ್ತದೆ",
+            "ಎಲ್ಲಾ ಭಾಗಗಳಿಗೆ ಹಸ್ತಚಾಲಿತ ಮಶೀನಿಂಗ್ ವೇಗವಾಗಿರುತ್ತದೆ",
+            "CNC ಉಪಕರಣಗಳು ವಿವರವಾದ ಜ್ಯಾಮಿತಿಗಳನ್ನು ಉತ್ಪಾದಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ",
+            "CNC ಪ್ರಕ್ರಿಯೆಗಳು ಮರದ ವಸ್ತುಗಳಿಗೆ ಸೀಮಿತವಾಗಿವೆ"
+        ],
+        correctAnswer: "CNC machining provides precision and versatility across industries"
+    }
+],
+      
+[
+    {
+        text: "What is the primary objective of surface finishing in manufacturing?",
+        textKn: "ಉತ್ಪಾದನೆಯಲ್ಲಿ ಸರ್ಫೇಸ್ ಫಿನಿಶಿಂಗ್‌ನ (ಮೇಲ್ಮೈ ಪೂರ್ಣಗೊಳಿಸುವಿಕೆ) ಪ್ರಾಥಮಿಕ ಉದ್ದೇಶವೇನು?",
+        options: [
+            "To enhance surface characteristics and performance",
+            "To increase the component weight during production",
+            "To modify the core structure of the material",
+            "To reduce the overall tool wear rate"
+        ],
+        optionsKn: [
+            "ಮೇಲ್ಮೈ ಗುಣಲಕ್ಷಣಗಳನ್ನು ಮತ್ತು ಕಾರ್ಯಕ್ಷಮತೆಯನ್ನು ಹೆಚ್ಚಿಸಲು",
+            "ಉತ್ಪಾದನೆಯ ಸಮಯದಲ್ಲಿ ಘಟಕದ ತೂಕವನ್ನು ಹೆಚ್ಚಿಸಲು",
+            "ವಸ್ತುವಿನ ಕೋರ್ ರಚನೆಯನ್ನು ಮಾರ್ಪಡಿಸಲು",
+            "ಒಟ್ಟಾರೆ ಟೂಲ್ ಸವೆತದ ದರವನ್ನು ಕಡಿಮೆ ಮಾಡಲು"
+        ],
+        correctAnswer: "To enhance surface characteristics and performance"
+    },
+    {
+        text: "Which property is least affected by surface finishing?",
+        textKn: "ಸರ್ಫೇಸ್ ಫಿನಿಶಿಂಗ್‌ನಿಂದ ಕನಿಷ್ಠ ಪರಿಣಾಮ ಬೀರುವ ಗುಣಲಕ್ಷಣ ಯಾವುದು?",
+        options: [
+            "Wear resistance of the surface",
+            "Tensile modulus of the material",
+            "Fatigue strength of the component",
+            "Corrosion resistance of the part"
+        ],
+        optionsKn: [
+            "ಮೇಲ್ಮೈನ ಸವೆತ ನಿರೋಧಕತೆ",
+            "ವಸ್ತುವಿನ ಟೆನ್ಸೈಲ್ ಮಾಡ್ಯುಲಸ್ (ಕರ್ಷಕ ಮಾಡ್ಯುಲಸ್)",
+            "ಘಟಕದ ಫೆಟಿಗ್ (ಆಯಾಸ) ಸಾಮರ್ಥ್ಯ",
+            "ಭಾಗದ ತುಕ್ಕು ನಿರೋಧಕತೆ"
+        ],
+        correctAnswer: "Tensile modulus of the material"
+    },
+    {
+        text: "Which parameters are controlled during surface finishing?",
+        textKn: "ಸರ್ಫೇಸ್ ಫಿನಿಶಿಂಗ್ ಸಮಯದಲ್ಲಿ ಯಾವ ನಿಯತಾಂಕಗಳನ್ನು (ಪ್ಯಾರಾಮೀಟರ್) ನಿಯಂತ್ರಿಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Internal grain size and composition",
+            "Elasticity and density variation",
+            "Thermal conductivity and color",
+            "Surface texture, waviness, and roughness"
+        ],
+        optionsKn: [
+            "ಆಂತರಿಕ ಗ್ರೇನ್ (ಕಣ) ಗಾತ್ರ ಮತ್ತು ಸಂಯೋಜನೆ",
+            "ಸ್ಥಿತಿಸ್ಥಾಪಕತ್ವ ಮತ್ತು ಸಾಂದ್ರತೆಯ ವ್ಯತ್ಯಾಸ",
+            "ಉಷ್ಣ ವಾಹಕತೆ ಮತ್ತು ಬಣ್ಣ",
+            "ಮೇಲ್ಮೈ ವಿನ್ಯಾಸ (ಟೆಕ್ಸ್ಚರ್), ತರಂಗತೆ (ವೇವಿನೆಸ್), ಮತ್ತು ಒರಟುತನ (ರಫ್‌ನೆಸ್)"
+        ],
+        correctAnswer: "Surface texture, waviness, and roughness"
+    },
+    {
+        text: "Which among the following is a surface finishing process?",
+        textKn: "ಕೆಳಗಿನವುಗಳಲ್ಲಿ ಯಾವುದು ಸರ್ಫೇಸ್ ಫಿನಿಶಿಂಗ್ ಪ್ರಕ್ರಿಯೆಯಾಗಿದೆ?",
+        options: [
+            "Rolling of sheet components",
+            "Forging of metallic alloys",
+            "Casting of molten metals",
+            "Lapping of flat and curved parts"
+        ],
+        optionsKn: [
+            "ಶೀಟ್ ಘಟಕಗಳ ರೋಲಿಂಗ್",
+            "ಲೋಹೀಯ ಮಿಶ್ರಲೋಹಗಳ ಫೋರ್ಜಿಂಗ್",
+            "ಕರಗಿದ ಲೋಹಗಳ ಎರಕ ಹೊಯ್ಯುವಿಕೆ",
+            "ಚಪ್ಪಟೆಯಾದ ಮತ್ತು ಬಾಗಿದ ಭಾಗಗಳ ಲ್ಯಾಪಿಂಗ್"
+        ],
+        correctAnswer: "Lapping of flat and curved parts"
+    },
+    {
+        text: "What is the main function of the lapping process?",
+        textKn: "ಲ್ಯಾಪಿಂಗ್ ಪ್ರಕ್ರಿಯೆಯ ಮುಖ್ಯ ಕಾರ್ಯವೇನು?",
+        options: [
+            "To achieve fine finish with tight dimensional control",
+            "To improve cutting speed of the tool",
+            "To remove oxide layers from the surface",
+            "To create decorative surface patterns"
+        ],
+        optionsKn: [
+            "ಬಿಗಿಯಾದ ಆಯಾಮದ ನಿಯಂತ್ರಣದೊಂದಿಗೆ ಉತ್ತಮವಾದ ಫಿನಿಶ್ ಸಾಧಿಸಲು",
+            "ಟೂಲ್‌ನ ಕತ್ತರಿಸುವ ವೇಗವನ್ನು ಸುಧಾರಿಸಲು",
+            "ಮೇಲ್ಮೈಯಿಂದ ಆಕ್ಸೈಡ್ ಪದರಗಳನ್ನು ತೆಗೆದುಹಾಕಲು",
+            "ಅಲಂಕಾರಿಕ ಮೇಲ್ಮೈ ಮಾದರಿಗಳನ್ನು ರಚಿಸಲು"
+        ],
+        correctAnswer: "To achieve fine finish with tight dimensional control"
+    },
+    {
+        text: "Which material is commonly used as a lapping abrasive?",
+        textKn: "ಲ್ಯಾಪಿಂಗ್ ಅಪಘರ್ಷಕವಾಗಿ (ಅಬ್ರೇಸಿವ್) ಸಾಮಾನ್ಯವಾಗಿ ಯಾವ ವಸ್ತುವನ್ನು ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Plastic or resin-based beads",
+            "Diamond or aluminum oxide grains",
+            "Copper or zinc metal dust",
+            "Lead or tin metallic powder"
+        ],
+        optionsKn: [
+            "ಪ್ಲಾಸ್ಟಿಕ್ ಅಥವಾ ರೆಸಿನ್ ಆಧಾರಿತ ಮಣಿಗಳು",
+            "ವಜ್ರ ಅಥವಾ ಅಲ್ಯೂಮಿನಿಯಂ ಆಕ್ಸೈಡ್ ಕಣಗಳು",
+            "ತಾಮ್ರ ಅಥವಾ ಸತು ಲೋಹದ ಧೂಳು",
+            "ಸೀಸ ಅಥವಾ ತವರ ಲೋಹೀಯ ಪುಡಿ"
+        ],
+        correctAnswer: "Diamond or aluminum oxide grains"
+    },
+    {
+        text: "What type of motion occurs in lapping?",
+        textKn: "ಲ್ಯಾಪಿಂಗ್‌ನಲ್ಲಿ ಯಾವ ರೀತಿಯ ಚಲನೆ ಸಂಭವಿಸುತ್ತದೆ?",
+        options: [
+            "Purely vibratory motion in one axis",
+            "Combined rotary and reciprocating movement",
+            "Continuous linear motion only",
+            "Impact-based oscillating movement"
+        ],
+        optionsKn: [
+            "ಒಂದು ಆಕ್ಸಿಸ್‌ನಲ್ಲಿ ಸಂಪೂರ್ಣವಾಗಿ ಕಂಪನ ಚಲನೆ",
+            "ಸಂಯೋಜಿತ ರೋಟರಿ (ತಿರುಗುವ) ಮತ್ತು ರೆಸಿಪ್ರೊಕೇಟಿಂಗ್ (ಹಿಂದೆ-ಮುಂದೆ) ಚಲನೆ",
+            "ನಿರಂತರ ರೇಖೀಯ ಚಲನೆ ಮಾತ್ರ",
+            "ಆಘಾತ-ಆಧಾರಿತ ಆಂದೋಲನ ಚಲನೆ"
+        ],
+        correctAnswer: "Combined rotary and reciprocating movement"
+    },
+    {
+        text: "Honing is mainly used to improve which property?",
+        textKn: "ಹೋನಿಂಗ್ ಅನ್ನು ಮುಖ್ಯವಾಗಿ ಯಾವ ಗುಣಲಕ್ಷಣವನ್ನು ಸುಧಾರಿಸಲು ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Dimensional accuracy and fine surface finish",
+            "Brittleness and ductility ratio",
+            "Thermal conductivity of the surface",
+            "Magnetic response of metallic materials"
+        ],
+        optionsKn: [
+            "ಆಯಾಮದ ನಿಖರತೆ ಮತ್ತು ಉತ್ತಮ ಮೇಲ್ಮೈ ಫಿನಿಶ್",
+            "ಹೆಡಗುತನ (Brittleness) ಮತ್ತು ಮೆತುವಿಕೆ (ductility) ಅನುಪಾತ",
+            "ಮೇಲ್ಮೈನ ಉಷ್ಣ ವಾಹಕತೆ",
+            "ಲೋಹೀಯ ವಸ್ತುಗಳ ಕಾಂತೀಯ ಪ್ರತಿಕ್ರಿಯೆ"
+        ],
+        correctAnswer: "Dimensional accuracy and fine surface finish"
+    },
+    {
+        text: "Which tool is primarily used in honing?",
+        textKn: "ಹೋನಿಂಗ್‌ನಲ್ಲಿ ಪ್ರಾಥಮಿಕವಾಗಿ ಯಾವ ಟೂಲ್ ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Abrasive stone or honing stick",
+            "Carbide cutting blade",
+            "Multi-edge milling cutter",
+            "Single-point turning tool"
+        ],
+        optionsKn: [
+            "ಅಪಘರ್ಷಕ ಕಲ್ಲು ಅಥವಾ ಹೋನಿಂಗ್ ಸ್ಟಿಕ್",
+            "ಕಾರ್ಬೈಡ್ ಕತ್ತರಿಸುವ ಬ್ಲೇಡ್",
+            "ಬಹು-ಅಂಚಿನ ಮಿಲ್ಲಿಂಗ್ ಕಟ್ಟರ್",
+            "ಏಕ-ಬಿಂದು ಟರ್ನಿಂಗ್ ಟೂಲ್"
+        ],
+        correctAnswer: "Abrasive stone or honing stick"
+    },
+    {
+        text: "Honing is usually applied on which type of part?",
+        textKn: "ಹೋನಿಂಗ್ ಅನ್ನು ಸಾಮಾನ್ಯವಾಗಿ ಯಾವ ರೀತಿಯ ಭಾಗದ ಮೇಲೆ ಅನ್ವಯಿಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Flat sheet metal components",
+            "Cylindrical bores and engine liners",
+            "External shafts and gears",
+            "Rectangular steel plates"
+        ],
+        optionsKn: [
+            "ಚಪ್ಪಟೆಯಾದ ಶೀಟ್ ಮೆಟಲ್ ಘಟಕಗಳು",
+            "ಸಿಲಿಂಡರಾಕಾರದ ಬೋರ್‌ಗಳು ಮತ್ತು ಎಂಜಿನ್ ಲೈನರ್‌ಗಳು",
+            "ಬಾಹ್ಯ ಶಾಫ್ಟ್‌ಗಳು ಮತ್ತು ಗೇರ್‌ಗಳು",
+            "ಆಯತಾಕಾರದ ಉಕ್ಕಿನ ಪ್ಲೇಟ್‌ಗಳು"
+        ],
+        correctAnswer: "Cylindrical bores and engine liners"
+    },
+    {
+        text: "What is the purpose of the buffing process?",
+        textKn: "ಬಫಿಂಗ್ ಪ್ರಕ್ರಿಯೆಯ ಉದ್ದೇಶವೇನು?",
+        options: [
+            "To create a mirror-like reflective finish",
+            "To modify the crystal lattice structure",
+            "To improve tool cutting sharpness",
+            "To increase hardness of metallic parts"
+        ],
+        optionsKn: [
+            "ಕನ್ನಡಿಯಂತಹ ಪ್ರತಿಫಲಿತ ಫಿನಿಶ್ ರಚಿಸಲು",
+            "ಸ್ಫಟಿಕ ಲ್ಯಾಟಿಸ್ ರಚನೆಯನ್ನು ಮಾರ್ಪಡಿಸಲು",
+            "ಟೂಲ್ ಕತ್ತರಿಸುವ ತೀಕ್ಷ್ಣತೆಯನ್ನು ಸುಧಾರಿಸಲು",
+            "ಲೋಹೀಯ ಭಾಗಗಳ ಗಡಸುತನವನ್ನು ಹೆಚ್ಚಿಸಲು"
+        ],
+        correctAnswer: "To create a mirror-like reflective finish"
+    },
+    {
+        text: "Which wheel material is used in buffing operations?",
+        textKn: "ಬಫಿಂಗ್ ಕಾರ್ಯಾಚರಣೆಗಳಲ್ಲಿ ಯಾವ ಚಕ್ರದ ವಸ್ತುವನ್ನು ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Soft cloth or leather-based wheel",
+            "Hard bonded stone grinding wheel",
+            "Steel brush or wire-type wheel",
+            "Carbide-coated cutting wheel"
+        ],
+        optionsKn: [
+            "ಮೃದುವಾದ ಬಟ್ಟೆ ಅಥವಾ ಚರ್ಮ ಆಧಾರಿತ ಚಕ್ರ",
+            "ಗಟ್ಟಿಯಾದ ಬಾಂಡೆಡ್ ಕಲ್ಲಿನ ಗ್ರೈಂಡಿಂಗ್ ಚಕ್ರ",
+            "ಸ್ಟೀಲ್ ಬ್ರಷ್ ಅಥವಾ ವೈರ್-ಟೈಪ್ ಚಕ್ರ",
+            "ಕಾರ್ಬೈಡ್-ಲೇಪಿತ ಕತ್ತರಿಸುವ ಚಕ್ರ"
+        ],
+        correctAnswer: "Soft cloth or leather-based wheel"
+    },
+    {
+        text: "What is the function of buffing compounds?",
+        textKn: "ಬಫಿಂಗ್ ಕಾಂಪೌಂಡ್‌ಗಳ ಕಾರ್ಯವೇನು?",
+        options: [
+            "To strengthen internal molecular structure",
+            "To clean residual coolant or oil",
+            "To polish and reduce micro-scratches on surfaces",
+            "To reduce metal melting temperature"
+        ],
+        optionsKn: [
+            "ಆಂತರಿಕ ಆಣ್ವಿಕ ರಚನೆಯನ್ನು ಬಲಪಡಿಸಲು",
+            "ಉಳಿದಿರುವ ಕೂಲೆಂಟ್ ಅಥವಾ ಎಣ್ಣೆಯನ್ನು ಸ್ವಚ್ಛಗೊಳಿಸಲು",
+            "ಮೇಲ್ಮೈಗಳನ್ನು ಪಾಲಿಶ್ ಮಾಡಲು ಮತ್ತು ಸೂಕ್ಷ್ಮ ಗೀರುಗಳನ್ನು ಕಡಿಮೆ ಮಾಡಲು",
+            "ಲೋಹ ಕರಗುವ ತಾಪಮಾನವನ್ನು ಕಡಿಮೆ ಮಾಡಲು"
+        ],
+        correctAnswer: "To polish and reduce micro-scratches on surfaces"
+    },
+    {
+        text: "Superfinishing is mainly performed to achieve:",
+        textKn: "ಸೂಪರ್‌ಫಿನಿಶಿಂಗ್ ಅನ್ನು ಮುಖ್ಯವಾಗಿ ಏನನ್ನು ಸಾಧಿಸಲು ಮಾಡಲಾಗುತ್ತದೆ:",
+        options: [
+            "A decorative texture on the component",
+            "A rapid metal removal rate",
+            "A thicker oxide layer for corrosion control",
+            "An ultra-smooth and low-roughness surface"
+        ],
+        optionsKn: [
+            "ಘಟಕದ ಮೇಲೆ ಅಲಂಕಾರಿಕ ವಿನ್ಯಾಸ",
+            "ವೇಗವಾದ ಲೋಹ ತೆಗೆಯುವ ದರ",
+            "ತುಕ್ಕು ನಿಯಂತ್ರಣಕ್ಕಾಗಿ ದಪ್ಪವಾದ ಆಕ್ಸೈಡ್ ಪದರ",
+            "ಅತ್ಯಂತ ನಯವಾದ ಮತ್ತು ಕಡಿಮೆ-ಒರಟುತನದ ಮೇಲ್ಮೈ"
+        ],
+        correctAnswer: "An ultra-smooth and low-roughness surface"
+    },
+    {
+        text: "In which industries is superfinishing widely used?",
+        textKn: "ಯಾವ ಉದ್ಯಮಗಳಲ್ಲಿ ಸೂಪರ್‌ಫಿನಿಶಿಂಗ್ ಅನ್ನು ವ್ಯಾಪಕವಾಗಿ ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Aerospace and automotive applications",
+            "Plastic and packaging sectors",
+            "Food processing and beverages",
+            "Paper and textile production"
+        ],
+        optionsKn: [
+            "ಏರೋಸ್ಪೇಸ್ ಮತ್ತು ಆಟೋಮೋಟಿವ್ ಅನ್ವಯಿಕೆಗಳು",
+            "ಪ್ಲಾಸ್ಟಿಕ್ ಮತ್ತು ಪ್ಯಾಕೇಜಿಂಗ್ ವಲಯಗಳು",
+            "ಆಹಾರ ಸಂಸ್ಕರಣೆ ಮತ್ತು ಪಾನೀಯಗಳು",
+            "ಕಾಗದ ಮತ್ತು ಜವಳಿ ಉತ್ಪಾದನೆ"
+        ],
+        correctAnswer: "Aerospace and automotive applications"
+    },
+    {
+        text: "How does the abrasive stick move in superfinishing?",
+        textKn: "ಸೂಪರ್‌ಫಿನಿಶಿಂಗ್‌ನಲ್ಲಿ ಅಪಘರ್ಷಕ ಸ್ಟಿಕ್ ಹೇಗೆ ಚಲಿಸುತ್ತದೆ?",
+        options: [
+            "With a controlled short reciprocating motion",
+            "With linear oscillation at constant feed",
+            "With continuous rotary motion around one axis",
+            "With random vibratory motion in all directions"
+        ],
+        optionsKn: [
+            "ನಿಯಂತ್ರಿತ ಸಣ್ಣ ರೆಸಿಪ್ರೊಕೇಟಿಂಗ್ (ಹಿಂದೆ-ಮುಂದೆ) ಚಲನೆಯೊಂದಿಗೆ",
+            "ಸ್ಥಿರ ಫೀಡ್‌ನಲ್ಲಿ ರೇಖೀಯ ಆಂದೋಲನದೊಂದಿಗೆ",
+            "ಒಂದು ಆಕ್ಸಿಸ್‌ನ ಸುತ್ತ ನಿರಂತರ ತಿರುಗುವ ಚಲನೆಯೊಂದಿಗೆ",
+            "ಎಲ್ಲಾ ದಿಕ್ಕುಗಳಲ್ಲಿ ಯಾದೃಚ್ಛಿಕ ಕಂಪನ ಚಲನೆಯೊಂದಿಗೆ"
+        ],
+        correctAnswer: "With a controlled short reciprocating motion"
+    },
+    {
+        text: "Which finishing process improves fatigue strength of parts?",
+        textKn: "ಯಾವ ಫಿನಿಶಿಂಗ್ ಪ್ರಕ್ರಿಯೆಯು ಭಾಗಗಳ ಫೆಟಿಗ್ (ಆಯಾಸ) ಸಾಮರ್ಥ್ಯವನ್ನು ಸುಧಾರಿಸುತ್ತದೆ?",
+        options: [
+            "Thermal welding process",
+            "Metal casting operation",
+            "Powder sintering method",
+            "Superfinishing technique"
+        ],
+        optionsKn: [
+            "ಥರ್ಮಲ್ ವೆಲ್ಡಿಂಗ್ ಪ್ರಕ್ರಿಯೆ",
+            "ಲೋಹದ ಎರಕದ ಕಾರ್ಯಾಚರಣೆ",
+            "ಪೌಡರ್ ಸಿಂಟರಿಂಗ್ ವಿಧಾನ",
+            "ಸೂಪರ್‌ಫಿನಿಶಿಂಗ್ ತಂತ್ರ"
+        ],
+        correctAnswer: "Superfinishing technique"
+    },
+    {
+        text: "Which finishing process provides highest accuracy?",
+        textKn: "ಯಾವ ಫಿನಿಶಿಂಗ್ ಪ್ರಕ್ರಿಯೆಯು ಅತ್ಯಧಿಕ ನಿಖರತೆಯನ್ನು ಒದಗಿಸುತ್ತದೆ?",
+        options: [
+            "Manual polishing process",
+            "Fine buffing technique",
+            "General honing procedure",
+            "Precision lapping method"
+        ],
+        optionsKn: [
+            "ಹಸ್ತಚಾಲಿತ ಪಾಲಿಶಿಂಗ್ ಪ್ರಕ್ರಿಯೆ",
+            "ಫೈನ್ ಬಫಿಂಗ್ ತಂತ್ರ",
+            "ಸಾಮಾನ್ಯ ಹೋನಿಂಗ್ ಕಾರ್ಯವಿಧಾನ",
+            "ನಿಖರವಾದ ಲ್ಯಾಪಿಂಗ್ ವಿಧಾನ"
+        ],
+        correctAnswer: "Precision lapping method"
+    },
+    {
+        text: "What differentiates honing from lapping?",
+        textKn: "ಹೋನಿಂಗ್ ಅನ್ನು ಲ್ಯಾಪಿಂಗ್‌ನಿಂದ ಯಾವುದು ಪ್ರತ್ಯೇಕಿಸುತ್ತದೆ?",
+        options: [
+            "Honing uses bonded abrasives while lapping uses loose abrasives",
+            "Lapping is always faster than honing operation",
+            "Honing requires coolant but lapping does not",
+            "Lapping is suitable only for cylindrical parts"
+        ],
+        optionsKn: [
+            "ಹೋನಿಂಗ್ ಬಾಂಡೆಡ್ (ಬಂಧಿತ) ಅಪಘರ್ಷಕಗಳನ್ನು ಬಳಸುತ್ತದೆ ಆದರೆ ಲ್ಯಾಪಿಂಗ್ ಲೂಸ್ (ಬಿಡಿ) ಅಪಘರ್ಷಕಗಳನ್ನು ಬಳಸುತ್ತದೆ",
+            "ಲ್ಯಾಪಿಂಗ್ ಯಾವಾಗಲೂ ಹೋನಿಂಗ್ ಕಾರ್ಯಾಚರಣೆಗಿಂತ ವೇಗವಾಗಿರುತ್ತದೆ",
+            "ಹೋನಿಂಗ್‌ಗೆ ಕೂಲೆಂಟ್ ಅಗತ್ಯವಿದೆ ಆದರೆ ಲ್ಯಾಪಿಂಗ್‌ಗೆ ಇಲ್ಲ",
+            "ಲ್ಯಾಪಿಂಗ್ ಕೇವಲ ಸಿಲಿಂಡರಾಕಾರದ ಭಾಗಗಳಿಗೆ ಮಾತ್ರ ಸೂಕ್ತವಾಗಿದೆ"
+        ],
+        correctAnswer: "Honing uses bonded abrasives while lapping uses loose abrasives"
+    },
+    {
+        text: "Buffing mainly enhances which property of the product?",
+        textKn: "ಬಫಿಂಗ್ ಮುಖ್ಯವಾಗಿ ಉತ್ಪನ್ನದ ಯಾವ ಗುಣಲಕ್ಷಣವನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ?",
+        options: [
+            "Internal hardness and grain size",
+            "Heat transfer capability",
+            "Surface aesthetics and brightness",
+            "Dimensional precision and tolerance"
+        ],
+        optionsKn: [
+            "ಆಂತರಿಕ ಗಡಸುತನ ಮತ್ತು ಗ್ರೇನ್ ಗಾತ್ರ",
+            "ಶಾಖ ವರ್ಗಾವಣೆ ಸಾಮರ್ಥ್ಯ",
+            "ಮೇಲ್ಮೈ ಸೌಂದರ್ಯ ಮತ್ತು ಹೊಳಪು",
+            "ಆಯಾಮದ ನಿಖರತೆ ಮತ್ತು ಟಾಲರೆನ್ಸ್"
+        ],
+        correctAnswer: "Surface aesthetics and brightness"
+    },
+    {
+        text: "Which process is ideal for mirror-like metallic surfaces?",
+        textKn: "ಕನ್ನಡಿಯಂತಹ ಲೋಹೀಯ ಮೇಲ್ಮೈಗಳಿಗೆ ಯಾವ ಪ್ರಕ್ರಿಯೆ ಸೂಕ್ತವಾಗಿದೆ?",
+        options: [
+            "Superfinishing cycle",
+            "Fine lapping step",
+            "Buffing operation",
+            "Honing process"
+        ],
+        optionsKn: [
+            "ಸೂಪರ್‌ಫಿನಿಶಿಂಗ್ ಸೈಕಲ್",
+            "ಫೈನ್ ಲ್ಯಾಪಿಂಗ್ ಹಂತ",
+            "ಬಫಿಂಗ್ ಕಾರ್ಯಾಚರಣೆ",
+            "ಹೋನಿಂಗ್ ಪ್ರಕ್ರಿಯೆ"
+        ],
+        correctAnswer: "Buffing operation"
+    },
+    {
+        text: "Which defect is reduced most effectively by superfinishing?",
+        textKn: "ಸೂಪರ್‌ಫಿನಿಶಿಂಗ್‌ನಿಂದ ಯಾವ ದೋಷವನ್ನು ಅತ್ಯಂತ ಪರಿಣಾಮಕಾರಿಯಾಗಿ ಕಡಿಮೆ ಮಾಡಲಾಗುತ್ತದೆ?",
+        options: [
+            "Thermal cracks in heat-treated parts",
+            "Large casting cavities and pores",
+            "Macro-level waviness and bending",
+            "Microscopic surface peaks and valleys"
+        ],
+        optionsKn: [
+            "ಶಾಖ-ಸಂಸ್ಕರಿಸಿದ ಭಾಗಗಳಲ್ಲಿನ ಉಷ್ಣ ಬಿರುಕುಗಳು",
+            "ದೊಡ್ಡ ಎರಕದ ಕುಳಿಗಳು ಮತ್ತು ರಂಧ್ರಗಳು",
+            "ಮ್ಯಾಕ್ರೋ-ಮಟ್ಟದ ತರಂಗತೆ (ವೇವಿನೆಸ್) ಮತ್ತು ಬಾಗುವಿಕೆ",
+            "ಸೂಕ್ಷ್ಮ ಮೇಲ್ಮೈ ಶಿಖರಗಳು ಮತ್ತು ಕಣಿವೆಗಳು"
+        ],
+        correctAnswer: "Microscopic surface peaks and valleys"
+    },
+    {
+        text: "Which finishing process uses both abrasives and lubricants?",
+        textKn: "ಯಾವ ಫಿನಿಶಿಂಗ್ ಪ್ರಕ್ರಿಯೆಯು ಅಪಘರ್ಷಕಗಳು ಮತ್ತು ಲೂಬ್ರಿಕೆಂಟ್‌ಗಳೆರಡನ್ನೂ ಬಳಸುತ್ತದೆ?",
+        options: [
+            "Drilling operation",
+            "Rolling method",
+            "Turning process",
+            "Lapping process"
+        ],
+        optionsKn: [
+            "ಡ್ರಿಲ್ಲಿಂಗ್ ಕಾರ್ಯಾಚರಣೆ",
+            "ರೋಲಿಂಗ್ ವಿಧಾನ",
+            "ಟರ್ನಿಂಗ್ ಪ್ರಕ್ರಿಯೆ",
+            "ಲ್ಯಾಪಿಂಗ್ ಪ್ರಕ್ರಿಯೆ"
+        ],
+        correctAnswer: "Lapping process"
+    },
+    {
+        text: "Honing is generally performed after which machining step?",
+        textKn: "ಹೋನಿಂಗ್ ಅನ್ನು ಸಾಮಾನ್ಯವಾಗಿ ಯಾವ ಮಶೀನಿಂಗ್ ಹಂತದ ನಂತರ ನಡೆಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Casting or molding process",
+            "Thread cutting operation",
+            "Boring or reaming operation",
+            "Turning or facing operation"
+        ],
+        optionsKn: [
+            "ಎರಕ ಹೊಯ್ಯುವಿಕೆ ಅಥವಾ ಮೋಲ್ಡಿಂಗ್ ಪ್ರಕ್ರಿಯೆ",
+            "ಥ್ರೆಡ್ ಕತ್ತರಿಸುವ ಕಾರ್ಯಾಚರಣೆ",
+            "ಬೋರಿಂಗ್ ಅಥವಾ ರೀಮಿಂಗ್ ಕಾರ್ಯಾಚರಣೆ",
+            "ಟರ್ನಿಂಗ್ ಅಥವಾ ಫೇಸಿಂಗ್ ಕಾರ್ಯಾಚರಣೆ"
+        ],
+        correctAnswer: "Boring or reaming operation"
+    },
+    {
+        text: "Which traditional process produces the smoothest finish?",
+        textKn: "ಯಾವ ಸಾಂಪ್ರದಾಯಿಕ ಪ್ರಕ್ರಿಯೆಯು ಅತ್ಯಂತ ನಯವಾದ ಫಿನಿಶ್ ಅನ್ನು ಉತ್ಪಾದಿಸುತ್ತದೆ?",
+        options: [
+            "Buffing procedure",
+            "Honing process",
+            "Fine lapping cycle",
+            "Superfinishing operation"
+        ],
+        optionsKn: [
+            "ಬಫಿಂಗ್ ಕಾರ್ಯವಿಧಾನ",
+            "ಹೋನಿಂಗ್ ಪ್ರಕ್ರಿಯೆ",
+            "ಫೈನ್ ಲ್ಯಾಪಿಂಗ್ ಸೈಕಲ್",
+            "ಸೂಪರ್‌ಫಿನಿಶಿಂಗ್ ಕಾರ್ಯಾಚರಣೆ"
+        ],
+        correctAnswer: "Superfinishing operation"
+    },
+    {
+        text: "What surface roughness value is typically achieved by superfinishing?",
+        textKn: "ಸೂಪರ್‌ಫಿನಿಶಿಂಗ್‌ನಿಂದ ಸಾಮಾನ್ಯವಾಗಿ ಯಾವ ಮೇಲ್ಮೈ ಒರಟುತನದ (ರಫ್‌ನೆಸ್) ಮೌಲ್ಯವನ್ನು ಸಾಧಿಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Below 0.1 micrometer Ra",
+            "Around 1.0 micrometer Ra",
+            "Near 5.0 micrometer Ra",
+            "Above 10.0 micrometer Ra"
+        ],
+        optionsKn: [
+            "0.1 ಮೈಕ್ರೋಮೀಟರ್ Ra ಗಿಂತ ಕಡಿಮೆ",
+            "ಸುಮಾರು 1.0 ಮೈಕ್ರೋಮೀಟರ್ Ra",
+            "5.0 ಮೈಕ್ರೋಮೀಟರ್ Ra ಹತ್ತಿರ",
+            "10.0 ಮೈಕ್ರೋಮೀಟರ್ Ra ಗಿಂತ ಹೆಚ್ಚು"
+        ],
+        correctAnswer: "Below 0.1 micrometer Ra"
+    },
+    {
+        text: "Which process combines pressure and abrasive action for finishing?",
+        textKn: "ಯಾವ ಪ್ರಕ್ರಿಯೆಯು ಫಿನಿಶಿಂಗ್‌ಗಾಗಿ ಒತ್ತಡ ಮತ್ತು ಅಪಘರ್ಷಕ ಕ್ರಿಯೆಯನ್ನು ಸಂಯೋಜಿಸುತ್ತದೆ?",
+        options: [
+            "Forming operation",
+            "Casting method",
+            "Extrusion process",
+            "Lapping technique"
+        ],
+        optionsKn: [
+            "ಫಾರ್ಮಿಂಗ್ ಕಾರ್ಯಾಚರಣೆ",
+            "ಎರಕ ಹೊಯ್ಯುವ ವಿಧಾನ",
+            "ಎಕ್ಸ್ಟ್ರುಷನ್ ಪ್ರಕ್ರಿಯೆ",
+            "ಲ್ಯಾಪಿಂಗ್ ತಂತ್ರ"
+        ],
+        correctAnswer: "Lapping technique"
+    },
+    {
+        text: "Which finishing method improves sealing properties in engines?",
+        textKn: "ಯಾವ ಫಿನಿಶಿಂಗ್ ವಿಧಾನವು ಎಂಜಿನ್‌ಗಳಲ್ಲಿ ಸೀಲಿಂಗ್ ಗುಣಲಕ್ಷಣಗಳನ್ನು ಸುಧಾರಿಸುತ್ತದೆ?",
+        options: [
+            "Buffing step",
+            "Honing process",
+            "Shot peening process",
+            "Superfinishing run"
+        ],
+        optionsKn: [
+            "ಬಫಿಂಗ್ ಹಂತ",
+            "ಹೋನಿಂಗ್ ಪ್ರಕ್ರಿಯೆ",
+            "ಶಾಟ್ ಪೀನಿಂಗ್ ಪ್ರಕ್ರಿಯೆ",
+            "ಸೂಪರ್‌ಫಿನಿಶಿಂಗ್ ರನ್"
+        ],
+        correctAnswer: "Honing process"
+    },
+    {
+        text: "Which finishing process reduces friction between moving parts?",
+        textKn: "ಯಾವ ಫಿನಿಶಿಂಗ್ ಪ್ರಕ್ರಿಯೆಯು ಚಲಿಸುವ ಭಾಗಗಳ ನಡುವಿನ ಘರ್ಷಣೆಯನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ?",
+        options: [
+            "Forming procedure",
+            "Casting method",
+            "Grinding operation",
+            "Superfinishing process"
+        ],
+        optionsKn: [
+            "ಫಾರ್ಮಿಂಗ್ ಕಾರ್ಯವಿಧಾನ",
+            "ಎರಕ ಹೊಯ್ಯುವ ವಿಧಾನ",
+            "ಗ್ರೈಂಡಿಂಗ್ ಕಾರ್ಯಾಚರಣೆ",
+            "ಸೂಪರ್‌ಫಿನಿಶಿಂಗ್ ಪ್ರಕ್ರಿಯೆ"
+        ],
+        correctAnswer: "Superfinishing process"
+    },
+    {
+        text: "Why is surface finishing vital in precision manufacturing?",
+        textKn: "ನಿಖರವಾದ ಉತ್ಪಾದನೆಯಲ್ಲಿ ಸರ್ಫೇಸ್ ಫಿನಿಶಿಂಗ್ ಏಕೆ ಅತ್ಯಗತ್ಯ?",
+        options: [
+            "It minimizes color differences in products",
+            "It increases raw material consumption",
+            "It reduces total part weight and cost",
+            "It enhances performance, durability, and efficiency"
+        ],
+        optionsKn: [
+            "ಇದು ಉತ್ಪನ್ನಗಳಲ್ಲಿನ ಬಣ್ಣ ವ್ಯತ್ಯಾಸಗಳನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ",
+            "ಇದು ಕಚ್ಚಾ ವಸ್ತುಗಳ ಬಳಕೆಯನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ",
+            "ಇದು ಒಟ್ಟು ಭಾಗದ ತೂಕ ಮತ್ತು ವೆಚ್ಚವನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ",
+            "ಇದು ಕಾರ್ಯಕ್ಷಮತೆ, ಬಾಳಿಕೆ, ಮತ್ತು ದಕ್ಷತೆಯನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "It enhances performance, durability, and efficiency"
+    }
+],
+
+      
+[
+    {
+        text: "What does 'surface finish' refer to in manufacturing?",
+        textKn: "ಉತ್ಪಾದನೆಯಲ್ಲಿ 'ಸರ್ಫೇಸ್ ಫಿನಿಶ್' (ಮೇಲ್ಮೈ ಪೂರ್ಣಗೊಳಿಸುವಿಕೆ) ಎಂದರೆ ಏನು?",
+        options: [
+            "The condition of a part's surface at any stage of manufacturing",
+            "The internal grain structure and material composition inside the part",
+            "The application of coatings, paints, or protective layers on the surface",
+            "The mechanical strength and hardness of the raw material used in parts"
+        ],
+        optionsKn: [
+            "ಉತ್ಪಾದನೆಯ ಯಾವುದೇ ಹಂತದಲ್ಲಿ ಭಾಗದ ಮೇಲ್ಮೈನ ಸ್ಥಿತಿ",
+            "ಭಾಗದೊಳಗಿನ ಆಂತರಿಕ ಗ್ರೇನ್ (ಕಣ) ರಚನೆ ಮತ್ತು ವಸ್ತುವಿನ ಸಂಯೋಜನೆ",
+            "ಮೇಲ್ಮೈ ಮೇಲೆ ಲೇಪನಗಳು, ಬಣ್ಣಗಳು, ಅಥವಾ ರಕ್ಷಣಾತ್ಮಕ ಪದರಗಳ ಅನ್ವಯ",
+            "ಭಾಗಗಳಲ್ಲಿ ಬಳಸುವ ಕಚ್ಚಾ ವಸ್ತುವಿನ ಯಾಂತ್ರಿಕ ಶಕ್ತಿ ಮತ್ತು ಗಡಸುತನ"
+        ],
+        correctAnswer: "The condition of a part's surface at any stage of manufacturing"
+    },
+    {
+        text: "Which processes create secondary surface finishes?",
+        textKn: "ಯಾವ ಪ್ರಕ್ರಿಯೆಗಳು ಸೆಕೆಂಡರಿ (ದ್ವಿತೀಯ) ಸರ್ಫೇಸ್ ಫಿನಿಶ್‌ಗಳನ್ನು ರಚಿಸುತ್ತವೆ?",
+        options: [
+            "CNC milling, turning, grinding, sanding, lapping, and polishing operations",
+            "Chemical passivation, anodizing, galvanizing, or decorative coating processes",
+            "Casting, forging, and extrusion carried out during initial part creation",
+            "Manual filing, sanding, or polishing done by operators on the part surfaces"
+        ],
+        optionsKn: [
+            "CNC ಮಿಲ್ಲಿಂಗ್, ಟರ್ನಿಂಗ್, ಗ್ರೈಂಡಿಂಗ್, ಸ್ಯಾಂಡಿಂಗ್, ಲ್ಯಾಪಿಂಗ್, ಮತ್ತು ಪಾಲಿಶಿಂಗ್ ಕಾರ್ಯಾಚರಣೆಗಳು",
+            "ರಾಸಾಯನಿಕ ಪ್ಯಾಸಿವೇಶನ್, ಆನೋಡೈಸಿಂಗ್, ಗ್ಯಾಲ್ವನೈಸಿಂಗ್, ಅಥವಾ ಅಲಂಕಾರಿಕ ಲೇಪನ ಪ್ರಕ್ರಿಯೆಗಳು",
+            "ಆರಂಭಿಕ ಭಾಗ ರಚನೆಯ ಸಮಯದಲ್ಲಿ ನಡೆಸಲಾಗುವ ಎರಕ ಹೊಯ್ಯುವಿಕೆ, ಫೋರ್ಜಿಂಗ್, ಮತ್ತು ಎಕ್ಸ್ಟ್ರುಷನ್",
+            "ಆಪರೇಟರ್‌ಗಳಿಂದ ಭಾಗದ ಮೇಲ್ಮೈಗಳಲ್ಲಿ ಮಾಡುವ ಹಸ್ತಚಾಲಿತ ಫೈಲಿಂಗ್, ಸ್ಯಾಂಡಿಂಗ್, ಅಥವಾ ಪಾಲಿಶಿಂಗ್"
+        ],
+        correctAnswer: "CNC milling, turning, grinding, sanding, lapping, and polishing operations"
+    },
+    {
+        text: "What are tertiary surface finishes?",
+        textKn: "ಟರ್ಷಿಯರಿ (ತೃತೀಯ) ಸರ್ಫೇಸ್ ಫಿನಿಶ್‌ಗಳು ಎಂದರೇನು?",
+        options: [
+            "Finishes produced by chemical or decorative treatments on the surface",
+            "Primary surfaces obtained directly from rolling, extrusion, or casting",
+            "Surface conditions generated unintentionally during rough machining processes",
+            "Temporary coatings applied for testing or protective purposes during handling"
+        ],
+        optionsKn: [
+            "ಮೇಲ್ಮೈ ಮೇಲೆ ರಾಸಾಯನಿಕ ಅಥವಾ ಅಲಂಕಾರಿಕ ಸಂಸ್ಕರಣೆಗಳಿಂದ ಉತ್ಪತ್ತಿಯಾಗುವ ಫಿನಿಶ್‌ಗಳು",
+            "ರೋಲಿಂಗ್, ಎಕ್ಸ್ಟ್ರುಷನ್, ಅಥವಾ ಎರಕ ಹೊಯ್ಯುವಿಕೆಯಿಂದ ನೇರವಾಗಿ ಪಡೆಯುವ ಪ್ರಾಥಮಿಕ ಮೇಲ್ಮೈಗಳು",
+            "ಒರಟು ಮಶೀನಿಂಗ್ ಪ್ರಕ್ರಿಯೆಗಳ ಸಮಯದಲ್ಲಿ ಉದ್ದೇಶಪೂರ್ವಕವಲ್ಲದೆ ಉಂಟಾಗುವ ಮೇಲ್ಮೈ ಸ್ಥಿತಿಗಳು",
+            "ನಿರ್ವಹಣೆಯ ಸಮಯದಲ್ಲಿ ಪರೀಕ್ಷೆ ಅಥವಾ ರಕ್ಷಣಾತ್ಮಕ ಉದ್ದೇಶಗಳಿಗಾಗಿ ಅನ್ವಯಿಸಲಾದ ತಾತ್ಕಾಲಿಕ ಲೇಪನಗಳು"
+        ],
+        correctAnswer: "Finishes produced by chemical or decorative treatments on the surface"
+    },
+    {
+        text: "How can surface finishes be transferred between parts?",
+        textKn: "ಭಾಗಗಳ ನಡುವೆ ಸರ್ಫೇಸ್ ಫಿನಿಶ್‌ಗಳನ್ನು ಹೇಗೆ ವರ್ಗಾಯಿಸಬಹುದು?",
+        options: [
+            "By using a machined mold core that leaves tool marks on molded components",
+            "By sanding or rubbing two parts together to imprint patterns",
+            "By painting or applying coatings from one part onto another surface",
+            "By laser marking one part and stamping the mark onto the next piece"
+        ],
+        optionsKn: [
+            "ಮೋಲ್ಡ್ ಮಾಡಿದ ಘಟಕಗಳ ಮೇಲೆ ಟೂಲ್ ಗುರುತುಗಳನ್ನು ಬಿಡುವ ಮಶೀನ್ ಮಾಡಿದ ಮೋಲ್ಡ್ ಕೋರ್ ಬಳಸಿ",
+            "ಮಾದರಿಗಳನ್ನು ಮುದ್ರಿಸಲು ಎರಡು ಭಾಗಗಳನ್ನು ಒಟ್ಟಿಗೆ ಸ್ಯಾಂಡಿಂಗ್ ಮಾಡುವ ಅಥವಾ ಉಜ್ಜುವ ಮೂಲಕ",
+            "ಒಂದು ಭಾಗದಿಂದ ಇನ್ನೊಂದು ಮೇಲ್ಮೈಗೆ ಬಣ್ಣ ಹಚ್ಚುವ ಅಥವಾ ಲೇಪನಗಳನ್ನು ಅನ್ವಯಿಸುವ ಮೂಲಕ",
+            "ಒಂದು ಭಾಗವನ್ನು ಲೇಸರ್ ಮಾರ್ಕ್ ಮಾಡಿ ಮತ್ತು ಆ ಗುರುತನ್ನು ಮುಂದಿನ ಪೀಸ್ ಮೇಲೆ ಸ್ಟಾಂಪ್ ಮಾಡುವ ಮೂಲಕ"
+        ],
+        correctAnswer: "By using a machined mold core that leaves tool marks on molded components"
+    },
+    {
+        text: "What is the relationship between surface finish, texture, and topology?",
+        textKn: "ಸರ್ಫೇಸ್ ಫಿನಿಶ್, ಟೆಕ್ಸ್ಚರ್ (ವಿನ್ಯಾಸ), ಮತ್ತು ಟೋಪೋಲಜಿ (ಸ್ಥಳಶಾಸ್ತ್ರ) ನಡುವಿನ ಸಂಬಂಧವೇನು?",
+        options: [
+            "These terms are mostly interchangeable to describe the surface arrangement",
+            "They measure the internal mechanical properties of the material differently",
+            "Surface finish relates to appearance, while topology only concerns function",
+            "Surface texture is for metals, while topology applies only to polymers"
+        ],
+        optionsKn: [
+            "ಮೇಲ್ಮೈ ವ್ಯವಸ್ಥೆಯನ್ನು ವಿವರಿಸಲು ಈ ಪದಗಳನ್ನು ಹೆಚ್ಚಾಗಿ ಪರಸ್ಪರ ಬದಲಾಯಿಸಬಹುದಾಗಿದೆ",
+            "ಅವು ವಸ್ತುವಿನ ಆಂತರಿಕ ಯಾಂತ್ರಿಕ ಗುಣಲಕ್ಷಣಗಳನ್ನು ವಿಭಿನ್ನವಾಗಿ ಅಳೆಯುತ್ತವೆ",
+            "ಸರ್ಫೇಸ್ ಫಿನಿಶ್ ನೋಟಕ್ಕೆ ಸಂಬಂಧಿಸಿದೆ, ಆದರೆ ಟೋಪೋಲಜಿ ಕೇವಲ ಕಾರ್ಯಕ್ಕೆ ಸಂಬಂಧಿಸಿದೆ",
+            "ಸರ್ಫೇಸ್ ಟೆಕ್ಸ್ಚರ್ ಲೋಹಗಳಿಗೆ, ಆದರೆ ಟೋಪೋಲಜಿ ಕೇವಲ ಪಾಲಿಮರ್‌ಗಳಿಗೆ ಅನ್ವಯಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "These terms are mostly interchangeable to describe the surface arrangement"
+    },
+    {
+        text: "What does surface topology describe?",
+        textKn: "ಸರ್ಫೇಸ್ ಟೋಪೋಲಜಿ (ಮೇಲ್ಮೈ ಸ್ಥಳಶಾಸ್ತ್ರ) ಏನನ್ನು ವಿವರಿಸುತ್ತದೆ?",
+        options: [
+            "The specific arrangement of material features on a part's surface",
+            "The chemical composition and hardness variation across the surface",
+            "The thickness and durability of applied coatings on the part",
+            "The alignment of internal microstructure in the raw material"
+        ],
+        optionsKn: [
+            "ಒಂದು ಭಾಗದ ಮೇಲ್ಮೈಯಲ್ಲಿ ವಸ್ತುವಿನ ವೈಶಿಷ್ಟ್ಯಗಳ ನಿರ್ದಿಷ್ಟ ವ್ಯವಸ್ಥೆ",
+            "ಮೇಲ್ಮೈಯಾದ್ಯಂತ ರಾಸಾಯನಿಕ ಸಂಯೋಜನೆ ಮತ್ತು ಗಡಸುತನದ ವ್ಯತ್ಯಾಸ",
+            "ಭಾಗದ ಮೇಲೆ ಅನ್ವಯಿಸಲಾದ ಲೇಪನಗಳ ದಪ್ಪ ಮತ್ತು ಬಾಳಿಕೆ",
+            "ಕಚ್ಚಾ ವಸ್ತುವಿನಲ್ಲಿ ಆಂತರಿಕ ಮೈಕ್ರೋಸ್ಟ್ರಕ್ಚರ್‌ನ ಜೋಡಣೆ"
+        ],
+        correctAnswer: "The specific arrangement of material features on a part's surface"
+    },
+    {
+        text: "How is 'surface texture' used in engineering?",
+        textKn: "ಎಂಜಿನಿಯರಿಂಗ್‌ನಲ್ಲಿ 'ಸರ್ಫೇಸ್ ಟೆಕ್ಸ್ಚರ್' (ಮೇಲ್ಮೈ ವಿನ್ಯಾಸ) ಅನ್ನು ಹೇಗೆ ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "To describe detailed patterns from bead blasting or spark erosion operations",
+            "To calculate internal material density for engineering applications",
+            "To measure hardness or wear properties of machined components",
+            "To determine machining time or feed rates during processing"
+        ],
+        optionsKn: [
+            "ಬೀಡ್ ಬ್ಲಾಸ್ಟಿಂಗ್ ಅಥವಾ ಸ್ಪಾರ್ಕ್ ಎರೋಶನ್ ಕಾರ್ಯಾಚರಣೆಗಳಿಂದ ವಿವರವಾದ ಮಾದರಿಗಳನ್ನು ವಿವರಿಸಲು",
+            "ಎಂಜಿನಿಯರಿಂಗ್ ಅನ್ವಯಿಕೆಗಳಿಗಾಗಿ ಆಂತರಿಕ ವಸ್ತುವಿನ ಸಾಂದ್ರತೆಯನ್ನು ಲೆಕ್ಕಾಚಾರ ಮಾಡಲು",
+            "ಮಶೀನ್ ಮಾಡಿದ ಘಟಕಗಳ ಗಡಸುತನ ಅಥವಾ ಸವೆತ ಗುಣಲಕ್ಷಣಗಳನ್ನು ಅಳೆಯಲು",
+            "ಸಂಸ್ಕರಣೆಯ ಸಮಯದಲ್ಲಿ ಮಶೀನಿಂಗ್ ಸಮಯ ಅಥವಾ ಫೀಡ್ ದರಗಳನ್ನು ನಿರ್ಧರಿಸಲು"
+        ],
+        correctAnswer: "To describe detailed patterns from bead blasting or spark erosion operations"
+    },
+    {
+        text: "How is surface roughness quantified?",
+        textKn: "ಮೇಲ್ಮೈ ಒರಟುತನವನ್ನು (ರಫ್‌ನೆಸ್) ಹೇಗೆ ಪ್ರಮಾಣೀಕರಿಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "By the Ra value, which is the average deviation between peaks and valleys",
+            "By measuring the flatness of the part surface using a ruler or gauge",
+            "By calculating the hardness and tensile strength of the part material",
+            "By noting the color and shine of the surface after finishing"
+        ],
+        optionsKn: [
+            "Ra ಮೌಲ್ಯದಿಂದ, ಇದು ಶಿಖರಗಳು ಮತ್ತು ಕಣಿವೆಗಳ ನಡುವಿನ ಸರಾಸರಿ ವಿಚಲನೆಯಾಗಿದೆ",
+            "ರೂಲರ್ ಅಥವಾ ಗೇಜ್ ಬಳಸಿ ಭಾಗದ ಮೇಲ್ಮೈನ ಚಪ್ಪಟೆತನವನ್ನು ಅಳೆಯುವ ಮೂಲಕ",
+            "ಭಾಗದ ವಸ್ತುವಿನ ಗಡಸುತನ ಮತ್ತು ಕರ್ಷಕ ಶಕ್ತಿಯನ್ನು ಲೆಕ್ಕಾಚಾರ ಮಾಡುವ ಮೂಲಕ",
+            "ಫಿನಿಶಿಂಗ್ ನಂತರ ಮೇಲ್ಮೈನ ಬಣ್ಣ ಮತ್ತು ಹೊಳಪನ್ನು ಗಮನಿಸುವ ಮೂಲಕ"
+        ],
+        correctAnswer: "By the Ra value, which is the average deviation between peaks and valleys"
+    },
+    {
+        text: "What instruments are used to measure surface roughness?",
+        textKn: "ಮೇಲ್ಮೈ ಒರಟುತನವನ್ನು ಅಳೆಯಲು ಯಾವ ಉಪಕರಣಗಳನ್ನು ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Contact probes or non-contact optical, laser, and X-ray systems",
+            "Calipers and micrometers for measuring external dimensions",
+            "Weighing scales and torque sensors for material evaluation",
+            "Pressure sensors and thermocouples for surface energy readings"
+        ],
+        optionsKn: [
+            "ಕಾಂಟ್ಯಾಕ್ಟ್ ಪ್ರೋಬ್‌ಗಳು ಅಥವಾ ನಾನ್-ಕಾಂಟ್ಯಾಕ್ಟ್ ಆಪ್ಟಿಕಲ್, ಲೇಸರ್, ಮತ್ತು ಎಕ್ಸ್-ರೇ ಸಿಸ್ಟಮ್‌ಗಳು",
+            "ಬಾಹ್ಯ ಆಯಾಮಗಳನ್ನು ಅಳೆಯಲು ಕ್ಯಾಲಿಪರ್‌ಗಳು ಮತ್ತು ಮೈಕ್ರೋಮೀಟರ್‌ಗಳು",
+            "ವಸ್ತು ಮೌಲ್ಯಮಾಪನಕ್ಕಾಗಿ ತೂಕದ ಮಾಪಕಗಳು ಮತ್ತು ಟಾರ್ಕ್ ಸೆನ್ಸರ್‌ಗಳು",
+            "ಮೇಲ್ಮೈ ಶಕ್ತಿ ರೀಡಿಂಗ್‌ಗಳಿಗಾಗಿ ಒತ್ತಡ ಸಂವೇದಕಗಳು ಮತ್ತು ಥರ್ಮೋಕಪಲ್‌ಗಳು"
+        ],
+        correctAnswer: "Contact probes or non-contact optical, laser, and X-ray systems"
+    },
+    {
+        text: "What does a low Ra value indicate?",
+        textKn: "ಕಡಿಮೆ Ra ಮೌಲ್ಯವು ಏನನ್ನು ಸೂಚಿಸುತ್ತದೆ?",
+        options: [
+            "A very smooth surface with minimal deviations between peaks and valleys",
+            "A highly rough surface with deep grooves and large deviations",
+            "An uneven surface with frequent scratches and tool marks",
+            "A surface coated with paint or other decorative layers"
+        ],
+        optionsKn: [
+            "ಶಿಖರಗಳು ಮತ್ತು ಕಣಿವೆಗಳ ನಡುವೆ ಕನಿಷ್ಠ ವಿಚಲನೆಗಳೊಂದಿಗೆ ಅತ್ಯಂತ ನಯವಾದ ಮೇಲ್ಮೈ",
+            "ಆಳವಾದ ಗ್ರೂವ್‌ಗಳು ಮತ್ತು ದೊಡ್ಡ ವಿಚಲನೆಗಳೊಂದಿಗೆ ಹೆಚ್ಚು ಒರಟಾದ ಮೇಲ್ಮೈ",
+            "ಆಗಾಗ್ಗೆ ಗೀರುಗಳು ಮತ್ತು ಟೂಲ್ ಗುರುತುಗಳೊಂದಿಗೆ ಅಸಮವಾದ ಮೇಲ್ಮೈ",
+            "ಬಣ್ಣ ಅಥವಾ ಇತರ ಅಲಂಕಾರಿಕ ಪದರಗಳಿಂದ ಲೇಪಿತವಾದ ಮೇಲ್ಮೈ"
+        ],
+        correctAnswer: "A very smooth surface with minimal deviations between peaks and valleys"
+    },
+    {
+        text: "Why must product developers consider Ra values?",
+        textKn: "ಉತ್ಪನ್ನ ಅಭಿವರ್ಧಕರು (ಪ್ರಾಡಕ್ಟ್ ಡೆವಲಪರ್‌ಗಳು) Ra ಮೌಲ್ಯಗಳನ್ನು ಏಕೆ ಪರಿಗಣಿಸಬೇಕು?",
+        options: [
+            "To specify the desired surface roughness for performance and manufacturability",
+            "To determine the color and appearance of the final product surface",
+            "To calculate the internal hardness distribution of materials used",
+            "To estimate the cost of raw materials for manufacturing"
+        ],
+        optionsKn: [
+            "ಕಾರ್ಯಕ್ಷಮತೆ ಮತ್ತು ಉತ್ಪಾದನಾ ಸಾಮರ್ಥ್ಯಕ್ಕಾಗಿ ಅಪೇಕ್ಷಿತ ಮೇಲ್ಮೈ ಒರಟುತನವನ್ನು ನಿರ್ದಿಷ್ಟಪಡಿಸಲು",
+            "ಅಂತಿಮ ಉತ್ಪನ್ನದ ಮೇಲ್ಮೈನ ಬಣ್ಣ ಮತ್ತು ನೋಟವನ್ನು ನಿರ್ಧರಿಸಲು",
+            "ಬಳಸಿದ ವಸ್ತುಗಳ ಆಂತರಿಕ ಗಡಸುತನ ವಿತರಣೆಯನ್ನು ಲೆಕ್ಕಾಚಾರ ಮಾಡಲು",
+            "ಉತ್ಪಾದನೆಗೆ ಕಚ್ಚಾ ವಸ್ತುಗಳ ವೆಚ್ಚವನ್ನು ಅಂದಾಜು ಮಾಡಲು"
+        ],
+        correctAnswer: "To specify the desired surface roughness for performance and manufacturability"
+    },
+    {
+        text: "What happens to cost and lead time with very low Ra values?",
+        textKn: "ತುಂಬಾ ಕಡಿಮೆ Ra ಮೌಲ್ಯಗಳೊಂದಿಗೆ ವೆಚ್ಚ ಮತ್ತು ಲೀಡ್ ಟೈಮ್ (ಪೂರೈಕೆ ಸಮಯ) ಗೆ ಏನಾಗುತ್ತದೆ?",
+        options: [
+            "Both cost and machining time increase significantly with finer finishes",
+            "Both cost and time decrease as the surface becomes smoother",
+            "Only cost increases while time remains constant for finer surfaces",
+            "Only time increases but cost is unaffected by surface finish"
+        ],
+        optionsKn: [
+            "ಹೆಚ್ಚು ನಯವಾದ ಫಿನಿಶ್‌ಗಳೊಂದಿಗೆ ವೆಚ್ಚ ಮತ್ತು ಮಶೀನಿಂಗ್ ಸಮಯ ಎರಡೂ ಗಮನಾರ್ಹವಾಗಿ ಹೆಚ್ಚಾಗುತ್ತವೆ",
+            "ಮೇಲ್ಮೈ ನಯವಾದಂತೆ ವೆಚ್ಚ ಮತ್ತು ಸಮಯ ಎರಡೂ ಕಡಿಮೆಯಾಗುತ್ತವೆ",
+            "ಹೆಚ್ಚು ನಯವಾದ ಮೇಲ್ಮೈಗಳಿಗೆ ವೆಚ್ಚ ಮಾತ್ರ ಹೆಚ್ಚಾಗುತ್ತದೆ ಆದರೆ ಸಮಯ ಸ್ಥಿರವಾಗಿರುತ್ತದೆ",
+            "ಸಮಯ ಮಾತ್ರ ಹೆಚ್ಚಾಗುತ್ತದೆ ಆದರೆ ವೆಚ್ಚವು ಮೇಲ್ಮೈ ಫಿನಿಶ್‌ನಿಂದ ಪ್ರಭಾವಿತವಾಗುವುದಿಲ್ಲ"
+        ],
+        correctAnswer: "Both cost and machining time increase significantly with finer finishes"
+    },
+    {
+        text: "What is the standard Ra for CNC machined parts at Star Rapid?",
+        textKn: "ಸ್ಟಾರ್ ರಾಪಿಡ್‌ನಲ್ಲಿ CNC ಮಶೀನ್ ಮಾಡಿದ ಭಾಗಗಳಿಗೆ ಪ್ರಮಾಣಿತ Ra ಎಷ್ಟು?",
+        options: [
+            "3.2 microns, with the ability to achieve as fine as 0.2 microns if required",
+            "1.0 micron, with no possibility of going finer in production",
+            "10 microns, for all machined parts regardless of material",
+            "5.0 microns, which is the minimum acceptable roughness value"
+        ],
+        optionsKn: [
+            "3.2 ಮೈಕ್ರಾನ್‌ಗಳು, ಅಗತ್ಯವಿದ್ದರೆ 0.2 ಮೈಕ್ರಾನ್‌ಗಳಷ್ಟು ನಯವಾಗಿ ಸಾಧಿಸುವ ಸಾಮರ್ಥ್ಯದೊಂದಿಗೆ",
+            "1.0 ಮೈಕ್ರಾನ್, ಉತ್ಪಾದನೆಯಲ್ಲಿ ಇನ್ನೂ ನಯವಾಗಿ ಹೋಗಲು ಸಾಧ್ಯತೆಯಿಲ್ಲದೆ",
+            "10 ಮೈಕ್ರಾನ್‌ಗಳು, ವಸ್ತುವನ್ನು ಲೆಕ್ಕಿಸದೆ ಎಲ್ಲಾ ಮಶೀನ್ ಮಾಡಿದ ಭಾಗಗಳಿಗೆ",
+            "5.0 ಮೈಕ್ರಾನ್‌ಗಳು, ಇದು ಕನಿಷ್ಠ ಸ್ವೀಕಾರಾರ್ಹ ಒರಟುತನದ ಮೌಲ್ಯವಾಗಿದೆ"
+        ],
+        correctAnswer: "3.2 microns, with the ability to achieve as fine as 0.2 microns if required"
+    },
+    {
+        text: "What practical tool helps engineers compare surface roughness?",
+        textKn: "ಮೇಲ್ಮೈ ಒರಟುತನವನ್ನು ಹೋಲಿಸಲು ಎಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಯಾವ ಪ್ರಾಯೋಗಿಕ ಟೂಲ್ ಸಹಾಯ ಮಾಡುತ್ತದೆ?",
+        options: [
+            "A set of surface roughness samples made of different materials",
+            "A microscope to view internal grain structure of parts",
+            "A caliper to measure overall dimensions of components",
+            "A hardness tester to evaluate material strength"
+        ],
+        optionsKn: [
+            "ವಿವಿಧ ವಸ್ತುಗಳಿಂದ ಮಾಡಿದ ಮೇಲ್ಮೈ ಒರಟುತನದ ಮಾದರಿಗಳ ಒಂದು ಸೆಟ್",
+            "ಭಾಗಗಳ ಆಂತರಿಕ ಗ್ರೇನ್ ರಚನೆಯನ್ನು ವೀಕ್ಷಿಸಲು ಒಂದು ಸೂಕ್ಷ್ಮದರ್ಶಕ",
+            "ಘಟಕಗಳ ಒಟ್ಟಾರೆ ಆಯಾಮಗಳನ್ನು ಅಳೆಯಲು ಒಂದು ಕ್ಯಾಲಿಪರ್",
+            "ವಸ್ತುವಿನ ಸಾಮರ್ಥ್ಯವನ್ನು ಮೌಲ್ಯಮಾಪನ ಮಾಡಲು ಒಂದು ಗಡಸುತನ ಪರೀಕ್ಷಕ"
+        ],
+        correctAnswer: "A set of surface roughness samples made of different materials"
+    },
+    {
+        text: "How can an engineer quickly verify part surface roughness?",
+        textKn: "ಒಬ್ಬ ಎಂಜಿನಿಯರ್ ಭಾಗದ ಮೇಲ್ಮೈ ಒರಟುತನವನ್ನು ತ್ವರಿತವಾಗಿ ಹೇಗೆ ಪರಿಶೀಲಿಸಬಹುದು?",
+        options: [
+            "By running a fingernail along the part and comparing with sample textures",
+            "By weighing the part and comparing to reference weight charts",
+            "By observing the part under ultraviolet light for coating defects",
+            "By tapping the part and listening to the sound resonance"
+        ],
+        optionsKn: [
+            "ಭಾಗದ ಉದ್ದಕ್ಕೂ ಬೆರಳಿನ ಉಗುರನ್ನು ಓಡಿಸಿ ಮತ್ತು ಮಾದರಿ ವಿನ್ಯಾಸಗಳೊಂದಿಗೆ ಹೋಲಿಸುವ ಮೂಲಕ",
+            "ಭಾಗವನ್ನು ತೂಕ ಮಾಡಿ ಮತ್ತು ರೆಫರೆನ್ಸ್ ತೂಕದ ಚಾರ್ಟ್‌ಗಳಿಗೆ ಹೋಲಿಸುವ ಮೂಲಕ",
+            "ಲೇಪನ ದೋಷಗಳಿಗಾಗಿ ನೇರಳಾತೀತ ಬೆಳಕಿನ ಅಡಿಯಲ್ಲಿ ಭಾಗವನ್ನು ಗಮನಿಸುವ ಮೂಲಕ",
+            "ಭಾಗವನ್ನು ತಟ್ಟಿ ಮತ್ತು ಧ್ವನಿ ಅನುರಣನವನ್ನು ಕೇಳುವ ಮೂಲಕ"
+        ],
+        correctAnswer: "By running a fingernail along the part and comparing with sample textures"
+    },
+    {
+        text: "What is the main function of primary surface finishes?",
+        textKn: "ಪ್ರಾಥಮಿಕ ಸರ್ಫೇಸ್ ಫಿನಿಶ್‌ಗಳ ಮುಖ್ಯ ಕಾರ್ಯವೇನು?",
+        options: [
+            "They are the initial finishes produced during processes like rolling or extrusion",
+            "They are decorative finishes applied after machining or polishing",
+            "They are temporary textures that are later removed in secondary finishing",
+            "They are chemical coatings added to improve corrosion resistance"
+        ],
+        optionsKn: [
+            "ಅವು ರೋಲಿಂಗ್ ಅಥವಾ ಎಕ್ಸ್ಟ್ರುಷನ್‌ನಂತಹ ಪ್ರಕ್ರಿಯೆಗಳ ಸಮಯದಲ್ಲಿ ಉತ್ಪತ್ತಿಯಾಗುವ ಆರಂಭಿಕ ಫಿನಿಶ್‌ಗಳಾಗಿವೆ",
+            "ಅವು ಮಶೀನಿಂಗ್ ಅಥವಾ ಪಾಲಿಶಿಂಗ್ ನಂತರ ಅನ್ವಯಿಸಲಾದ ಅಲಂಕಾರಿಕ ಫಿನಿಶ್‌ಗಳಾಗಿವೆ",
+            "ಅವು ತಾತ್ಕಾಲಿಕ ವಿನ್ಯಾಸಗಳಾಗಿದ್ದು, ಇವುಗಳನ್ನು ನಂತರ ಸೆಕೆಂಡರಿ ಫಿನಿಶಿಂಗ್‌ನಲ್ಲಿ ತೆಗೆದುಹಾಕಲಾಗುತ್ತದೆ",
+            "ಅವು ತುಕ್ಕು ನಿರೋಧಕತೆಯನ್ನು ಸುಧಾರಿಸಲು ಸೇರಿಸಲಾದ ರಾಸಾಯನಿಕ ಲೇಪನಗಳಾಗಿವೆ"
+        ],
+        correctAnswer: "They are the initial finishes produced during processes like rolling or extrusion"
+    },
+    {
+        text: "Which process is an example of creating secondary surface finishes?",
+        textKn: "ಸೆಕೆಂಡರಿ ಸರ್ಫೇಸ್ ಫಿನಿಶ್‌ಗಳನ್ನು ರಚಿಸುವುದಕ್ಕೆ ಯಾವ ಪ್ರಕ್ರಿಯೆಯು ಒಂದು ಉದಾಹರಣೆಯಾಗಿದೆ?",
+        options: [
+            "CNC milling that leaves distinctive tool marks on the part",
+            "Raw casting directly from molds without machining",
+            "Applying paint or powder coating to the part surface",
+            "Forging and rolling before any finishing operations"
+        ],
+        optionsKn: [
+            "ಭಾಗದ ಮೇಲೆ ವಿಶಿಷ್ಟವಾದ ಟೂಲ್ ಗುರುತುಗಳನ್ನು ಬಿಡುವ CNC ಮಿಲ್ಲಿಂಗ್",
+            "ಮಶೀನಿಂಗ್ ಇಲ್ಲದೆ ಮೋಲ್ಡ್‌ಗಳಿಂದ ನೇರವಾಗಿ ಕಚ್ಚಾ ಎರಕ ಹೊಯ್ಯುವಿಕೆ",
+            "ಭಾಗದ ಮೇಲ್ಮೈಗೆ ಬಣ್ಣ ಅಥವಾ ಪೌಡರ್ ಕೋಟಿಂಗ್ ಅನ್ವಯಿಸುವುದು",
+            "ಯಾವುದೇ ಫಿನಿಶಿಂಗ್ ಕಾರ್ಯಾಚರಣೆಗಳ ಮೊದಲು ಫೋರ್ಜಿಂಗ್ ಮತ್ತು ರೋಲಿಂಗ್"
+        ],
+        correctAnswer: "CNC milling that leaves distinctive tool marks on the part"
+    },
+    {
+        text: "What is a common feature of tertiary finishes?",
+        textKn: "ಟರ್ಷಿಯರಿ (ತೃತೀಯ) ಫಿನಿಶ್‌ಗಳ ಸಾಮಾನ್ಯ ಲಕ್ಷಣವೇನು?",
+        options: [
+            "They often involve chemical treatments, plating, or decorative coatings",
+            "They are naturally formed during raw material casting",
+            "They involve the removal of large amounts of material mechanically",
+            "They are temporary marks used for quality inspection purposes"
+        ],
+        optionsKn: [
+            "ಅವು ಸಾಮಾನ್ಯವಾಗಿ ರಾಸಾಯನಿಕ ಸಂಸ್ಕರಣೆಗಳು, ಪ್ಲೇಟಿಂಗ್, ಅಥವಾ ಅಲಂಕಾರಿಕ ಲೇಪನಗಳನ್ನು ಒಳಗೊಂಡಿರುತ್ತವೆ",
+            "ಅವು ಕಚ್ಚಾ ವಸ್ತುಗಳ ಎರಕ ಹೊಯ್ಯುವಿಕೆಯ ಸಮಯದಲ್ಲಿ ನೈಸರ್ಗಿಕವಾಗಿ ರೂಪುಗೊಳ್ಳುತ್ತವೆ",
+            "ಅವು ಯಾಂತ್ರಿಕವಾಗಿ ಹೆಚ್ಚಿನ ಪ್ರಮಾಣದ ವಸ್ತುವನ್ನು ತೆಗೆದುಹಾಕುವುದನ್ನು ಒಳಗೊಂಡಿರುತ್ತವೆ",
+            "ಅವು ಗುಣಮಟ್ಟ ತಪಾಸಣೆ ಉದ್ದೇಶಗಳಿಗಾಗಿ ಬಳಸಲಾಗುವ ತಾತ್ಕಾಲಿಕ ಗುರುತುಗಳಾಗಿವೆ"
+        ],
+        correctAnswer: "They often involve chemical treatments, plating, or decorative coatings"
+    },
+    {
+        text: "What does the term 'lay' describe in surface roughness measurement?",
+        textKn: "ಮೇಲ್ಮೈ ಒರಟುತನ ಮಾಪನದಲ್ಲಿ 'ಲೇ' (lay) ಎಂಬ ಪದವು ಏನನ್ನು ವಿವರಿಸುತ್ತದೆ?",
+        options: [
+            "The dominant direction of grooves on a surface",
+            "The maximum depth of surface peaks",
+            "The overall hardness across a machined surface",
+            "The chemical composition of the material on the surface"
+        ],
+        optionsKn: [
+            "ಮೇಲ್ಮೈ ಮೇಲಿನ ಗ್ರೂವ್‌ಗಳ (ತೋಡು) ಪ್ರಬಲ ದಿಕ್ಕು",
+            "ಮೇಲ್ಮೈ ಶಿಖರಗಳ ಗರಿಷ್ಠ ಆಳ",
+            "ಮಶೀನ್ ಮಾಡಿದ ಮೇಲ್ಮೈಯಾದ್ಯಂತ ಒಟ್ಟಾರೆ ಗಡಸುತನ",
+            "ಮೇಲ್ಮೈ ಮೇಲಿನ ವಸ್ತುವಿನ ರಾಸಾಯನಿಕ ಸಂಯೋಜನೆ"
+        ],
+        correctAnswer: "The dominant direction of grooves on a surface"
+    },
+    {
+        text: "What does 'waviness' refer to in surface analysis?",
+        textKn: "ಮೇಲ್ಮೈ ವಿಶ್ಲೇಷಣೆಯಲ್ಲಿ 'ವೇವಿನೆಸ್' (ತರಂಗತೆ) ಎಂದರೆ ಏನು?",
+        options: [
+            "Periodic distortions over longer lengths of the surface",
+            "Random scratches and marks from rough machining",
+            "The color variation across a coated surface",
+            "The internal grain orientation of the material"
+        ],
+        optionsKn: [
+            "ಮೇಲ್ಮೈನ ದೀರ್ಘ ಉದ್ದಗಳ ಮೇಲೆ ಆವರ್ತಕ ವಿರೂಪಗಳು",
+            "ಒರಟು ಮಶೀನಿಂಗ್‌ನಿಂದ ಯಾದೃಚ್ಛಿಕ ಗೀರುಗಳು ಮತ್ತು ಗುರುತುಗಳು",
+            "ಲೇಪಿತ ಮೇಲ್ಮೈಯಾದ್ಯಂತ ಬಣ್ಣ ವ್ಯತ್ಯಾಸ",
+            "ವಸ್ತುವಿನ ಆಂತರಿಕ ಗ್ರೇನ್ (ಕಣ) ದೃಷ್ಟಿಕೋನ"
+        ],
+        correctAnswer: "Periodic distortions over longer lengths of the surface"
+    },
+    {
+        text: "Why should extremely low Ra values be avoided when unnecessary?",
+        textKn: "ಅನಗತ್ಯವಾದಾಗ ಅತ್ಯಂತ ಕಡಿಮೆ Ra ಮೌಲ್ಯಗಳನ್ನು ಏಕೆ ತಪ್ಪಿಸಬೇಕು?",
+        options: [
+            "Because achieving finer surfaces greatly increases cost and production time",
+            "Because rough surfaces improve the aesthetic appeal of parts",
+            "Because low Ra values make the part weaker structurally",
+            "Because it is impossible to measure Ra accurately below 1 micron"
+        ],
+        optionsKn: [
+            "ಏಕೆಂದರೆ ಹೆಚ್ಚು ನಯವಾದ ಮೇಲ್ಮೈಗಳನ್ನು ಸಾಧಿಸುವುದು ವೆಚ್ಚ ಮತ್ತು ಉತ್ಪಾದನಾ ಸಮಯವನ್ನು ಬಹಳವಾಗಿ ಹೆಚ್ಚಿಸುತ್ತದೆ",
+            "ಏಕೆಂದರೆ ಒರಟು ಮೇಲ್ಮೈಗಳು ಭಾಗಗಳ ಸೌಂದರ್ಯದ ಆಕರ್ಷಣೆಯನ್ನು ಸುಧಾರಿಸುತ್ತವೆ",
+            "ಏಕೆಂದರೆ ಕಡಿಮೆ Ra ಮೌಲ್ಯಗಳು ಭಾಗವನ್ನು ರಚನಾತ್ಮಕವಾಗಿ ದುರ್ಬಲಗೊಳಿಸುತ್ತವೆ",
+            "ಏಕೆಂದರೆ 1 ಮೈಕ್ರಾನ್‌ಗಿಂತ ಕಡಿಮೆ Ra ಅನ್ನು ನಿಖರವಾಗಿ ಅಳೆಯಲು ಅಸಾಧ್ಯ"
+        ],
+        correctAnswer: "Because achieving finer surfaces greatly increases cost and production time"
+    },
+    {
+        text: "What is the importance of measuring multiple points for Ra?",
+        textKn: "Ra ಗಾಗಿ ಬಹು ಬಿಂದುಗಳನ್ನು ಅಳೆಯುವುದರ ಪ್ರಾಮುಖ್ಯತೆ ಏನು?",
+        options: [
+            "To ensure accurate average measurement of surface roughness",
+            "To calculate the part's weight accurately",
+            "To determine the color uniformity of coatings",
+            "To check hardness variations across the material"
+        ],
+        optionsKn: [
+            "ಮೇಲ್ಮೈ ಒರಟುತನದ ನಿಖರವಾದ ಸರಾಸರಿ ಮಾಪನವನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಲು",
+            "ಭಾಗದ ತೂಕವನ್ನು ನಿಖರವಾಗಿ ಲೆಕ್ಕಾಚಾರ ಮಾಡಲು",
+            "ಲೇಪನಗಳ ಬಣ್ಣದ ಏಕರೂಪತೆಯನ್ನು ನಿರ್ಧರಿಸಲು",
+            "ವಸ್ತುವಿನಾದ್ಯಂತ ಗಡಸುತನದ ವ್ಯತ್ಯಾಸಗಳನ್ನು ಪರೀಕ್ಷಿಸಲು"
+        ],
+        correctAnswer: "To ensure accurate average measurement of surface roughness"
+    },
+    {
+        text: "Which of the following describes 'Ra'?",
+        textKn: "ಕೆಳಗಿನವುಗಳಲ್ಲಿ ಯಾವುದು 'Ra' ಅನ್ನು ವಿವರಿಸುತ್ತದೆ?",
+        options: [
+            "The arithmetic average of the surface profile deviations",
+            "The maximum peak height measured across a surface",
+            "The width of the widest groove on a surface",
+            "The optical reflection coefficient of a polished surface"
+        ],
+        optionsKn: [
+            "ಮೇಲ್ಮೈ ಪ್ರೊಫೈಲ್ ವಿಚಲನೆಗಳ ಅಂಕಗಣಿತದ ಸರಾಸರಿ",
+            "ಮೇಲ್ಮೈಯಾದ್ಯಂತ ಅಳತೆ ಮಾಡಿದ ಗರಿಷ್ಠ ಶಿಖರದ ಎತ್ತರ",
+            "ಮೇಲ್ಮೈ ಮೇಲಿನ ಅತಿ ಅಗಲವಾದ ಗ್ರೂವ್‌ನ (ತೋಡು) ಅಗಲ",
+            "ಪಾಲಿಶ್ ಮಾಡಿದ ಮೇಲ್ಮೈನ ಆಪ್ಟಿಕಲ್ ಪ್ರತಿಫಲನ ಗುಣಾಂಕ"
+        ],
+        correctAnswer: "The arithmetic average of the surface profile deviations"
+    },
+    {
+        text: "What can surface roughness samples help engineers determine?",
+        textKn: "ಮೇಲ್ಮೈ ಒರಟುತನದ ಮಾದರಿಗಳು ಎಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಏನನ್ನು ನಿರ್ಧರಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತವೆ?",
+        options: [
+            "If the manufacturer meets the required finish by feel and appearance",
+            "If the internal grain structure matches design specifications",
+            "If the raw material meets tensile strength requirements",
+            "If the coating thickness is within tolerance limits"
+        ],
+        optionsKn: [
+            "ತಯಾರಕರು ಸ್ಪರ್ಶ ಮತ್ತು ನೋಟದಿಂದ ಅಗತ್ಯವಿರುವ ಫಿನಿಶ್ ಅನ್ನು ಪೂರೈಸುತ್ತಾರೆಯೇ ಎಂದು",
+            "ಆಂತರಿಕ ಗ್ರೇನ್ ರಚನೆಯು ವಿನ್ಯಾಸದ ವಿಶೇಷಣಗಳಿಗೆ ಹೊಂದಿಕೆಯಾಗುತ್ತದೆಯೇ ಎಂದು",
+            "ಕಚ್ಚಾ ವಸ್ತುವು ಕರ್ಷಕ ಶಕ್ತಿಯ ಅವಶ್ಯಕತೆಗಳನ್ನು ಪೂರೈಸುತ್ತದೆಯೇ ಎಂದು",
+            "ಲೇಪನದ ದಪ್ಪವು ಟಾಲರೆನ್ಸ್ ಮಿತಿಗಳಲ್ಲಿದೆಯೇ ಎಂದು"
+        ],
+        correctAnswer: "If the manufacturer meets the required finish by feel and appearance"
+    },
+    {
+        text: "What is the primary purpose of surface roughness control?",
+        textKn: "ಮೇಲ್ಮೈ ಒರಟುತನ ನಿಯಂತ್ರಣದ ಪ್ರಾಥಮಿಕ ಉದ್ದೇಶವೇನು?",
+        options: [
+            "To ensure proper part performance, durability, and functionality",
+            "To reduce material costs and weight of manufactured components",
+            "To improve color and shine on finished parts",
+            "To simplify the machining process for easier handling"
+        ],
+        optionsKn: [
+            "ಸರಿಯಾದ ಭಾಗದ ಕಾರ್ಯಕ್ಷಮತೆ, ಬಾಳಿಕೆ, ಮತ್ತು ಕಾರ್ಯವನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಲು",
+            "ವಸ್ತು ವೆಚ್ಚವನ್ನು ಮತ್ತು ತಯಾರಿಸಿದ ಘಟಕಗಳ ತೂಕವನ್ನು ಕಡಿಮೆ ಮಾಡಲು",
+            "ಪೂರ್ಣಗೊಂಡ ಭಾಗಗಳ ಮೇಲೆ ಬಣ್ಣ ಮತ್ತು ಹೊಳಪನ್ನು ಸುಧಾರಿಸಲು",
+            "ಸುಲಭ ನಿರ್ವಹಣೆಗಾಗಿ ಮಶೀನಿಂಗ್ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಸರಳಗೊಳಿಸಲು"
+        ],
+        correctAnswer: "To ensure proper part performance, durability, and functionality"
+    },
+    {
+        text: "Why is understanding surface terminology important for engineers?",
+        textKn: "ಎಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಮೇಲ್ಮೈ ಪರಿಭಾಷೆಯನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವುದು ಏಕೆ ಮುಖ್ಯ?",
+        options: [
+            "To communicate requirements effectively and ensure design intent",
+            "To make parts visually appealing regardless of function",
+            "To reduce the cost of raw materials used in production",
+            "To speed up machining by skipping finishing processes"
+        ],
+        optionsKn: [
+            "ಅವಶ್ಯಕತೆಗಳನ್ನು ಪರಿಣಾಮಕಾರಿಯಾಗಿ ಸಂವಹನ ಮಾಡಲು ಮತ್ತು ವಿನ್ಯಾಸದ ಉದ್ದೇಶವನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಲು",
+            "ಕಾರ್ಯವನ್ನು ಲೆಕ್ಕಿಸದೆ ಭಾಗಗಳನ್ನು ದೃಷ್ಟಿಗೆ ಆಕರ್ಷಕವಾಗಿಸಲು",
+            "ಉತ್ಪಾದನೆಯಲ್ಲಿ ಬಳಸುವ ಕಚ್ಚಾ ವಸ್ತುಗಳ ವೆಚ್ಚವನ್ನು ಕಡಿಮೆ ಮಾಡಲು",
+            "ಫಿನಿಶಿಂಗ್ ಪ್ರಕ್ರಿಯೆಗಳನ್ನು ಬಿಟ್ಟುಬಿಡುವ ಮೂಲಕ ಮಶೀನಿಂಗ್ ಅನ್ನು ವೇಗಗೊಳಿಸಲು"
+        ],
+        correctAnswer: "To communicate requirements effectively and ensure design intent"
+    },
+    {
+        text: "What is the purpose of a surface roughness standard set by a company?",
+        textKn: "ಒಂದು ಕಂಪನಿಯು ನಿಗದಿಪಡಿಸಿದ ಮೇಲ್ಮೈ ಒರಟುತನದ ಮಾನದಂಡದ (ಸ್ಟ್ಯಾಂಡರ್ಡ್) ಉದ್ದೇಶವೇನು?",
+        options: [
+            "To define a baseline for manufacturing and quality assurance processes",
+            "To limit the types of materials that can be used in production",
+            "To standardize colors and finishes across different parts",
+            "To simplify training requirements for new operators"
+        ],
+        optionsKn: [
+            "ಉತ್ಪಾದನೆ ಮತ್ತು ಗುಣಮಟ್ಟ ಭರವಸೆ ಪ್ರಕ್ರಿಯೆಗಳಿಗೆ ಒಂದು ಬೇಸ್‌ಲೈನ್ (ಮೂಲಮಾನ) ಅನ್ನು ವ್ಯಾಖ್ಯಾನಿಸಲು",
+            "ಉತ್ಪಾದನೆಯಲ್ಲಿ ಬಳಸಬಹುದಾದ ವಸ್ತುಗಳ ಪ್ರಕಾರಗಳನ್ನು ಮಿತಿಗೊಳಿಸಲು",
+            "ವಿವಿಧ ಭಾಗಗಳಾದ್ಯಂತ ಬಣ್ಣಗಳು ಮತ್ತು ಫಿನಿಶ್‌ಗಳನ್ನು ಪ್ರಮಾಣೀಕರಿಸಲು",
+            "ಹೊಸ ಆಪರೇಟರ್‌ಗಳಿಗೆ ತರಬೇತಿ ಅವಶ್ಯಕತೆಗಳನ್ನು ಸರಳಗೊಳಿಸಲು"
+        ],
+        correctAnswer: "To define a baseline for manufacturing and quality assurance processes"
+    },
+    {
+        text: "What is a quick, low-cost method to compare part surfaces to desired roughness?",
+        textKn: "ಅಪೇಕ್ಷಿತ ಒರಟುತನಕ್ಕೆ ಭಾಗದ ಮೇಲ್ಮೈಗಳನ್ನು ಹೋಲಿಸಲು ತ್ವರಿತ, ಕಡಿಮೆ-ವೆಚ್ಚದ ವಿಧಾನ ಯಾವುದು?",
+        options: [
+            "Running a fingernail along the part and comparing to sample textures",
+            "Using a microscope to inspect the grain orientation in the material",
+            "Applying paint to the surface to check adhesion and uniformity",
+            "Measuring the weight and dimensions of the part for consistency"
+        ],
+        optionsKn: [
+            "ಭಾಗದ ಉದ್ದಕ್ಕೂ ಬೆರಳಿನ ಉಗುರನ್ನು ಓಡಿಸಿ ಮತ್ತು ಮಾದರಿ ವಿನ್ಯಾಸಗಳಿಗೆ ಹೋಲಿಸುವುದು",
+            "ವಸ್ತುವಿನಲ್ಲಿನ ಗ್ರೇನ್ ದೃಷ್ಟಿಕೋನವನ್ನು ಪರೀಕ್ಷಿಸಲು ಸೂಕ್ಷ್ಮದರ್ಶಕವನ್ನು ಬಳಸುವುದು",
+            "ಅಂಟಿಕೊಳ್ಳುವಿಕೆ ಮತ್ತು ಏಕರೂಪತೆಯನ್ನು ಪರೀಕ್ಷಿಸಲು ಮೇಲ್ಮೈಗೆ ಬಣ್ಣವನ್ನು ಹಚ್ಚುವುದು",
+            "ಸ್ಥಿರತೆಗಾಗಿ ಭಾಗದ ತೂಕ ಮತ್ತು ಆಯಾಮಗಳನ್ನು ಅಳೆಯುವುದು"
+        ],
+        correctAnswer: "Running a fingernail along the part and comparing to sample textures"
+    },
+    {
+        text: "Why should engineers specify Ra values appropriately?",
+        textKn: "ಎಂಜಿನಿಯರ್‌ಗಳು Ra ಮೌಲ್ಯಗಳನ್ನು ಸೂಕ್ತವಾಗಿ ಏಕೆ ನಿರ್ದಿಷ್ಟಪಡಿಸಬೇಕು?",
+        options: [
+            "To avoid unnecessary cost and time while achieving functional requirements",
+            "To improve the aesthetics of every component unnecessarily",
+            "To ensure surfaces are rough enough for decorative coatings",
+            "To eliminate the need for any secondary finishing processes"
+        ],
+        optionsKn: [
+            "ಕಾರ್ಯಾತ್ಮಕ ಅವಶ್ಯಕತೆಗಳನ್ನು ಸಾಧಿಸುವಾಗ ಅನಗತ್ಯ ವೆಚ್ಚ ಮತ್ತು ಸಮಯವನ್ನು ತಪ್ಪಿಸಲು",
+            "ಪ್ರತಿ ಘಟಕದ ಸೌಂದರ್ಯವನ್ನು ಅನಗತ್ಯವಾಗಿ ಸುಧಾರಿಸಲು",
+            "ಅಲಂಕಾರಿಕ ಲೇಪನಗಳಿಗೆ ಮೇಲ್ಮೈಗಳು ಸಾಕಷ್ಟು ಒರಟಾಗಿವೆಯೆ ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಲು",
+            "ಯಾವುದೇ ಸೆಕೆಂಡರಿ ಫಿನಿಶಿಂಗ್ ಪ್ರಕ್ರಿಯೆಗಳ ಅಗತ್ಯವನ್ನು ನಿವಾರಿಸಲು"
+        ],
+        correctAnswer: "To avoid unnecessary cost and time while achieving functional requirements"
+    }
+],
 
 
-      ],[
-  {
-    text: "What is the primary objective of surface finishing in manufacturing?",
-    options: [
-      "To enhance surface characteristics and performance",
-      "To increase the component weight during production",
-      "To modify the core structure of the material",
-      "To reduce the overall tool wear rate"
-    ],
-    correctAnswer: "To enhance surface characteristics and performance"
-  },
-  {
-    text: "Which property is least affected by surface finishing?",
-    options: [
-      "Wear resistance of the surface",
-      "Tensile modulus of the material",
-      "Fatigue strength of the component",
-      "Corrosion resistance of the part"
-    ],
-    correctAnswer: "Tensile modulus of the material"
-  },
-  {
-    text: "Which parameters are controlled during surface finishing?",
-    options: [
-      "Internal grain size and composition",
-      "Elasticity and density variation",
-      "Thermal conductivity and color",
-      "Surface texture, waviness, and roughness"
-    ],
-    correctAnswer: "Surface texture, waviness, and roughness"
-  },
-  {
-    text: "Which among the following is a surface finishing process?",
-    options: [
-      "Rolling of sheet components",
-      "Forging of metallic alloys",
-      "Casting of molten metals",
-      "Lapping of flat and curved parts"
-    ],
-    correctAnswer: "Lapping of flat and curved parts"
-  },
-  {
-    text: "What is the main function of the lapping process?",
-    options: [
-      "To achieve fine finish with tight dimensional control",
-      "To improve cutting speed of the tool",
-      "To remove oxide layers from the surface",
-      "To create decorative surface patterns"
-    ],
-    correctAnswer: "To achieve fine finish with tight dimensional control"
-  },
-  {
-    text: "Which material is commonly used as a lapping abrasive?",
-    options: [
-      "Plastic or resin-based beads",
-      "Diamond or aluminum oxide grains",
-      "Copper or zinc metal dust",
-      "Lead or tin metallic powder"
-    ],
-    correctAnswer: "Diamond or aluminum oxide grains"
-  },
-  {
-    text: "What type of motion occurs in lapping?",
-    options: [
-      "Purely vibratory motion in one axis",
-      "Combined rotary and reciprocating movement",
-      "Continuous linear motion only",
-      "Impact-based oscillating movement"
-    ],
-    correctAnswer: "Combined rotary and reciprocating movement"
-  },
-  {
-    text: "Honing is mainly used to improve which property?",
-    options: [
-      "Dimensional accuracy and fine surface finish",
-      "Brittleness and ductility ratio",
-      "Thermal conductivity of the surface",
-      "Magnetic response of metallic materials"
-    ],
-    correctAnswer: "Dimensional accuracy and fine surface finish"
-  },
-  {
-    text: "Which tool is primarily used in honing?",
-    options: [
-      "Abrasive stone or honing stick",
-      "Carbide cutting blade",
-      "Multi-edge milling cutter",
-      "Single-point turning tool"
-    ],
-    correctAnswer: "Abrasive stone or honing stick"
-  },
-  {
-    text: "Honing is usually applied on which type of part?",
-    options: [
-      "Flat sheet metal components",
-      "Cylindrical bores and engine liners",
-      "External shafts and gears",
-      "Rectangular steel plates"
-    ],
-    correctAnswer: "Cylindrical bores and engine liners"
-  },
-  {
-    text: "What is the purpose of the buffing process?",
-    options: [
-      "To create a mirror-like reflective finish",
-      "To modify the crystal lattice structure",
-      "To improve tool cutting sharpness",
-      "To increase hardness of metallic parts"
-    ],
-    correctAnswer: "To create a mirror-like reflective finish"
-  },
-  {
-    text: "Which wheel material is used in buffing operations?",
-    options: [
-      "Soft cloth or leather-based wheel",
-      "Hard bonded stone grinding wheel",
-      "Steel brush or wire-type wheel",
-      "Carbide-coated cutting wheel"
-    ],
-    correctAnswer: "Soft cloth or leather-based wheel"
-  },
-  {
-    text: "What is the function of buffing compounds?",
-    options: [
-      "To strengthen internal molecular structure",
-      "To clean residual coolant or oil",
-      "To polish and reduce micro-scratches on surfaces",
-      "To reduce metal melting temperature"
-    ],
-    correctAnswer: "To polish and reduce micro-scratches on surfaces"
-  },
-  {
-    text: "Superfinishing is mainly performed to achieve:",
-    options: [
-      "A decorative texture on the component",
-      "A rapid metal removal rate",
-      "A thicker oxide layer for corrosion control",
-      "An ultra-smooth and low-roughness surface"
-    ],
-    correctAnswer: "An ultra-smooth and low-roughness surface"
-  },
-  {
-    text: "In which industries is superfinishing widely used?",
-    options: [
-      "Aerospace and automotive applications",
-      "Plastic and packaging sectors",
-      "Food processing and beverages",
-      "Paper and textile production"
-    ],
-    correctAnswer: "Aerospace and automotive applications"
-  },
-  {
-    text: "How does the abrasive stick move in superfinishing?",
-    options: [
-      "With a controlled short reciprocating motion",
-      "With linear oscillation at constant feed",
-      "With continuous rotary motion around one axis",
-      "With random vibratory motion in all directions"
-    ],
-    correctAnswer: "With a controlled short reciprocating motion"
-  },
-  {
-    text: "Which finishing process improves fatigue strength of parts?",
-    options: [
-      "Thermal welding process",
-      "Metal casting operation",
-      "Powder sintering method",
-      "Superfinishing technique"
-    ],
-    correctAnswer: "Superfinishing technique"
-  },
-  {
-    text: "Which finishing process provides highest accuracy?",
-    options: [
-      "Manual polishing process",
-      "Fine buffing technique",
-      "General honing procedure",
-      "Precision lapping method"
-    ],
-    correctAnswer: "Precision lapping method"
-  },
-  {
-    text: "What differentiates honing from lapping?",
-    options: [
-      "Honing uses bonded abrasives while lapping uses loose abrasives",
-      "Lapping is always faster than honing operation",
-      "Honing requires coolant but lapping does not",
-      "Lapping is suitable only for cylindrical parts"
-    ],
-    correctAnswer: "Honing uses bonded abrasives while lapping uses loose abrasives"
-  },
-  {
-    text: "Buffing mainly enhances which property of the product?",
-    options: [
-      "Internal hardness and grain size",
-      "Heat transfer capability",
-      "Surface aesthetics and brightness",
-      "Dimensional precision and tolerance"
-    ],
-    correctAnswer: "Surface aesthetics and brightness"
-  },
-  {
-    text: "Which process is ideal for mirror-like metallic surfaces?",
-    options: [
-      "Superfinishing cycle",
-      "Fine lapping step",
-      "Buffing operation",
-      "Honing process"
-    ],
-    correctAnswer: "Buffing operation"
-  },
-  {
-    text: "Which defect is reduced most effectively by superfinishing?",
-    options: [
-      "Thermal cracks in heat-treated parts",
-      "Large casting cavities and pores",
-      "Macro-level waviness and bending",
-      "Microscopic surface peaks and valleys"
-    ],
-    correctAnswer: "Microscopic surface peaks and valleys"
-  },
-  {
-    text: "Which finishing process uses both abrasives and lubricants?",
-    options: [
-      "Drilling operation",
-      "Rolling method",
-      "Turning process",
-      "Lapping process"
-    ],
-    correctAnswer: "Lapping process"
-  },
-  {
-    text: "Honing is generally performed after which machining step?",
-    options: [
-      "Casting or molding process",
-      "Thread cutting operation",
-      "Boring or reaming operation",
-      "Turning or facing operation"
-    ],
-    correctAnswer: "Boring or reaming operation"
-  },
-  {
-    text: "Which traditional process produces the smoothest finish?",
-    options: [
-      "Buffing procedure",
-      "Honing process",
-      "Fine lapping cycle",
-      "Superfinishing operation"
-    ],
-    correctAnswer: "Superfinishing operation"
-  },
-  {
-    text: "What surface roughness value is typically achieved by superfinishing?",
-    options: [
-      "Below 0.1 micrometer Ra",
-      "Around 1.0 micrometer Ra",
-      "Near 5.0 micrometer Ra",
-      "Above 10.0 micrometer Ra"
-    ],
-    correctAnswer: "Below 0.1 micrometer Ra"
-  },
-  {
-    text: "Which process combines pressure and abrasive action for finishing?",
-    options: [
-      "Forming operation",
-      "Casting method",
-      "Extrusion process",
-      "Lapping technique"
-    ],
-    correctAnswer: "Lapping technique"
-  },
-  {
-    text: "Which finishing method improves sealing properties in engines?",
-    options: [
-      "Buffing step",
-      "Honing process",
-      "Shot peening process",
-      "Superfinishing run"
-    ],
-    correctAnswer: "Honing process"
-  },
-  {
-    text: "Which finishing process reduces friction between moving parts?",
-    options: [
-      "Forming procedure",
-      "Casting method",
-      "Grinding operation",
-      "Superfinishing process"
-    ],
-    correctAnswer: "Superfinishing process"
-  },
-  {
-    text: "Why is surface finishing vital in precision manufacturing?",
-    options: [
-      "It minimizes color differences in products",
-      "It increases raw material consumption",
-      "It reduces total part weight and cost",
-      "It enhances performance, durability, and efficiency"
-    ],
-    correctAnswer: "It enhances performance, durability, and efficiency"
-  }
-      ],[
-        
-  {
-    text: "What does 'surface finish' refer to in manufacturing?",
-    options: [
-      "The condition of a part's surface at any stage of manufacturing",
-      "The internal grain structure and material composition inside the part",
-      "The application of coatings, paints, or protective layers on the surface",
-      "The mechanical strength and hardness of the raw material used in parts"
-    ],
-    correctAnswer: "The condition of a part's surface at any stage of manufacturing"
-  },
-  {
-    text: "Which processes create secondary surface finishes?",
-    options: [
-      "CNC milling, turning, grinding, sanding, lapping, and polishing operations",
-      "Chemical passivation, anodizing, galvanizing, or decorative coating processes",
-      "Casting, forging, and extrusion carried out during initial part creation",
-      "Manual filing, sanding, or polishing done by operators on the part surfaces"
-    ],
-    correctAnswer: "CNC milling, turning, grinding, sanding, lapping, and polishing operations"
-  },
-  {
-    text: "What are tertiary surface finishes?",
-    options: [
-      "Finishes produced by chemical or decorative treatments on the surface",
-      "Primary surfaces obtained directly from rolling, extrusion, or casting",
-      "Surface conditions generated unintentionally during rough machining processes",
-      "Temporary coatings applied for testing or protective purposes during handling"
-    ],
-    correctAnswer: "Finishes produced by chemical or decorative treatments on the surface"
-  },
-  {
-    text: "How can surface finishes be transferred between parts?",
-    options: [
-      "By using a machined mold core that leaves tool marks on molded components",
-      "By sanding or rubbing two parts together to imprint patterns",
-      "By painting or applying coatings from one part onto another surface",
-      "By laser marking one part and stamping the mark onto the next piece"
-    ],
-    correctAnswer: "By using a machined mold core that leaves tool marks on molded components"
-  },
-  {
-    text: "What is the relationship between surface finish, texture, and topology?",
-    options: [
-      "These terms are mostly interchangeable to describe the surface arrangement",
-      "They measure the internal mechanical properties of the material differently",
-      "Surface finish relates to appearance, while topology only concerns function",
-      "Surface texture is for metals, while topology applies only to polymers"
-    ],
-    correctAnswer: "These terms are mostly interchangeable to describe the surface arrangement"
-  },
-  {
-    text: "What does surface topology describe?",
-    options: [
-      "The specific arrangement of material features on a part's surface",
-      "The chemical composition and hardness variation across the surface",
-      "The thickness and durability of applied coatings on the part",
-      "The alignment of internal microstructure in the raw material"
-    ],
-    correctAnswer: "The specific arrangement of material features on a part's surface"
-  },
-  {
-    text: "How is 'surface texture' used in engineering?",
-    options: [
-      "To describe detailed patterns from bead blasting or spark erosion operations",
-      "To calculate internal material density for engineering applications",
-      "To measure hardness or wear properties of machined components",
-      "To determine machining time or feed rates during processing"
-    ],
-    correctAnswer: "To describe detailed patterns from bead blasting or spark erosion operations"
-  },
-  {
-    text: "How is surface roughness quantified?",
-    options: [
-      "By the Ra value, which is the average deviation between peaks and valleys",
-      "By measuring the flatness of the part surface using a ruler or gauge",
-      "By calculating the hardness and tensile strength of the part material",
-      "By noting the color and shine of the surface after finishing"
-    ],
-    correctAnswer: "By the Ra value, which is the average deviation between peaks and valleys"
-  },
-  {
-    text: "What instruments are used to measure surface roughness?",
-    options: [
-      "Contact probes or non-contact optical, laser, and X-ray systems",
-      "Calipers and micrometers for measuring external dimensions",
-      "Weighing scales and torque sensors for material evaluation",
-      "Pressure sensors and thermocouples for surface energy readings"
-    ],
-    correctAnswer: "Contact probes or non-contact optical, laser, and X-ray systems"
-  },
-  {
-    text: "What does a low Ra value indicate?",
-    options: [
-      "A very smooth surface with minimal deviations between peaks and valleys",
-      "A highly rough surface with deep grooves and large deviations",
-      "An uneven surface with frequent scratches and tool marks",
-      "A surface coated with paint or other decorative layers"
-    ],
-    correctAnswer: "A very smooth surface with minimal deviations between peaks and valleys"
-  },
-  {
-    text: "Why must product developers consider Ra values?",
-    options: [
-      "To specify the desired surface roughness for performance and manufacturability",
-      "To determine the color and appearance of the final product surface",
-      "To calculate the internal hardness distribution of materials used",
-      "To estimate the cost of raw materials for manufacturing"
-    ],
-    correctAnswer: "To specify the desired surface roughness for performance and manufacturability"
-  },
-  {
-    text: "What happens to cost and lead time with very low Ra values?",
-    options: [
-      "Both cost and machining time increase significantly with finer finishes",
-      "Both cost and time decrease as the surface becomes smoother",
-      "Only cost increases while time remains constant for finer surfaces",
-      "Only time increases but cost is unaffected by surface finish"
-    ],
-    correctAnswer: "Both cost and machining time increase significantly with finer finishes"
-  },
-  {
-    text: "What is the standard Ra for CNC machined parts at Star Rapid?",
-    options: [
-      "3.2 microns, with the ability to achieve as fine as 0.2 microns if required",
-      "1.0 micron, with no possibility of going finer in production",
-      "10 microns, for all machined parts regardless of material",
-      "5.0 microns, which is the minimum acceptable roughness value"
-    ],
-    correctAnswer: "3.2 microns, with the ability to achieve as fine as 0.2 microns if required"
-  },
-  {
-    text: "What practical tool helps engineers compare surface roughness?",
-    options: [
-      "A set of surface roughness samples made of different materials",
-      "A microscope to view internal grain structure of parts",
-      "A caliper to measure overall dimensions of components",
-      "A hardness tester to evaluate material strength"
-    ],
-    correctAnswer: "A set of surface roughness samples made of different materials"
-  },
-  {
-    text: "How can an engineer quickly verify part surface roughness?",
-    options: [
-      "By running a fingernail along the part and comparing with sample textures",
-      "By weighing the part and comparing to reference weight charts",
-      "By observing the part under ultraviolet light for coating defects",
-      "By tapping the part and listening to the sound resonance"
-    ],
-    correctAnswer: "By running a fingernail along the part and comparing with sample textures"
-  },
-  {
-    text: "What is the main function of primary surface finishes?",
-    options: [
-      "They are the initial finishes produced during processes like rolling or extrusion",
-      "They are decorative finishes applied after machining or polishing",
-      "They are temporary textures that are later removed in secondary finishing",
-      "They are chemical coatings added to improve corrosion resistance"
-    ],
-    correctAnswer: "They are the initial finishes produced during processes like rolling or extrusion"
-  },
-  {
-    text: "Which process is an example of creating secondary surface finishes?",
-    options: [
-      "CNC milling that leaves distinctive tool marks on the part",
-      "Raw casting directly from molds without machining",
-      "Applying paint or powder coating to the part surface",
-      "Forging and rolling before any finishing operations"
-    ],
-    correctAnswer: "CNC milling that leaves distinctive tool marks on the part"
-  },
-  {
-    text: "What is a common feature of tertiary finishes?",
-    options: [
-      "They often involve chemical treatments, plating, or decorative coatings",
-      "They are naturally formed during raw material casting",
-      "They involve the removal of large amounts of material mechanically",
-      "They are temporary marks used for quality inspection purposes"
-    ],
-    correctAnswer: "They often involve chemical treatments, plating, or decorative coatings"
-  },
-  {
-    text: "What does the term 'lay' describe in surface roughness measurement?",
-    options: [
-      "The dominant direction of grooves on a surface",
-      "The maximum depth of surface peaks",
-      "The overall hardness across a machined surface",
-      "The chemical composition of the material on the surface"
-    ],
-    correctAnswer: "The dominant direction of grooves on a surface"
-  },
-  {
-    text: "What does 'waviness' refer to in surface analysis?",
-    options: [
-      "Periodic distortions over longer lengths of the surface",
-      "Random scratches and marks from rough machining",
-      "The color variation across a coated surface",
-      "The internal grain orientation of the material"
-    ],
-    correctAnswer: "Periodic distortions over longer lengths of the surface"
-  },
-  {
-    text: "Why should extremely low Ra values be avoided when unnecessary?",
-    options: [
-      "Because achieving finer surfaces greatly increases cost and production time",
-      "Because rough surfaces improve the aesthetic appeal of parts",
-      "Because low Ra values make the part weaker structurally",
-      "Because it is impossible to measure Ra accurately below 1 micron"
-    ],
-    correctAnswer: "Because achieving finer surfaces greatly increases cost and production time"
-  },
-  {
-    text: "What is the importance of measuring multiple points for Ra?",
-    options: [
-      "To ensure accurate average measurement of surface roughness",
-      "To calculate the part's weight accurately",
-      "To determine the color uniformity of coatings",
-      "To check hardness variations across the material"
-    ],
-    correctAnswer: "To ensure accurate average measurement of surface roughness"
-  },
-  {
-    text: "Which of the following describes 'Ra'?",
-    options: [
-      "The arithmetic average of the surface profile deviations",
-      "The maximum peak height measured across a surface",
-      "The width of the widest groove on a surface",
-      "The optical reflection coefficient of a polished surface"
-    ],
-    correctAnswer: "The arithmetic average of the surface profile deviations"
-  },
-  {
-    text: "What can surface roughness samples help engineers determine?",
-    options: [
-      "If the manufacturer meets the required finish by feel and appearance",
-      "If the internal grain structure matches design specifications",
-      "If the raw material meets tensile strength requirements",
-      "If the coating thickness is within tolerance limits"
-    ],
-    correctAnswer: "If the manufacturer meets the required finish by feel and appearance"
-  },
-  {
-    text: "What is the primary purpose of surface roughness control?",
-    options: [
-      "To ensure proper part performance, durability, and functionality",
-      "To reduce material costs and weight of manufactured components",
-      "To improve color and shine on finished parts",
-      "To simplify the machining process for easier handling"
-    ],
-    correctAnswer: "To ensure proper part performance, durability, and functionality"
-  },
-  {
-    text: "Why is understanding surface terminology important for engineers?",
-    options: [
-      "To communicate requirements effectively and ensure design intent",
-      "To make parts visually appealing regardless of function",
-      "To reduce the cost of raw materials used in production",
-      "To speed up machining by skipping finishing processes"
-    ],
-    correctAnswer: "To communicate requirements effectively and ensure design intent"
-  },
-  {
-    text: "What is the purpose of a surface roughness standard set by a company?",
-    options: [
-      "To define a baseline for manufacturing and quality assurance processes",
-      "To limit the types of materials that can be used in production",
-      "To standardize colors and finishes across different parts",
-      "To simplify training requirements for new operators"
-    ],
-    correctAnswer: "To define a baseline for manufacturing and quality assurance processes"
-  },
-  {
-    text: "What is a quick, low-cost method to compare part surfaces to desired roughness?",
-    options: [
-      "Running a fingernail along the part and comparing to sample textures",
-      "Using a microscope to inspect the grain orientation in the material",
-      "Applying paint to the surface to check adhesion and uniformity",
-      "Measuring the weight and dimensions of the part for consistency"
-    ],
-    correctAnswer: "Running a fingernail along the part and comparing to sample textures"
-  },
-  {
-    text: "Why should engineers specify Ra values appropriately?",
-    options: [
-      "To avoid unnecessary cost and time while achieving functional requirements",
-      "To improve the aesthetics of every component unnecessarily",
-      "To ensure surfaces are rough enough for decorative coatings",
-      "To eliminate the need for any secondary finishing processes"
-    ],
-    correctAnswer: "To avoid unnecessary cost and time while achieving functional requirements"
-  }
-
-      ],
-      [
-  {
-    text: "What does the '⊥' symbol represent in GD&T?",
-    options: [
-      "Indicates the direction of a surface relative to another",
-      "Specifies perpendicularity tolerance between two features",
-      "Shows allowable circularity deviation",
-      "Defines surface roughness limits"
-    ],
-    correctAnswer: "Specifies perpendicularity tolerance between two features"
-  },
-  {
-    text: "Which symbol in GD&T is used to define flatness?",
-    options: [
-      "Indicates surface roughness",
-      "Specifies allowable variation in a surface being perfectly flat",
-      "Shows position tolerance",
-      "Defines profile of a line"
-    ],
-    correctAnswer: "Specifies allowable variation in a surface being perfectly flat"
-  },
-  {
-    text: "The '⧫' symbol in GD&T represents which tolerance?",
-    options: [
-      "Limits the profile of a curved surface",
-      "Specifies the true position of a feature",
-      "Defines parallelism between two surfaces",
-      "Indicates circular runout tolerance"
-    ],
-    correctAnswer: "Specifies the true position of a feature"
-  },
-  {
-    text: "Which symbol is used to indicate parallelism?",
-    options: [
-      "Defines perpendicularity",
-      "Shows allowable distance between two surfaces remaining equidistant",
-      "Indicates circularity deviation",
-      "Specifies surface roughness limit"
-    ],
-    correctAnswer: "Shows allowable distance between two surfaces remaining equidistant"
-  },
-  {
-    text: "What does the '⧠' symbol represent in GD&T?",
-    options: [
-      "Defines a profile tolerance for a surface or line",
-      "Specifies perpendicularity tolerance",
-      "Indicates circular runout",
-      "Limits surface roughness deviations"
-    ],
-    correctAnswer: "Defines a profile tolerance for a surface or line"
-  },
-  {
-    text: "Which GD&T symbol is used to control circularity?",
-    options: [
-      "Shows variation from a perfect circle",
-      "Specifies surface flatness",
-      "Defines feature position tolerance",
-      "Indicates parallelism between surfaces"
-    ],
-    correctAnswer: "Shows variation from a perfect circle"
-  },
-  {
-    text: "What is the purpose of specifying a true position tolerance?",
-    options: [
-      "Ensures the feature is exactly in its designed location within tolerance limits",
-      "Limits surface roughness variations for aesthetics",
-      "Controls perpendicularity of all surfaces",
-      "Defines circularity deviations only"
-    ],
-    correctAnswer: "Ensures the feature is exactly in its designed location within tolerance limits"
-  },
-  {
-    text: "In GD&T, what does circular runout control?",
-    options: [
-      "Variation of a surface around a datum axis during rotation",
-      "Deviation in flatness of a surface",
-      "Position tolerance of holes",
-      "Parallelism between planes"
-    ],
-    correctAnswer: "Variation of a surface around a datum axis during rotation"
-  },
-  {
-    text: "Which symbol controls surface profile in GD&T?",
-    options: [
-      "Limits the shape of a surface relative to its ideal form",
-      "Specifies perpendicularity between features",
-      "Indicates allowable runout of a cylinder",
-      "Controls flatness only"
-    ],
-    correctAnswer: "Limits the shape of a surface relative to its ideal form"
-  },
-  {
-    text: "What does the '∥' symbol indicate?",
-    options: [
-      "Parallelism between two features",
-      "Perpendicularity of a surface",
-      "Surface roughness tolerance",
-      "Position of a hole"
-    ],
-    correctAnswer: "Parallelism between two features"
-  },
-  {
-    text: "Which GD&T symbol represents profile of a line?",
-    options: [
-      "Controls the shape of a line along a surface",
-      "Specifies flatness tolerance",
-      "Indicates perpendicularity deviation",
-      "Defines circular runout"
-    ],
-    correctAnswer: "Controls the shape of a line along a surface"
-  },
-  {
-    text: "Why is perpendicularity specified in GD&T?",
-    options: [
-      "Ensures surfaces or features are at the required 90-degree angle",
-      "Controls roughness of a surface",
-      "Defines circularity",
-      "Limits true position deviation"
-    ],
-    correctAnswer: "Ensures surfaces or features are at the required 90-degree angle"
-  },
-  {
-    text: "What does flatness tolerance ensure?",
-    options: [
-      "A surface lies within two parallel planes",
-      "A feature is positioned correctly relative to datum",
-      "Circularity is within tolerance",
-      "Surface runout is minimized"
-    ],
-    correctAnswer: "A surface lies within two parallel planes"
-  },
-  {
-    text: "Which symbol is used to indicate cylindricity in GD&T?",
-    options: [
-      "Controls deviation of a cylindrical surface from perfect form",
-      "Specifies parallelism between features",
-      "Indicates true position tolerance",
-      "Limits surface roughness"
-    ],
-    correctAnswer: "Controls deviation of a cylindrical surface from perfect form"
-  },
-  {
-    text: "Why is profile of a surface used in GD&T?",
-    options: [
-      "To control the 3D shape of a surface relative to its design",
-      "To define perpendicularity",
-      "To control circular runout only",
-      "To limit roughness deviation"
-    ],
-    correctAnswer: "To control the 3D shape of a surface relative to its design"
-  },
-  {
-    text: "What does total runout measure?",
-    options: [
-      "Combined variation in circularity and straightness along a feature's surface",
-      "Deviation from a flat plane",
-      "Perpendicularity of a cylinder",
-      "Profile of a line"
-    ],
-    correctAnswer: "Combined variation in circularity and straightness along a feature's surface"
-  },
-  {
-    text: "Why are datum features used in GD&T?",
-    options: [
-      "To provide a reference frame for all measurements",
-      "To define circularity only",
-      "To limit surface roughness",
-      "To ensure parallelism only"
-    ],
-    correctAnswer: "To provide a reference frame for all measurements"
-  },
-  {
-    text: "Which symbol indicates a datum feature?",
-    options: [
-      "A letter inside a square or rectangle",
-      "⊥",
-      "∥",
-      "⧞"
-    ],
-    correctAnswer: "A letter inside a square or rectangle"
-  },
-  {
-    text: "What does 'runout' control in GD&T?",
-    options: [
-      "Deviation of a feature as it rotates around a datum axis",
-      "Surface roughness limits",
-      "Profile of a line",
-      "Parallelism between planes"
-    ],
-    correctAnswer: "Deviation of a feature as it rotates around a datum axis"
-  },
-  {
-    text: "Why is circularity tolerance important?",
-    options: [
-      "Ensures a feature remains round within allowable limits",
-      "Defines perpendicularity of surfaces",
-      "Limits flatness deviations",
-      "Controls parallelism only"
-    ],
-    correctAnswer: "Ensures a feature remains round within allowable limits"
-  },
-  {
-    text: "What is the purpose of specifying profile tolerances?",
-    options: [
-      "To limit the 3D form deviation of surfaces or lines",
-      "To indicate flatness only",
-      "To control circular runout only",
-      "To define perpendicularity only"
-    ],
-    correctAnswer: "To limit the 3D form deviation of surfaces or lines"
-  },
-  {
-    text: "Which GD&T symbol controls angularity?",
-    options: [
-      "Ensures a surface or feature is at a specified angle relative to a datum",
-      "Defines true position tolerance",
-      "Controls flatness",
-      "Limits roughness"
-    ],
-    correctAnswer: "Ensures a surface or feature is at a specified angle relative to a datum"
-  },
-  {
-    text: "How does GD&T help engineers communicate designs?",
-    options: [
-      "Provides clear, standardized definitions of geometry and tolerances",
-      "Specifies only roughness",
-      "Controls surface finish randomly",
-      "Limits measurement methods arbitrarily"
-    ],
-    correctAnswer: "Provides clear, standardized definitions of geometry and tolerances"
-  },
-  {
-    text: "Why should engineers specify Ra values appropriately?",
-    options: [
-      "To avoid unnecessary cost and time while achieving functional requirements",
-      "To improve aesthetics of every component unnecessarily",
-      "To ensure surfaces are rough enough for decorative coatings",
-      "To eliminate the need for secondary finishing processes"
-    ],
-    correctAnswer: "To avoid unnecessary cost and time while achieving functional requirements"
-  },
-  {
-    text: "Which GD&T symbol is used to indicate maximum material condition (MMC)?",
-    options: [
-      "Indicates the feature is at its largest allowable size",
-      "Defines flatness tolerance",
-      "Specifies perpendicularity",
-      "Controls surface roughness"
-    ],
-    correctAnswer: "Indicates the feature is at its largest allowable size"
-  },
-  {
-    text: "Why is using datum references critical in GD&T?",
-    options: [
-      "They provide consistent reference points for measuring and inspecting features",
-      "They define roughness only",
-      "They limit circularity deviations randomly",
-      "They ensure angularity only"
-    ],
-    correctAnswer: "They provide consistent reference points for measuring and inspecting features"
-  },
-  {
-    text: "What is the role of tolerances in GD&T?",
-    options: [
-      "To specify allowable variation while ensuring function and assembly",
-      "To decorate surfaces for aesthetics",
-      "To define the type of material",
-      "To control color and finish"
-    ],
-    correctAnswer: "To specify allowable variation while ensuring function and assembly"
-  },
-  {
-    text: "Which symbol represents least material condition (LMC) in GD&T?",
-    options: [
-      "Specifies the smallest allowable size of a feature",
-      "Controls circularity deviation",
-      "Limits surface flatness",
-      "Indicates perpendicularity"
-    ],
-    correctAnswer: "Specifies the smallest allowable size of a feature"
-  }
+    
+[
+    {
+        text: "What does the '⊥' symbol represent in GD&T?",
+        textKn: "GD&T ಯಲ್ಲಿ '⊥' ಚಿಹ್ನೆಯು ಏನನ್ನು ಪ್ರತಿನಿಧಿಸುತ್ತದೆ?",
+        options: [
+            "Indicates the direction of a surface relative to another",
+            "Specifies perpendicularity tolerance between two features",
+            "Shows allowable circularity deviation",
+            "Defines surface roughness limits"
+        ],
+        optionsKn: [
+            "ಮತ್ತೊಂದಕ್ಕೆ ಸಂಬಂಧಿಸಿದಂತೆ ಮೇಲ್ಮೈನ ದಿಕ್ಕನ್ನು ಸೂಚಿಸುತ್ತದೆ",
+            "ಎರಡು ಫೀಚರ್‌ಗಳ (ವೈಶಿಷ್ಟ್ಯ) ನಡುವಿನ ಲಂಬತೆ (perpendicularity) ಟಾಲರೆನ್ಸ್ ಅನ್ನು ನಿರ್ದಿಷ್ಟಪಡಿಸುತ್ತದೆ",
+            "ಅನುಮತಿಸಬಹುದಾದ ವೃತ್ತಾಕಾರದ (circularity) ವಿಚಲನವನ್ನು ತೋರಿಸುತ್ತದೆ",
+            "ಮೇಲ್ಮೈ ಒರಟುತನದ ಮಿತಿಗಳನ್ನು ವ್ಯಾಖ್ಯಾನಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Specifies perpendicularity tolerance between two features"
+    },
+    {
+        text: "Which symbol in GD&T is used to define flatness?",
+        textKn: "GD&T ಯಲ್ಲಿ ಫ್ಲಾಟ್‌ನೆಸ್ (ಚಪ್ಪಟೆತನ) ಅನ್ನು ವ್ಯಾಖ್ಯಾನಿಸಲು ಯಾವ ಚಿಹ್ನೆಯನ್ನು ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Indicates surface roughness",
+            "Specifies allowable variation in a surface being perfectly flat",
+            "Shows position tolerance",
+            "Defines profile of a line"
+        ],
+        optionsKn: [
+            "ಮೇಲ್ಮೈ ಒರಟುತನವನ್ನು ಸೂಚಿಸುತ್ತದೆ",
+            "ಒಂದು ಮೇಲ್ಮೈ ಸಂಪೂರ್ಣವಾಗಿ ಚಪ್ಪಟೆಯಾಗಿರುವುದರಿಂದ ಅನುಮತಿಸಬಹುದಾದ ವ್ಯತ್ಯಾಸವನ್ನು ನಿರ್ದಿಷ್ಟಪಡಿಸುತ್ತದೆ",
+            "ಸ್ಥಾನ (position) ಟಾಲರೆನ್ಸ್ ಅನ್ನು ತೋರಿಸುತ್ತದೆ",
+            "ಒಂದು ರೇಖೆಯ ಪ್ರೊಫೈಲ್ ಅನ್ನು ವ್ಯಾಖ್ಯಾನಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Specifies allowable variation in a surface being perfectly flat"
+    },
+    {
+        text: "The '⧫' symbol in GD&T represents which tolerance?",
+        textKn: "GD&T ಯಲ್ಲಿ '⧫' ಚಿಹ್ನೆಯು ಯಾವ ಟಾಲರೆನ್ಸ್ ಅನ್ನು ಪ್ರತಿನಿಧಿಸುತ್ತದೆ?",
+        options: [
+            "Limits the profile of a curved surface",
+            "Specifies the true position of a feature",
+            "Defines parallelism between two surfaces",
+            "Indicates circular runout tolerance"
+        ],
+        optionsKn: [
+            "ಬಾಗಿದ ಮೇಲ್ಮೈನ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಮಿತಿಗೊಳಿಸುತ್ತದೆ",
+            "ಒಂದು ಫೀಚರ್‌ನ ನಿಜವಾದ ಸ್ಥಾನವನ್ನು (true position) ನಿರ್ದಿಷ್ಟಪಡಿಸುತ್ತದೆ",
+            "ಎರಡು ಮೇಲ್ಮೈಗಳ ನಡುವಿನ ಸಮಾನಾಂತರತೆಯನ್ನು (parallelism) ವ್ಯಾಖ್ಯಾನಿಸುತ್ತದೆ",
+            "ವೃತ್ತಾಕಾರದ ರನ್‌ಔಟ್ (circular runout) ಟಾಲರೆನ್ಸ್ ಅನ್ನು ಸೂಚಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Specifies the true position of a feature"
+    },
+    {
+        text: "Which symbol is used to indicate parallelism?",
+        textKn: "ಸಮಾನಾಂತರತೆಯನ್ನು (parallelism) ಸೂಚಿಸಲು ಯಾವ ಚಿಹ್ನೆಯನ್ನು ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Defines perpendicularity",
+            "Shows allowable distance between two surfaces remaining equidistant",
+            "Indicates circularity deviation",
+            "Specifies surface roughness limit"
+        ],
+        optionsKn: [
+            "ಲಂಬತೆಯನ್ನು (perpendicularity) ವ್ಯಾಖ್ಯಾನಿಸುತ್ತದೆ",
+            "ಎರಡು ಮೇಲ್ಮೈಗಳು ಸಮಾನ ದೂರದಲ್ಲಿ ಉಳಿಯಲು ಅನುಮತಿಸಬಹುದಾದ ಅಂತರವನ್ನು ತೋರಿಸುತ್ತದೆ",
+            "ವೃತ್ತಾಕಾರದ (circularity) ವಿಚಲನವನ್ನು ಸೂಚಿಸುತ್ತದೆ",
+            "ಮೇಲ್ಮೈ ಒರಟುತನದ ಮಿತಿಯನ್ನು ನಿರ್ದಿಷ್ಟಪಡಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Shows allowable distance between two surfaces remaining equidistant"
+    },
+    {
+        text: "What does the '⧠' symbol represent in GD&T?",
+        textKn: "GD&T ಯಲ್ಲಿ '⧠' ಚಿಹ್ನೆಯು ಏನನ್ನು ಪ್ರತಿನಿಧಿಸುತ್ತದೆ?",
+        options: [
+            "Defines a profile tolerance for a surface or line",
+            "Specifies perpendicularity tolerance",
+            "Indicates circular runout",
+            "Limits surface roughness deviations"
+        ],
+        optionsKn: [
+            "ಒಂದು ಮೇಲ್ಮೈ ಅಥವಾ ರೇಖೆಗಾಗಿ ಪ್ರೊಫೈಲ್ ಟಾಲರೆನ್ಸ್ ಅನ್ನು ವ್ಯಾಖ್ಯಾನಿಸುತ್ತದೆ",
+            "ಲಂಬತೆ (perpendicularity) ಟಾಲರೆನ್ಸ್ ಅನ್ನು ನಿರ್ದಿಷ್ಟಪಡಿಸುತ್ತದೆ",
+            "ವೃತ್ತಾಕಾರದ ರನ್‌ಔಟ್ (circular runout) ಅನ್ನು ಸೂಚಿಸುತ್ತದೆ",
+            "ಮೇಲ್ಮೈ ಒರಟುತನದ ವಿಚಲನಗಳನ್ನು ಮಿತಿಗೊಳಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Defines a profile tolerance for a surface or line"
+    },
+    {
+        text: "Which GD&T symbol is used to control circularity?",
+        textKn: "ವೃತ್ತಾಕಾರವನ್ನು (circularity) ನಿಯಂತ್ರಿಸಲು ಯಾವ GD&T ಚಿಹ್ನೆಯನ್ನು ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Shows variation from a perfect circle",
+            "Specifies surface flatness",
+            "Defines feature position tolerance",
+            "Indicates parallelism between surfaces"
+        ],
+        optionsKn: [
+            "ಪರಿಪೂರ್ಣ ವೃತ್ತದಿಂದ ಆಗುವ ವ್ಯತ್ಯಾಸವನ್ನು ತೋರಿಸುತ್ತದೆ",
+            "ಮೇಲ್ಮೈ ಚಪ್ಪಟೆತನವನ್ನು (flatness) ನಿರ್ದಿಷ್ಟಪಡಿಸುತ್ತದೆ",
+            "ಫೀಚರ್ ಸ್ಥಾನ (position) ಟಾಲರೆನ್ಸ್ ಅನ್ನು ವ್ಯಾಖ್ಯಾನಿಸುತ್ತದೆ",
+            "ಮೇಲ್ಮೈಗಳ ನಡುವಿನ ಸಮಾನಾಂತರತೆಯನ್ನು (parallelism) ಸೂಚಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Shows variation from a perfect circle"
+    },
+    {
+        text: "What is the purpose of specifying a true position tolerance?",
+        textKn: "ನಿಜವಾದ ಸ್ಥಾನ (true position) ಟಾಲರೆನ್ಸ್ ಅನ್ನು ನಿರ್ದಿಷ್ಟಪಡಿಸುವ ಉದ್ದೇಶವೇನು?",
+        options: [
+            "Ensures the feature is exactly in its designed location within tolerance limits",
+            "Limits surface roughness variations for aesthetics",
+            "Controls perpendicularity of all surfaces",
+            "Defines circularity deviations only"
+        ],
+        optionsKn: [
+            "ಟಾಲರೆನ್ಸ್ ಮಿತಿಗಳಲ್ಲಿ ಫೀಚರ್ ನಿಖರವಾಗಿ ಅದರ ವಿನ್ಯಾಸಗೊಳಿಸಿದ ಸ್ಥಳದಲ್ಲಿದೆ ಎಂದು ಖಚಿತಪಡಿಸುತ್ತದೆ",
+            "ಸೌಂದರ್ಯಕ್ಕಾಗಿ ಮೇಲ್ಮೈ ಒರಟುತನದ ವ್ಯತ್ಯಾಸಗಳನ್ನು ಮಿತಿಗೊಳಿಸುತ್ತದೆ",
+            "ಎಲ್ಲಾ ಮೇಲ್ಮೈಗಳ ಲಂಬತೆಯನ್ನು (perpendicularity) ನಿಯಂತ್ರಿಸುತ್ತದೆ",
+            "ವೃತ್ತಾಕಾರದ (circularity) ವಿಚಲನಗಳನ್ನು ಮಾತ್ರ ವ್ಯಾಖ್ಯಾನಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Ensures the feature is exactly in its designed location within tolerance limits"
+    },
+    {
+        text: "In GD&T, what does circular runout control?",
+        textKn: "GD&T ಯಲ್ಲಿ, ವೃತ್ತಾಕಾರದ ರನ್‌ಔಟ್ (circular runout) ಏನನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ?",
+        options: [
+            "Variation of a surface around a datum axis during rotation",
+            "Deviation in flatness of a surface",
+            "Position tolerance of holes",
+            "Parallelism between planes"
+        ],
+        optionsKn: [
+            "ತಿರುಗುವಿಕೆಯ ಸಮಯದಲ್ಲಿ ಡೇಟಮ್ ಆಕ್ಸಿಸ್‌ನ ಸುತ್ತಲಿನ ಮೇಲ್ಮೈನ ವ್ಯತ್ಯಾಸ",
+            "ಒಂದು ಮೇಲ್ಮೈನ ಚಪ್ಪಟೆತನದಲ್ಲಿನ (flatness) ವಿಚಲನ",
+            "ರಂಧ್ರಗಳ ಸ್ಥಾನ (position) ಟಾಲರೆನ್ಸ್",
+            "ಪ್ಲೇನ್‌ಗಳ ನಡುವಿನ ಸಮಾನಾಂತರತೆ (parallelism)"
+        ],
+        correctAnswer: "Variation of a surface around a datum axis during rotation"
+    },
+    {
+        text: "Which symbol controls surface profile in GD&T?",
+        textKn: "GD&T ಯಲ್ಲಿ ಯಾವ ಚಿಹ್ನೆಯು ಮೇಲ್ಮೈ ಪ್ರೊಫೈಲ್ (surface profile) ಅನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ?",
+        options: [
+            "Limits the shape of a surface relative to its ideal form",
+            "Specifies perpendicularity between features",
+            "Indicates allowable runout of a cylinder",
+            "Controls flatness only"
+        ],
+        optionsKn: [
+            "ಒಂದು ಮೇಲ್ಮೈನ ಆಕಾರವನ್ನು ಅದರ ಆದರ್ಶ ರೂಪಕ್ಕೆ ಹೋಲಿಸಿದಂತೆ ಮಿತಿಗೊಳಿಸುತ್ತದೆ",
+            "ಫೀಚರ್‌ಗಳ ನಡುವಿನ ಲಂಬತೆಯನ್ನು (perpendicularity) ನಿರ್ದಿಷ್ಟಪಡಿಸುತ್ತದೆ",
+            "ಸಿಲಿಂಡರ್‌ನ ಅನುಮತಿಸಬಹುದಾದ ರನ್‌ಔಟ್ ಅನ್ನು ಸೂಚಿಸುತ್ತದೆ",
+            "ಚಪ್ಪಟೆತನವನ್ನು (flatness) ಮಾತ್ರ ನಿಯಂತ್ರಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Limits the shape of a surface relative to its ideal form"
+    },
+    {
+        text: "What does the '∥' symbol indicate?",
+        textKn: "'∥' ಚಿಹ್ನೆಯು ಏನನ್ನು ಸೂಚಿಸುತ್ತದೆ?",
+        options: [
+            "Parallelism between two features",
+            "Perpendicularity of a surface",
+            "Surface roughness tolerance",
+            "Position of a hole"
+        ],
+        optionsKn: [
+            "ಎರಡು ಫೀಚರ್‌ಗಳ ನಡುವಿನ ಸಮಾನಾಂತರತೆ (parallelism)",
+            "ಒಂದು ಮೇಲ್ಮೈನ ಲಂಬತೆ (perpendicularity)",
+            "ಮೇಲ್ಮೈ ಒರಟುತನದ ಟಾಲರೆನ್ಸ್",
+            "ಒಂದು ರಂಧ್ರದ ಸ್ಥಾನ"
+        ],
+        correctAnswer: "Parallelism between two features"
+    },
+    {
+        text: "Which GD&T symbol represents profile of a line?",
+        textKn: "ಯಾವ GD&T ಚಿಹ್ನೆಯು ರೇಖೆಯ ಪ್ರೊಫೈಲ್ (profile of a line) ಅನ್ನು ಪ್ರತಿನಿಧಿಸುತ್ತದೆ?",
+        options: [
+            "Controls the shape of a line along a surface",
+            "Specifies flatness tolerance",
+            "Indicates perpendicularity deviation",
+            "Defines circular runout"
+        ],
+        optionsKn: [
+            "ಒಂದು ಮೇಲ್ಮೈನ ಉದ್ದಕ್ಕೂ ರೇಖೆಯ ಆಕಾರವನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ",
+            "ಚಪ್ಪಟೆತನ (flatness) ಟಾಲರೆನ್ಸ್ ಅನ್ನು ನಿರ್ದಿಷ್ಟಪಡಿಸುತ್ತದೆ",
+            "ಲಂಬತೆ (perpendicularity) ವಿಚಲನವನ್ನು ಸೂಚಿಸುತ್ತದೆ",
+            "ವೃತ್ತಾಕಾರದ ರನ್‌ಔಟ್ (circular runout) ಅನ್ನು ವ್ಯಾಖ್ಯಾನಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Controls the shape of a line along a surface"
+    },
+    {
+        text: "Why is perpendicularity specified in GD&T?",
+        textKn: "GD&T ಯಲ್ಲಿ ಲಂಬತೆಯನ್ನು (perpendicularity) ಏಕೆ ನಿರ್ದಿಷ್ಟಪಡಿಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Ensures surfaces or features are at the required 90-degree angle",
+            "Controls roughness of a surface",
+            "Defines circularity",
+            "Limits true position deviation"
+        ],
+        optionsKn: [
+            "ಮೇಲ್ಮೈಗಳು ಅಥವಾ ಫೀಚರ್‌ಗಳು ಅಗತ್ಯವಿರುವ 90-ಡಿಗ್ರಿ ಕೋನದಲ್ಲಿವೆಯೇ ಎಂದು ಖಚಿತಪಡಿಸುತ್ತದೆ",
+            "ಒಂದು ಮೇಲ್ಮೈನ ಒರಟುತನವನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ",
+            "ವೃತ್ತಾಕಾರವನ್ನು (circularity) ವ್ಯಾಖ್ಯಾನಿಸುತ್ತದೆ",
+            "ನಿಜವಾದ ಸ್ಥಾನ (true position) ವಿಚಲನವನ್ನು ಮಿತಿಗೊಳಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Ensures surfaces or features are at the required 90-degree angle"
+    },
+    {
+        text: "What does flatness tolerance ensure?",
+        textKn: "ಫ್ಲಾಟ್‌ನೆಸ್ (ಚಪ್ಪಟೆತನ) ಟಾಲರೆನ್ಸ್ ಏನನ್ನು ಖಚಿತಪಡಿಸುತ್ತದೆ?",
+        options: [
+            "A surface lies within two parallel planes",
+            "A feature is positioned correctly relative to datum",
+            "Circularity is within tolerance",
+            "Surface runout is minimized"
+        ],
+        optionsKn: [
+            "ಒಂದು ಮೇಲ್ಮೈಯು ಎರಡು ಸಮಾನಾಂತರ ಪ್ಲೇನ್‌ಗಳ (parallel planes) ಒಳಗೆ ಇರುತ್ತದೆ",
+            "ಡೇಟಮ್‌ಗೆ ಸಂಬಂಧಿಸಿದಂತೆ ಒಂದು ಫೀಚರ್ ಸರಿಯಾಗಿ ಸ್ಥಾನ ಪಡೆದಿದೆ",
+            "ವೃತ್ತಾಕಾರವು (circularity) ಟಾಲರೆನ್ಸ್‌ನಲ್ಲಿದೆ",
+            "ಮೇಲ್ಮೈ ರನ್‌ಔಟ್ ಕಡಿಮೆಯಾಗಿದೆ"
+        ],
+        correctAnswer: "A surface lies within two parallel planes"
+    },
+    {
+        text: "Which symbol is used to indicate cylindricity in GD&T?",
+        textKn: "GD&T ಯಲ್ಲಿ ಸಿಲಿಂಡ್ರಿಸಿಟಿಯನ್ನು (cylindricity) ಸೂಚಿಸಲು ಯಾವ ಚಿಹ್ನೆಯನ್ನು ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Controls deviation of a cylindrical surface from perfect form",
+            "Specifies parallelism between features",
+            "Indicates true position tolerance",
+            "Limits surface roughness"
+        ],
+        optionsKn: [
+            "ಸಿಲಿಂಡರಾಕಾರದ ಮೇಲ್ಮೈಯನ್ನು ಪರಿಪೂರ್ಣ ರೂಪದಿಂದ ಆಗುವ ವಿಚಲನವನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ",
+            "ಫೀಚರ್‌ಗಳ ನಡುವಿನ ಸಮಾನಾಂತರತೆಯನ್ನು (parallelism) ನಿರ್ದಿಷ್ಟಪಡಿಸುತ್ತದೆ",
+            "ನಿಜವಾದ ಸ್ಥಾನ (true position) ಟಾಲರೆನ್ಸ್ ಅನ್ನು ಸೂಚಿಸುತ್ತದೆ",
+            "ಮೇಲ್ಮೈ ಒರಟುತನವನ್ನು ಮಿತಿಗೊಳಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Controls deviation of a cylindrical surface from perfect form"
+    },
+    {
+        text: "Why is profile of a surface used in GD&T?",
+        textKn: "GD&T ಯಲ್ಲಿ ಮೇಲ್ಮೈ ಪ್ರೊಫೈಲ್ (profile of a surface) ಅನ್ನು ಏಕೆ ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "To control the 3D shape of a surface relative to its design",
+            "To define perpendicularity",
+            "To control circular runout only",
+            "To limit roughness deviation"
+        ],
+        optionsKn: [
+            "ಒಂದು ಮೇಲ್ಮೈನ 3D ಆಕಾರವನ್ನು ಅದರ ವಿನ್ಯಾಸಕ್ಕೆ ಹೋಲಿಸಿದಂತೆ ನಿಯಂತ್ರಿಸಲು",
+            "ಲಂಬತೆಯನ್ನು (perpendicularity) ವ್ಯಾಖ್ಯಾನಿಸಲು",
+            "ವೃತ್ತಾಕಾರದ ರನ್‌ಔಟ್ (circular runout) ಅನ್ನು ಮಾತ್ರ ನಿಯಂತ್ರಿಸಲು",
+            "ಒರಟುತನದ ವಿಚಲನವನ್ನು ಮಿತಿಗೊಳಿಸಲು"
+        ],
+        correctAnswer: "To control the 3D shape of a surface relative to its design"
+    },
+    {
+        text: "What does total runout measure?",
+        textKn: "ಟೋಟಲ್ ರನ್‌ಔಟ್ (Total runout) ಏನನ್ನು ಅಳೆಯುತ್ತದೆ?",
+        options: [
+            "Combined variation in circularity and straightness along a feature's surface",
+            "Deviation from a flat plane",
+            "Perpendicularity of a cylinder",
+            "Profile of a line"
+        ],
+        optionsKn: [
+            "ಒಂದು ಫೀಚರ್‌ನ ಮೇಲ್ಮೈ ಉದ್ದಕ್ಕೂ ವೃತ್ತಾಕಾರ (circularity) ಮತ್ತು ನೇರತೆಯಲ್ಲಿನ (straightness) ಸಂಯೋಜಿತ ವ್ಯತ್ಯಾಸ",
+            "ಒಂದು ಚಪ್ಪಟೆಯಾದ ಪ್ಲೇನ್‌ನಿಂದ ವಿಚಲನ",
+            "ಒಂದು ಸಿಲಿಂಡರ್‌ನ ಲಂಬತೆ (perpendicularity)",
+            "ಒಂದು ರೇಖೆಯ ಪ್ರೊಫೈಲ್"
+        ],
+        correctAnswer: "Combined variation in circularity and straightness along a feature's surface"
+    },
+    {
+        text: "Why are datum features used in GD&T?",
+        textKn: "GD&T ಯಲ್ಲಿ ಡೇಟಮ್ ಫೀಚರ್‌ಗಳನ್ನು (datum features) ಏಕೆ ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "To provide a reference frame for all measurements",
+            "To define circularity only",
+            "To limit surface roughness",
+            "To ensure parallelism only"
+        ],
+        optionsKn: [
+            "ಎಲ್ಲಾ ಅಳತೆಗಳಿಗೆ ಒಂದು ರೆಫರೆನ್ಸ್ ಫ್ರೇಮ್ (ಉಲ್ಲೇಖ ಚೌಕಟ್ಟು) ಒದಗಿಸಲು",
+            "ವೃತ್ತಾಕಾರವನ್ನು (circularity) ಮಾತ್ರ ವ್ಯಾಖ್ಯಾನಿಸಲು",
+            "ಮೇಲ್ಮೈ ಒರಟುತನವನ್ನು ಮಿತಿಗೊಳಿಸಲು",
+            "ಸಮಾನಾಂತರತೆಯನ್ನು (parallelism) ಮಾತ್ರ ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಲು"
+        ],
+        correctAnswer: "To provide a reference frame for all measurements"
+    },
+    {
+        text: "Which symbol indicates a datum feature?",
+        textKn: "ಯಾವ ಚಿಹ್ನೆಯು ಡೇಟಮ್ ಫೀಚರ್ ಅನ್ನು ಸೂಚಿಸುತ್ತದೆ?",
+        options: [
+            "A letter inside a square or rectangle",
+            "⊥",
+            "∥",
+            "⧞"
+        ],
+        optionsKn: [
+            "ಒಂದು ಚೌಕ ಅಥವಾ ಆಯತದೊಳಗಿನ ಅಕ್ಷರ",
+            "⊥",
+            "∥",
+            "⧞"
+        ],
+        correctAnswer: "A letter inside a square or rectangle"
+    },
+    {
+        text: "What does 'runout' control in GD&T?",
+        textKn: "GD&T ಯಲ್ಲಿ 'ರನ್‌ಔಟ್' (runout) ಏನನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ?",
+        options: [
+            "Deviation of a feature as it rotates around a datum axis",
+            "Surface roughness limits",
+            "Profile of a line",
+            "Parallelism between planes"
+        ],
+        optionsKn: [
+            "ಒಂದು ಫೀಚರ್ ಡೇಟಮ್ ಆಕ್ಸಿಸ್‌ನ ಸುತ್ತ ತಿರುಗುವಾಗ ಆಗುವ ವಿಚಲನ",
+            "ಮೇಲ್ಮೈ ಒರಟುತನದ ಮಿತಿಗಳು",
+            "ಒಂದು ರೇಖೆಯ ಪ್ರೊಫೈಲ್",
+            "ಪ್ಲೇನ್‌ಗಳ ನಡುವಿನ ಸಮಾನಾಂತರತೆ (parallelism)"
+        ],
+        correctAnswer: "Deviation of a feature as it rotates around a datum axis"
+    },
+    {
+        text: "Why is circularity tolerance important?",
+        textKn: "ವೃತ್ತಾಕಾರದ (circularity) ಟಾಲರೆನ್ಸ್ ಏಕೆ ಮುಖ್ಯ?",
+        options: [
+            "Ensures a feature remains round within allowable limits",
+            "Defines perpendicularity of surfaces",
+            "Limits flatness deviations",
+            "Controls parallelism only"
+        ],
+        optionsKn: [
+            "ಒಂದು ಫೀಚರ್ ಅನುಮತಿಸಬಹುದಾದ ಮಿತಿಗಳಲ್ಲಿ ದುಂಡಗಿದೆ ಎಂದು ಖಚಿತಪಡಿಸುತ್ತದೆ",
+            "ಮೇಲ್ಮೈಗಳ ಲಂಬತೆಯನ್ನು (perpendicularity) ವ್ಯಾಖ್ಯಾನಿಸುತ್ತದೆ",
+            "ಚಪ್ಪಟೆತನದ (flatness) ವಿಚಲನಗಳನ್ನು ಮಿತಿಗೊಳಿಸುತ್ತದೆ",
+            "ಸಮಾನಾಂತರತೆಯನ್ನು (parallelism) ಮಾತ್ರ ನಿಯಂತ್ರಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Ensures a feature remains round within allowable limits"
+    },
+    {
+        text: "What is the purpose of specifying profile tolerances?",
+        textKn: "ಪ್ರೊಫೈಲ್ ಟಾಲರೆನ್ಸ್‌ಗಳನ್ನು ನಿರ್ದಿಷ್ಟಪಡಿಸುವ ಉದ್ದೇಶವೇನು?",
+        options: [
+            "To limit the 3D form deviation of surfaces or lines",
+            "To indicate flatness only",
+            "To control circular runout only",
+            "To define perpendicularity only"
+        ],
+        optionsKn: [
+            "ಮೇಲ್ಮೈಗಳು ಅಥವಾ ರೇಖೆಗಳ 3D ರೂಪದ ವಿಚಲನವನ್ನು ಮಿತಿಗೊಳಿಸಲು",
+            "ಚಪ್ಪಟೆತನವನ್ನು (flatness) ಮಾತ್ರ ಸೂಚಿಸಲು",
+            "ವೃತ್ತಾಕಾರದ ರನ್‌ಔಟ್ (circular runout) ಅನ್ನು ಮಾತ್ರ ನಿಯಂತ್ರಿಸಲು",
+            "ಲಂಬತೆಯನ್ನು (perpendicularity) ಮಾತ್ರ ವ್ಯಾಖ್ಯಾನಿಸಲು"
+        ],
+        correctAnswer: "To limit the 3D form deviation of surfaces or lines"
+    },
+    {
+        text: "Which GD&T symbol controls angularity?",
+        textKn: "ಯಾವ GD&T ಚಿಹ್ನೆಯು ಕೋನೀಯತೆಯನ್ನು (angularity) ನಿಯಂತ್ರಿಸುತ್ತದೆ?",
+        options: [
+            "Ensures a surface or feature is at a specified angle relative to a datum",
+            "Defines true position tolerance",
+            "Controls flatness",
+            "Limits roughness"
+        ],
+        optionsKn: [
+            "ಒಂದು ಮೇಲ್ಮೈ ಅಥವಾ ಫೀಚರ್ ಡೇಟಮ್‌ಗೆ ಸಂಬಂಧಿಸಿದಂತೆ ನಿರ್ದಿಷ್ಟ ಕೋನದಲ್ಲಿದೆ ಎಂದು ಖಚಿತಪಡಿಸುತ್ತದೆ",
+            "ನಿಜವಾದ ಸ್ಥಾನ (true position) ಟಾಲರೆನ್ಸ್ ಅನ್ನು ವ್ಯಾಖ್ಯಾನಿಸುತ್ತದೆ",
+            "ಚಪ್ಪಟೆತನವನ್ನು (flatness) ನಿಯಂತ್ರಿಸುತ್ತದೆ",
+            "ಒರಟುತನವನ್ನು ಮಿತಿಗೊಳಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Ensures a surface or feature is at a specified angle relative to a datum"
+    },
+    {
+        text: "How does GD&T help engineers communicate designs?",
+        textKn: "ವಿನ್ಯಾಸಗಳನ್ನು ಸಂವಹನ ಮಾಡಲು GD&T ಎಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ?",
+        options: [
+            "Provides clear, standardized definitions of geometry and tolerances",
+            "Specifies only roughness",
+            "Controls surface finish randomly",
+            "Limits measurement methods arbitrarily"
+        ],
+        optionsKn: [
+            "ಜ್ಯಾಮಿತಿ ಮತ್ತು ಟಾಲರೆನ್ಸ್‌ಗಳ ಸ್ಪಷ್ಟ, ಪ್ರಮಾಣಿತ ವ್ಯಾಖ್ಯಾನಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ",
+            "ಒರಟುತನವನ್ನು ಮಾತ್ರ ನಿರ್ದಿಷ್ಟಪಡಿಸುತ್ತದೆ",
+            "ಮೇಲ್ಮೈ ಫಿನಿಶ್ ಅನ್ನು ಯಾದೃಚ್ಛಿಕವಾಗಿ ನಿಯಂತ್ರಿಸುತ್ತದೆ",
+            "ಅಳತೆ ವಿಧಾನಗಳನ್ನು ನಿರಂಕುಶವಾಗಿ ಮಿತಿಗೊಳಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Provides clear, standardized definitions of geometry and tolerances"
+    },
+    {
+        text: "Why should engineers specify Ra values appropriately?",
+        textKn: "ಎಂಜಿನಿಯರ್‌ಗಳು Ra ಮೌಲ್ಯಗಳನ್ನು ಸೂಕ್ತವಾಗಿ ಏಕೆ ನಿರ್ದಿಷ್ಟಪಡಿಸಬೇಕು?",
+        options: [
+            "To avoid unnecessary cost and time while achieving functional requirements",
+            "To improve aesthetics of every component unnecessarily",
+            "To ensure surfaces are rough enough for decorative coatings",
+            "To eliminate the need for secondary finishing processes"
+        ],
+        optionsKn: [
+            "ಕಾರ್ಯಾತ್ಮಕ ಅವಶ್ಯಕತೆಗಳನ್ನು ಸಾಧಿಸುವಾಗ ಅನಗತ್ಯ ವೆಚ್ಚ ಮತ್ತು ಸಮಯವನ್ನು ತಪ್ಪಿಸಲು",
+            "ಪ್ರತಿ ಘಟಕದ ಸೌಂದರ್ಯವನ್ನು ಅನಗತ್ಯವಾಗಿ ಸುಧಾರಿಸಲು",
+            "ಅಲಂಕಾರಿಕ ಲೇಪನಗಳಿಗೆ ಮೇಲ್ಮೈಗಳು ಸಾಕಷ್ಟು ಒರಟಾಗಿವೆಯೆ ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಲು",
+            "ಸೆಕೆಂಡರಿ ಫಿನಿಶಿಂಗ್ ಪ್ರಕ್ರಿಯೆಗಳ ಅಗತ್ಯವನ್ನು ನಿವಾರಿಸಲು"
+        ],
+        correctAnswer: "To avoid unnecessary cost and time while achieving functional requirements"
+    },
+    {
+        text: "Which GD&T symbol is used to indicate maximum material condition (MMC)?",
+        textKn: "ಗರಿಷ್ಠ ವಸ್ತು ಸ್ಥಿತಿಯನ್ನು (MMC) ಸೂಚಿಸಲು ಯಾವ GD&T ಚಿಹ್ನೆಯನ್ನು ಬಳಸಲಾಗುತ್ತದೆ?",
+        options: [
+            "Indicates the feature is at its largest allowable size",
+            "Defines flatness tolerance",
+            "Specifies perpendicularity",
+            "Controls surface roughness"
+        ],
+        optionsKn: [
+            "ಫೀಚರ್ ಅದರ ಅತಿದೊಡ್ಡ ಅನುಮತಿಸಬಹುದಾದ ಗಾತ್ರದಲ್ಲಿದೆ ಎಂದು ಸೂಚಿಸುತ್ತದೆ",
+            "ಚಪ್ಪಟೆತನ (flatness) ಟಾಲರೆನ್ಸ್ ಅನ್ನು ವ್ಯಾಖ್ಯಾನಿಸುತ್ತದೆ",
+            "ಲಂಬತೆಯನ್ನು (perpendicularity) ನಿರ್ದಿಷ್ಟಪಡಿಸುತ್ತದೆ",
+            "ಮೇಲ್ಮೈ ಒರಟುತನವನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Indicates the feature is at its largest allowable size"
+    },
+    {
+        text: "Why is using datum references critical in GD&T?",
+        textKn: "GD&T ಯಲ್ಲಿ ಡೇಟಮ್ ರೆಫರೆನ್ಸ್‌ಗಳನ್ನು (ಉಲ್ಲೇಖ) ಬಳಸುವುದು ಏಕೆ ನಿರ್ಣಾಯಕವಾಗಿದೆ?",
+        options: [
+            "They provide consistent reference points for measuring and inspecting features",
+            "They define roughness only",
+            "They limit circularity deviations randomly",
+            "They ensure angularity only"
+        ],
+        optionsKn: [
+            "ಫೀಚರ್‌ಗಳನ್ನು ಅಳೆಯಲು ಮತ್ತು ಪರೀಕ್ಷಿಸಲು ಅವು ಸ್ಥಿರವಾದ ಉಲ್ಲೇಖ ಬಿಂದುಗಳನ್ನು ಒದಗಿಸುತ್ತವೆ",
+            "ಅವು ಒರಟುತನವನ್ನು ಮಾತ್ರ ವ್ಯಾಖ್ಯಾನಿಸುತ್ತವೆ",
+            "ಅವು ವೃತ್ತಾಕಾರದ (circularity) ವಿಚಲನಗಳನ್ನು ಯಾದೃಚ್ಛಿಕವಾಗಿ ಮಿತಿಗೊಳಿಸುತ್ತವೆ",
+            "ಅವು ಕೋನೀಯತೆಯನ್ನು (angularity) ಮಾತ್ರ ಖಚಿತಪಡಿಸುತ್ತವೆ"
+        ],
+        correctAnswer: "They provide consistent reference points for measuring and inspecting features"
+    },
+    {
+        text: "What is the role of tolerances in GD&T?",
+        textKn: "GD&T ಯಲ್ಲಿ ಟಾಲರೆನ್ಸ್‌ಗಳ ಪಾತ್ರವೇನು?",
+        options: [
+            "To specify allowable variation while ensuring function and assembly",
+            "To decorate surfaces for aesthetics",
+            "To define the type of material",
+            "To control color and finish"
+        ],
+        optionsKn: [
+            "ಕಾರ್ಯ ಮತ್ತು ಅಸೆಂಬ್ಲಿಯನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳುವಾಗ ಅನುಮತಿಸಬಹುದಾದ ವ್ಯತ್ಯಾಸವನ್ನು ನಿರ್ದಿಷ್ಟಪಡಿಸಲು",
+            "ಸೌಂದರ್ಯಕ್ಕಾಗಿ ಮೇಲ್ಮೈಗಳನ್ನು ಅಲಂಕರಿಸಲು",
+            "ವಸ್ತುವಿನ ಪ್ರಕಾರವನ್ನು ವ್ಯಾಖ್ಯಾನಿಸಲು",
+            "ಬಣ್ಣ ಮತ್ತು ಫಿನಿಶ್ ಅನ್ನು ನಿಯಂತ್ರಿಸಲು"
+        ],
+        correctAnswer: "To specify allowable variation while ensuring function and assembly"
+    },
+    {
+        text: "Which symbol represents least material condition (LMC) in GD&T?",
+        textKn: "GD&T ಯಲ್ಲಿ ಕನಿಷ್ಠ ವಸ್ತು ಸ್ಥಿತಿಯನ್ನು (LMC) ಯಾವ ಚಿಹ್ನೆ ಪ್ರತಿನಿಧಿಸುತ್ತದೆ?",
+        options: [
+            "Specifies the smallest allowable size of a feature",
+            "Controls circularity deviation",
+            "Limits surface flatness",
+            "Indicates perpendicularity"
+        ],
+        optionsKn: [
+            "ಒಂದು ಫೀಚರ್‌ನ ಚಿಕ್ಕ ಅನುಮತಿಸಬಹುದಾದ ಗಾತ್ರವನ್ನು ನಿರ್ದಿಷ್ಟಪಡಿಸುತ್ತದೆ",
+            "ವೃತ್ತಾಕಾರದ (circularity) ವಿಚಲನವನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ",
+            "ಮೇಲ್ಮೈ ಚಪ್ಪಟೆತನವನ್ನು (flatness) ಮಿತಿಗೊಳಿಸುತ್ತದೆ",
+            "ಲಂಬತೆಯನ್ನು (perpendicularity) ಸೂಚಿಸುತ್ತದೆ"
+        ],
+        correctAnswer: "Specifies the smallest allowable size of a feature"
+    }
 ]
+
 
     ]
   }

@@ -19,6 +19,7 @@ interface AppContextType {
   logout: () => Promise<void>;
   tasks: Task[];
   updateTaskCompletion: (taskId: string, completedSteps: number, scoreEarned: number) => Promise<void>;
+  updateModuleTask?: (moduleName: string, taskIndex: number, completed: boolean, score: number) => Promise<number | null>;
   resetTasks: () => Promise<void>;
   getVideoProgress: (userId: string) => Promise<any>;
   updateVideoProgress: (videoId: string, watchedSeconds: number, isComplete: boolean) => Promise<void>;
@@ -766,8 +767,27 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
      }
   };
 
+  const updateModuleTask = async (moduleName: string, taskIndex: number, completed: boolean, score: number): Promise<number | null> => {
+    if (!currentUser) return null;
+    try {
+      const { data, error } = await supabaseClient.rpc('update_module_task', { module_name: moduleName, user_id_in: currentUser.id, task_index: taskIndex, completed: completed, score: score });
+      if (error) {
+        console.error('update_module_task RPC error:', error.message || error);
+        return null;
+      }
+      // RPC returns new total; normalize numeric return
+      if (typeof data === 'number') return data as number;
+      if (Array.isArray(data) && typeof data[0] === 'number') return data[0] as number;
+      if (data && typeof data === 'object' && 'new_total' in data) return Number((data as any).new_total);
+      return null;
+    } catch (err) {
+      console.error('update_module_task exception:', err);
+      return null;
+    }
+  };
+
   return (
-    <AppContext.Provider value={{ theme, setTheme, currentPage, setCurrentPage, currentUser, language, setLanguage, t, login, signup, logout, tasks, updateTaskCompletion, resetTasks, getVideoProgress, updateVideoProgress, getSubmission, submitImageUrl, getTopScores, getTaskScore, addScore }}>
+    <AppContext.Provider value={{ theme, setTheme, currentPage, setCurrentPage, currentUser, language, setLanguage, t, login, signup, logout, tasks, updateTaskCompletion, updateModuleTask, resetTasks, getVideoProgress, updateVideoProgress, getSubmission, submitImageUrl, getTopScores, getTaskScore, addScore }}>
       {children}
     </AppContext.Provider>
   );

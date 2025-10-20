@@ -41,6 +41,7 @@ const VideoTask: React.FC = () => {
     currentUser,
     setCurrentPage,
     updateTaskCompletion,
+  updateModuleTask,
     getVideoProgress,
     updateVideoProgress,
     addScore,
@@ -50,6 +51,7 @@ const VideoTask: React.FC = () => {
     setSelectedModuleIndex,
     getTaskScore,
   } = useContext(AppContext);
+  
 
   // Helper: ensure question objects include Kannada fields when language === 'kn'
   const attachKannadaFields = (qs: Question[] | undefined) => {
@@ -371,26 +373,33 @@ const VideoTask: React.FC = () => {
           (p: { isComplete: boolean }) => p.isComplete
         ).length;
 
-        setQuizScores((prevScores) => {
-          const updatedScores = { ...prevScores, [videoId]: score };
-            // Compute authoritative new total by adding this video's score to the stored task score
-            (async () => {
-              try {
-                const stored = await getTaskScore('task6');
-                const newTotal = (Number(stored) || 0) + score;
-                console.debug('handleQuizComplete', { videoId, score, updatedScores, stored, newTotal, completedVideos });
-                await updateTaskCompletion('task6', completedVideos * questionsPerVideo, newTotal);
-              } catch (err) {
-                console.error('Error computing/persisting new task score:', err);
-                // Fallback: persist cumulative per-video estimate
-                const totalScore = Object.values(updatedScores).reduce((sum: number, s: number) => sum + (s || 0), 0);
-                updateTaskCompletion('task6', completedVideos * questionsPerVideo, totalScore).catch((e) => console.error('Fallback update failed', e));
-              }
-            })();
+        // Build the updated per-video scores map synchronously so we can compute
+        // an authoritative total and persist it exactly once. Avoid calling
+        // getTaskScore() + addition because that can lead to races or double
+        // counting if multiple updates happen concurrently.
+        const updatedScoresMap = { ...(quizScores || {}), [videoId]: score };
+        setQuizScores(updatedScoresMap);
 
-          return updatedScores;
-        });
-
+        try {
+          const totalScore = Object.values(updatedScoresMap).reduce((sum: number, s: number) => sum + (s || 0), 0);
+          const completedSteps = completedVideos * questionsPerVideo;
+          console.debug('handleQuizComplete: persisting task6', { videoId, score, updatedScoresMap, totalScore, completedSteps });
+          // Persist module-level progress for this specific module/video
+          try {
+            const moduleId = currentModule?.id || '';
+            // Map module id to rpc module name (m1/m2/m3)
+            const moduleName = moduleId === 'M1' ? 'm1' : moduleId === 'M2' ? 'm2' : moduleId === 'M3' ? 'm3' : '';
+            if (moduleName && typeof updateModuleTask === 'function') {
+              // task index is 1-based based on currentVideoIndex
+              await updateModuleTask(moduleName, currentVideoIndex + 1, true, score);
+            }
+          } catch (e) {
+            console.error('Error calling updateModuleTask RPC:', e);
+          }
+          await updateTaskCompletion('task6', completedSteps, totalScore);
+        } catch (err) {
+          console.error('Error persisting task6 score after quiz completion:', err);
+        }
         const completedCountNow = Object.values(updatedVP).filter(
           (p) => (p as { isComplete: boolean }).isComplete
         ).length;
@@ -433,7 +442,7 @@ const VideoTask: React.FC = () => {
       setView("videos");
     }
   };
-  const confirmBack = () => {
+  const confirmBack = async () => {
     setShowBackWarning(false);
     
     const currentModule = ADVANCED_MODULES[currentModuleIndex];
@@ -462,32 +471,32 @@ const VideoTask: React.FC = () => {
     }));
 
     // 3. Compute and persist the new total task score
-    (async () => {
-      try {
-        // Get the stored task score
-        const storedScore = await getTaskScore('task6');
-        const newTotalScore = (Number(storedScore) || 0) + currentQuizScore;
-        
-        // Calculate the new completed steps count
-        // Get a fresh count from the state we just updated
-        // Note: this relies on setVideoProgress being done, but state updates are asynchronous.
-        // We will assume the video is now complete for the purpose of this count.
-        const allVideoIds = ADVANCED_MODULES.flatMap(m => m.videos.map(v => v.id));
-        const completedCount = allVideoIds.filter(id => {
-          // If it's the current video, it's now complete. Otherwise, use existing state.
-          return id === videoId || videoProgress[id]?.isComplete;
-        }).length;
+    // Compute updated per-video scores map and persist a single authoritative
+    // total score. This avoids fetching the stored score and adding to it,
+    // which could double-count if other updates are inflight.
+    try {
+      const updatedScores = { ...(quizScores || {}), [videoId]: currentQuizScore };
+      setQuizScores(updatedScores);
 
-        const completedSteps = completedCount * questionsPerVideo;
+      const allVideoIds = ADVANCED_MODULES.flatMap((m) => m.videos.map((v) => v.id));
+      const completedCount = allVideoIds.filter((id) => id === videoId || videoProgress[id]?.isComplete).length;
+      const completedSteps = completedCount * questionsPerVideo;
+      const totalScore = Object.values(updatedScores).reduce((sum: number, s: number) => sum + (s || 0), 0);
 
-        // Update the task completion with the new total score
-        await updateTaskCompletion("task6", completedSteps, newTotalScore);
-        console.debug('confirmBack: updated task6 score with:', currentQuizScore, 'New total:', newTotalScore);
-
-      } catch (err) {
-        console.error('Error computing/persisting new task score on back:', err);
-      }
-    })();
+      console.debug('confirmBack: persisting task6', { videoId, currentQuizScore, totalScore, completedSteps });
+      try {
+        const moduleId = currentModule?.id || '';
+        const moduleName = moduleId === 'M1' ? 'm1' : moduleId === 'M2' ? 'm2' : moduleId === 'M3' ? 'm3' : '';
+        if (moduleName && typeof updateModuleTask === 'function') {
+          await updateModuleTask(moduleName, currentVideoIndex + 1, true, currentQuizScore);
+        }
+      } catch (e) {
+        console.error('Error calling updateModuleTask RPC on back:', e);
+      }
+      await updateTaskCompletion('task6', completedSteps, totalScore);
+    } catch (err) {
+      console.error('Error computing/persisting new task score on back:', err);
+    }
 
     // Go back to the videos list view
     setView("videos");
