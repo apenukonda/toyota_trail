@@ -32,7 +32,7 @@ const PlaceholderTask: React.FC<PlaceholderTaskProps> = ({ taskId, title, instru
       <div className="w-full max-w-2xl">
         <h1 className="text-4xl font-bold mb-4">{title}</h1>
         <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg p-8 rounded-2xl shadow-xl text-left mb-8">
-            <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Instructions</h2>
+            <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4 text-center">Instructions</h2>
             <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
                 {instructions.map((inst, index) => <li key={index}>{inst}</li>)}
             </ul>
