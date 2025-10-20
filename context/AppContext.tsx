@@ -745,7 +745,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   };
 
   return (
-    <AppContext.Provider value={{ theme, setTheme, currentPage, setCurrentPage, currentUser, language, setLanguage, t, login, signup, logout, tasks, updateTaskCompletion, resetTasks, getVideoProgress, updateVideoProgress, getSubmission, submitImageUrl, getTopScores, getTaskScore }}>
+    <AppContext.Provider value={{ theme, setTheme, currentPage, setCurrentPage, currentUser, language, setLanguage, t, login, signup, logout, tasks, updateTaskCompletion, updateModuleTask, resetTasks, getVideoProgress, updateVideoProgress, getSubmission, submitImageUrl, getTopScores, getTaskScore }}>
       {children}
     </AppContext.Provider>
   );
