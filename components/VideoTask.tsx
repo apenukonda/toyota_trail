@@ -326,41 +326,99 @@ const VideoTask: React.FC = () => {
       setView("videos");
     }
   };
-
   const confirmBack = () => {
-    setShowBackWarning(false);
-    // Mark as completed with current score for this video, and update total
-    const currentModule = ADVANCED_MODULES[currentModuleIndex];
-    const currentVideo = currentModule.videos[currentVideoIndex];
-    const videoId = currentVideo.id;
-    const maxQuizScore =
-      currentQuizQuestions.length > 0 ? currentQuizQuestions.length : 7;
-    // Update per-video quiz score
-    setQuizScores((prev) => {
-      const updated = { ...prev, [videoId]: currentQuizScore };
-      // Calculate per-module completion and score
-      let totalScore = 0;
-      let completedSteps = 0;
-      ADVANCED_MODULES.forEach((module) => {
-        const moduleVideoIds = module.videos.map((v) => v.id);
-        const moduleCompleted = moduleVideoIds.every(
-          (id) => videoProgress[id]?.isComplete
-        );
-        if (moduleCompleted) {
-          // Sum scores for this module
-          const moduleScore = moduleVideoIds.reduce(
-            (sum, id) => sum + (updated[id] || 0),
-            0
-          );
-          totalScore += moduleScore;
-          completedSteps += module.videos.length;
-        }
-      });
-      updateTaskCompletion("task6", completedSteps, totalScore);
-      return updated;
-    });
-    setView("videos");
-  };
+    setShowBackWarning(false);
+    
+    const currentModule = ADVANCED_MODULES[currentModuleIndex];
+    const currentVideo = currentModule.videos[currentVideoIndex];
+    const videoId = currentVideo.id;
+    const questionsPerVideo = 7; // Assuming 7 questions per video
+
+    // 1. Save the current video's score locally
+    setQuizScores((prevScores) => ({ ...prevScores, [videoId]: currentQuizScore }));
+
+    // 2. Mark the video as complete and update progress (assuming they completed the video before the quiz)
+    // We use videoDuration here to ensure completion is marked even if the interval didn't run last
+    updateVideoProgress(
+      videoId,
+      videoProgress[videoId]?.watchedSeconds || videoDuration,
+      true
+    );
+    
+    // Update local video progress state
+    setVideoProgress((prev) => ({
+      ...prev,
+      [videoId]: {
+        watchedSeconds: prev[videoId]?.watchedSeconds || videoDuration,
+        isComplete: true,
+      },
+    }));
+
+    // 3. Compute and persist the new total task score
+    (async () => {
+      try {
+        // Get the stored task score
+        const storedScore = await getTaskScore('task6');
+        const newTotalScore = (Number(storedScore) || 0) + currentQuizScore;
+        
+        // Calculate the new completed steps count
+        // Get a fresh count from the state we just updated
+        // Note: this relies on setVideoProgress being done, but state updates are asynchronous.
+        // We will assume the video is now complete for the purpose of this count.
+        const allVideoIds = ADVANCED_MODULES.flatMap(m => m.videos.map(v => v.id));
+        const completedCount = allVideoIds.filter(id => {
+          // If it's the current video, it's now complete. Otherwise, use existing state.
+          return id === videoId || videoProgress[id]?.isComplete;
+        }).length;
+
+        const completedSteps = completedCount * questionsPerVideo;
+
+        // Update the task completion with the new total score
+        await updateTaskCompletion("task6", completedSteps, newTotalScore);
+        console.debug('confirmBack: updated task6 score with:', currentQuizScore, 'New total:', newTotalScore);
+
+      } catch (err) {
+        console.error('Error computing/persisting new task score on back:', err);
+      }
+    })();
+
+    // Go back to the videos list view
+    setView("videos");
+  };
+
+  // const confirmBack = () => {
+  //   setShowBackWarning(false);
+  //   // Mark as completed with current score for this video, and update total
+  //   const currentModule = ADVANCED_MODULES[currentModuleIndex];
+  //   const currentVideo = currentModule.videos[currentVideoIndex];
+  //   const videoId = currentVideo.id;
+  //   const maxQuizScore =
+  //     currentQuizQuestions.length >=0 ? currentQuizQuestions.length : 7;
+  //   // Update per-video quiz score
+  //   setQuizScores((prev) => {
+  //     const updated = { ...prev, [videoId]: currentQuizScore };
+  //     // Calculate per-module completion and score
+  //     let totalScore = 0;
+  //     let completedSteps = 0;
+  //     ADVANCED_MODULES.forEach((module) => {
+  //       const moduleVideoIds = module.videos.map((v) => v.id);
+  //       const moduleCompleted = moduleVideoIds.every(
+  //         (id) => videoProgress[id]?.isComplete
+  //       );
+  //       if (moduleCompleted) {
+  //         // Sum scores for this module
+  //         const moduleScore = moduleVideoIds.reduce(
+  //           (sum, id) => sum + (updated[id]||0 ),0
+  //         );
+  //         totalScore += moduleScore;
+  //         completedSteps += module.videos.length;
+  //       }
+  //     });
+  //     updateTaskCompletion("task6", completedSteps, totalScore);
+  //     return updated;
+  //   });
+  //   setView("videos");
+  // };
 
   const cancelBack = () => {
     setShowBackWarning(false);
@@ -412,7 +470,7 @@ const VideoTask: React.FC = () => {
         }`}
       >
         <h1 className="text-4xl font-bold mb-4">
-          {t("Advanced Quality Principles")}
+          {t("Video awareness and evaluation module")}
         </h1>
         <div className="bg-white p-8 rounded-2xl shadow-xl text-center">
           <h2 className="text-2xl font-semibold text-black mb-4">
@@ -439,7 +497,7 @@ const VideoTask: React.FC = () => {
         }`}
       >
         <h1 className="text-3xl font-bold mb-6">
-          {t("Advanced Quality Principles")}
+          {t("Video awareness and evaluation module")}
         </h1>
         <div className="space-y-4">
           {ADVANCED_MODULES.map((module, index) => {
@@ -473,11 +531,12 @@ const VideoTask: React.FC = () => {
                       : module.title}
                   </span>
                 </div>
-                {module.id === "M3" ? (
+                {/* {module.id === "M3" ? (
                   <span className="font-bold text-blue-500">
                     {t("Coming Soon")}
                   </span>
-                ) : isModuleComplete ? (
+                ) :  */
+                isModuleComplete ? (
                   <span className="font-bold text-green-500">{t("done")}</span>
                 ) : (
                   <span className="text-sm text-gray-500">

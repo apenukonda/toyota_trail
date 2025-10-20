@@ -179,7 +179,7 @@ const ImageSubmissionTask: React.FC = () => {
                 {t('back')}
             </button>
                       <div className="w-full max-w-2xl">
-                          <h1 className="text-4xl font-bold mb-4 text-center">{t('image_submission_title')}</h1>
+                          <h1 className="text-4xl font-bold mb-4 text-center">{t('Cartoon Submission')}</h1>
                  <div className="bg-white p-8 rounded-2xl shadow-xl text-left">
                         <h2 className="text-2xl font-semibold text-black mb-4">{t('Instructions') || 'Instructions'}</h2>
                      <ul className="list-disc list-inside space-y-2 text-black">

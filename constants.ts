@@ -24,9 +24,9 @@ export const INITIAL_TASKS: Task[] = [
     description: 'Self learning courses related to quality with quiz evaluation.',
     descriptionKn: 'ಗುಣಮಟ್ಟಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಸ್ವಯಂ ಕಲಿಕಾ ಕೋರ್ಸ್‌ಗಳು ಕ್ವಿಜ್ ಮೌಲ್ಯಮಾಪನದೊಂದಿಗೆ.',
     page: Page.VIDEO_TASK,
-    totalSteps: 70, // 70 questions total
+    totalSteps: 105, // 70 questions total
     completedSteps: 0,
-    maxScore: 70,
+    maxScore: 105,
   },
   {
     id: 'task3',
@@ -1014,8 +1014,1469 @@ export const ADVANCED_MODULES = [
   },
   {
     id: 'M3',
-    title: 'Basics of measurement & metrology',
-    videos: [], // No videos yet
-    quizzes: []
+    title: 'Basics of measurement & metrology',
+    titleKn: 'ಅಳತೆ ಮತ್ತು ಮಾಪನಶಾಸ್ತ್ರದ ಮೂಲಭೂತ ಅಂಶಗಳು', // Alate mattu mapanashastrada mulabhutha amshagalu (Basics of Measurement and Metrology)
+    videos: [
+      { id: 'mdRTq2_qI9Y', title: 'CNC Machines', titleKn: 'ಸಿಎನ್‌ಸಿ ಯಂತ್ರಗಳು' }, // CNC Yantragalu
+      { id: 'u1jiod4c-eI', title: 'CNC Machining types and applications', titleKn: 'ಸಿಎನ್‌ಸಿ ಯಂತ್ರದ ವಿಧಗಳು ಮತ್ತು ಅನ್ವಯಗಳು' }, // CNC Yantrada Vidhagalu mattu Anvayagalu
+      { id: 'BCy6OYj917o', title: 'Surface Finishing processes: Lapping, Honing, Buffing, Superfinishing', titleKn: 'ಮೇಲ್ಮೈ ಪೂರ್ಣಗೊಳಿಸುವಿಕೆ ಪ್ರಕ್ರಿಯೆಗಳು: ಲ್ಯಾಪಿಂಗ್, ಹೋನಿಂಗ್, ಬಫಿಂಗ್, ಸೂಪರ್‌ಫಿನಿಶಿಂಗ್' }, // Melmay purnagolisuvike prakriyegalu: Lapping, Honing, Buffing, Superfinishing
+      { id: 'FPTebi0gnuQ', title: 'Surface Roughness, Texture Topology, Finishing', titleKn: 'ಮೇಲ್ಮೈ ಒರಟುತನ, ಟೆಕಶ್ಚರ್ ಟೋಪೋಲಜಿ, ಫಿನಿಶಿಂಗ್' }, // Melmay oratutana, Texture Topology, Finishing
+      { id: 'o2ZwjSRuGeg', title: 'GD&T SYMBOLS', titleKn: 'ಜಿಡಿ&ಟಿ ಚಿಹ್ನೆಗಳು' } // GD&T Chihnnegalu
+    ],
+    quizzes: [
+      [   
+  {
+    text: "Why should engineers understand different CNC machine types?",
+    options: [
+      "To reduce tool wear",
+      "To design effectively by knowing each type’s capabilities",
+      "To avoid using cutting tools",
+      "To simplify drawings"
+    ],
+    correctAnswer: "To design effectively by knowing each type’s capabilities"
+  },
+  {
+    text: "Which CNC machines were discussed in the video?",
+    options: [
+      "Machines that remove material using cutting tools",
+      "Only additive systems",
+      "Only EDM machines",
+      "Laser cutters only"
+    ],
+    correctAnswer: "Machines that remove material using cutting tools"
+  },
+  {
+    text: "Which are the main CNC machine categories?",
+    options: [
+      "3-axis and multi-axis machines",
+      "Lathe and plasma machines",
+      "Milling and laser cutters",
+      "Turning and grinding systems"
+    ],
+    correctAnswer: "3-axis and multi-axis machines"
+  },
+  {
+    text: "Which are common 3-axis CNC machines?",
+    options: [
+      "CNC drilling and milling machines",
+      "CNC milling and CNC turning machines",
+      "CNC laser and EDM machines",
+      "CNC plasma cutters"
+    ],
+    correctAnswer: "CNC milling and CNC turning machines"
+  },
+  {
+    text: "Why are 3-axis milling machines popular?",
+    options: [
+      "They are easy to program and cost-effective",
+      "They machine all shapes without limits",
+      "They use automatic tool changers only",
+      "They require no supervision"
+    ],
+    correctAnswer: "They are easy to program and cost-effective"
+  },
+  {
+    text: "What is a limitation of 3-axis CNC milling machines?",
+    options: [
+      "Limited tool access to certain areas",
+      "High power consumption",
+      "Cannot handle soft materials",
+      "Difficult spindle setup"
+    ],
+    correctAnswer: "Limited tool access to certain areas"
+  },
+  {
+    text: "How does a CNC lathe differ from a milling machine?",
+    options: [
+      "The workpiece rotates while the tool is stationary",
+      "The tool rotates while the workpiece is fixed",
+      "Both remain stationary",
+      "Both rotate together"
+    ],
+    correctAnswer: "The workpiece rotates while the tool is stationary"
+  },
+  {
+    text: "CNC lathes are ideal for which parts?",
+    options: [
+      "Cylindrical parts",
+      "Flat sheets",
+      "Complex organic shapes",
+      "Rectangular plates"
+    ],
+    correctAnswer: "Cylindrical parts"
+  },
+  {
+    text: "How many axes do multi-axis CNC machines typically have?",
+    options: ["Three", "Four", "Five or more", "Two"],
+    correctAnswer: "Five or more"
+  },
+  {
+    text: "What is a main benefit of 5-axis machining?",
+    options: [
+      "It enables complex geometries using two extra axes",
+      "It reduces tool wear automatically",
+      "It uses fewer G-codes",
+      "It eliminates programming steps"
+    ],
+    correctAnswer: "It enables complex geometries using two extra axes"
+  },
+  {
+    text: "What describes an indexed 5-axis CNC machine?",
+    options: [
+      "The bed or head rotates between operations",
+      "All five axes move together",
+      "It uses manual tool control",
+      "It is limited to one tool"
+    ],
+    correctAnswer: "The bed or head rotates between operations"
+  },
+  {
+    text: "How does a continuous 5-axis CNC differ from an indexed one?",
+    options: [
+      "All five axes move simultaneously during machining",
+      "It needs manual repositioning",
+      "It performs only rough cuts",
+      "It can only cut flat surfaces"
+    ],
+    correctAnswer: "All five axes move simultaneously during machining"
+  },
+  {
+    text: "What is a Mill-Turn CNC center?",
+    options: [
+      "A hybrid combining milling and turning",
+      "A manual grinding setup",
+      "A laser cutter",
+      "A basic plasma machine"
+    ],
+    correctAnswer: "A hybrid combining milling and turning"
+  },
+  {
+    text: "What is the advantage of a Mill-Turn CNC center?",
+    options: [
+      "Reduces setup time and cost",
+      "Eliminates tool requirements",
+      "Produces flat parts only",
+      "Needs multiple setups"
+    ],
+    correctAnswer: "Reduces setup time and cost"
+  },
+  {
+    text: "Which term defines CNC motion precision?",
+    options: ["Accuracy", "Resolution", "Feed rate", "Tolerance"],
+    correctAnswer: "Resolution"
+  },
+  {
+    text: "What is G-code used for?",
+    options: [
+      "Controlling tool movements and paths",
+      "Activating coolant systems",
+      "Defining machine start delay",
+      "Monitoring power usage"
+    ],
+    correctAnswer: "Controlling tool movements and paths"
+  },
+  {
+    text: "What is the role of M-code?",
+    options: [
+      "Controls machine functions like spindle and coolant",
+      "Defines work coordinate systems",
+      "Adjusts feed rate",
+      "Creates tool offsets"
+    ],
+    correctAnswer: "Controls machine functions like spindle and coolant"
+  },
+  {
+    text: "Which CNC axis moves vertically?",
+    options: ["X-axis", "Y-axis", "Z-axis", "A-axis"],
+    correctAnswer: "Z-axis"
+  },
+  {
+    text: "Which CNC component rotates the cutting tool?",
+    options: ["Spindle", "Chuck", "Turret", "Tailstock"],
+    correctAnswer: "Spindle"
+  },
+  {
+    text: "What is backlash in CNC systems?",
+    options: [
+      "Mechanical play between drive components",
+      "Excessive spindle heat",
+      "Feed rate increase",
+      "Tool vibration"
+    ],
+    correctAnswer: "Mechanical play between drive components"
+  },
+  {
+    text: "What part interprets and executes CNC programs?",
+    options: ["Controller", "Fixture", "Tool post", "Coolant pump"],
+    correctAnswer: "Controller"
+  },
+  {
+    text: "What does feed rate mean in CNC machining?",
+    options: [
+      "Speed of tool movement relative to workpiece",
+      "Spindle rotation speed",
+      "Power consumption rate",
+      "Lubricant flow rate"
+    ],
+    correctAnswer: "Speed of tool movement relative to workpiece"
+  },
+  {
+    text: "What does the tool turret on a CNC lathe do?",
+    options: [
+      "Holds multiple tools for automatic selection",
+      "Rotates the workpiece",
+      "Supports the tailstock",
+      "Moves the spindle"
+    ],
+    correctAnswer: "Holds multiple tools for automatic selection"
+  },
+  {
+    text: "Which CNC machine uses a thin wire for cutting?",
+    options: ["EDM machine", "Lathe", "Router", "Grinder"],
+    correctAnswer: "EDM machine"
+  },
+  {
+    text: "In CNC machining, what is interpolation?",
+    options: [
+      "Movement of the tool along a programmed path",
+      "Manual spindle control",
+      "Tool alignment check",
+      "Coolant flow adjustment"
+    ],
+    correctAnswer: "Movement of the tool along a programmed path"
+  },
+  {
+    text: "What does tool offset compensate for?",
+    options: [
+      "Tool length or diameter differences",
+      "Workpiece hardness",
+      "Tool wear vibration",
+      "Spindle misalignment"
+    ],
+    correctAnswer: "Tool length or diameter differences"
+  },
+  {
+    text: "Which metal is most commonly machined using CNC?",
+    options: ["Aluminum", "Copper", "Iron", "Zinc"],
+    correctAnswer: "Aluminum"
+  },
+  {
+    text: "What is the key advantage of CNC over manual machining?",
+    options: [
+      "Greater precision and repeatability",
+      "No programming needed",
+      "No cutting fluids required",
+      "Always faster than manual machining"
+    ],
+    correctAnswer: "Greater precision and repeatability"
+  },
+  {
+    text: "Which CNC machine is ideal for wood and plastic engraving?",
+    options: ["CNC router", "CNC lathe", "EDM machine", "Grinder"],
+    correctAnswer: "CNC router"
+  },
+  {
+    text: "Which is a key safety practice in CNC operation?",
+    options: [
+      "Wearing protective eyewear and securing clothing",
+      "Touching the tool to check sharpness",
+      "Disabling interlocks during setup",
+      "Leaning near the spindle while running"
+    ],
+    correctAnswer: "Wearing protective eyewear and securing clothing"
+  },
+  {
+    text: "What summarizes the main takeaway of CNC machine types?",
+    options: [
+      "Each type has distinct strengths and applications",
+      "All CNC machines perform the same function",
+      "3-axis systems are outdated",
+      "Only turning machines are widely used"
+    ],
+    correctAnswer: "Each type has distinct strengths and applications"
+  }
+      ],[
+        
+  {
+    text: "What does CNC stand for?",
+    options: [
+      "Central Numeric Calculation",
+      "Computer Numerical Control",
+      "Calculated Numeric Coding",
+      "Controlled Network Computing"
+    ],
+    correctAnswer: "Computer Numerical Control"
+  },
+  {
+    text: "Which industries commonly rely on CNC machining?",
+    options: [
+      "Education and Tourism",
+      "Agriculture and Forestry",
+      "Aerospace, Automotive, and Medical",
+      "Textile and Food"
+    ],
+    correctAnswer: "Aerospace, Automotive, and Medical"
+  },
+  {
+    text: "What is CNC machining primarily used for?",
+    options: [
+      "Transforming raw materials into precise parts using computer-guided controls",
+      "Painting or polishing metallic surfaces for appearance",
+      "Smoothing metal components using abrasive wheels",
+      "Joining materials using high-pressure welding techniques"
+    ],
+    correctAnswer: "Transforming raw materials into precise parts using computer-guided controls"
+  },
+  {
+    text: "Which characteristic best describes CNC machining?",
+    options: [
+      "Manual operation with limited precision",
+      "High precision, efficiency, and repeatability",
+      "Low reliability in mass production environments",
+      "Dependence on operator hand adjustments"
+    ],
+    correctAnswer: "High precision, efficiency, and repeatability"
+  },
+  {
+    text: "What is the main function of CNC milling?",
+    options: [
+      "Uses electrical current to melt and shape materials",
+      "Uses rotating cutting tools to remove material from a surface",
+      "Uses pressurized air to cool and shape materials",
+      "Rotates the workpiece instead of the tool to remove material"
+    ],
+    correctAnswer: "Uses rotating cutting tools to remove material from a surface"
+  },
+  {
+    text: "CNC milling is ideal for creating which types of parts?",
+    options: [
+      "Flat wooden panels with uniform texture",
+      "Complex 3D shapes with tight tolerances",
+      "Cylindrical rods and round pipes",
+      "Simple plastic housings only"
+    ],
+    correctAnswer: "Complex 3D shapes with tight tolerances"
+  },
+  {
+    text: "Which of the following components are typically produced by CNC milling?",
+    options: [
+      "Electrical cables and wires",
+      "Rubber seals and soft gaskets",
+      "Molds, aerospace components, and automotive parts",
+      "Printed labels and packaging molds"
+    ],
+    correctAnswer: "Molds, aerospace components, and automotive parts"
+  },
+  {
+    text: "In CNC turning, what rotates during machining?",
+    options: [
+      "The cutting tool rotates while the workpiece stays fixed",
+      "The spindle housing rotates to adjust feed rate",
+      "The machine bed rotates to balance vibration",
+      "The workpiece rotates while the cutting tool remains stationary"
+    ],
+    correctAnswer: "The workpiece rotates while the cutting tool remains stationary"
+  },
+  {
+    text: "What is CNC turning best suited for?",
+    options: [
+      "Flat plates and mold cavities",
+      "Cylindrical parts like shafts, bushings, and threaded components",
+      "Curved sheet-metal surfaces",
+      "Thin plastic panels and rods"
+    ],
+    correctAnswer: "Cylindrical parts like shafts, bushings, and threaded components"
+  },
+  {
+    text: "What advantage does CNC turning provide?",
+    options: [
+      "Smooth finishes and high accuracy for rotational parts",
+      "Limited material compatibility and slow machining rate",
+      "Inconsistent cutting speeds and tool wear",
+      "Manual adjustments between every cycle"
+    ],
+    correctAnswer: "Smooth finishes and high accuracy for rotational parts"
+  },
+  {
+    text: "Which materials can CNC turning process effectively?",
+    options: [
+      "Ceramics only due to high hardness",
+      "Both metals and plastics with proper tooling",
+      "Only non-conductive materials",
+      "Soft materials such as rubber or cloth"
+    ],
+    correctAnswer: "Both metals and plastics with proper tooling"
+  },
+  {
+    text: "What is CNC drilling mainly used for?",
+    options: [
+      "Creating holes with extreme precision and repeatability",
+      "Milling slots and external profiles",
+      "Finishing the surface with abrasive compounds",
+      "Forming threads using high heat"
+    ],
+    correctAnswer: "Creating holes with extreme precision and repeatability"
+  },
+  {
+    text: "CNC drilling is suitable for which of the following applications?",
+    options: [
+      "Medical devices and industrial machinery parts",
+      "Wood carving and decoration work",
+      "Plastic toy manufacturing only",
+      "Printing press cylinder making"
+    ],
+    correctAnswer: "Medical devices and industrial machinery parts"
+  },
+  {
+    text: "What is the main focus of CNC drilling?",
+    options: [
+      "Manual positioning of cutting tools",
+      "High accuracy and dimensional consistency",
+      "Color coating after drilling",
+      "Surface engraving for aesthetics"
+    ],
+    correctAnswer: "High accuracy and dimensional consistency"
+  },
+  {
+    text: "What does Wire EDM stand for?",
+    options: [
+      "Electrical Discharge Machining",
+      "Electronic Data Mechanism",
+      "Energy Distribution Module",
+      "Electro Dynamic Molding"
+    ],
+    correctAnswer: "Electrical Discharge Machining"
+  },
+  {
+    text: "How does Wire EDM remove material?",
+    options: [
+      "Using a high-speed abrasive belt to cut metals",
+      "Using an electrically charged wire to erode conductive material",
+      "Using compressed air to grind the surface",
+      "Using mechanical vibration to separate material"
+    ],
+    correctAnswer: "Using an electrically charged wire to erode conductive material"
+  },
+  {
+    text: "Which materials are best suited for Wire EDM?",
+    options: [
+      "Non-conductive plastics and ceramics",
+      "Conductive metals and hard alloys",
+      "Soft polymers and rubbers",
+      "Composites reinforced with fibers"
+    ],
+    correctAnswer: "Conductive metals and hard alloys"
+  },
+  {
+    text: "Give an example of a component produced by Wire EDM.",
+    options: [
+      "High-precision dies and aerospace turbine blades",
+      "Rubber gaskets and seals",
+      "Plastic containers and bottles",
+      "Printed circuit boards and resistors"
+    ],
+    correctAnswer: "High-precision dies and aerospace turbine blades"
+  },
+  {
+    text: "What is a key advantage of Wire EDM?",
+    options: [
+      "Cuts very hard materials with exceptional precision",
+      "Consumes no electricity during operation",
+      "Cuts only wooden materials efficiently",
+      "Removes material through heat conduction"
+    ],
+    correctAnswer: "Cuts very hard materials with exceptional precision"
+  },
+  {
+    text: "What are examples of specialized CNC machining processes?",
+    options: [
+      "CNC laser cutting and CNC plasma cutting",
+      "Manual engraving and hammer forging",
+      "Casting and thermal spraying",
+      "Cold rolling and polishing"
+    ],
+    correctAnswer: "CNC laser cutting and CNC plasma cutting"
+  },
+  {
+    text: "What is the main purpose of CNC laser and plasma cutting?",
+    options: [
+      "Cutting materials quickly and efficiently with precision",
+      "Heating surfaces to apply coatings",
+      "Joining sheets through spot welding",
+      "Forming wires into coils for machining"
+    ],
+    correctAnswer: "Cutting materials quickly and efficiently with precision"
+  },
+  {
+    text: "Which CNC process is ideal for both thin and thick materials?",
+    options: [
+      "CNC laser and plasma cutting",
+      "CNC drilling and tapping",
+      "CNC turning and grinding",
+      "CNC polishing and engraving"
+    ],
+    correctAnswer: "CNC laser and plasma cutting"
+  },
+  {
+    text: "Which CNC process is best for creating molds and aerospace components?",
+    options: [
+      "CNC milling for 3D contour machining",
+      "CNC turning for cylindrical features",
+      "CNC drilling for deep holes",
+      "Wire EDM for rough cuts"
+    ],
+    correctAnswer: "CNC milling for 3D contour machining"
+  },
+  {
+    text: "Which CNC process is essential for cylindrical parts?",
+    options: [
+      "CNC turning for round geometries",
+      "CNC milling for flat profiles",
+      "CNC drilling for through holes",
+      "CNC plasma cutting for metal sheets"
+    ],
+    correctAnswer: "CNC turning for round geometries"
+  },
+  {
+    text: "Which industries commonly use CNC drilling?",
+    options: [
+      "Medical and industrial manufacturing sectors",
+      "Textile and food processing sectors",
+      "Forestry and agriculture operations",
+      "Education and tourism sectors"
+    ],
+    correctAnswer: "Medical and industrial manufacturing sectors"
+  },
+  {
+    text: "What makes CNC machining vital in modern manufacturing?",
+    options: [
+      "Precision and versatility across materials",
+      "Manual control and guesswork",
+      "High waste and slower output",
+      "Random tolerance variation"
+    ],
+    correctAnswer: "Precision and versatility across materials"
+  },
+  {
+    text: "Which property makes CNC machining essential across industries?",
+    options: [
+      "Unmatched precision, efficiency, and repeatability",
+      "High energy use and low repeatability",
+      "Complex manual setup with low tolerance",
+      "Variable accuracy under supervision"
+    ],
+    correctAnswer: "Unmatched precision, efficiency, and repeatability"
+  },
+  {
+    text: "What does YIJEN Hardware specialize in?",
+    options: [
+      "Delivering high-quality CNC solutions tailored to needs",
+      "Producing manual lathe components only",
+      "Importing sheet metals for retail use",
+      "Building wooden furniture and molds"
+    ],
+    correctAnswer: "Delivering high-quality CNC solutions tailored to needs"
+  },
+  {
+  text: "Which CNC process is commonly used for producing high-precision aerospace components?",
+  options: [
+    "CNC turning",
+    "CNC milling",
+    "Wire EDM",
+    "CNC laser cutting"
+  ],
+  correctAnswer: "Wire EDM"
+},
+  {
+    text: "What is the main takeaway from the CNC machining video?",
+    options: [
+      "CNC machining provides precision and versatility across industries",
+      "Manual machining remains faster for all parts",
+      "CNC tools cannot produce detailed geometries",
+      "CNC processes are limited to wooden materials"
+    ],
+    correctAnswer: "CNC machining provides precision and versatility across industries"
+  }
+
+
+      ],[
+  {
+    text: "What is the primary objective of surface finishing in manufacturing?",
+    options: [
+      "To enhance surface characteristics and performance",
+      "To increase the component weight during production",
+      "To modify the core structure of the material",
+      "To reduce the overall tool wear rate"
+    ],
+    correctAnswer: "To enhance surface characteristics and performance"
+  },
+  {
+    text: "Which property is least affected by surface finishing?",
+    options: [
+      "Wear resistance of the surface",
+      "Tensile modulus of the material",
+      "Fatigue strength of the component",
+      "Corrosion resistance of the part"
+    ],
+    correctAnswer: "Tensile modulus of the material"
+  },
+  {
+    text: "Which parameters are controlled during surface finishing?",
+    options: [
+      "Internal grain size and composition",
+      "Elasticity and density variation",
+      "Thermal conductivity and color",
+      "Surface texture, waviness, and roughness"
+    ],
+    correctAnswer: "Surface texture, waviness, and roughness"
+  },
+  {
+    text: "Which among the following is a surface finishing process?",
+    options: [
+      "Rolling of sheet components",
+      "Forging of metallic alloys",
+      "Casting of molten metals",
+      "Lapping of flat and curved parts"
+    ],
+    correctAnswer: "Lapping of flat and curved parts"
+  },
+  {
+    text: "What is the main function of the lapping process?",
+    options: [
+      "To achieve fine finish with tight dimensional control",
+      "To improve cutting speed of the tool",
+      "To remove oxide layers from the surface",
+      "To create decorative surface patterns"
+    ],
+    correctAnswer: "To achieve fine finish with tight dimensional control"
+  },
+  {
+    text: "Which material is commonly used as a lapping abrasive?",
+    options: [
+      "Plastic or resin-based beads",
+      "Diamond or aluminum oxide grains",
+      "Copper or zinc metal dust",
+      "Lead or tin metallic powder"
+    ],
+    correctAnswer: "Diamond or aluminum oxide grains"
+  },
+  {
+    text: "What type of motion occurs in lapping?",
+    options: [
+      "Purely vibratory motion in one axis",
+      "Combined rotary and reciprocating movement",
+      "Continuous linear motion only",
+      "Impact-based oscillating movement"
+    ],
+    correctAnswer: "Combined rotary and reciprocating movement"
+  },
+  {
+    text: "Honing is mainly used to improve which property?",
+    options: [
+      "Dimensional accuracy and fine surface finish",
+      "Brittleness and ductility ratio",
+      "Thermal conductivity of the surface",
+      "Magnetic response of metallic materials"
+    ],
+    correctAnswer: "Dimensional accuracy and fine surface finish"
+  },
+  {
+    text: "Which tool is primarily used in honing?",
+    options: [
+      "Abrasive stone or honing stick",
+      "Carbide cutting blade",
+      "Multi-edge milling cutter",
+      "Single-point turning tool"
+    ],
+    correctAnswer: "Abrasive stone or honing stick"
+  },
+  {
+    text: "Honing is usually applied on which type of part?",
+    options: [
+      "Flat sheet metal components",
+      "Cylindrical bores and engine liners",
+      "External shafts and gears",
+      "Rectangular steel plates"
+    ],
+    correctAnswer: "Cylindrical bores and engine liners"
+  },
+  {
+    text: "What is the purpose of the buffing process?",
+    options: [
+      "To create a mirror-like reflective finish",
+      "To modify the crystal lattice structure",
+      "To improve tool cutting sharpness",
+      "To increase hardness of metallic parts"
+    ],
+    correctAnswer: "To create a mirror-like reflective finish"
+  },
+  {
+    text: "Which wheel material is used in buffing operations?",
+    options: [
+      "Soft cloth or leather-based wheel",
+      "Hard bonded stone grinding wheel",
+      "Steel brush or wire-type wheel",
+      "Carbide-coated cutting wheel"
+    ],
+    correctAnswer: "Soft cloth or leather-based wheel"
+  },
+  {
+    text: "What is the function of buffing compounds?",
+    options: [
+      "To strengthen internal molecular structure",
+      "To clean residual coolant or oil",
+      "To polish and reduce micro-scratches on surfaces",
+      "To reduce metal melting temperature"
+    ],
+    correctAnswer: "To polish and reduce micro-scratches on surfaces"
+  },
+  {
+    text: "Superfinishing is mainly performed to achieve:",
+    options: [
+      "A decorative texture on the component",
+      "A rapid metal removal rate",
+      "A thicker oxide layer for corrosion control",
+      "An ultra-smooth and low-roughness surface"
+    ],
+    correctAnswer: "An ultra-smooth and low-roughness surface"
+  },
+  {
+    text: "In which industries is superfinishing widely used?",
+    options: [
+      "Aerospace and automotive applications",
+      "Plastic and packaging sectors",
+      "Food processing and beverages",
+      "Paper and textile production"
+    ],
+    correctAnswer: "Aerospace and automotive applications"
+  },
+  {
+    text: "How does the abrasive stick move in superfinishing?",
+    options: [
+      "With a controlled short reciprocating motion",
+      "With linear oscillation at constant feed",
+      "With continuous rotary motion around one axis",
+      "With random vibratory motion in all directions"
+    ],
+    correctAnswer: "With a controlled short reciprocating motion"
+  },
+  {
+    text: "Which finishing process improves fatigue strength of parts?",
+    options: [
+      "Thermal welding process",
+      "Metal casting operation",
+      "Powder sintering method",
+      "Superfinishing technique"
+    ],
+    correctAnswer: "Superfinishing technique"
+  },
+  {
+    text: "Which finishing process provides highest accuracy?",
+    options: [
+      "Manual polishing process",
+      "Fine buffing technique",
+      "General honing procedure",
+      "Precision lapping method"
+    ],
+    correctAnswer: "Precision lapping method"
+  },
+  {
+    text: "What differentiates honing from lapping?",
+    options: [
+      "Honing uses bonded abrasives while lapping uses loose abrasives",
+      "Lapping is always faster than honing operation",
+      "Honing requires coolant but lapping does not",
+      "Lapping is suitable only for cylindrical parts"
+    ],
+    correctAnswer: "Honing uses bonded abrasives while lapping uses loose abrasives"
+  },
+  {
+    text: "Buffing mainly enhances which property of the product?",
+    options: [
+      "Internal hardness and grain size",
+      "Heat transfer capability",
+      "Surface aesthetics and brightness",
+      "Dimensional precision and tolerance"
+    ],
+    correctAnswer: "Surface aesthetics and brightness"
+  },
+  {
+    text: "Which process is ideal for mirror-like metallic surfaces?",
+    options: [
+      "Superfinishing cycle",
+      "Fine lapping step",
+      "Buffing operation",
+      "Honing process"
+    ],
+    correctAnswer: "Buffing operation"
+  },
+  {
+    text: "Which defect is reduced most effectively by superfinishing?",
+    options: [
+      "Thermal cracks in heat-treated parts",
+      "Large casting cavities and pores",
+      "Macro-level waviness and bending",
+      "Microscopic surface peaks and valleys"
+    ],
+    correctAnswer: "Microscopic surface peaks and valleys"
+  },
+  {
+    text: "Which finishing process uses both abrasives and lubricants?",
+    options: [
+      "Drilling operation",
+      "Rolling method",
+      "Turning process",
+      "Lapping process"
+    ],
+    correctAnswer: "Lapping process"
+  },
+  {
+    text: "Honing is generally performed after which machining step?",
+    options: [
+      "Casting or molding process",
+      "Thread cutting operation",
+      "Boring or reaming operation",
+      "Turning or facing operation"
+    ],
+    correctAnswer: "Boring or reaming operation"
+  },
+  {
+    text: "Which traditional process produces the smoothest finish?",
+    options: [
+      "Buffing procedure",
+      "Honing process",
+      "Fine lapping cycle",
+      "Superfinishing operation"
+    ],
+    correctAnswer: "Superfinishing operation"
+  },
+  {
+    text: "What surface roughness value is typically achieved by superfinishing?",
+    options: [
+      "Below 0.1 micrometer Ra",
+      "Around 1.0 micrometer Ra",
+      "Near 5.0 micrometer Ra",
+      "Above 10.0 micrometer Ra"
+    ],
+    correctAnswer: "Below 0.1 micrometer Ra"
+  },
+  {
+    text: "Which process combines pressure and abrasive action for finishing?",
+    options: [
+      "Forming operation",
+      "Casting method",
+      "Extrusion process",
+      "Lapping technique"
+    ],
+    correctAnswer: "Lapping technique"
+  },
+  {
+    text: "Which finishing method improves sealing properties in engines?",
+    options: [
+      "Buffing step",
+      "Honing process",
+      "Shot peening process",
+      "Superfinishing run"
+    ],
+    correctAnswer: "Honing process"
+  },
+  {
+    text: "Which finishing process reduces friction between moving parts?",
+    options: [
+      "Forming procedure",
+      "Casting method",
+      "Grinding operation",
+      "Superfinishing process"
+    ],
+    correctAnswer: "Superfinishing process"
+  },
+  {
+    text: "Why is surface finishing vital in precision manufacturing?",
+    options: [
+      "It minimizes color differences in products",
+      "It increases raw material consumption",
+      "It reduces total part weight and cost",
+      "It enhances performance, durability, and efficiency"
+    ],
+    correctAnswer: "It enhances performance, durability, and efficiency"
+  }
+      ],[
+        
+  {
+    text: "What does 'surface finish' refer to in manufacturing?",
+    options: [
+      "The condition of a part's surface at any stage of manufacturing",
+      "The internal grain structure and material composition inside the part",
+      "The application of coatings, paints, or protective layers on the surface",
+      "The mechanical strength and hardness of the raw material used in parts"
+    ],
+    correctAnswer: "The condition of a part's surface at any stage of manufacturing"
+  },
+  {
+    text: "Which processes create secondary surface finishes?",
+    options: [
+      "CNC milling, turning, grinding, sanding, lapping, and polishing operations",
+      "Chemical passivation, anodizing, galvanizing, or decorative coating processes",
+      "Casting, forging, and extrusion carried out during initial part creation",
+      "Manual filing, sanding, or polishing done by operators on the part surfaces"
+    ],
+    correctAnswer: "CNC milling, turning, grinding, sanding, lapping, and polishing operations"
+  },
+  {
+    text: "What are tertiary surface finishes?",
+    options: [
+      "Finishes produced by chemical or decorative treatments on the surface",
+      "Primary surfaces obtained directly from rolling, extrusion, or casting",
+      "Surface conditions generated unintentionally during rough machining processes",
+      "Temporary coatings applied for testing or protective purposes during handling"
+    ],
+    correctAnswer: "Finishes produced by chemical or decorative treatments on the surface"
+  },
+  {
+    text: "How can surface finishes be transferred between parts?",
+    options: [
+      "By using a machined mold core that leaves tool marks on molded components",
+      "By sanding or rubbing two parts together to imprint patterns",
+      "By painting or applying coatings from one part onto another surface",
+      "By laser marking one part and stamping the mark onto the next piece"
+    ],
+    correctAnswer: "By using a machined mold core that leaves tool marks on molded components"
+  },
+  {
+    text: "What is the relationship between surface finish, texture, and topology?",
+    options: [
+      "These terms are mostly interchangeable to describe the surface arrangement",
+      "They measure the internal mechanical properties of the material differently",
+      "Surface finish relates to appearance, while topology only concerns function",
+      "Surface texture is for metals, while topology applies only to polymers"
+    ],
+    correctAnswer: "These terms are mostly interchangeable to describe the surface arrangement"
+  },
+  {
+    text: "What does surface topology describe?",
+    options: [
+      "The specific arrangement of material features on a part's surface",
+      "The chemical composition and hardness variation across the surface",
+      "The thickness and durability of applied coatings on the part",
+      "The alignment of internal microstructure in the raw material"
+    ],
+    correctAnswer: "The specific arrangement of material features on a part's surface"
+  },
+  {
+    text: "How is 'surface texture' used in engineering?",
+    options: [
+      "To describe detailed patterns from bead blasting or spark erosion operations",
+      "To calculate internal material density for engineering applications",
+      "To measure hardness or wear properties of machined components",
+      "To determine machining time or feed rates during processing"
+    ],
+    correctAnswer: "To describe detailed patterns from bead blasting or spark erosion operations"
+  },
+  {
+    text: "How is surface roughness quantified?",
+    options: [
+      "By the Ra value, which is the average deviation between peaks and valleys",
+      "By measuring the flatness of the part surface using a ruler or gauge",
+      "By calculating the hardness and tensile strength of the part material",
+      "By noting the color and shine of the surface after finishing"
+    ],
+    correctAnswer: "By the Ra value, which is the average deviation between peaks and valleys"
+  },
+  {
+    text: "What instruments are used to measure surface roughness?",
+    options: [
+      "Contact probes or non-contact optical, laser, and X-ray systems",
+      "Calipers and micrometers for measuring external dimensions",
+      "Weighing scales and torque sensors for material evaluation",
+      "Pressure sensors and thermocouples for surface energy readings"
+    ],
+    correctAnswer: "Contact probes or non-contact optical, laser, and X-ray systems"
+  },
+  {
+    text: "What does a low Ra value indicate?",
+    options: [
+      "A very smooth surface with minimal deviations between peaks and valleys",
+      "A highly rough surface with deep grooves and large deviations",
+      "An uneven surface with frequent scratches and tool marks",
+      "A surface coated with paint or other decorative layers"
+    ],
+    correctAnswer: "A very smooth surface with minimal deviations between peaks and valleys"
+  },
+  {
+    text: "Why must product developers consider Ra values?",
+    options: [
+      "To specify the desired surface roughness for performance and manufacturability",
+      "To determine the color and appearance of the final product surface",
+      "To calculate the internal hardness distribution of materials used",
+      "To estimate the cost of raw materials for manufacturing"
+    ],
+    correctAnswer: "To specify the desired surface roughness for performance and manufacturability"
+  },
+  {
+    text: "What happens to cost and lead time with very low Ra values?",
+    options: [
+      "Both cost and machining time increase significantly with finer finishes",
+      "Both cost and time decrease as the surface becomes smoother",
+      "Only cost increases while time remains constant for finer surfaces",
+      "Only time increases but cost is unaffected by surface finish"
+    ],
+    correctAnswer: "Both cost and machining time increase significantly with finer finishes"
+  },
+  {
+    text: "What is the standard Ra for CNC machined parts at Star Rapid?",
+    options: [
+      "3.2 microns, with the ability to achieve as fine as 0.2 microns if required",
+      "1.0 micron, with no possibility of going finer in production",
+      "10 microns, for all machined parts regardless of material",
+      "5.0 microns, which is the minimum acceptable roughness value"
+    ],
+    correctAnswer: "3.2 microns, with the ability to achieve as fine as 0.2 microns if required"
+  },
+  {
+    text: "What practical tool helps engineers compare surface roughness?",
+    options: [
+      "A set of surface roughness samples made of different materials",
+      "A microscope to view internal grain structure of parts",
+      "A caliper to measure overall dimensions of components",
+      "A hardness tester to evaluate material strength"
+    ],
+    correctAnswer: "A set of surface roughness samples made of different materials"
+  },
+  {
+    text: "How can an engineer quickly verify part surface roughness?",
+    options: [
+      "By running a fingernail along the part and comparing with sample textures",
+      "By weighing the part and comparing to reference weight charts",
+      "By observing the part under ultraviolet light for coating defects",
+      "By tapping the part and listening to the sound resonance"
+    ],
+    correctAnswer: "By running a fingernail along the part and comparing with sample textures"
+  },
+  {
+    text: "What is the main function of primary surface finishes?",
+    options: [
+      "They are the initial finishes produced during processes like rolling or extrusion",
+      "They are decorative finishes applied after machining or polishing",
+      "They are temporary textures that are later removed in secondary finishing",
+      "They are chemical coatings added to improve corrosion resistance"
+    ],
+    correctAnswer: "They are the initial finishes produced during processes like rolling or extrusion"
+  },
+  {
+    text: "Which process is an example of creating secondary surface finishes?",
+    options: [
+      "CNC milling that leaves distinctive tool marks on the part",
+      "Raw casting directly from molds without machining",
+      "Applying paint or powder coating to the part surface",
+      "Forging and rolling before any finishing operations"
+    ],
+    correctAnswer: "CNC milling that leaves distinctive tool marks on the part"
+  },
+  {
+    text: "What is a common feature of tertiary finishes?",
+    options: [
+      "They often involve chemical treatments, plating, or decorative coatings",
+      "They are naturally formed during raw material casting",
+      "They involve the removal of large amounts of material mechanically",
+      "They are temporary marks used for quality inspection purposes"
+    ],
+    correctAnswer: "They often involve chemical treatments, plating, or decorative coatings"
+  },
+  {
+    text: "What does the term 'lay' describe in surface roughness measurement?",
+    options: [
+      "The dominant direction of grooves on a surface",
+      "The maximum depth of surface peaks",
+      "The overall hardness across a machined surface",
+      "The chemical composition of the material on the surface"
+    ],
+    correctAnswer: "The dominant direction of grooves on a surface"
+  },
+  {
+    text: "What does 'waviness' refer to in surface analysis?",
+    options: [
+      "Periodic distortions over longer lengths of the surface",
+      "Random scratches and marks from rough machining",
+      "The color variation across a coated surface",
+      "The internal grain orientation of the material"
+    ],
+    correctAnswer: "Periodic distortions over longer lengths of the surface"
+  },
+  {
+    text: "Why should extremely low Ra values be avoided when unnecessary?",
+    options: [
+      "Because achieving finer surfaces greatly increases cost and production time",
+      "Because rough surfaces improve the aesthetic appeal of parts",
+      "Because low Ra values make the part weaker structurally",
+      "Because it is impossible to measure Ra accurately below 1 micron"
+    ],
+    correctAnswer: "Because achieving finer surfaces greatly increases cost and production time"
+  },
+  {
+    text: "What is the importance of measuring multiple points for Ra?",
+    options: [
+      "To ensure accurate average measurement of surface roughness",
+      "To calculate the part's weight accurately",
+      "To determine the color uniformity of coatings",
+      "To check hardness variations across the material"
+    ],
+    correctAnswer: "To ensure accurate average measurement of surface roughness"
+  },
+  {
+    text: "Which of the following describes 'Ra'?",
+    options: [
+      "The arithmetic average of the surface profile deviations",
+      "The maximum peak height measured across a surface",
+      "The width of the widest groove on a surface",
+      "The optical reflection coefficient of a polished surface"
+    ],
+    correctAnswer: "The arithmetic average of the surface profile deviations"
+  },
+  {
+    text: "What can surface roughness samples help engineers determine?",
+    options: [
+      "If the manufacturer meets the required finish by feel and appearance",
+      "If the internal grain structure matches design specifications",
+      "If the raw material meets tensile strength requirements",
+      "If the coating thickness is within tolerance limits"
+    ],
+    correctAnswer: "If the manufacturer meets the required finish by feel and appearance"
+  },
+  {
+    text: "What is the primary purpose of surface roughness control?",
+    options: [
+      "To ensure proper part performance, durability, and functionality",
+      "To reduce material costs and weight of manufactured components",
+      "To improve color and shine on finished parts",
+      "To simplify the machining process for easier handling"
+    ],
+    correctAnswer: "To ensure proper part performance, durability, and functionality"
+  },
+  {
+    text: "Why is understanding surface terminology important for engineers?",
+    options: [
+      "To communicate requirements effectively and ensure design intent",
+      "To make parts visually appealing regardless of function",
+      "To reduce the cost of raw materials used in production",
+      "To speed up machining by skipping finishing processes"
+    ],
+    correctAnswer: "To communicate requirements effectively and ensure design intent"
+  },
+  {
+    text: "What is the purpose of a surface roughness standard set by a company?",
+    options: [
+      "To define a baseline for manufacturing and quality assurance processes",
+      "To limit the types of materials that can be used in production",
+      "To standardize colors and finishes across different parts",
+      "To simplify training requirements for new operators"
+    ],
+    correctAnswer: "To define a baseline for manufacturing and quality assurance processes"
+  },
+  {
+    text: "What is a quick, low-cost method to compare part surfaces to desired roughness?",
+    options: [
+      "Running a fingernail along the part and comparing to sample textures",
+      "Using a microscope to inspect the grain orientation in the material",
+      "Applying paint to the surface to check adhesion and uniformity",
+      "Measuring the weight and dimensions of the part for consistency"
+    ],
+    correctAnswer: "Running a fingernail along the part and comparing to sample textures"
+  },
+  {
+    text: "Why should engineers specify Ra values appropriately?",
+    options: [
+      "To avoid unnecessary cost and time while achieving functional requirements",
+      "To improve the aesthetics of every component unnecessarily",
+      "To ensure surfaces are rough enough for decorative coatings",
+      "To eliminate the need for any secondary finishing processes"
+    ],
+    correctAnswer: "To avoid unnecessary cost and time while achieving functional requirements"
+  }
+
+      ],
+      [
+  {
+    text: "What does the '⊥' symbol represent in GD&T?",
+    options: [
+      "Indicates the direction of a surface relative to another",
+      "Specifies perpendicularity tolerance between two features",
+      "Shows allowable circularity deviation",
+      "Defines surface roughness limits"
+    ],
+    correctAnswer: "Specifies perpendicularity tolerance between two features"
+  },
+  {
+    text: "Which symbol in GD&T is used to define flatness?",
+    options: [
+      "Indicates surface roughness",
+      "Specifies allowable variation in a surface being perfectly flat",
+      "Shows position tolerance",
+      "Defines profile of a line"
+    ],
+    correctAnswer: "Specifies allowable variation in a surface being perfectly flat"
+  },
+  {
+    text: "The '⧫' symbol in GD&T represents which tolerance?",
+    options: [
+      "Limits the profile of a curved surface",
+      "Specifies the true position of a feature",
+      "Defines parallelism between two surfaces",
+      "Indicates circular runout tolerance"
+    ],
+    correctAnswer: "Specifies the true position of a feature"
+  },
+  {
+    text: "Which symbol is used to indicate parallelism?",
+    options: [
+      "Defines perpendicularity",
+      "Shows allowable distance between two surfaces remaining equidistant",
+      "Indicates circularity deviation",
+      "Specifies surface roughness limit"
+    ],
+    correctAnswer: "Shows allowable distance between two surfaces remaining equidistant"
+  },
+  {
+    text: "What does the '⧠' symbol represent in GD&T?",
+    options: [
+      "Defines a profile tolerance for a surface or line",
+      "Specifies perpendicularity tolerance",
+      "Indicates circular runout",
+      "Limits surface roughness deviations"
+    ],
+    correctAnswer: "Defines a profile tolerance for a surface or line"
+  },
+  {
+    text: "Which GD&T symbol is used to control circularity?",
+    options: [
+      "Shows variation from a perfect circle",
+      "Specifies surface flatness",
+      "Defines feature position tolerance",
+      "Indicates parallelism between surfaces"
+    ],
+    correctAnswer: "Shows variation from a perfect circle"
+  },
+  {
+    text: "What is the purpose of specifying a true position tolerance?",
+    options: [
+      "Ensures the feature is exactly in its designed location within tolerance limits",
+      "Limits surface roughness variations for aesthetics",
+      "Controls perpendicularity of all surfaces",
+      "Defines circularity deviations only"
+    ],
+    correctAnswer: "Ensures the feature is exactly in its designed location within tolerance limits"
+  },
+  {
+    text: "In GD&T, what does circular runout control?",
+    options: [
+      "Variation of a surface around a datum axis during rotation",
+      "Deviation in flatness of a surface",
+      "Position tolerance of holes",
+      "Parallelism between planes"
+    ],
+    correctAnswer: "Variation of a surface around a datum axis during rotation"
+  },
+  {
+    text: "Which symbol controls surface profile in GD&T?",
+    options: [
+      "Limits the shape of a surface relative to its ideal form",
+      "Specifies perpendicularity between features",
+      "Indicates allowable runout of a cylinder",
+      "Controls flatness only"
+    ],
+    correctAnswer: "Limits the shape of a surface relative to its ideal form"
+  },
+  {
+    text: "What does the '∥' symbol indicate?",
+    options: [
+      "Parallelism between two features",
+      "Perpendicularity of a surface",
+      "Surface roughness tolerance",
+      "Position of a hole"
+    ],
+    correctAnswer: "Parallelism between two features"
+  },
+  {
+    text: "Which GD&T symbol represents profile of a line?",
+    options: [
+      "Controls the shape of a line along a surface",
+      "Specifies flatness tolerance",
+      "Indicates perpendicularity deviation",
+      "Defines circular runout"
+    ],
+    correctAnswer: "Controls the shape of a line along a surface"
+  },
+  {
+    text: "Why is perpendicularity specified in GD&T?",
+    options: [
+      "Ensures surfaces or features are at the required 90-degree angle",
+      "Controls roughness of a surface",
+      "Defines circularity",
+      "Limits true position deviation"
+    ],
+    correctAnswer: "Ensures surfaces or features are at the required 90-degree angle"
+  },
+  {
+    text: "What does flatness tolerance ensure?",
+    options: [
+      "A surface lies within two parallel planes",
+      "A feature is positioned correctly relative to datum",
+      "Circularity is within tolerance",
+      "Surface runout is minimized"
+    ],
+    correctAnswer: "A surface lies within two parallel planes"
+  },
+  {
+    text: "Which symbol is used to indicate cylindricity in GD&T?",
+    options: [
+      "Controls deviation of a cylindrical surface from perfect form",
+      "Specifies parallelism between features",
+      "Indicates true position tolerance",
+      "Limits surface roughness"
+    ],
+    correctAnswer: "Controls deviation of a cylindrical surface from perfect form"
+  },
+  {
+    text: "Why is profile of a surface used in GD&T?",
+    options: [
+      "To control the 3D shape of a surface relative to its design",
+      "To define perpendicularity",
+      "To control circular runout only",
+      "To limit roughness deviation"
+    ],
+    correctAnswer: "To control the 3D shape of a surface relative to its design"
+  },
+  {
+    text: "What does total runout measure?",
+    options: [
+      "Combined variation in circularity and straightness along a feature's surface",
+      "Deviation from a flat plane",
+      "Perpendicularity of a cylinder",
+      "Profile of a line"
+    ],
+    correctAnswer: "Combined variation in circularity and straightness along a feature's surface"
+  },
+  {
+    text: "Why are datum features used in GD&T?",
+    options: [
+      "To provide a reference frame for all measurements",
+      "To define circularity only",
+      "To limit surface roughness",
+      "To ensure parallelism only"
+    ],
+    correctAnswer: "To provide a reference frame for all measurements"
+  },
+  {
+    text: "Which symbol indicates a datum feature?",
+    options: [
+      "A letter inside a square or rectangle",
+      "⊥",
+      "∥",
+      "⧞"
+    ],
+    correctAnswer: "A letter inside a square or rectangle"
+  },
+  {
+    text: "What does 'runout' control in GD&T?",
+    options: [
+      "Deviation of a feature as it rotates around a datum axis",
+      "Surface roughness limits",
+      "Profile of a line",
+      "Parallelism between planes"
+    ],
+    correctAnswer: "Deviation of a feature as it rotates around a datum axis"
+  },
+  {
+    text: "Why is circularity tolerance important?",
+    options: [
+      "Ensures a feature remains round within allowable limits",
+      "Defines perpendicularity of surfaces",
+      "Limits flatness deviations",
+      "Controls parallelism only"
+    ],
+    correctAnswer: "Ensures a feature remains round within allowable limits"
+  },
+  {
+    text: "What is the purpose of specifying profile tolerances?",
+    options: [
+      "To limit the 3D form deviation of surfaces or lines",
+      "To indicate flatness only",
+      "To control circular runout only",
+      "To define perpendicularity only"
+    ],
+    correctAnswer: "To limit the 3D form deviation of surfaces or lines"
+  },
+  {
+    text: "Which GD&T symbol controls angularity?",
+    options: [
+      "Ensures a surface or feature is at a specified angle relative to a datum",
+      "Defines true position tolerance",
+      "Controls flatness",
+      "Limits roughness"
+    ],
+    correctAnswer: "Ensures a surface or feature is at a specified angle relative to a datum"
+  },
+  {
+    text: "How does GD&T help engineers communicate designs?",
+    options: [
+      "Provides clear, standardized definitions of geometry and tolerances",
+      "Specifies only roughness",
+      "Controls surface finish randomly",
+      "Limits measurement methods arbitrarily"
+    ],
+    correctAnswer: "Provides clear, standardized definitions of geometry and tolerances"
+  },
+  {
+    text: "Why should engineers specify Ra values appropriately?",
+    options: [
+      "To avoid unnecessary cost and time while achieving functional requirements",
+      "To improve aesthetics of every component unnecessarily",
+      "To ensure surfaces are rough enough for decorative coatings",
+      "To eliminate the need for secondary finishing processes"
+    ],
+    correctAnswer: "To avoid unnecessary cost and time while achieving functional requirements"
+  },
+  {
+    text: "Which GD&T symbol is used to indicate maximum material condition (MMC)?",
+    options: [
+      "Indicates the feature is at its largest allowable size",
+      "Defines flatness tolerance",
+      "Specifies perpendicularity",
+      "Controls surface roughness"
+    ],
+    correctAnswer: "Indicates the feature is at its largest allowable size"
+  },
+  {
+    text: "Why is using datum references critical in GD&T?",
+    options: [
+      "They provide consistent reference points for measuring and inspecting features",
+      "They define roughness only",
+      "They limit circularity deviations randomly",
+      "They ensure angularity only"
+    ],
+    correctAnswer: "They provide consistent reference points for measuring and inspecting features"
+  },
+  {
+    text: "What is the role of tolerances in GD&T?",
+    options: [
+      "To specify allowable variation while ensuring function and assembly",
+      "To decorate surfaces for aesthetics",
+      "To define the type of material",
+      "To control color and finish"
+    ],
+    correctAnswer: "To specify allowable variation while ensuring function and assembly"
+  },
+  {
+    text: "Which symbol represents least material condition (LMC) in GD&T?",
+    options: [
+      "Specifies the smallest allowable size of a feature",
+      "Controls circularity deviation",
+      "Limits surface flatness",
+      "Indicates perpendicularity"
+    ],
+    correctAnswer: "Specifies the smallest allowable size of a feature"
+  }
+]
+
+    ]
   }
 ];
