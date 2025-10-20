@@ -1,3 +1,297 @@
+// M2 Module Task 1 Quiz (English)
+export const M2_TASK4_QUIZ: Question[] = [
+  {
+    text: "Which of the following documents is NOT typically part of a PPAP submission?",
+    options: [
+      "Marketing strategy plan",
+      "Design Records",
+      "Process FMEA",
+      "Control Plan"
+    ],
+    correctAnswer: "Marketing strategy plan"
+  },
+  {
+    text: "Which APQP phase plans the production process to ensure quality?",
+    options: [
+      "Process Design and Development",
+      "Product Design and Development",
+      "Plan and Define Program",
+      "Validation"
+    ],
+    correctAnswer: "Process Design and Development"
+  },
+  {
+    text: "Which type of FMEA focuses on failures during production?",
+    options: [
+      "Process FMEA (PFMEA)",
+      "Design FMEA (DFMEA)",
+      "APQP FMEA",
+      "PPAP FMEA"
+    ],
+    correctAnswer: "Process FMEA (PFMEA)"
+  },
+  {
+    text: "In MSA, what does reproducibility measure?",
+    options: [
+      "Stability of measurements by different operators using the same instrument",
+      "Process stability",
+      "Severity of failures",
+      "Occurrence of defects"
+    ],
+    correctAnswer: "Stability of measurements by different operators using the same instrument"
+  },
+  {
+    text: "How does PPAP benefit suppliers and customers?",
+    options: [
+      "Reduces the risk of defective parts reaching customers",
+      "Speeds up internal meetings",
+      "Increases market reach",
+      "Only reduces inventory costs"
+    ],
+    correctAnswer: "Reduces the risk of defective parts reaching customers"
+  },
+  {
+    text: "In SPC, what is common cause variation?",
+    options: [
+      "Natural random variation within a stable process",
+      "Variation due to unusual events or problems",
+      "Measurement system errors",
+      "Variation in design specifications"
+    ],
+    correctAnswer: "Natural random variation within a stable process"
+  },
+  {
+    text: "In SPC, what does the R chart monitor?",
+    options: [
+      "Range of values in a sample to observe variation",
+      "Average of process samples",
+      "Severity of failures",
+      "PPAP compliance"
+    ],
+    correctAnswer: "Range of values in a sample to observe variation"
+  }
+];
+    
+export const M2_TASK1_QUIZ: Question[] = [
+  {
+    text: "How does QMS (Quality Management System) improve customer satisfaction?",
+    options: [
+      "By consistently meeting customer requirements and ensuring product quality",
+      "By offering discounts",
+      "By improving website design",
+      "By fast delivery only"
+    ],
+    correctAnswer: "By consistently meeting customer requirements and ensuring product quality"
+  },
+  {
+    text: "ISO TS 16949 is a quality management standard for which industry?",
+    options: [
+      "Automotive industry",
+      "Medical devices",
+      "Information technology",
+      "Environmental services"
+    ],
+    correctAnswer: "Automotive industry"
+  },
+  {
+    text: "What determines the structure and content of a quality manual?",
+    options: [
+      "Organization size, complexity, and employee capability",
+      "Market share and competition",
+      "Government regulations only",
+      "Customer complaints"
+    ],
+    correctAnswer: "Organization size, complexity, and employee capability"
+  },
+  {
+    text: "How does QMS reduce cost and waste?",
+    options: [
+      "By streamlining processes and improving efficiency",
+      "By laying off employees",
+      "By using only cheap materials",
+      "By outsourcing production"
+    ],
+    correctAnswer: "By streamlining processes and improving efficiency"
+  },
+  {
+    text: "Records in QMS:",
+    options: [
+      "Must be maintained for a specified period",
+      "Should be disposed of immediately",
+      "Should be kept only in digital form",
+      "Should be reviewed only annually"
+    ],
+    correctAnswer: "Must be maintained for a specified period"
+  },
+  {
+    text: "ISO 27001 focuses on which aspect?",
+    options: [
+      "Information security management",
+      "Quality of medical devices",
+      "Environmental management",
+      "Automotive standards"
+    ],
+    correctAnswer: "Information security management"
+  },
+  {
+    text: "What are the two pillars of a Quality Management System (QMS)?",
+    options: [
+      "Quality control and quality assurance",
+      "Quality inspection and auditing",
+      "Process optimization and cost reduction",
+      "Customer service and marketing"
+    ],
+    correctAnswer: "Quality control and quality assurance"
+  }
+];
+// M2 Module Task 3 Quiz (English)
+// M2 Module Task 3 Quiz (English)
+export const M2_TASK3_QUIZ: Question[] = [
+  {
+    text: "What does repeatability measure in MSA?",
+    options: [
+      "Stability of measurements by the same operator using the same instrument",
+      "Accuracy of the measurement system",
+      "Variation in the production process",
+      "Effect of special cause variation"
+    ],
+    correctAnswer: "Stability of measurements by the same operator using the same instrument"
+  },
+  {
+    text: "In SPC, what is special cause variation?",
+    options: [
+      "Variation caused by unusual events requiring investigation",
+      "Common process variation",
+      "Measurement system errors",
+      "Standard deviation"
+    ],
+    correctAnswer: "Variation caused by unusual events requiring investigation"
+  },
+  {
+    text: "How does PPAP benefit suppliers and customers?",
+    options: [
+      "Reduces the risk of defective parts reaching customers",
+      "Speeds up internal meetings",
+      "Increases market reach",
+      "Only reduces inventory costs"
+    ],
+    correctAnswer: "Reduces the risk of defective parts reaching customers"
+  },
+  {
+    text: "In SPC, what is common cause variation?",
+    options: [
+      "Natural random variation within a stable process",
+      "Variation due to unusual events or problems",
+      "Measurement system errors",
+      "Variation in design specifications"
+    ],
+    correctAnswer: "Natural random variation within a stable process"
+  },
+  {
+    text: "FMEA stands for:",
+    options: [
+      "Failure Mode and Effects Analysis",
+      "Factory Measurement and Evaluation Analysis",
+      "Failure Monitoring and Efficiency Assessment",
+      "Functional Measurement and Error Analysis"
+    ],
+    correctAnswer: "Failure Mode and Effects Analysis"
+  },
+  {
+    text: "Which type of FMEA focuses on potential failures in the product design stage?",
+    options: [
+      "Design FMEA (DFMEA)",
+      "Process FMEA (PFMEA)",
+      "Measurement FMEA",
+      "Supplier FMEA"
+    ],
+    correctAnswer: "Design FMEA (DFMEA)"
+  },
+  {
+    text: "In FMEA, which formula is used to calculate the Risk Priority Number (RPN)?",
+    options: [
+      "Severity x Occurrence x Detection",
+      "Plan x Design x Process",
+      "Accuracy x Precision x Stability",
+      "Upper Control Limit x Lower Control Limit x Average"
+    ],
+    correctAnswer: "Severity x Occurrence x Detection"
+  }
+];
+
+// M2 Module Task 2 Quiz (English)
+export const M2_TASK2_QUIZ: Question[] = [
+  {
+    text: "After implementing a process change, which QC tool helps you confirm that defect rates have decreased over time?",
+    options: [
+      "Control Chart",
+      "Check Sheet",
+      "Flowchart",
+      "Pareto Chart"
+    ],
+    correctAnswer: "Control Chart"
+  },
+  {
+    text: "Which QC tool helps quantify the strength of the relationship between two variables?",
+    options: [
+      "Scatter Diagram",
+      "Control Chart",
+      "Histogram",
+      "Flowchart"
+    ],
+    correctAnswer: "Scatter Diagram"
+  },
+  {
+    text: "Which QC tool helps identify the vital few problems contributing most to defects?",
+    options: [
+      "Pareto Chart",
+      "Scatter Diagram",
+      "Histogram",
+      "Flowchart"
+    ],
+    correctAnswer: "Pareto Chart"
+  },
+  {
+    text: "Which QC tool is used to monitor a process over time to confirm it remains stable?",
+    options: [
+      "Control Chart",
+      "Histogram",
+      "Check Sheet",
+      "Pareto Chart"
+    ],
+    correctAnswer: "Control Chart"
+  },
+  {
+    text: "What is the purpose of Pareto analysis?",
+    options: [
+      "To focus on the most impactful problems",
+      "To measure employee satisfaction",
+      "To track sales",
+      "To evaluate marketing campaigns"
+    ],
+    correctAnswer: "To focus on the most impactful problems"
+  },
+  {
+    text: "What is the first step in creating a Cause and Effect Diagram?",
+    options: [
+      "Define the problem statement",
+      "Collect data",
+      "Create a flowchart",
+      "Draw control limits"
+    ],
+    correctAnswer: "Define the problem statement"
+  },
+  {
+    text: "Which QC tool is useful in the planning phase to define a process?",
+    options: [
+      "Flowchart",
+      "Histogram",
+      "Control Chart",
+      "Pareto Chart"
+    ],
+    correctAnswer: "Flowchart"
+  }
+];
 import { Task, Page, Question } from './types';
 
 export const INITIAL_TASKS: Task[] = [
@@ -286,8 +580,20 @@ export const ADVANCED_MODULES = [
 
   { text: 'According to the video, where should drivers look for detailed feature applicability?', textKn: 'ವೀಡಿಯೋ ಪ್ರಕಾರ, ಚಾಲಕರು ವೈಶಿಷ್ಟ್ಯಗಳ ಅನ್ವಯಿತೆಯನ್ನು ವಿವರವಾಗಿ ಎಲ್ಲಿಂದ ನೋಡಬಹುದು?', options: ['Toyota website', 'Service manual', 'Owner’s manual', 'Mechanic’s guide'], optionsKn: ['ಟೊಯೋಟಾ ವೆಬ್‌ಸೈಟ್', 'ಸೇವಾ ಕೈಪಿಡಿ', 'ಮಾಲೀಕರಿನ ಕೈಪുസ്തಕ', 'ಯಂತ್ರ ತಜ್ಞರ ಮಾರ್ಗದರ್ಶಿ'], correctAnswer: 'Owner’s manual' }
       ]
-      ,
+
       // Repeat for other videos in M1
+      // Only populate Kannada fallback fields when they are missing.
+      .map(q => {
+        // Do not overwrite existing translations; only set fallbacks.
+        if ((q as any).textKn === undefined) {
+          (q as any).textKn = (q as any).text;
+        }
+        if ((q as any).optionsKn === undefined && Array.isArray((q as any).options)) {
+          (q as any).optionsKn = [...(q as any).options];
+        }
+        return q;
+      })
+      ,
       [
         { text: 'What is the main source of power for a typical automobile?', textKn: 'ಸಾಮಾನ್ಯ ಕಾರಿನ ಪ್ರಮುಖ ಶಕ್ತಿ ಮೂಲವೇನು?', options: ['Battery', 'Engine', 'Motor', 'Transmission'], optionsKn: ['ಬ್ಯಾಟರಿ', 'ಎಂಜಿನ್', 'ಮೋಟಾರ್', 'ಟ್ರಾನ್ಸ್ಮಿಷನ್'], correctAnswer: 'Engine' },
 
@@ -348,259 +654,870 @@ export const ADVANCED_MODULES = [
         { text: 'Why can’t engines simply spin faster to make more horsepower?', textKn: 'ಅಧಿಕ ಹಾರ್ಸ್‌ಪವರ್ ಪಡೆಯಲು ಎಂಜಿನ್‌ಗಳು ಸರಳವಾಗಿ ಹೆಚ್ಚು ವೇಗವಾಗಿ ತಿರುಗಲು ಸಾಧ್ಯವಿಲ್ಲ ಏಕೆ?', options: ['High speed reduces torque and efficiency', 'Air supply stops', 'Fuel leaks occur', 'Crankshaft breaks easily'], optionsKn: ['ಉচ্চ ವೇಗ ಟಾರ್ಕ್ ಮತ್ತು ದಕ್ಷತೆಯನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ', 'ಗಾಳಿ ಪೂರೈಕೆ ನಿಲ್ಲುತ್ತದೆ', 'ಇಂಧನ ಲೀಕ್ ಆಗಬಹುದು', 'ಕ್ರಾಂಕ್ಶಾಫ್ಟ್ ಸುಲಭವಾಗಿ ಮುರಿಯುತ್ತದೆ'], correctAnswer: 'High speed reduces torque and efficiency' },
 
         { text: 'Why are transmissions important for engine performance?', textKn: 'ಎಂಜಿನ್ ಪ್ರದರ್ಶನಕ್ಕೆ ಗಿಯರ್ಬಾಕ್ಸ್‌ಗಳು ಪ್ರಮುಖವಾದುದು ಏಕೆ?', options: ['They reduce fuel', 'They keep the engine in its torque-power sweet spot', 'They control spark timing', 'They clean the exhaust gases'], optionsKn: ['ಅವು ಇಂಧನ ಕಡಿಮೆ ಮಾಡುತ್ತವೆ', 'ಅವು ಎಂಜಿನ್ ಅನ್ನು ಅದರ ಟಾರ್ಕ್-ಶಕ್ತಿ ಸೂಟ್ ಸ್ಪಾಟ್‌ನಲ್ಲಿರಿಸುತ್ತವೆ', 'ಅವು ಸ್ಪಾರ್ಕ್ ಟೈಮಿಂಗ್ ಅನ್ನು ನಿಯಂತ್ರಿಸುತ್ತವೆ', 'ಅವು ಏಗಜಾಸ್ಟ್ ಅನಿಲಗಳನ್ನು ಶುದ್ಧಗೊಳಿಸುತ್ತವೆ'], correctAnswer: 'They keep the engine in its torque-power sweet spot' }
-      ]
-      ,
-      [
-        { text: 'When did Toyota introduce the hybrid electric powertrain?', options: ['1987', '1997', '2007', '2017'], correctAnswer: '1997' },
+      ],
       
-        { text: 'What did Toyota prove by introducing the hybrid electric powertrain?', options: ['That electric cars were faster', 'That hybrid systems were viable for passenger vehicles', 'That fuel cells were better', 'That diesel engines were outdated'], correctAnswer: 'That hybrid systems were viable for passenger vehicles' },
-      
-        { text: 'What is the full form of THS?', options: ['Toyota Hybrid Setup', 'Toyota Hybrid System', 'Total Hybrid Solution', 'Twin Hybrid System'], correctAnswer: 'Toyota Hybrid System' },
-      
-        { text: 'The Toyota Hybrid System is based on what type of design?', options: ['Parallel', 'Series', 'Series-parallel', 'Single motor'], correctAnswer: 'Series-parallel' },
-      
-        { text: 'In a Toyota hybrid, the wheels can be driven by:', options: ['Only the gas engine', 'Only the electric motor', 'Both gas engine and electric motor', 'Only the transmission'], correctAnswer: 'Both gas engine and electric motor' },
-      
-        { text: 'How does the Toyota Hybrid System charge its battery?', options: ['By plugging into an outlet', 'By solar panels', 'Via engine power or regenerative braking', 'By alternator only'], correctAnswer: 'Via engine power or regenerative braking' },
-      
-        { text: 'What are the key design priorities of Toyota’s hybrid EV battery?', options: ['Speed and noise', 'Longevity, durability, and reliability', 'Size and color', 'Heat and vibration'], correctAnswer: 'Longevity, durability, and reliability' },
-      
-        { text: 'What is the first thing that happens when a Toyota hybrid start button is pressed?', options: ['The fuel pump starts', 'The ECUs power up', 'The starter motor cranks', 'The inverter turns off'], correctAnswer: 'The ECUs power up' },
-      
-        { text: 'The Electronic Control Units (ECUs) operate using which battery?', options: ['High voltage battery', '12-volt battery', 'Solar battery', 'Nickel-cadmium battery'], correctAnswer: '12-volt battery' },
-      
-        { text: 'What common car functions also run on the 12-volt circuit?', options: ['Lighting, windows, and door locks', 'Steering wheel', 'Transmission gears', 'Fuel injectors'], correctAnswer: 'Lighting, windows, and door locks' },
-      
-        { text: 'What do ECUs check before the hybrid starts running?', options: ['GPS status', 'Battery and temperature parameters', 'Driver seatbelt', 'Tire pressure'], correctAnswer: 'Battery and temperature parameters' },
-      
-        { text: 'Which components do ECUs manage that handle high-voltage power delivery?', options: ['Fuel injectors', 'System main relays', 'Cooling fans', 'Spark plugs'], correctAnswer: 'System main relays' },
-      
-        { text: 'What is the purpose of system main relays?', options: ['Control engine valves', 'Safely send hybrid battery power to components', 'Open air intake', 'Reduce braking pressure'], correctAnswer: 'Safely send hybrid battery power to components' },
-      
-        { text: 'What happens if a fault or collision is detected in a Toyota hybrid?', options: ['Engine keeps running', 'Relays power down to isolate the battery', 'All motors speed up', 'The battery discharges'], correctAnswer: 'Relays power down to isolate the battery' },
-      
-        { text: 'High-voltage cables in Toyota hybrids are color-coded:', options: ['Red', 'Yellow', 'Blue', 'Orange'], correctAnswer: 'Orange' },
-      
-        { text: 'Where does the hybrid battery power go after ECUs are activated?', options: ['Inverter Converter', 'Crankshaft', 'Radiator', 'Fuel tank'], correctAnswer: 'Inverter Converter' },
-      
-        { text: 'What is the function of the Inverter Converter?', options: ['Control oil pressure', 'Control high-voltage flow and charge the 12V battery', 'Convert gasoline to electricity', 'Cool the engine'], correctAnswer: 'Control high-voltage flow and charge the 12V battery' },
-      
-        { text: 'Motor Generators in Toyota hybrids can act as:', options: ['Motors only', 'Generators only', 'Both motors and generators', 'Alternators'], correctAnswer: 'Both motors and generators' },
-      
-        { text: 'Where is Motor/Generator 1 (MG1) located?', options: ['At the rear wheels', 'Behind the engine', 'Under the battery', 'Near the exhaust'], correctAnswer: 'Behind the engine' },
-      
-        { text: 'What does MG1 do when used as a motor?', options: ['Opens valves', 'Starts the engine on demand', 'Drives the wheels', 'Powers the air conditioner'], correctAnswer: 'Starts the engine on demand' },
-      
-        { text: 'Why is the Toyota hybrid engine start silent?', options: ['Because MG1 has no gear drive', 'Because it uses a muffler', 'Because it’s an electric car', 'Because it’s soundproofed'], correctAnswer: 'Because MG1 has no gear drive' },
-      
-        { text: 'Once the engine is running, MG1 acts as a:', options: ['Motor', 'Starter', 'Generator', 'Compressor'], correctAnswer: 'Generator' },
-      
-        { text: 'What device manages power between the engine and MG2?', options: ['Alternator', 'Planetary gear set', 'Timing chain', 'Differential'], correctAnswer: 'Planetary gear set' },
-      
-        { text: 'MG2 provides power to:', options: ['Headlights', 'Rear seats', 'Wheels during acceleration and cruising', 'Fuel pump'], correctAnswer: 'Wheels during acceleration and cruising' },
-      
-        { text: 'What happens when the vehicle brakes or coasts?', options: ['Fuel is saved', 'MG2 regenerates energy to charge the battery', 'Battery is disconnected', 'Engine revs increase'], correctAnswer: 'MG2 regenerates energy to charge the battery' },
-      
-        { text: 'What engine timing system does the Toyota hybrid use for efficiency?', options: ['Otto cycle', 'Atkinson-cycle cam timing', 'Diesel cycle', 'Turbocharged cycle'], correctAnswer: 'Atkinson-cycle cam timing' },
-      
-        { text: 'What is the trade-off of the Atkinson-cycle design?', options: ['Lower emissions', 'Reduced power output', 'Increased vibration', 'Higher noise'], correctAnswer: 'Reduced power output' },
-      
-        { text: 'How does Toyota create an AWD hybrid from a FWD one?', options: ['By adding a driveshaft', 'By adding a third rear motor generator', 'By using stronger tires', 'By changing transmission'], correctAnswer: 'By adding a third rear motor generator' },
-      
-        { text: 'Where is the Motor Generator Rear located?', options: ['Under the hood', 'Between the rear wheels', 'On the crankshaft', 'Next to MG1'], correctAnswer: 'Between the rear wheels' },
-      
-        { text: 'What does the rear motor generator do besides powering the rear wheels?', options: ['Cools the engine', 'Generates power during braking or coasting', 'Charges headlights', 'Controls air pressure'], correctAnswer: 'Generates power during braking or coasting' }
-      ]
+  
+
+[
+    {
+        text: 'When did Toyota introduce the hybrid electric powertrain?',
+        textKn: 'ಟೊಯೊಟಾ ಹೈಬ್ರಿಡ್ ಎಲೆಕ್ಟ್ರಿಕ್ ಪವರ್‌ಟ್ರೇನ್ ಅನ್ನು ಯಾವಾಗ ಪರಿಚಯಿಸಿತು?',
+        options: ['1987', '1997', '2007', '2017'],
+        optionsKn: ['1987', '1997', '2007', '2017'],
+        correctAnswer: '1997'
+    },
+    {
+        text: 'What did Toyota prove by introducing the hybrid electric powertrain?',
+        textKn: 'ಹೈಬ್ರಿಡ್ ಎಲೆಕ್ಟ್ರಿಕ್ ಪವರ್‌ಟ್ರೇನ್ ಅನ್ನು ಪರಿಚಯಿಸುವ ಮೂಲಕ ಟೊಯೊಟಾ ಏನು ಸಾಬೀತುಪಡಿಸಿತು?',
+        options: ['That electric cars were faster', 'That hybrid systems were viable for passenger vehicles', 'That fuel cells were better', 'That diesel engines were outdated'],
+        optionsKn: ['ಎಲೆಕ್ಟ್ರಿಕ್ ಕಾರುಗಳು ವೇಗವಾಗಿದ್ದವು ಎಂದು', 'ಹೈಬ್ರಿಡ್ ವ್ಯವಸ್ಥೆಗಳು ಪ್ರಯಾಣಿಕ ವಾಹನಗಳಿಗೆ ಕಾರ್ಯಸಾಧ್ಯವೆಂದು', 'ಇಂಧನ ಕೋಶಗಳು ಉತ್ತಮವೆಂದು', 'ಡೀಸೆಲ್ ಎಂಜಿನ್‌ಗಳು ಹಳೆಯದಾಗಿವೆ ಎಂದು'],
+        correctAnswer: 'That hybrid systems were viable for passenger vehicles'
+    },
+    {
+        text: 'What is the full form of THS?',
+        textKn: 'THS ನ ಪೂರ್ಣ ರೂಪವೇನು?',
+        options: ['Toyota Hybrid Setup', 'Toyota Hybrid System', 'Total Hybrid Solution', 'Twin Hybrid System'],
+        optionsKn: ['ಟೊಯೊಟಾ ಹೈಬ್ರಿಡ್ ಸೆಟಪ್', 'ಟೊಯೊಟಾ ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್', 'ಟೋಟಲ್ ಹೈಬ್ರಿಡ್ ಸಲ್ಯೂಷನ್', 'ಟ್ವಿನ್ ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್'],
+        correctAnswer: 'Toyota Hybrid System'
+    },
+    {
+        text: 'The Toyota Hybrid System is based on what type of design?',
+        textKn: 'ಟೊಯೊಟಾ ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್ ಯಾವ ರೀತಿಯ ವಿನ್ಯಾಸವನ್ನು ಆಧರಿಸಿದೆ?',
+        options: ['Parallel', 'Series', 'Series-parallel', 'Single motor'],
+        optionsKn: ['ಪ್ಯಾರಲಲ್ (ಸಮಾನಾಂತರ)', 'ಸೀರೀಸ್ (ಸರಣಿ)', 'ಸೀರೀಸ್-ಪ್ಯಾರಲಲ್ (ಸರಣಿ-ಸಮಾನಾಂತರ)', 'ಸಿಂಗಲ್ ಮೋಟಾರ್ (ಏಕ ಮೋಟಾರ್)'],
+        correctAnswer: 'Series-parallel'
+    },
+    {
+        text: 'In a Toyota hybrid, the wheels can be driven by:',
+        textKn: 'ಟೊಯೊಟಾ ಹೈಬ್ರಿಡ್‌ನಲ್ಲಿ, ಚಕ್ರಗಳನ್ನು ಯಾವುದರಿಂದ ಚಾಲನೆ ಮಾಡಬಹುದು:',
+        options: ['Only the gas engine', 'Only the electric motor', 'Both gas engine and electric motor', 'Only the transmission'],
+        optionsKn: ['ಕೇವಲ ಗ್ಯಾಸ್ ಎಂಜಿನ್‌ನಿಂದ', 'ಕೇವಲ ಎಲೆಕ್ಟ್ರಿಕ್ ಮೋಟಾರ್‌ನಿಂದ', 'ಗ್ಯಾಸ್ ಎಂಜಿನ್ ಮತ್ತು ಎಲೆಕ್ಟ್ರಿಕ್ ಮೋಟಾರ್ ಎರಡರಿಂದಲೂ', 'ಕೇವಲ ಟ್ರಾನ್ಸ್‌ಮಿಷನ್‌ನಿಂದ'],
+        correctAnswer: 'Both gas engine and electric motor'
+    },
+    {
+        text: 'How does the Toyota Hybrid System charge its battery?',
+        textKn: 'ಟೊಯೊಟಾ ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್ ತನ್ನ ಬ್ಯಾಟರಿಯನ್ನು ಹೇಗೆ ಚಾರ್ಜ್ ಮಾಡುತ್ತದೆ?',
+        options: ['By plugging into an outlet', 'By solar panels', 'Via engine power or regenerative braking', 'By alternator only'],
+        optionsKn: ['ಔಟ್‌ಲೆಟ್‌ಗೆ ಪ್ಲಗ್ ಮಾಡುವ ಮೂಲಕ', 'ಸೌರ ಫಲಕಗಳ ಮೂಲಕ', 'ಎಂಜಿನ್ ಶಕ್ತಿ ಅಥವಾ ರಿಜೆನೆರೇಟಿವ್ ಬ್ರೇಕಿಂಗ್ ಮೂಲಕ', 'ಕೇವಲ ಆಲ್ಟರ್ನೇಟರ್ ಮೂಲಕ'],
+        correctAnswer: 'Via engine power or regenerative braking'
+    },
+    {
+        text: 'What are the key design priorities of Toyota’s hybrid EV battery?',
+        textKn: 'ಟೊಯೊಟಾದ ಹೈಬ್ರಿಡ್ EV ಬ್ಯಾಟರಿಯ ಪ್ರಮುಖ ವಿನ್ಯಾಸ ಆದ್ಯತೆಗಳು ಯಾವುವು?',
+        options: ['Speed and noise', 'Longevity, durability, and reliability', 'Size and color', 'Heat and vibration'],
+        optionsKn: ['ವೇಗ ಮತ್ತು ಶಬ್ದ', 'ದೀರ್ಘಾಯುಷ್ಯ, ಬಾಳಿಕೆ ಮತ್ತು ವಿಶ್ವಾಸಾರ್ಹತೆ', 'ಗಾತ್ರ ಮತ್ತು ಬಣ್ಣ', 'ಶಾಖ ಮತ್ತು ಕಂಪನ'],
+        correctAnswer: 'Longevity, durability, and reliability'
+    },
+    {
+        text: 'What is the first thing that happens when a Toyota hybrid start button is pressed?',
+        textKn: 'ಟೊಯೊಟಾ ಹೈಬ್ರಿಡ್ ಸ್ಟಾರ್ಟ್ ಬಟನ್ ಒತ್ತಿದಾಗ ಮೊದಲು ಏನಾಗುತ್ತದೆ?',
+        options: ['The fuel pump starts', 'The ECUs power up', 'The starter motor cranks', 'The inverter turns off'],
+        optionsKn: ['ಇಂಧನ ಪಂಪ್ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ', 'ECU ಗಳು ಪವರ್ ಅಪ್ ಆಗುತ್ತವೆ', 'ಸ್ಟಾರ್ಟರ್ ಮೋಟಾರ್ ಕ್ರ್ಯಾಂಕ್ ಆಗುತ್ತದೆ', 'ಇನ್ವರ್ಟರ್ ಆಫ್ ಆಗುತ್ತದೆ'],
+        correctAnswer: 'The ECUs power up'
+    },
+    {
+        text: 'The Electronic Control Units (ECUs) operate using which battery?',
+        textKn: 'ಎಲೆಕ್ಟ್ರಾನಿಕ್ ಕಂಟ್ರೋಲ್ ಯುನಿಟ್‌ಗಳು (ECU ಗಳು) ಯಾವ ಬ್ಯಾಟರಿ ಬಳಸಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತವೆ?',
+        options: ['High voltage battery', '12-volt battery', 'Solar battery', 'Nickel-cadmium battery'],
+        optionsKn: ['ಹೈ ವೋಲ್ಟೇಜ್ ಬ್ಯಾಟರಿ', '12-ವೋಲ್ಟ್ ಬ್ಯಾಟರಿ', 'ಸೋಲಾರ್ ಬ್ಯಾಟರಿ', 'ನಿಕಲ್-ಕ್ಯಾಡ್ಮಿಯಮ್ ಬ್ಯಾಟರಿ'],
+        correctAnswer: '12-volt battery'
+    },
+    {
+        text: 'What common car functions also run on the 12-volt circuit?',
+        textKn: '12-ವೋಲ್ಟ್ ಸರ್ಕ್ಯೂಟ್‌ನಲ್ಲಿ ಬೇರೆ ಯಾವ ಸಾಮಾನ್ಯ ಕಾರ್ ಕಾರ್ಯಗಳು ನಡೆಯುತ್ತವೆ?',
+        options: ['Lighting, windows, and door locks', 'Steering wheel', 'Transmission gears', 'Fuel injectors'],
+        optionsKn: ['ಲೈಟಿಂಗ್, ಕಿಟಕಿಗಳು ಮತ್ತು ಡೋರ್ ಲಾಕ್‌ಗಳು', 'ಸ್ಟೀರಿಂಗ್ ವೀಲ್', 'ಟ್ರಾನ್ಸ್‌ಮಿಷನ್ ಗೇರ್‌ಗಳು', 'ಫ್ಯುಯಲ್ ಇಂಜೆಕ್ಟರ್‌ಗಳು'],
+        correctAnswer: 'Lighting, windows, and door locks'
+    },
+    {
+        text: 'What do ECUs check before the hybrid starts running?',
+        textKn: 'ಹೈಬ್ರಿಡ್ ಚಾಲನೆಯಾಗುವ ಮೊದಲು ECU ಗಳು ಏನನ್ನು ಪರಿಶೀಲಿಸುತ್ತವೆ?',
+        options: ['GPS status', 'Battery and temperature parameters', 'Driver seatbelt', 'Tire pressure'],
+        optionsKn: ['ಜಿಪಿಎಸ್ ಸ್ಥಿತಿ', 'ಬ್ಯಾಟರಿ ಮತ್ತು ತಾಪಮಾನದ ನಿಯತಾಂಕಗಳು', 'ಚಾಲಕನ ಸೀಟ್ಬೆಲ್ಟ್', 'ಟೈರ್ ಒತ್ತಡ'],
+        correctAnswer: 'Battery and temperature parameters'
+    },
+    {
+        text: 'Which components do ECUs manage that handle high-voltage power delivery?',
+        textKn: 'ಹೈ-ವೋಲ್ಟೇಜ್ ವಿದ್ಯುತ್ ವಿತರಣೆಯನ್ನು ನಿರ್ವಹಿಸುವ ಯಾವ ಘಟಕಗಳನ್ನು ECU ಗಳು ನಿರ್ವಹಿಸುತ್ತವೆ?',
+        options: ['Fuel injectors', 'System main relays', 'Cooling fans', 'Spark plugs'],
+        optionsKn: ['ಫ್ಯುಯಲ್ ಇಂಜೆಕ್ಟರ್‌ಗಳು', 'ಸಿಸ್ಟಮ್ ಮೇನ್ ರಿಲೇಗಳು', 'ಕೂಲಿಂಗ್ ಫ್ಯಾನ್‌ಗಳು', 'ಸ್ಪಾರ್ಕ್ ಪ್ಲಗ್‌ಗಳು'],
+        correctAnswer: 'System main relays'
+    },
+    {
+        text: 'What is the purpose of system main relays?',
+        textKn: 'ಸಿಸ್ಟಮ್ ಮೇನ್ ರಿಲೇಗಳ ಉದ್ದೇಶವೇನು?',
+        options: ['Control engine valves', 'Safely send hybrid battery power to components', 'Open air intake', 'Reduce braking pressure'],
+        optionsKn: ['ಎಂಜಿನ್ ವಾಲ್ವ್‌ಗಳನ್ನು ನಿಯಂತ್ರಿಸುವುದು', 'ಹೈಬ್ರಿಡ್ ಬ್ಯಾಟರಿ ಶಕ್ತಿಯನ್ನು ಘಟಕಗಳಿಗೆ ಸುರಕ್ಷಿತವಾಗಿ ಕಳುಹಿಸುವುದು', 'ಏರ್ ಇಂಟೇಕ್ ತೆರೆಯುವುದು', 'ಬ್ರೇಕಿಂಗ್ ಒತ್ತಡವನ್ನು ಕಡಿಮೆ ಮಾಡುವುದು'],
+        correctAnswer: 'Safely send hybrid battery power to components'
+    },
+    {
+        text: 'What happens if a fault or collision is detected in a Toyota hybrid?',
+        textKn: 'ಟೊಯೊಟಾ ಹೈಬ್ರಿಡ್‌ನಲ್ಲಿ ದೋಷ ಅಥವಾ ಘರ್ಷಣೆ ಪತ್ತೆಯಾದರೆ ಏನಾಗುತ್ತದೆ?',
+        options: ['Engine keeps running', 'Relays power down to isolate the battery', 'All motors speed up', 'The battery discharges'],
+        optionsKn: ['ಎಂಜಿನ್ ಚಾಲನೆಯಲ್ಲಿರುತ್ತದೆ', 'ಬ್ಯಾಟರಿಯನ್ನು ಪ್ರತ್ಯೇಕಿಸಲು ರಿಲೇಗಳು ಪವರ್ ಡೌನ್ ಆಗುತ್ತವೆ', 'ಎಲ್ಲಾ ಮೋಟಾರ್‌ಗಳು ವೇಗಗೊಳ್ಳುತ್ತವೆ', 'ಬ್ಯಾಟರಿ ಡಿಸ್ಚಾರ್ಜ್ ಆಗುತ್ತದೆ'],
+        correctAnswer: 'Relays power down to isolate the battery'
+    },
+    {
+        text: 'High-voltage cables in Toyota hybrids are color-coded:',
+        textKn: 'ಟೊಯೊಟಾ ಹೈಬ್ರಿಡ್‌ಗಳಲ್ಲಿನ ಹೈ-ವೋಲ್ಟೇಜ್ ಕೇಬಲ್‌ಗಳು ಯಾವ ಬಣ್ಣದಲ್ಲಿರುತ್ತವೆ:',
+        options: ['Red', 'Yellow', 'Blue', 'Orange'],
+        optionsKn: ['ಕೆಂಪು', 'ಹಳದಿ', 'ನೀಲಿ', 'ಕೇಸರಿ'],
+        correctAnswer: 'Orange'
+    },
+    {
+        text: 'Where does the hybrid battery power go after ECUs are activated?',
+        textKn: 'ECU ಗಳು ಸಕ್ರಿಯಗೊಂಡ ನಂತರ ಹೈಬ್ರಿಡ್ ಬ್ಯಾಟರಿ ಶಕ್ತಿ ಎಲ್ಲಿಗೆ ಹೋಗುತ್ತದೆ?',
+        options: ['Inverter Converter', 'Crankshaft', 'Radiator', 'Fuel tank'],
+        optionsKn: ['ಇನ್ವರ್ಟರ್ ಪರಿವರ್ತಕ (Inverter Converter)', 'ಕ್ರಾಂಕ್ಶಾಫ್ಟ್', 'ರೇಡಿಯೇಟರ್', 'ಇಂಧನ ಟ್ಯಾಂಕ್'],
+        correctAnswer: 'Inverter Converter'
+    },
+    {
+        text: 'What is the function of the Inverter Converter?',
+        textKn: 'ಇನ್ವರ್ಟರ್ ಪರಿವರ್ತಕದ ಕಾರ್ಯವೇನು?',
+        options: ['Control oil pressure', 'Control high-voltage flow and charge the 12V battery', 'Convert gasoline to electricity', 'Cool the engine'],
+        optionsKn: ['ತೈಲ ಒತ್ತಡವನ್ನು ನಿಯಂತ್ರಿಸುವುದು', 'ಹೈ-ವೋಲ್ಟೇಜ್ ಹರಿವನ್ನು ನಿಯಂತ್ರಿಸುವುದು ಮತ್ತು 12V ಬ್ಯಾಟರಿಯನ್ನು ಚಾರ್ಜ್ ಮಾಡುವುದು', 'ಗ್ಯಾಸೋಲಿನ್ ಅನ್ನು ವಿದ್ಯುತ್ ಆಗಿ ಪರಿವರ್ತಿಸುವುದು', 'ಎಂಜಿನ್ ಅನ್ನು ತಂಪಾಗಿಸುವುದು'],
+        correctAnswer: 'Control high-voltage flow and charge the 12V battery'
+    },
+    {
+        text: 'Motor Generators in Toyota hybrids can act as:',
+        textKn: 'ಟೊಯೊಟಾ ಹೈಬ್ರಿಡ್‌ಗಳಲ್ಲಿನ ಮೋಟಾರ್ ಜನರೇಟರ್‌ಗಳು ಹೀಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸಬಹುದು:',
+        options: ['Motors only', 'Generators only', 'Both motors and generators', 'Alternators'],
+        optionsKn: ['ಕೇವಲ ಮೋಟಾರ್‌ಗಳಾಗಿ', 'ಕೇವಲ ಜನರೇಟರ್‌ಗಳಾಗಿ', 'ಮೋಟಾರ್‌ಗಳು ಮತ್ತು ಜನರೇಟರ್‌ಗಳಾಗಿ', 'ಆಲ್ಟರ್ನೇಟರ್‌ಗಳಾಗಿ'],
+        correctAnswer: 'Both motors and generators'
+    },
+    {
+        text: 'Where is Motor/Generator 1 (MG1) located?',
+        textKn: 'ಮೋಟಾರ್/ಜನರೇಟರ್ 1 (MG1) ಎಲ್ಲಿದೆ?',
+        options: ['At the rear wheels', 'Behind the engine', 'Under the battery', 'Near the exhaust'],
+        optionsKn: ['ಹಿಂದಿನ ಚಕ್ರಗಳಲ್ಲಿ', 'ಎಂಜಿನ್ ಹಿಂದೆ', 'ಬ್ಯಾಟರಿ ಅಡಿಯಲ್ಲಿ', 'ಎಕ್ಸಾಸ್ಟ್ ಬಳಿ'],
+        correctAnswer: 'Behind the engine'
+    },
+    {
+        text: 'What does MG1 do when used as a motor?',
+        textKn: 'MG1 ಅನ್ನು ಮೋಟಾರ್ ಆಗಿ ಬಳಸಿದಾಗ ಅದು ಏನು ಮಾಡುತ್ತದೆ?',
+        options: ['Opens valves', 'Starts the engine on demand', 'Drives the wheels', 'Powers the air conditioner'],
+        optionsKn: ['ವಾಲ್ವ್‌ಗಳನ್ನು ತೆರೆಯುತ್ತದೆ', 'ಅಗತ್ಯವಿದ್ದಾಗ ಎಂಜಿನ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸುತ್ತದೆ', 'ಚಕ್ರಗಳನ್ನು ಚಾಲನೆ ಮಾಡುತ್ತದೆ', 'ಏರ್ ಕಂಡಿಷನರ್‌ಗೆ ಶಕ್ತಿ ನೀಡುತ್ತದೆ'],
+        correctAnswer: 'Starts the engine on demand'
+    },
+    {
+        text: 'Why is the Toyota hybrid engine start silent?',
+        textKn: 'ಟೊಯೊಟಾ ಹೈಬ್ರಿಡ್ ಎಂಜಿನ್ ಪ್ರಾರಂಭವು ಏಕೆ ನಿಶ್ಯಬ್ದವಾಗಿರುತ್ತದೆ?',
+        options: ['Because MG1 has no gear drive', 'Because it uses a muffler', 'Because it’s an electric car', 'Because it’s soundproofed'],
+        optionsKn: ['ಏಕೆಂದರೆ MG1 ಗೆ ಗೇರ್ ಡ್ರೈವ್ ಇಲ್ಲ', 'ಏಕೆಂದರೆ ಅದು ಮಫ್ಲರ್ ಬಳಸುತ್ತದೆ', 'ಏಕೆಂದರೆ ಅದು ಎಲೆಕ್ಟ್ರಿಕ್ ಕಾರ್', 'ಏಕೆಂದರೆ ಅದು ಸೌಂಡ್‌ಪ್ರೂಫ್ ಆಗಿದೆ'],
+        correctAnswer: 'Because MG1 has no gear drive'
+    },
+    {
+        text: 'Once the engine is running, MG1 acts as a:',
+        textKn: 'ಎಂಜಿನ್ ಚಾಲನೆಯಾದ ನಂತರ, MG1 ಹೀಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ:',
+        options: ['Motor', 'Starter', 'Generator', 'Compressor'],
+        optionsKn: ['ಮೋಟಾರ್', 'ಸ್ಟಾರ್ಟರ್', 'ಜನರೇಟರ್', 'ಕಂಪ್ರೆಸರ್'],
+        correctAnswer: 'Generator'
+    },
+    {
+        text: 'What device manages power between the engine and MG2?',
+        textKn: 'ಎಂಜಿನ್ ಮತ್ತು MG2 ನಡುವೆ ಶಕ್ತಿಯನ್ನು ಯಾವ ಸಾಧನ ನಿರ್ವಹಿಸುತ್ತದೆ?',
+        options: ['Alternator', 'Planetary gear set', 'Timing chain', 'Differential'],
+        optionsKn: ['ಆಲ್ಟರ್ನೇಟರ್', 'ಪ್ಲಾನೆಟರಿ ಗೇರ್ ಸೆಟ್', 'ಟೈಮಿಂಗ್ ಚೈನ್', 'ಡಿಫರೆನ್ಷಿಯಲ್'],
+        correctAnswer: 'Planetary gear set'
+    },
+    {
+        text: 'MG2 provides power to:',
+        textKn: 'MG2 ಯಾವುದಕ್ಕೆ ಶಕ್ತಿ ನೀಡುತ್ತದೆ:',
+        options: ['Headlights', 'Rear seats', 'Wheels during acceleration and cruising', 'Fuel pump'],
+        optionsKn: ['ಹೆಡ್‌ಲೈಟ್‌ಗಳು', 'ಹಿಂದಿನ ಸೀಟುಗಳು', 'ವೇಗವರ್ಧನೆ ಮತ್ತು ಕ್ರೂಸಿಂಗ್ ಸಮಯದಲ್ಲಿ ಚಕ್ರಗಳಿಗೆ', 'ಇಂಧನ ಪಂಪ್'],
+        correctAnswer: 'Wheels during acceleration and cruising'
+    },
+    {
+        text: 'What happens when the vehicle brakes or coasts?',
+        textKn: 'ವಾಹನ ಬ್ರೇಕ್ ಹಾಕಿದಾಗ ಅಥವಾ ಕೋಸ್ಟ್ (ಜಾರು) ಮಾಡಿದಾಗ ಏನಾಗುತ್ತದೆ?',
+        options: ['Fuel is saved', 'MG2 regenerates energy to charge the battery', 'Battery is disconnected', 'Engine revs increase'],
+        optionsKn: ['ಇಂಧನ ಉಳಿತಾಯವಾಗುತ್ತದೆ', 'MG2 ಬ್ಯಾಟರಿ ಚಾರ್ಜ್ ಮಾಡಲು ಶಕ್ತಿಯನ್ನು ಪುನರುತ್ಪಾದಿಸುತ್ತದೆ', 'ಬ್ಯಾಟರಿ ಸಂಪರ್ಕ ಕಡಿತಗೊಳ್ಳುತ್ತದೆ', 'ಎಂಜಿನ್ ರೆವ್ಸ್ ಹೆಚ್ಚಾಗುತ್ತದೆ'],
+        correctAnswer: 'MG2 regenerates energy to charge the battery'
+    },
+    {
+        text: 'What engine timing system does the Toyota hybrid use for efficiency?',
+        textKn: 'ದಕ್ಷತೆಗಾಗಿ ಟೊಯೊಟಾ ಹೈಬ್ರಿಡ್ ಯಾವ ಎಂಜಿನ್ ಟೈಮಿಂಗ್ ವ್ಯವಸ್ಥೆಯನ್ನು ಬಳಸುತ್ತದೆ?',
+        options: ['Otto cycle', 'Atkinson-cycle cam timing', 'Diesel cycle', 'Turbocharged cycle'],
+        optionsKn: ['ಒಟ್ಟೊ ಸೈಕಲ್', 'ಅಟ್ಕಿನ್ಸನ್-ಸೈಕಲ್ ಕ್ಯಾಮ್ ಟೈಮಿಂಗ್', 'ಡೀಸೆಲ್ ಸೈಕಲ್', 'ಟರ್ಬೋಚಾರ್ಜ್ಡ್ ಸೈಕಲ್'],
+        correctAnswer: 'Atkinson-cycle cam timing'
+    },
+    {
+        text: 'What is the trade-off of the Atkinson-cycle design?',
+        textKn: 'ಅಟ್ಕಿನ್ಸನ್-ಸೈಕಲ್ ವಿನ್ಯಾಸದ ಟ್ರೇಡ್-ಆಫ್ (ಕೊಟ್ಟು-ಪಡೆಯುವುದು) ಏನು?',
+        options: ['Lower emissions', 'Reduced power output', 'Increased vibration', 'Higher noise'],
+        optionsKn: ['ಕಡಿಮೆ ಹೊರಸೂಸುವಿಕೆ', 'ಕಡಿಮೆಯಾದ ವಿದ್ಯುತ್ ಉತ್ಪಾದನೆ', 'ಹೆಚ್ಚಿದ ಕಂಪನ', 'ಹೆಚ್ಚಿನ ಶಬ್ದ'],
+        correctAnswer: 'Reduced power output'
+    },
+    {
+        text: 'How does Toyota create an AWD hybrid from a FWD one?',
+        textKn: 'ಟೊಯೊಟಾ FWD (ಫ್ರಂಟ್ ವೀಲ್ ಡ್ರೈವ್) ನಿಂದ AWD (ಆಲ್ ವೀಲ್ ಡ್ರೈವ್) ಹೈಬ್ರಿಡ್ ಅನ್ನು ಹೇಗೆ ರಚಿಸುತ್ತದೆ?',
+        options: ['By adding a driveshaft', 'By adding a third rear motor generator', 'By using stronger tires', 'By changing transmission'],
+        optionsKn: ['ಡ್ರೈವ್‌ಶಾಫ್ಟ್ ಸೇರಿಸುವ ಮೂಲಕ', 'ಮೂರನೇ ಹಿಂಭಾಗದ ಮೋಟಾರ್ ಜನರೇಟರ್ ಸೇರಿಸುವ ಮೂಲಕ', 'ಬಲವಾದ ಟೈರ್‌ಗಳನ್ನು ಬಳಸುವ ಮೂಲಕ', 'ಟ್ರಾನ್ಸ್‌ಮಿಷನ್ ಬದಲಾಯಿಸುವ ಮೂಲಕ'],
+        correctAnswer: 'By adding a third rear motor generator'
+    },
+    {
+        text: 'Where is the Motor Generator Rear located?',
+        textKn: 'ಮೋಟಾರ್ ಜನರೇಟರ್ ರೇರ್ (ಹಿಂಭಾಗ) ಎಲ್ಲಿದೆ?',
+        options: ['Under the hood', 'Between the rear wheels', 'On the crankshaft', 'Next to MG1'],
+        optionsKn: ['ಹುಡ್ ಅಡಿಯಲ್ಲಿ', 'ಹಿಂದಿನ ಚಕ್ರಗಳ ನಡುವೆ', 'ಕ್ರಾಂಕ್ಶಾಫ್ಟ್ ಮೇಲೆ', 'MG1 ಪಕ್ಕದಲ್ಲಿ'],
+        correctAnswer: 'Between the rear wheels'
+    },
+    {
+        text: 'What does the rear motor generator do besides powering the rear wheels?',
+        textKn: 'ಹಿಂಭಾಗದ ಮೋಟಾರ್ ಜನರೇಟರ್, ಹಿಂದಿನ ಚಕ್ರಗಳಿಗೆ ಶಕ್ತಿ ನೀಡುವುದರ ಜೊತೆಗೆ ಬೇರೆ ಏನು ಮಾಡುತ್ತದೆ?',
+        options: ['Cools the engine', 'Generates power during braking or coasting', 'Charges headlights', 'Controls air pressure'],
+        optionsKn: ['ಎಂಜಿನ್ ಅನ್ನು ತಂಪಾಗಿಸುತ್ತದೆ', 'ಬ್ರೇಕಿಂಗ್ ಅಥವಾ ಕೋಸ್ಟಿಂಗ್ ಸಮಯದಲ್ಲಿ ಶಕ್ತಿಯನ್ನು ಉತ್ಪಾದಿಸುತ್ತದೆ', 'ಹೆಡ್‌ಲೈಟ್‌ಗಳನ್ನು ಚಾರ್ಜ್ ಮಾಡುತ್ತದೆ', 'ಗಾಳಿಯ ಒತ್ತಡವನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ'],
+        correctAnswer: 'Generates power during braking or coasting'
+    }
+],
+
       
       // Add Kannada placeholder fields for each question in this block
-      .map(q => ( (q as any).textKn = (q as any).text, (q as any).optionsKn = Array.isArray((q as any).options) ? [...(q as any).options] : undefined, q ))
-      ,
-      [
-        { text: 'What is the main purpose of Toyota’s Dynamic Force engines?', options: ['Increase vehicle weight', 'Improve performance, fuel economy, and durability', 'Replace hybrid systems', 'Simplify maintenance'], correctAnswer: 'Improve performance, fuel economy, and durability' },
+      // .map(q => ( (q as any).textKn = (q as any).text, (q as any).optionsKn = Array.isArray((q as any).options) ? [...(q as any).options] : undefined, q ))
+      // ,
+  
+[
+    {
+        text: 'What component is primarily responsible for how an engine breathes?',
+        textKn: 'ಎಂಜಿನ್ ಹೇಗೆ ಉಸಿರಾಡುತ್ತದೆ ಎಂಬುದಕ್ಕೆ ಮುಖ್ಯವಾದ ಜವಾಬ್ದಾರಿ ಯಾವ ಘಟಕಕ್ಕೆ ಇದೆ?',
+        options: ['Exhaust manifold', 'Valvetrain', 'Piston rings', 'Crankshaft'],
+        optionsKn: ['ಎಗ್ಜಾಸ್ಟ್ ಮ್ಯಾನಿಫೋಲ್ಡ್', 'ವೆಲ್ವ್‌ಟ್ರೆೈನ್', 'ಪಿಸ್ಟನ್ ರಿಂಗ್ಸ್', 'ಕ್ರಾಂಕ್ಶಾಫ್ಟ್'],
+        correctAnswer: 'Valvetrain'
+    },
+    {
+        text: 'What is the main function of the valvetrain?',
+        textKn: 'ವೆಲ್ವ್‌ಟ್ರೆೈನ್‌ನ ಮುಖ್ಯ ಕಾರ್ಯವೇನು?',
+        options: ['Control ignition timing', 'Regulate intake and exhaust valve movement', 'Lubricate engine parts', 'Control engine cooling'],
+        optionsKn: ['ಇಗ್ನಿಷನ್ ಟೈಮಿಂಗ್ ನಿಯಂತ್ರಿಸು', 'ಇಂಟೇಕ್ ಮತ್ತು ಏಗ್ಝಾಸ್ಟ್ ವೆಲ್ವ್ ಚಲನವಲನ ನಿಯಂತ್ರಣ', 'ಎಂಜಿನ್ ಭಾಗಗಳನ್ನು ಲೂಬ್ರಿಕೇಟ್ ಮಾಡುವುದು', 'ಎಂಜಿನ್ ತಂಪುಗೊಳಿಸುವುದನ್ನು ನಿಯಂತ್ರಿಸು'],
+        correctAnswer: 'Regulate intake and exhaust valve movement'
+    },
+    {
+        text: 'Which component opens and closes the engine valves?',
+        textKn: 'ಯಾವ ಘಟಕ ಎಂಜಿನ್ ವೆಲ್ವ್‌ಗಳನ್ನು ತೆರೆಯುತ್ತೆ ಮತ್ತು ಮುಚ್ಚುತ್ತೆ?',
+        options: ['Crankshaft', 'Camshaft', 'Timing belt', 'Throttle body'],
+        optionsKn: ['ಕ್ರಾಂಕ್ಶಾಫ್ಟ್', 'ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್', 'ಟೈಮಿಂಗ್ ಬೆಲ್ಟ್', 'ಥ್ರಾಟಲ್ ಬಾಡಿ'],
+        correctAnswer: 'Camshaft'
+    },
+    {
+        text: 'What connects the camshaft to the crankshaft to maintain timing?',
+        textKn: 'ಸಮಯವನ್ನು ನಿರ್ವಹಿಸಲು ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್ ಅನ್ನು ಕ್ರಾಂಕ್ಶಾಫ್ಟ್‌ಗೆ ಏನು ಸಂಪರ್ಕಿಸುತ್ತದೆ?',
+        options: ['Gear system', 'Timing belt or chain', 'Flywheel', 'Rocker arm'],
+        optionsKn: ['ಗೇರ್ ಸಿಸ್ಟಮ್', 'ಟೈಮಿಂಗ್ ಬೆಲ್ಟ್ ಅಥವಾ ಚೈನ್', 'ಫ್ಲೈವೀಲ್', 'ರಾಕರ್ ಆರ್ಮ್'],
+        correctAnswer: 'Timing belt or chain'
+    },
+    {
+        text: 'How many valves per cylinder are commonly used in modern engines?',
+        textKn: 'ಆಧುನಿಕ ಎಂಜಿನ್‌ಗಳಲ್ಲಿ ಪ್ರತಿ ಸಿಲಿಂಡರ್‌ಗೆ ಸಾಮಾನ್ಯವಾಗಿ ಎಷ್ಟು ವಾಲ್ವ್‌ಗಳನ್ನು ಬಳಸಲಾಗುತ್ತದೆ?',
+        options: ['Two', 'Three', 'Four', 'Six'],
+        optionsKn: ['ಎರಡು', 'ಮೂರು', 'ನಾಲ್ಕು', 'ಆರು'],
+        correctAnswer: 'Four'
+    },
+    {
+        text: 'A “sixteen-valve” label on a four-cylinder engine means:',
+        textKn: 'ನಾಲ್ಕು-ಸಿಲಿಂಡರ್ ಎಂಜಿನ್‌ನಲ್ಲಿ "ಹದಿನಾರು-ವಾಲ್ವ್" ಲೇಬಲ್‌ನ ಅರ್ಥ:',
+        options: ['Each cylinder has two valves', 'Each cylinder has four valves', 'It uses one camshaft', 'It has 8 intake valves only'],
+        optionsKn: ['ಪ್ರತಿ ಸಿಲಿಂಡರ್ ಎರಡು ವಾಲ್ವ್‌ಗಳನ್ನು ಹೊಂದಿದೆ', 'ಪ್ರತಿ ಸಿಲಿಂಡರ್ ನಾಲ್ಕು ವಾಲ್ವ್‌ಗಳನ್ನು ಹೊಂದಿದೆ', 'ಇದು ಒಂದು ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್ ಅನ್ನು ಬಳಸುತ್ತದೆ', 'ಇದು 8 ಇಂಟೇಕ್ ವಾಲ್ವ್‌ಗಳನ್ನು ಮಾತ್ರ ಹೊಂದಿದೆ'],
+        correctAnswer: 'Each cylinder has four valves'
+    },
+    {
+        text: 'What does “DOHC” stand for?',
+        textKn: '"DOHC" ಯ ಪೂರ್ಣ ರೂಪವೇನು?',
+        options: ['Dual Overhead Cam', 'Double Oil Hydraulic Control', 'Dynamic Overhead Chamber', 'Dual Operation Cam'],
+        optionsKn: ['ಡ್ಯುಯಲ್ ಓವರ್‌ಹೆಡ್ ಕ್ಯಾಮ್', 'ಡಬಲ್ ಆಯಿಲ್ ಹೈಡ್ರಾಲಿಕ್ ಕಂಟ್ರೋಲ್', 'ಡೈನಾಮಿಕ್ ಓವರ್‌ಹೆಡ್ ಚೇಂಬರ್', 'ಡ್ಯುಯಲ್ ಆಪರೇಷನ್ ಕ್ಯಾಮ್'],
+        correctAnswer: 'Dual Overhead Cam'
+    },
+    {
+        text: 'How many camshafts are used in a DOHC engine?',
+        textKn: 'DOHC ಎಂಜಿನ್‌ನಲ್ಲಿ ಎಷ್ಟು ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್‌ಗಳನ್ನು ಬಳಸಲಾಗುತ್ತದೆ?',
+        options: ['One', 'Two', 'Three', 'Four'],
+        optionsKn: ['ಒಂದು', 'ಎರಡು', 'ಮೂರು', 'ನಾಲ್ಕು'],
+        correctAnswer: 'Two'
+    },
+    {
+        text: 'Where are the camshafts positioned in an overhead cam design?',
+        textKn: 'ಓವರ್‌ಹೆಡ್ ಕ್ಯಾಮ್ ವಿನ್ಯಾಸದಲ್ಲಿ ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್‌ಗಳು ಎಲ್ಲಿವೆ?',
+        options: ['Below the valves', 'Above the valves', 'Next to the crankshaft', 'Inside the intake manifold'],
+        optionsKn: ['ವಾಲ್ವ್‌ಗಳ ಕೆಳಗೆ', 'ವಾಲ್ವ್‌ಗಳ ಮೇಲೆ', 'ಕ್ರಾಂಕ್ಶಾಫ್ಟ್ ಪಕ್ಕದಲ್ಲಿ', 'ಇಂಟೇಕ್ ಮ್ಯಾನಿಫೋಲ್ಡ್ ಒಳಗೆ'],
+        correctAnswer: 'Above the valves'
+    },
+    {
+        text: 'In some engines, camshafts are located in the block and use what components to actuate valves?',
+        textKn: 'ಕೆಲವು ಎಂಜಿನ್‌ಗಳಲ್ಲಿ, ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್‌ಗಳು ಬ್ಲಾಕ್‌ನಲ್ಲಿವೆ ಮತ್ತು ವಾಲ್ವ್‌ಗಳನ್ನು ಚಲಾಯಿಸಲು ಯಾವ ಘಟಕಗಳನ್ನು ಬಳಸುತ್ತವೆ?',
+        options: ['Pushrods and rocker arms', 'Hydraulic pumps', 'Timing gears', 'Turbo valves'],
+        optionsKn: ['ಪುಶ್ರಾಡ್‌ಗಳು ಮತ್ತು ರಾಕರ್ ಆರ್ಮ್‌ಗಳು', 'ಹೈಡ್ರಾಲಿಕ್ ಪಂಪ್‌ಗಳು', 'ಟೈಮಿಂಗ್ ಗೇರ್‌ಗಳು', 'ಟರ್ಬೊ ವಾಲ್ವ್‌ಗಳು'],
+        correctAnswer: 'Pushrods and rocker arms'
+    },
+    {
+        text: 'Why do camshafts have lopsided lobes?',
+        textKn: 'ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್‌ಗಳು ಏಕೆ ಅಸಮವಾದ ಲೋಬ್‌ಗಳನ್ನು (lobes) ಹೊಂದಿವೆ?',
+        options: ['To balance weight', 'To open and close valves at precise times', 'To reduce vibration', 'To store oil'],
+        optionsKn: ['ತೂಕವನ್ನು ಸಮತೋಲನಗೊಳಿಸಲು', 'ನಿಖರವಾದ ಸಮಯದಲ್ಲಿ ವಾಲ್ವ್‌ಗಳನ್ನು ತೆರೆಯಲು ಮತ್ತು ಮುಚ್ಚಲು', 'ಕಂಪನವನ್ನು ಕಡಿಮೆ ಮಾಡಲು', 'ಎಣ್ಣೆಯನ್ನು ಸಂಗ್ರಹಿಸಲು'],
+        correctAnswer: 'To open and close valves at precise times'
+    },
+    {
+        text: 'What ensures that valve movement stays synchronized with engine rotation?',
+        textKn: 'ವಾಲ್ವ್ ಚಲನೆಯು ಎಂಜಿನ್ ತಿರುಗುವಿಕೆಯೊಂದಿಗೆ ಸಿಂಕ್ರೊನೈಸ್ ಆಗಿರುವುದನ್ನು ಯಾವುದು ಖಚಿತಪಡಿಸುತ್ತದೆ?',
+        options: ['Alternator', 'Crankshaft connection', 'Exhaust system', 'Cooling fan'],
+        optionsKn: ['ಆಲ್ಟರ್ನೇಟರ್', 'ಕ್ರಾಂಕ್ಶಾಫ್ಟ್ ಸಂಪರ್ಕ', 'ಎಕ್ಸಾಸ್ಟ್ ಸಿಸ್ಟಮ್', 'ಕೂಲಿಂಗ್ ಫ್ಯಾನ್'],
+        correctAnswer: 'Crankshaft connection'
+    },
+    {
+        text: 'Valve timing affects what aspects of engine performance?',
+        textKn: 'ವಾಲ್ವ್ ಟೈಮಿಂಗ್ ಎಂಜಿನ್ ಕಾರ್ಯಕ್ಷಮತೆಯ ಯಾವ ಅಂಶಗಳ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುತ್ತದೆ?',
+        options: ['Steering response', 'Smoothness, efficiency, and power', 'Brake balance', 'Suspension feel'],
+        optionsKn: ['ಸ್ಟೀರಿಂಗ್ ಪ್ರತಿಕ್ರಿಯೆ', 'ಸುಗಮತೆ, ದಕ್ಷತೆ, ಮತ್ತು ಶಕ್ತಿ', 'ಬ್ರೇಕ್ ಸಮತೋಲನ', 'ಸಸ್ಪೆನ್ಷನ್ ಅನುಭವ'],
+        correctAnswer: 'Smoothness, efficiency, and power'
+    },
+    {
+        text: 'Why can valve timing not remain constant at all RPMs?',
+        textKn: 'ಎಲ್ಲಾ RPM ಗಳಲ್ಲಿ ವಾಲ್ವ್ ಟೈಮಿಂಗ್ ಏಕೆ ಸ್ಥಿರವಾಗಿರಲು ಸಾಧ್ಯವಿಲ್ಲ?',
+        options: ['Fuel type changes', 'Ideal timing varies with engine speed', 'Temperature affects timing', 'Lubrication issues'],
+        optionsKn: ['ಇಂಧನ ಪ್ರಕಾರ ಬದಲಾಗುತ್ತದೆ', 'ಎಂಜಿನ್ ವೇಗದೊಂದಿಗೆ ಆದರ್ಶ ಸಮಯ ಬದಲಾಗುತ್ತದೆ', 'ತಾಪಮಾನವು ಸಮಯದ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುತ್ತದೆ', 'ಲೂಬ್ರಿಕೇಶನ್ ಸಮಸ್ಯೆಗಳು'],
+        correctAnswer: 'Ideal timing varies with engine speed'
+    },
+    {
+        text: 'What does VVT-i stand for?',
+        textKn: 'VVT-i ಯ ಪೂರ್ಣ ರೂಪವೇನು?',
+        options: ['Variable Valve Timing with Intelligence', 'Variable Velocity Transmission Interface', 'Valve Volume Tuning Indicator', 'Variable Valve Throttle Injection'],
+        optionsKn: ['ವೇರಿಯಬಲ್ ವಾಲ್ವ್ ಟೈಮಿಂಗ್ ವಿತ್ ಇಂಟೆಲಿಜೆನ್ಸ್', 'ವೇರಿಯಬಲ್ ವೆಲಾಸಿಟಿ ಟ್ರಾನ್ಸ್ಮಿಷನ್ ಇಂಟರ್ಫೇಸ್', 'ವಾಲ್ವ್ ವಾಲ್ಯೂಮ್ ಟ್ಯೂನಿಂಗ್ ಇಂಡಿಕೇಟರ್', 'ವೇರಿಯಬಲ್ ವಾಲ್ವ್ ಥ್ರಾಟಲ್ ಇಂಜೆಕ್ಷನ್'],
+        correctAnswer: 'Variable Valve Timing with Intelligence'
+    },
+    {
+        text: 'What is the purpose of VVT-i?',
+        textKn: 'VVT-i ಯ ಉದ್ದೇಶವೇನು?',
+        options: ['To adjust valve timing for optimal performance and efficiency', 'To control air conditioning timing', 'To vary fuel pressure', 'To monitor battery power'],
+        optionsKn: ['ಸೂಕ್ತ ಕಾರ್ಯಕ್ಷಮತೆ ಮತ್ತು ದಕ್ಷತೆಗಾಗಿ ವಾಲ್ವ್ ಟೈಮಿಂಗ್ ಅನ್ನು ಸರಿಹೊಂದಿಸಲು', 'ಏರ್ ಕಂಡೀಷನಿಂಗ್ ಟೈಮಿಂಗ್ ಅನ್ನು ನಿಯಂತ್ರಿಸಲು', 'ಇಂಧನ ಒತ್ತಡವನ್ನು ಬದಲಾಯಿಸಲು', 'ಬ್ಯಾಟರಿ ಶಕ್ತಿಯನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಲು'],
+        correctAnswer: 'To adjust valve timing for optimal performance and efficiency'
+    },
+    {
+        text: 'Which component in VVT-i adjusts camshaft rotation?',
+        textKn: 'VVT-i ನಲ್ಲಿ ಯಾವ ಘಟಕವು ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್ ತಿರುಗುವಿಕೆಯನ್ನು ಸರಿಹೊಂದಿಸುತ್ತದೆ?',
+        options: ['Cam gear with internal shifting mechanism', 'Timing belt tensioner', 'Fuel injector', 'Throttle valve'],
+        optionsKn: ['ಆಂತರಿಕ ಶಿಫ್ಟಿಂಗ್ ಯಾಂತ್ರಿಕತೆಯೊಂದಿಗೆ ಕ್ಯಾಮ್ ಗೇರ್', 'ಟೈಮಿಂಗ್ ಬೆಲ್ಟ್ ಟೆನ್ಷನರ್', 'ಫ್ಯುಯಲ್ ಇಂಜೆಕ್ಟರ್', 'ಥ್ರಾಟಲ್ ವಾಲ್ವ್'],
+        correctAnswer: 'Cam gear with internal shifting mechanism'
+    },
+    {
+        text: 'What does advancing camshaft rotation do?',
+        textKn: 'ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್ ತಿರುಗುವಿಕೆಯನ್ನು ಮುಂದಕ್ಕೆ ಚಲಿಸುವುದರಿಂದ (advancing) ಏನಾಗುತ್ತದೆ?',
+        options: ['Delays valve opening', 'Opens valves earlier', 'Closes valves permanently', 'Reduces air intake'],
+        optionsKn: ['ವಾಲ್ವ್ ತೆರೆಯುವುದನ್ನು ವಿಳಂಬಗೊಳಿಸುತ್ತದೆ', 'ವಾಲ್ವ್‌ಗಳನ್ನು ಬೇಗನೆ ತೆರೆಯುತ್ತದೆ', 'ವಾಲ್ವ್‌ಗಳನ್ನು ಶಾಶ್ವತವಾಗಿ ಮುಚ್ಚುತ್ತದೆ', 'ಗಾಳಿಯ ಸೇವನೆಯನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ'],
+        correctAnswer: 'Opens valves earlier'
+    },
+    {
+        text: 'What does delaying camshaft rotation do?',
+        textKn: 'ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್ ತಿರುಗುವಿಕೆಯನ್ನು ವಿಳಂಬಗೊಳಿಸುವುದರಿಂದ (delaying) ಏನಾಗುತ್ತದೆ?',
+        options: ['Opens valves earlier', 'Closes valves later', 'Delays valve opening', 'Reduces compression ratio'],
+        optionsKn: ['ವಾಲ್ವ್‌ಗಳನ್ನು ಬೇಗನೆ ತೆರೆಯುತ್ತದೆ', 'ವಾಲ್ವ್‌ಗಳನ್ನು ತಡವಾಗಿ ಮುಚ್ಚುತ್ತದೆ', 'ವಾಲ್ವ್ ತೆರೆಯುವುದನ್ನು ವಿಳಂಬಗೊಳಿಸುತ್ತದೆ', 'ಸಂಕೋಚನ ಅನುಪಾತವನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ'],
+        correctAnswer: 'Delays valve opening'
+    },
+    {
+        text: 'How does VVT-i benefit performance?',
+        textKn: 'VVT-i ಕಾರ್ಯಕ್ಷಮತೆಗೆ ಹೇಗೆ ಪ್ರಯೋಜನ ನೀಡುತ್ತದೆ?',
+        options: ['Increases engine weight', 'Optimizes valve timing across RPM ranges', 'Reduces spark plug firing', 'Improves braking distance'],
+        optionsKn: ['ಎಂಜಿನ್ ತೂಕವನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ', 'RPM ಶ್ರೇಣಿಗಳಾದ್ಯಂತ ವಾಲ್ವ್ ಟೈಮಿಂಗ್ ಅನ್ನು ಅತ್ಯುತ್ತಮವಾಗಿಸುತ್ತದೆ', 'ಸ್ಪಾರ್ಕ್ ಪ್ಲಗ್ ಫೈರಿಂಗ್ ಅನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ', 'ಬ್ರೇಕಿಂಗ್ ದೂರವನ್ನು ಸುಧಾರಿಸುತ್ತದೆ'],
+        correctAnswer: 'Optimizes valve timing across RPM ranges'
+    },
+    {
+        text: 'The Atkinson cycle engine design primarily aims to maximize what?',
+        textKn: 'ಅಟ್ಕಿನ್ಸನ್ ಸೈಕಲ್ ಎಂಜಿನ್ ವಿನ್ಯಾಸವು ಪ್ರಾಥಮಿಕವಾಗಿ ಏನನ್ನು ಹೆಚ್ಚಿಸುವ ಗುರಿಯನ್ನು ಹೊಂದಿದೆ?',
+        options: ['Power output', 'Fuel efficiency', 'Turbo pressure', 'Noise levels'],
+        optionsKn: ['ಶಕ್ತಿ ಉತ್ಪಾದನೆ', 'ಇಂಧನ ದಕ್ಷತೆ', 'ಟರ್ಬೊ ಒತ್ತಡ', 'ಶಬ್ದ ಮಟ್ಟಗಳು'],
+        correctAnswer: 'Fuel efficiency'
+    },
+    {
+        text: 'In an Atkinson cycle engine, the intake valves remain open into which stroke?',
+        textKn: 'ಅಟ್ಕಿನ್ಸನ್ ಸೈಕಲ್ ಎಂಜಿನ್‌ನಲ್ಲಿ, ಇಂಟೇಕ್ ವಾಲ್ವ್‌ಗಳು ಯಾವ ಸ್ಟ್ರೋಕ್‌ವರೆಗೆ ತೆರೆದಿರುತ್ತವೆ?',
+        options: ['Power stroke', 'Compression stroke', 'Exhaust stroke', 'Intake stroke'],
+        optionsKn: ['ಪವರ್ ಸ್ಟ್ರೋಕ್', 'ಕಂಪ್ರೆಷನ್ ಸ್ಟ್ರೋಕ್', 'ಎಕ್ಸಾಸ್ಟ್ ಸ್ಟ್ರೋಕ್', 'ಇಂಟೇಕ್ ಸ್ಟ್ರೋಕ್'],
+        correctAnswer: 'Compression stroke'
+    },
+    {
+        text: 'What is the result of keeping intake valves open into the compression stroke?',
+        textKn: 'ಕಂಪ್ರೆಷನ್ ಸ್ಟ್ರೋಕ್‌ವರೆಗೆ ಇಂಟೇಕ್ ವಾಲ್ವ್‌ಗಳನ್ನು ತೆರೆದಿಡುವುದರ ಫಲಿತಾಂಶವೇನು?',
+        options: ['Higher compression ratio', 'Shorter effective compression stroke', 'More torque', 'Increased exhaust backflow'],
+        optionsKn: ['ಹೆಚ್ಚಿನ ಸಂಕೋಚನ ಅನುಪಾತ', 'ಕಡಿಮೆ ಪರಿಣಾಮಕಾರಿ ಸಂಕೋಚನ ಸ್ಟ್ರೋಕ್', 'ಹೆಚ್ಚು ಟಾರ್ಕ್', 'ಹೆಚ್ಚಿದ ಎಕ್ಸಾಸ್ಟ್ ಬ್ಯಾಕ್‌ಫ್ಲೋ'],
+        correctAnswer: 'Shorter effective compression stroke'
+    },
+    {
+        text: 'Why does the Atkinson cycle reduce energy consumption?',
+        textKn: 'ಅಟ್ಕಿನ್ಸನ್ ಸೈಕಲ್ ಏಕೆ ಶಕ್ತಿಯ ಬಳಕೆಯನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ?',
+        options: ['Uses fewer valves', 'Reduces energy needed to compress air-fuel mixture', 'Runs at lower RPMs only', 'Uses smaller pistons'],
+        optionsKn: ['ಕಡಿಮೆ ವಾಲ್ವ್‌ಗಳನ್ನು ಬಳಸುತ್ತದೆ', 'ಗಾಳಿ-ಇಂಧನ ಮಿಶ್ರಣವನ್ನು ಸಂಕುಚಿತಗೊಳಿಸಲು ಬೇಕಾದ ಶಕ್ತಿಯನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ', 'ಕಡಿಮೆ RPM ಗಳಲ್ಲಿ ಮಾತ್ರ ಚಲಿಸುತ್ತದೆ', 'ಸಣ್ಣ ಪಿಸ್ಟನ್‌ಗಳನ್ನು ಬಳಸುತ್ತದೆ'],
+        correctAnswer: 'Reduces energy needed to compress air-fuel mixture'
+    },
+    {
+        text: 'What is a tradeoff of the Atkinson cycle?',
+        textKn: 'ಅಟ್ಕಿನ್ಸನ್ ಸೈಕಲ್‌ನ ಟ್ರೇಡ್-ಆಫ್ (ಕೊಟ್ಟು-ಪಡೆಯುವುದು) ಏನು?',
+        options: ['Higher emissions', 'Reduced power output', 'Increased vibration', 'Shorter engine life'],
+        optionsKn: ['ಹೆಚ್ಚಿನ ಹೊರಸೂಸುವಿಕೆ', 'ಕಡಿಮೆಯಾದ ಶಕ್ತಿ ಉತ್ಪಾದನೆ', 'ಹೆಚ್ಚಿದ ಕಂಪನ', 'ಕಡಿಮೆ ಎಂಜಿನ್ ಬಾಳಿಕೆ'],
+        correctAnswer: 'Reduced power output'
+    },
+    {
+        text: 'When does Toyota typically use the Atkinson cycle?',
+        textKn: 'ಟೊಯೋಟಾ ಸಾಮಾನ್ಯವಾಗಿ ಅಟ್ಕಿನ್ಸನ್ ಸೈಕಲ್ ಅನ್ನು ಯಾವಾಗ ಬಳಸುತ್ತದೆ?',
+        options: ['During hard acceleration', 'During highway cruising or low power demand', 'When braking', 'During cold starts'],
+        optionsKn: ['ಬಲವಾದ ವೇಗವರ್ಧನೆಯ ಸಮಯದಲ್ಲಿ', 'ಹೆದ್ದಾರಿ ಕ್ರೂಸಿಂಗ್ ಅಥವಾ ಕಡಿಮೆ ವಿದ್ಯುತ್ ಬೇಡಿಕೆಯ ಸಮಯದಲ್ಲಿ', 'ಬ್ರೇಕ್ ಮಾಡುವಾಗ', 'ಕೋಲ್ಡ್ ಸ್ಟಾರ್ಟ್ ಸಮಯದಲ್ಲಿ'],
+        correctAnswer: 'During highway cruising or low power demand'
+    },
+    {
+        text: 'What does VVT-iW allow the engine to switch between?',
+        textKn: 'VVT-iW ಎಂಜಿನ್‌ಗೆ ಯಾವುದರ ನಡುವೆ ಬದಲಾಯಿಸಲು ಅನುಮತಿಸುತ್ತದೆ?',
+        options: ['Otto and Diesel cycles', 'Otto and Atkinson cycles', 'Electric and fuel modes', 'Single and twin-turbo'],
+        optionsKn: ['ಒಟ್ಟೊ ಮತ್ತು ಡೀಸೆಲ್ ಸೈಕಲ್‌ಗಳು', 'ಒಟ್ಟೊ ಮತ್ತು ಅಟ್ಕಿನ್ಸನ್ ಸೈಕಲ್‌ಗಳು', 'ಎಲೆಕ್ಟ್ರಿಕ್ ಮತ್ತು ಇಂಧನ ಮೋಡ್‌ಗಳು', 'ಸಿಂಗಲ್ ಮತ್ತು ಟ್ವಿನ್-ಟರ್ಬೊ'],
+        correctAnswer: 'Otto and Atkinson cycles'
+    },
+    {
+        text: 'Why is Atkinson cycle ideal for hybrids?',
+        textKn: 'ಹೈಬ್ರಿಡ್‌ಗಳಿಗೆ ಅಟ್ಕಿನ್ಸನ್ ಸೈಕಲ್ ಏಕೆ ಸೂಕ್ತವಾಗಿದೆ?',
+        options: ['It increases noise levels', 'It relies on extra power from electric motors', 'It requires no cooling system', 'It uses fewer cylinders'],
+        optionsKn: ['ಇದು ಶಬ್ದ ಮಟ್ಟವನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ', 'ಇದು ಎಲೆಕ್ಟ್ರಿಕ್ ಮೋಟಾರ್‌ಗಳಿಂದ ಹೆಚ್ಚುವರಿ ಶಕ್ತಿಯನ್ನು ಅವಲಂಬಿಸಿದೆ', 'ಇದಕ್ಕೆ ಕೂಲಿಂಗ್ ಸಿಸ್ಟಮ್ ಅಗತ್ಯವಿಲ್ಲ', 'ಇದು ಕಡಿಮೆ ಸಿಲಿಂಡರ್‌ಗಳನ್ನು ಬಳಸುತ್ತದೆ'],
+        correctAnswer: 'It relies on extra power from electric motors'
+    },
+    {
+        text: 'What does Toyota’s valvetrain design balance using VVT-i and Atkinson cycle?',
+        textKn: 'VVT-i ಮತ್ತು ಅಟ್ಕಿನ್ಸೋ ಸೈಕಲ್ ಬಳಸಿ ಟೊಯೋಟಾದ ವಾಲ್ವ್‌ಟ್ರೇನ್ ವಿನ್ಯಾಸವು ಏನನ್ನು ಸಮತೋಲನಗೊಳಿಸುತ್ತದೆ?',
+        options: ['Power and efficiency', 'Noise and vibration', 'Torque and cooling', 'Fuel and oil ratio'],
+        optionsKn: ['ಶಕ್ತಿ ಮತ್ತು ದಕ್ಷತೆ', 'ಶಬ್ದ ಮತ್ತು ಕಂಪನ', 'ಟಾರ್ಕ್ ಮತ್ತು ಕೂಲಿಂಗ್', 'ಇಂಧನ ಮತ್ತು ತೈಲ ಅನುಪಾತ'],
+        correctAnswer: 'Power and efficiency'
+    },
+    {
+        text: 'What is the main takeaway from the video about Toyota’s engine technologies?',
+        textKn: 'ಟೊಯೋಟಾದ ಎಂಜಿನ್ ತಂತ್ರಜ್ಞಾನಗಳ ವೀಡಿಯೊದಿಂದ ಮುಖ್ಯವಾದ ಅಂಶ ಯಾವುದು?',
+        options: ['They adjust valve timing to optimize power and efficiency', 'They use fixed valve timing', 'They eliminate the need for camshafts', 'They only focus on electric drive'],
+        optionsKn: ['ಶಕ್ತಿ ಮತ್ತು ದಕ್ಷತೆಯನ್ನು ಅತ್ಯುತ್ತಮವಾಗಿಸಲು ಅವರು ವಾಲ್ವ್ ಟೈಮಿಂಗ್ ಅನ್ನು ಸರಿಹೊಂದಿಸುತ್ತಾರೆ', 'ಅವರು ಸ್ಥಿರ ವಾಲ್ವ್ ಟೈಮಿಂಗ್ ಅನ್ನು ಬಳಸುತ್ತಾರೆ', 'ಅವರು ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್‌ಗಳ ಅಗತ್ಯವನ್ನು ನಿವಾರಿಸುತ್ತಾರೆ', 'ಅವರು ಎಲೆಕ್ಟ್ರಿಕ್ ಡ್ರೈವ್ ಮೇಲೆ ಮಾತ್ರ ಗಮನ ಹರಿಸುತ್ತಾರೆ'],
+        correctAnswer: 'They adjust valve timing to optimize power and efficiency'
+    }
+]
 
-          { textKn: 'ಟೊಯೋಟಾ ಡೈನಾಮಿಕ್ ಫೋರ್ಸ್ ಎಂಜಿನ್‌ಗಳ ಮುಖ್ಯ ಉದ್ದೇಶವೇನು?', text: 'What is the main purpose of Toyota’s Dynamic Force engines?', options: ['Increase vehicle weight', 'Improve performance, fuel economy, and durability', 'Replace hybrid systems', 'Simplify maintenance'], correctAnswer: 'Improve performance, fuel economy, and durability' },
-      
-        { text: 'The Dynamic Force engine was designed for which platform?', options: ['TNGA - Toyota New Global Architecture', 'THS - Toyota Hybrid System', 'TRD - Toyota Racing Division', 'TSS - Toyota Safety Sense'], correctAnswer: 'TNGA - Toyota New Global Architecture' },
-      
-        { text: 'What is the role of Dynamic Force engines in TNGA vehicles?', options: ['Provide all-wheel drive capability', 'Enhance fun-to-drive characteristics', 'Reduce weight only', 'Enable autonomous driving'], correctAnswer: 'Enhance fun-to-drive characteristics' },
-          { textKn: 'TNGA ವಾಹನಗಳಲ್ಲಿ ಡೈನಾಮಿಕ್ ಫೋರ್ಸ್ ಎಂಜಿನ್‌ಗಳ ಪಾತ್ರವೇನು?', text: 'What is the role of Dynamic Force engines in TNGA vehicles?', options: ['Provide all-wheel drive capability', 'Enhance fun-to-drive characteristics', 'Reduce weight only', 'Enable autonomous driving'], correctAnswer: 'Enhance fun-to-drive characteristics' },
-      
-        { text: 'What material is used for the Dynamic Force engine block?', options: ['Cast iron', 'Cast aluminum', 'Magnesium alloy', 'Carbon fiber'], correctAnswer: 'Cast aluminum' },
-          { textKn: 'ಡೈನಾಮಿಕ್ ಫೋರ್ಸ್ ಎಂಜಿನ್ ಬ್ಲಾಕ್‌ಗೆ ಯಾವ ವಸ್ತುವನ್ನು ಬಳಸಲಾಗುತ್ತದೆ?', text: 'What material is used for the Dynamic Force engine block?', options: ['Cast iron', 'Cast aluminum', 'Magnesium alloy', 'Carbon fiber'], correctAnswer: 'Cast aluminum' },
-      
-        { text: 'Why does Toyota use a cast aluminum block?', options: ['To increase sound insulation', 'For weight reduction and better fuel efficiency', 'To improve turbocharging', 'To enhance cooling'], correctAnswer: 'For weight reduction and better fuel efficiency' },
-      
-        { text: 'Dynamic Force engines achieve world-class thermal efficiency thanks to:', options: ['Turbocharging', 'Ultra-low friction internal components', 'Larger pistons', 'Thicker cylinder walls'], correctAnswer: 'Ultra-low friction internal components' },
-      
-        { text: 'Dynamic Force engines are designed to improve:', options: ['Combustion speed and minimize energy losses', 'Oil pressure and cooling', 'Ignition timing only', 'Air intake noise'], correctAnswer: 'Combustion speed and minimize energy losses' },
-      
-        { text: 'Compared to conventional engines, Dynamic Force engines have:', options: ['Shorter stroke and lower compression ratio', 'Longer stroke and higher compression ratio', 'Equal stroke and compression ratio', 'Variable cylinder deactivation'], correctAnswer: 'Longer stroke and higher compression ratio' },
-      
-        { text: 'What change was made to the intake and exhaust valves in Dynamic Force engines?', options: ['They are closer together', 'Their angle was widened', 'They were replaced by turbo valves', 'They were made smaller'], correctAnswer: 'Their angle was widened' },
-      
-        { text: 'The intake port shape was modified to:', options: ['Create tumble flow', 'Increase back pressure', 'Reduce airflow', 'Increase cylinder pressure'], correctAnswer: 'Create tumble flow' },
-      
-        { text: 'What is tumble flow?', options: ['Backflow of exhaust gases', 'Controlled swirl that improves air-fuel mixing', 'Turbulence that reduces fuel economy', 'Airflow that cools the piston'], correctAnswer: 'Controlled swirl that improves air-fuel mixing' },
-      
-        { text: 'What fuel injection system is used in Dynamic Force engines?', options: ['Port injection only', 'Direct injection only', 'D-4S combined system', 'Carburetion system'], correctAnswer: 'D-4S combined system' },
-      
-        { text: 'In the D-4S system, which injectors operate under light to medium loads?', options: ['Only direct injectors', 'Only port injectors', 'Both direct and port injectors', 'No injectors'], correctAnswer: 'Both direct and port injectors' },
-      
-        { text: 'Under heavy engine loads, which injectors are used?', options: ['Port injectors', 'Direct injectors only', 'Both injectors', 'None'], correctAnswer: 'Direct injectors only' },
-      
-        { text: 'Which system manages combustion and minimizes energy loss?', options: ['Turbo boost system', 'Variable Control System', 'Air intake regulator', 'Cooling fan system'], correctAnswer: 'Variable Control System' },
-      
-        { text: 'Which systems control valve timing in Dynamic Force engines?', options: ['Dual VVT-i and VVT-iE', 'VTEC and VVTL-i', 'EGR and MIVEC', 'ECVT and turbo timing'], correctAnswer: 'Dual VVT-i and VVT-iE' },
-      
-        { text: 'What is special about the VVT-iE system?', options: ['Uses oil pressure', 'Uses an electric motor instead of oil pressure', 'Uses air pressure', 'Runs on hybrid battery only'], correctAnswer: 'Uses an electric motor instead of oil pressure' },
-      
-        { text: 'What is the benefit of VVT-iE’s electric motor control?', options: ['Reduces cabin noise', 'Prevents engine knock at low speeds and low oil pressure', 'Improves spark timing', 'Reduces steering effort'], correctAnswer: 'Prevents engine knock at low speeds and low oil pressure' },
-      
-        { text: 'Dynamic Force engines can operate within which two thermodynamic cycles?', options: ['Diesel and Otto', 'Atkinson and Otto', 'Brayton and Rankine', 'Otto and Stirling'], correctAnswer: 'Atkinson and Otto' },
-      
-        { text: 'What system handles engine thermal management?', options: ['Air cooling system', 'Variable cooling system', 'Oil-based heating system', 'Exhaust gas control'], correctAnswer: 'Variable cooling system' },
-      
-        { text: 'Which components are part of the variable cooling system?', options: ['Turbocharger and intercooler', 'Electric water pump, electronic thermostat, and flow valves', 'Radiator fan only', 'Oil jets and turbo fins'], correctAnswer: 'Electric water pump, electronic thermostat, and flow valves' },
-      
-        { text: 'What does the variable oil pump do when the engine is cold?', options: ['Increases oil flow', 'Stops cylinder oil jets to warm up faster', 'Increases fuel injection', 'Reduces spark timing'], correctAnswer: 'Stops cylinder oil jets to warm up faster' },
-      
-        { text: 'What purpose does the water jacket spacer serve?', options: ['Reduces friction', 'Optimizes coolant flow and maintains uniform temperature', 'Improves fuel injection', 'Controls exhaust flow'], correctAnswer: 'Optimizes coolant flow and maintains uniform temperature' },
-      
-        { text: 'Why are oil drain paths placed near water jackets?', options: ['To reduce weight', 'To improve thermal exchange and warm-up', 'To increase oil pressure', 'To simplify design'], correctAnswer: 'To improve thermal exchange and warm-up' },
-      
-        { text: 'What is the overall goal of the Dynamic Force engine design?', options: ['Increase noise and vibration', 'Achieve rapid combustion, high efficiency, and low emissions', 'Reduce output power', 'Simplify maintenance'], correctAnswer: 'Achieve rapid combustion, high efficiency, and low emissions' }
-      ]
       ,
-      [
-        { text: 'What component is primarily responsible for how an engine breathes?', options: ['Exhaust manifold', 'Valvetrain', 'Piston rings', 'Crankshaft'], correctAnswer: 'Valvetrain' },
-          { textKn: ' ಎಂಜಿನ್ ಹೇಗೆ ಉಸಿರಾಡುತ್ತದೆ ಎಂಬುದಕ್ಕೆ ಮುಖ್ಯವಾದ ಜವಾಬ್ದಾರಿ ಯಾವ ಘಟಕಕ್ಕೆ ಇದೆ?', text: 'What component is primarily responsible for how an engine breathes?', options: ['Exhaust manifold', 'Valvetrain', 'Piston rings', 'Crankshaft'], optionsKn: ['ಎಗ್ಜಾಸ್ಟ್ ಮ್ಯಾನಿಫೋಲ್ಡ್', 'ವೆಲ್ವ್‌ಟ್ರೆೈನ್', 'ಪಿಸ್ಟನ್ ರಿಂಗ್ಸ್', 'ಕ್ರಾಂಕ್ಶಾಫ್ಟ್'], correctAnswer: 'Valvetrain' },
-      
-        { text: 'What is the main function of the valvetrain?', options: ['Control ignition timing', 'Regulate intake and exhaust valve movement', 'Lubricate engine parts', 'Control engine cooling'], correctAnswer: 'Regulate intake and exhaust valve movement' },
-          { textKn: 'ವೆಲ್ವ್‌ಟ್ರೆೈನ್‌ನ ಮುಖ್ಯ ಕಾರ್ಯವೇನು?', text: 'What is the main function of the valvetrain?', options: ['Control ignition timing', 'Regulate intake and exhaust valve movement', 'Lubricate engine parts', 'Control engine cooling'], optionsKn: ['ಇಗ್ನಿಷನ್ ಟೈಮಿಂಗ್ ನಿಯಂತ್ರಿಸು', 'ಇಂಟೇಕ್ ಮತ್ತು ಏಗ್ಝಾಸ್ಟ್ ವೆಲ್ವ್ ಚಲನವಲನ ನಿಯಂತ್ರಣ', 'ಎಂಜಿನ್ ಭಾಗಗಳನ್ನು ಸೋತಿಯೇರಿಸುವುದು', 'ಎಂಜಿನ್ ತಂಪುಗೊಳಿಸುವುದನ್ನು ನಿಯಂತ್ರಿಸು'], correctAnswer: 'Regulate intake and exhaust valve movement' },
-      
-        { text: 'Which component opens and closes the engine valves?', options: ['Crankshaft', 'Camshaft', 'Timing belt', 'Throttle body'], correctAnswer: 'Camshaft' },
-          { textKn: 'ಯಾವ ಘಟಕ ಎಂಜಿನ್ ವೆಲ್ವ್‌ಗಳನ್ನು ತೆರೆಯುತ್ತೆ ಮತ್ತು ಮುಚ್ಚುತ್ತೆ?', text: 'Which component opens and closes the engine valves?', options: ['Crankshaft', 'Camshaft', 'Timing belt', 'Throttle body'], optionsKn: ['ಕ್ರಾಂಕ್ಶಾಫ್ಟ್', 'ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್', 'ಟೈಮಿಂಗ್ ಬೆಲ್ಟ್', 'ಥ್ರಾಟಲ್ ಬಾಡಿ'], correctAnswer: 'Camshaft' },
-      
-        { text: 'What connects the camshaft to the crankshaft to maintain timing?', options: ['Gear system', 'Timing belt or chain', 'Flywheel', 'Rocker arm'], correctAnswer: 'Timing belt or chain' },
-      
-        { text: 'How many valves per cylinder are commonly used in modern engines?', options: ['Two', 'Three', 'Four', 'Six'], correctAnswer: 'Four' },
-      
-        { text: 'A “sixteen-valve” label on a four-cylinder engine means:', options: ['Each cylinder has two valves', 'Each cylinder has four valves', 'It uses one camshaft', 'It has 8 intake valves only'], correctAnswer: 'Each cylinder has four valves' },
-      
-        { text: 'What does “DOHC” stand for?', options: ['Dual Overhead Cam', 'Double Oil Hydraulic Control', 'Dynamic Overhead Chamber', 'Dual Operation Cam'], correctAnswer: 'Dual Overhead Cam' },
-      
-        { text: 'How many camshafts are used in a DOHC engine?', options: ['One', 'Two', 'Three', 'Four'], correctAnswer: 'Two' },
-      
-        { text: 'Where are the camshafts positioned in an overhead cam design?', options: ['Below the valves', 'Above the valves', 'Next to the crankshaft', 'Inside the intake manifold'], correctAnswer: 'Above the valves' },
-      
-        { text: 'In some engines, camshafts are located in the block and use what components to actuate valves?', options: ['Pushrods and rocker arms', 'Hydraulic pumps', 'Timing gears', 'Turbo valves'], correctAnswer: 'Pushrods and rocker arms' },
-      
-        { text: 'Why do camshafts have lopsided lobes?', options: ['To balance weight', 'To open and close valves at precise times', 'To reduce vibration', 'To store oil'], correctAnswer: 'To open and close valves at precise times' },
-      
-        { text: 'What ensures that valve movement stays synchronized with engine rotation?', options: ['Alternator', 'Crankshaft connection', 'Exhaust system', 'Cooling fan'], correctAnswer: 'Crankshaft connection' },
-      
-        { text: 'Valve timing affects what aspects of engine performance?', options: ['Steering response', 'Smoothness, efficiency, and power', 'Brake balance', 'Suspension feel'], correctAnswer: 'Smoothness, efficiency, and power' },
-      
-        { text: 'Why can valve timing not remain constant at all RPMs?', options: ['Fuel type changes', 'Ideal timing varies with engine speed', 'Temperature affects timing', 'Lubrication issues'], correctAnswer: 'Ideal timing varies with engine speed' },
-      
-        { text: 'What does VVT-i stand for?', options: ['Variable Valve Timing with Intelligence', 'Variable Velocity Transmission Interface', 'Valve Volume Tuning Indicator', 'Variable Valve Throttle Injection'], correctAnswer: 'Variable Valve Timing with Intelligence' },
-      
-        { text: 'What is the purpose of VVT-i?', options: ['To adjust valve timing for optimal performance and efficiency', 'To control air conditioning timing', 'To vary fuel pressure', 'To monitor battery power'], correctAnswer: 'To adjust valve timing for optimal performance and efficiency' },
-      
-        { text: 'Which component in VVT-i adjusts camshaft rotation?', options: ['Cam gear with internal shifting mechanism', 'Timing belt tensioner', 'Fuel injector', 'Throttle valve'], correctAnswer: 'Cam gear with internal shifting mechanism' },
-      
-        { text: 'What does advancing camshaft rotation do?', options: ['Delays valve opening', 'Opens valves earlier', 'Closes valves permanently', 'Reduces air intake'], correctAnswer: 'Opens valves earlier' },
-      
-        { text: 'What does delaying camshaft rotation do?', options: ['Opens valves earlier', 'Closes valves later', 'Delays valve opening', 'Reduces compression ratio'], correctAnswer: 'Delays valve opening' },
-      
-        { text: 'How does VVT-i benefit performance?', options: ['Increases engine weight', 'Optimizes valve timing across RPM ranges', 'Reduces spark plug firing', 'Improves braking distance'], correctAnswer: 'Optimizes valve timing across RPM ranges' },
-      
-        { text: 'The Atkinson cycle engine design primarily aims to maximize what?', options: ['Power output', 'Fuel efficiency', 'Turbo pressure', 'Noise levels'], correctAnswer: 'Fuel efficiency' },
-      
-        { text: 'In an Atkinson cycle engine, the intake valves remain open into which stroke?', options: ['Power stroke', 'Compression stroke', 'Exhaust stroke', 'Intake stroke'], correctAnswer: 'Compression stroke' },
-      
-        { text: 'What is the result of keeping intake valves open into the compression stroke?', options: ['Higher compression ratio', 'Shorter effective compression stroke', 'More torque', 'Increased exhaust backflow'], correctAnswer: 'Shorter effective compression stroke' },
-      
-        { text: 'Why does the Atkinson cycle reduce energy consumption?', options: ['Uses fewer valves', 'Reduces energy needed to compress air-fuel mixture', 'Runs at lower RPMs only', 'Uses smaller pistons'], correctAnswer: 'Reduces energy needed to compress air-fuel mixture' },
-      
-        { text: 'What is a tradeoff of the Atkinson cycle?', options: ['Higher emissions', 'Reduced power output', 'Increased vibration', 'Shorter engine life'], correctAnswer: 'Reduced power output' },
-      
-        { text: 'When does Toyota typically use the Atkinson cycle?', options: ['During hard acceleration', 'During highway cruising or low power demand', 'When braking', 'During cold starts'], correctAnswer: 'During highway cruising or low power demand' },
-      
-        { text: 'What does VVT-iW allow the engine to switch between?', options: ['Otto and Diesel cycles', 'Otto and Atkinson cycles', 'Electric and fuel modes', 'Single and twin-turbo'], correctAnswer: 'Otto and Atkinson cycles' },
-      
-        { text: 'Why is Atkinson cycle ideal for hybrids?', options: ['It increases noise levels', 'It relies on extra power from electric motors', 'It requires no cooling system', 'It uses fewer cylinders'], correctAnswer: 'It relies on extra power from electric motors' },
-      
-        { text: 'What does Toyota’s valvetrain design balance using VVT-i and Atkinson cycle?', options: ['Power and efficiency', 'Noise and vibration', 'Torque and cooling', 'Fuel and oil ratio'], correctAnswer: 'Power and efficiency' },
-      
-        { text: 'What is the main takeaway from the video about Toyota’s engine technologies?', options: ['They adjust valve timing to optimize power and efficiency', 'They use fixed valve timing', 'They eliminate the need for camshafts', 'They only focus on electric drive'], correctAnswer: 'They adjust valve timing to optimize power and efficiency' }
-      ]
+    
+[
+    {
+        text: 'What component is primarily responsible for how an engine breathes?',
+        textKn: 'ಎಂಜಿನ್ ಹೇಗೆ ಉಸಿರಾಡುತ್ತದೆ ಎಂಬುದಕ್ಕೆ ಮುಖ್ಯವಾದ ಜವಾಬ್ದಾರಿ ಯಾವ ಘಟಕಕ್ಕೆ ಇದೆ?',
+        options: ['Exhaust manifold', 'Valvetrain', 'Piston rings', 'Crankshaft'],
+        optionsKn: ['ಎಗ್ಜಾಸ್ಟ್ ಮ್ಯಾನಿಫೋಲ್ಡ್', 'ವೆಲ್ವ್‌ಟ್ರೆೈನ್', 'ಪಿಸ್ಟನ್ ರಿಂಗ್ಸ್', 'ಕ್ರಾಂಕ್ಶಾಫ್ಟ್'],
+        correctAnswer: 'Valvetrain'
+    },
+    {
+        text: 'What is the main function of the valvetrain?',
+        textKn: 'ವೆಲ್ವ್‌ಟ್ರೆೈನ್‌ನ ಮುಖ್ಯ ಕಾರ್ಯವೇನು?',
+        options: ['Control ignition timing', 'Regulate intake and exhaust valve movement', 'Lubricate engine parts', 'Control engine cooling'],
+        optionsKn: ['ಇಗ್ನಿಷನ್ ಟೈಮಿಂಗ್ ನಿಯಂತ್ರಿಸು', 'ಇಂಟೇಕ್ ಮತ್ತು ಏಗ್ಝಾಸ್ಟ್ ವೆಲ್ವ್ ಚಲನವಲನ ನಿಯಂತ್ರಣ', 'ಎಂಜಿನ್ ಭಾಗಗಳನ್ನು ಲೂಬ್ರಿಕೇಟ್ ಮಾಡುವುದು', 'ಎಂಜಿನ್ ತಂಪುಗೊಳಿಸುವುದನ್ನು ನಿಯಂತ್ರಿಸು'],
+        correctAnswer: 'Regulate intake and exhaust valve movement'
+    },
+    {
+        text: 'Which component opens and closes the engine valves?',
+        textKn: 'ಯಾವ ಘಟಕ ಎಂಜಿನ್ ವೆಲ್ವ್‌ಗಳನ್ನು ತೆರೆಯುತ್ತೆ ಮತ್ತು ಮುಚ್ಚುತ್ತೆ?',
+        options: ['Crankshaft', 'Camshaft', 'Timing belt', 'Throttle body'],
+        optionsKn: ['ಕ್ರಾಂಕ್ಶಾಫ್ಟ್', 'ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್', 'ಟೈಮಿಂಗ್ ಬೆಲ್ಟ್', 'ಥ್ರಾಟಲ್ ಬಾಡಿ'],
+        correctAnswer: 'Camshaft'
+    },
+    {
+        text: 'What connects the camshaft to the crankshaft to maintain timing?',
+        textKn: 'ಸಮಯವನ್ನು ನಿರ್ವಹಿಸಲು ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್ ಅನ್ನು ಕ್ರಾಂಕ್ಶಾಫ್ಟ್‌ಗೆ ಏನು ಸಂಪರ್ಕಿಸುತ್ತದೆ?',
+        options: ['Gear system', 'Timing belt or chain', 'Flywheel', 'Rocker arm'],
+        optionsKn: ['ಗೇರ್ ಸಿಸ್ಟಮ್', 'ಟೈಮಿಂಗ್ ಬೆಲ್ಟ್ ಅಥವಾ ಚೈನ್', 'ಫ್ಲೈವೀಲ್', 'ರಾಕರ್ ಆರ್ಮ್'],
+        correctAnswer: 'Timing belt or chain'
+    },
+    {
+        text: 'How many valves per cylinder are commonly used in modern engines?',
+        textKn: 'ಆಧುನಿಕ ಎಂಜಿನ್‌ಗಳಲ್ಲಿ ಪ್ರತಿ ಸಿಲಿಂಡರ್‌ಗೆ ಸಾಮಾನ್ಯವಾಗಿ ಎಷ್ಟು ವಾಲ್ವ್‌ಗಳನ್ನು ಬಳಸಲಾಗುತ್ತದೆ?',
+        options: ['Two', 'Three', 'Four', 'Six'],
+        optionsKn: ['ಎರಡು', 'ಮೂರು', 'ನಾಲ್ಕು', 'ಆರು'],
+        correctAnswer: 'Four'
+    },
+    {
+        text: 'A “sixteen-valve” label on a four-cylinder engine means:',
+        textKn: 'ನಾಲ್ಕು-ಸಿಲಿಂಡರ್ ಎಂಜಿನ್‌ನಲ್ಲಿ "ಹದಿನಾರು-ವಾಲ್ವ್" ಲೇಬಲ್‌ನ ಅರ್ಥ:',
+        options: ['Each cylinder has two valves', 'Each cylinder has four valves', 'It uses one camshaft', 'It has 8 intake valves only'],
+        optionsKn: ['ಪ್ರತಿ ಸಿಲಿಂಡರ್ ಎರಡು ವಾಲ್ವ್‌ಗಳನ್ನು ಹೊಂದಿದೆ', 'ಪ್ರತಿ ಸಿಲಿಂಡರ್ ನಾಲ್ಕು ವಾಲ್ವ್‌ಗಳನ್ನು ಹೊಂದಿದೆ', 'ಇದು ಒಂದು ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್ ಅನ್ನು ಬಳಸುತ್ತದೆ', 'ಇದು 8 ಇಂಟೇಕ್ ವಾಲ್ವ್‌ಗಳನ್ನು ಮಾತ್ರ ಹೊಂದಿದೆ'],
+        correctAnswer: 'Each cylinder has four valves'
+    },
+    {
+        text: 'What does “DOHC” stand for?',
+        textKn: '"DOHC" ಯ ಪೂರ್ಣ ರೂಪವೇನು?',
+        options: ['Dual Overhead Cam', 'Double Oil Hydraulic Control', 'Dynamic Overhead Chamber', 'Dual Operation Cam'],
+        optionsKn: ['ಡ್ಯುಯಲ್ ಓವರ್‌ಹೆಡ್ ಕ್ಯಾಮ್', 'ಡಬಲ್ ಆಯಿಲ್ ಹೈಡ್ರಾಲಿಕ್ ಕಂಟ್ರೋಲ್', 'ಡೈನಾಮಿಕ್ ಓವರ್‌ಹೆಡ್ ಚೇಂಬರ್', 'ಡ್ಯುಯಲ್ ಆಪರೇಷನ್ ಕ್ಯಾಮ್'],
+        correctAnswer: 'Dual Overhead Cam'
+    },
+    {
+        text: 'How many camshafts are used in a DOHC engine?',
+        textKn: 'DOHC ಎಂಜಿನ್‌ನಲ್ಲಿ ಎಷ್ಟು ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್‌ಗಳನ್ನು ಬಳಸಲಾಗುತ್ತದೆ?',
+        options: ['One', 'Two', 'Three', 'Four'],
+        optionsKn: ['ಒಂದು', 'ಎರಡು', 'ಮೂರು', 'ನಾಲ್ಕು'],
+        correctAnswer: 'Two'
+    },
+    {
+        text: 'Where are the camshafts positioned in an overhead cam design?',
+        textKn: 'ಓವರ್‌ಹೆಡ್ ಕ್ಯಾಮ್ ವಿನ್ಯಾಸದಲ್ಲಿ ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್‌ಗಳು ಎಲ್ಲಿವೆ?',
+        options: ['Below the valves', 'Above the valves', 'Next to the crankshaft', 'Inside the intake manifold'],
+        optionsKn: ['ವಾಲ್ವ್‌ಗಳ ಕೆಳಗೆ', 'ವಾಲ್ವ್‌ಗಳ ಮೇಲೆ', 'ಕ್ರಾಂಕ್ಶಾಫ್ಟ್ ಪಕ್ಕದಲ್ಲಿ', 'ಇಂಟೇಕ್ ಮ್ಯಾನಿಫೋಲ್ಡ್ ಒಳಗೆ'],
+        correctAnswer: 'Above the valves'
+    },
+    {
+        text: 'In some engines, camshafts are located in the block and use what components to actuate valves?',
+        textKn: 'ಕೆಲವು ಎಂಜಿನ್‌ಗಳಲ್ಲಿ, ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್‌ಗಳು ಬ್ಲಾಕ್‌ನಲ್ಲಿವೆ ಮತ್ತು ವಾಲ್ವ್‌ಗಳನ್ನು ಚಲಾಯಿಸಲು ಯಾವ ಘಟಕಗಳನ್ನು ಬಳಸುತ್ತವೆ?',
+        options: ['Pushrods and rocker arms', 'Hydraulic pumps', 'Timing gears', 'Turbo valves'],
+        optionsKn: ['ಪುಶ್ರಾಡ್‌ಗಳು ಮತ್ತು ರಾಕರ್ ಆರ್ಮ್‌ಗಳು', 'ಹೈಡ್ರಾಲಿಕ್ ಪಂಪ್‌ಗಳು', 'ಟೈಮಿಂಗ್ ಗೇರ್‌ಗಳು', 'ಟರ್ಬೊ ವಾಲ್ವ್‌ಗಳು'],
+        correctAnswer: 'Pushrods and rocker arms'
+    },
+    {
+        text: 'Why do camshafts have lopsided lobes?',
+        textKn: 'ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್‌ಗಳು ಏಕೆ ಅಸಮವಾದ ಲೋಬ್‌ಗಳನ್ನು (lobes) ಹೊಂದಿವೆ?',
+        options: ['To balance weight', 'To open and close valves at precise times', 'To reduce vibration', 'To store oil'],
+        optionsKn: ['ತೂಕವನ್ನು ಸಮತೋಲನಗೊಳಿಸಲು', 'ನಿಖರವಾದ ಸಮಯದಲ್ಲಿ ವಾಲ್ವ್‌ಗಳನ್ನು ತೆರೆಯಲು ಮತ್ತು ಮುಚ್ಚಲು', 'ಕಂಪನವನ್ನು ಕಡಿಮೆ ಮಾಡಲು', 'ಎಣ್ಣೆಯನ್ನು ಸಂಗ್ರಹಿಸಲು'],
+        correctAnswer: 'To open and close valves at precise times'
+    },
+    {
+        text: 'What ensures that valve movement stays synchronized with engine rotation?',
+        textKn: 'ವಾಲ್ವ್ ಚಲನೆಯು ಎಂಜಿನ್ ತಿರುಗುವಿಕೆಯೊಂದಿಗೆ ಸಿಂಕ್ರೊನೈಸ್ ಆಗಿರುವುದನ್ನು ಯಾವುದು ಖಚಿತಪಡಿಸುತ್ತದೆ?',
+        options: ['Alternator', 'Crankshaft connection', 'Exhaust system', 'Cooling fan'],
+        optionsKn: ['ಆಲ್ಟರ್ನೇಟರ್', 'ಕ್ರಾಂಕ್ಶಾಫ್ಟ್ ಸಂಪರ್ಕ', 'ಎಕ್ಸಾಸ್ಟ್ ಸಿಸ್ಟಮ್', 'ಕೂಲಿಂಗ್ ಫ್ಯಾನ್'],
+        correctAnswer: 'Crankshaft connection'
+    },
+    {
+        text: 'Valve timing affects what aspects of engine performance?',
+        textKn: 'ವಾಲ್ವ್ ಟೈಮಿಂಗ್ ಎಂಜಿನ್ ಕಾರ್ಯಕ್ಷಮತೆಯ ಯಾವ ಅಂಶಗಳ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುತ್ತದೆ?',
+        options: ['Steering response', 'Smoothness, efficiency, and power', 'Brake balance', 'Suspension feel'],
+        optionsKn: ['ಸ್ಟೀರಿಂಗ್ ಪ್ರತಿಕ್ರಿಯೆ', 'ಸುಗಮತೆ, ದಕ್ಷತೆ, ಮತ್ತು ಶಕ್ತಿ', 'ಬ್ರೇಕ್ ಸಮತೋಲನ', 'ಸಸ್ಪೆನ್ಷನ್ ಅನುಭವ'],
+        correctAnswer: 'Smoothness, efficiency, and power'
+    },
+    {
+        text: 'Why can valve timing not remain constant at all RPMs?',
+        textKn: 'ಎಲ್ಲಾ RPM ಗಳಲ್ಲಿ ವಾಲ್ವ್ ಟೈಮಿಂಗ್ ಏಕೆ ಸ್ಥಿರವಾಗಿರಲು ಸಾಧ್ಯವಿಲ್ಲ?',
+        options: ['Fuel type changes', 'Ideal timing varies with engine speed', 'Temperature affects timing', 'Lubrication issues'],
+        optionsKn: ['ಇಂಧನ ಪ್ರಕಾರ ಬದಲಾಗುತ್ತದೆ', 'ಎಂಜಿನ್ ವೇಗದೊಂದಿಗೆ ಆದರ್ಶ ಸಮಯ ಬದಲಾಗುತ್ತದೆ', 'ತಾಪಮಾನವು ಸಮಯದ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುತ್ತದೆ', 'ಲೂಬ್ರಿಕೇಶನ್ ಸಮಸ್ಯೆಗಳು'],
+        correctAnswer: 'Ideal timing varies with engine speed'
+    },
+    {
+        text: 'What does VVT-i stand for?',
+        textKn: 'VVT-i ಯ ಪೂರ್ಣ ರೂಪವೇನು?',
+        options: ['Variable Valve Timing with Intelligence', 'Variable Velocity Transmission Interface', 'Valve Volume Tuning Indicator', 'Variable Valve Throttle Injection'],
+        optionsKn: ['ವೇರಿಯಬಲ್ ವಾಲ್ವ್ ಟೈಮಿಂಗ್ ವಿತ್ ಇಂಟೆಲಿಜೆನ್ಸ್', 'ವೇರಿಯಬಲ್ ವೆಲಾಸಿಟಿ ಟ್ರಾನ್ಸ್ಮಿಷನ್ ಇಂಟರ್ಫೇಸ್', 'ವಾಲ್ವ್ ವಾಲ್ಯೂಮ್ ಟ್ಯೂನಿಂಗ್ ಇಂಡಿಕೇಟರ್', 'ವೇರಿಯಬಲ್ ವಾಲ್ವ್ ಥ್ರಾಟಲ್ ಇಂಜೆಕ್ಷನ್'],
+        correctAnswer: 'Variable Valve Timing with Intelligence'
+    },
+    {
+        text: 'What is the purpose of VVT-i?',
+        textKn: 'VVT-i ಯ ಉದ್ದೇಶವೇನು?',
+        options: ['To adjust valve timing for optimal performance and efficiency', 'To control air conditioning timing', 'To vary fuel pressure', 'To monitor battery power'],
+        optionsKn: ['ಸೂಕ್ತ ಕಾರ್ಯಕ್ಷಮತೆ ಮತ್ತು ದಕ್ಷತೆಗಾಗಿ ವಾಲ್ವ್ ಟೈಮಿಂಗ್ ಅನ್ನು ಸರಿಹೊಂದಿಸಲು', 'ಏರ್ ಕಂಡೀಷನಿಂಗ್ ಟೈಮಿಂಗ್ ಅನ್ನು ನಿಯಂತ್ರಿಸಲು', 'ಇಂಧನ ಒತ್ತಡವನ್ನು ಬದಲಾಯಿಸಲು', 'ಬ್ಯಾಟರಿ ಶಕ್ತಿಯನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಲು'],
+        correctAnswer: 'To adjust valve timing for optimal performance and efficiency'
+    },
+    {
+        text: 'Which component in VVT-i adjusts camshaft rotation?',
+        textKn: 'VVT-i ನಲ್ಲಿ ಯಾವ ಘಟಕವು ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್ ತಿರುಗುವಿಕೆಯನ್ನು ಸರಿಹೊಂದಿಸುತ್ತದೆ?',
+        options: ['Cam gear with internal shifting mechanism', 'Timing belt tensioner', 'Fuel injector', 'Throttle valve'],
+        optionsKn: ['ಆಂತರಿಕ ಶಿಫ್ಟಿಂಗ್ ಯಾಂತ್ರಿಕತೆಯೊಂದಿಗೆ ಕ್ಯಾಮ್ ಗೇರ್', 'ಟೈಮಿಂಗ್ ಬೆಲ್ಟ್ ಟೆನ್ಷನರ್', 'ಫ್ಯುಯಲ್ ಇಂಜೆಕ್ಟರ್', 'ಥ್ರಾಟಲ್ ವಾಲ್ವ್'],
+        correctAnswer: 'Cam gear with internal shifting mechanism'
+    },
+    {
+        text: 'What does advancing camshaft rotation do?',
+        textKn: 'ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್ ತಿರುಗುವಿಕೆಯನ್ನು ಮುಂದಕ್ಕೆ ಚಲಿಸುವುದರಿಂದ (advancing) ಏನಾಗುತ್ತದೆ?',
+        options: ['Delays valve opening', 'Opens valves earlier', 'Closes valves permanently', 'Reduces air intake'],
+        optionsKn: ['ವಾಲ್ವ್ ತೆರೆಯುವುದನ್ನು ವಿಳಂಬಗೊಳಿಸುತ್ತದೆ', 'ವಾಲ್ವ್‌ಗಳನ್ನು ಬೇಗನೆ ತೆರೆಯುತ್ತದೆ', 'ವಾಲ್ವ್‌ಗಳನ್ನು ಶಾಶ್ವತವಾಗಿ ಮುಚ್ಚುತ್ತದೆ', 'ಗಾಳಿಯ ಸೇವನೆಯನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ'],
+        correctAnswer: 'Opens valves earlier'
+    },
+    {
+        text: 'What does delaying camshaft rotation do?',
+        textKn: 'ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್ ತಿರುಗುವಿಕೆಯನ್ನು ವಿಳಂಬಗೊಳಿಸುವುದರಿಂದ (delaying) ಏನಾಗುತ್ತದೆ?',
+        options: ['Opens valves earlier', 'Closes valves later', 'Delays valve opening', 'Reduces compression ratio'],
+        optionsKn: ['ವಾಲ್ವ್‌ಗಳನ್ನು ಬೇಗನೆ ತೆರೆಯುತ್ತದೆ', 'ವಾಲ್ವ್‌ಗಳನ್ನು ತಡವಾಗಿ ಮುಚ್ಚುತ್ತದೆ', 'ವಾಲ್ವ್ ತೆರೆಯುವುದನ್ನು ವಿಳಂಬಗೊಳಿಸುತ್ತದೆ', 'ಸಂಕೋಚನ ಅನುಪಾತವನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ'],
+        correctAnswer: 'Delays valve opening'
+    },
+    {
+        text: 'How does VVT-i benefit performance?',
+        textKn: 'VVT-i ಕಾರ್ಯಕ್ಷಮತೆಗೆ ಹೇಗೆ ಪ್ರಯೋಜನ ನೀಡುತ್ತದೆ?',
+        options: ['Increases engine weight', 'Optimizes valve timing across RPM ranges', 'Reduces spark plug firing', 'Improves braking distance'],
+        optionsKn: ['ಎಂಜಿನ್ ತೂಕವನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ', 'RPM ಶ್ರೇಣಿಗಳಾದ್ಯಂತ ವಾಲ್ವ್ ಟೈಮಿಂಗ್ ಅನ್ನು ಅತ್ಯುತ್ತಮವಾಗಿಸುತ್ತದೆ', 'ಸ್ಪಾರ್ಕ್ ಪ್ಲಗ್ ಫೈರಿಂಗ್ ಅನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ', 'ಬ್ರೇಕಿಂಗ್ ದೂರವನ್ನು ಸುಧಾರಿಸುತ್ತದೆ'],
+        correctAnswer: 'Optimizes valve timing across RPM ranges'
+    },
+    {
+        text: 'The Atkinson cycle engine design primarily aims to maximize what?',
+        textKn: 'ಅಟ್ಕಿನ್ಸನ್ ಸೈಕಲ್ ಎಂಜಿನ್ ವಿನ್ಯಾಸವು ಪ್ರಾಥಮಿಕವಾಗಿ ಏನನ್ನು ಹೆಚ್ಚಿಸುವ ಗುರಿಯನ್ನು ಹೊಂದಿದೆ?',
+        options: ['Power output', 'Fuel efficiency', 'Turbo pressure', 'Noise levels'],
+        optionsKn: ['ಶಕ್ತಿ ಉತ್ಪಾದನೆ', 'ಇಂಧನ ದಕ್ಷತೆ', 'ಟರ್ಬೊ ಒತ್ತಡ', 'ಶಬ್ದ ಮಟ್ಟಗಳು'],
+        correctAnswer: 'Fuel efficiency'
+    },
+    {
+        text: 'In an Atkinson cycle engine, the intake valves remain open into which stroke?',
+        textKn: 'ಅಟ್ಕಿನ್ಸನ್ ಸೈಕಲ್ ಎಂಜಿನ್‌ನಲ್ಲಿ, ಇಂಟೇಕ್ ವಾಲ್ವ್‌ಗಳು ಯಾವ ಸ್ಟ್ರೋಕ್‌ವರೆಗೆ ತೆರೆದಿರುತ್ತವೆ?',
+        options: ['Power stroke', 'Compression stroke', 'Exhaust stroke', 'Intake stroke'],
+        optionsKn: ['ಪವರ್ ಸ್ಟ್ರೋಕ್', 'ಕಂಪ್ರೆಷನ್ ಸ್ಟ್ರೋಕ್', 'ಎಕ್ಸಾಸ್ಟ್ ಸ್ಟ್ರೋಕ್', 'ಇಂಟೇಕ್ ಸ್ಟ್ರೋಕ್'],
+        correctAnswer: 'Compression stroke'
+    },
+    {
+        text: 'What is the result of keeping intake valves open into the compression stroke?',
+        textKn: 'ಕಂಪ್ರೆಷನ್ ಸ್ಟ್ರೋಕ್‌ವರೆಗೆ ಇಂಟೇಕ್ ವಾಲ್ವ್‌ಗಳನ್ನು ತೆರೆದಿಡುವುದರ ಫಲಿತಾಂಶವೇನು?',
+        options: ['Higher compression ratio', 'Shorter effective compression stroke', 'More torque', 'Increased exhaust backflow'],
+        optionsKn: ['ಹೆಚ್ಚಿನ ಸಂಕೋಚನ ಅನುಪಾತ', 'ಕಡಿಮೆ ಪರಿಣಾಮಕಾರಿ ಸಂಕೋಚನ ಸ್ಟ್ರೋಕ್', 'ಹೆಚ್ಚು ಟಾರ್ಕ್', 'ಹೆಚ್ಚಿದ ಎಕ್ಸಾಸ್ಟ್ ಬ್ಯಾಕ್‌ಫ್ಲೋ'],
+        correctAnswer: 'Shorter effective compression stroke'
+    },
+    {
+        text: 'Why does the Atkinson cycle reduce energy consumption?',
+        textKn: 'ಅಟ್ಕಿನ್ಸನ್ ಸೈಕಲ್ ಏಕೆ ಶಕ್ತಿಯ ಬಳಕೆಯನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ?',
+        options: ['Uses fewer valves', 'Reduces energy needed to compress air-fuel mixture', 'Runs at lower RPMs only', 'Uses smaller pistons'],
+        optionsKn: ['ಕಡಿಮೆ ವಾಲ್ವ್‌ಗಳನ್ನು ಬಳಸುತ್ತದೆ', 'ಗಾಳಿ-ಇಂಧನ ಮಿಶ್ರಣವನ್ನು ಸಂಕುಚಿತಗೊಳಿಸಲು ಬೇಕಾದ ಶಕ್ತಿಯನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ', 'ಕಡಿಮೆ RPM ಗಳಲ್ಲಿ ಮಾತ್ರ ಚಲಿಸುತ್ತದೆ', 'ಸಣ್ಣ ಪಿಸ್ಟನ್‌ಗಳನ್ನು ಬಳಸುತ್ತದೆ'],
+        correctAnswer: 'Reduces energy needed to compress air-fuel mixture'
+    },
+    {
+        text: 'What is a tradeoff of the Atkinson cycle?',
+        textKn: 'ಅಟ್ಕಿನ್ಸನ್ ಸೈಕಲ್‌ನ ಟ್ರೇಡ್-ಆಫ್ (ಕೊಟ್ಟು-ಪಡೆಯುವುದು) ಏನು?',
+        options: ['Higher emissions', 'Reduced power output', 'Increased vibration', 'Shorter engine life'],
+        optionsKn: ['ಹೆಚ್ಚಿನ ಹೊರಸೂಸುವಿಕೆ', 'ಕಡಿಮೆಯಾದ ಶಕ್ತಿ ಉತ್ಪಾದನೆ', 'ಹೆಚ್ಚಿದ ಕಂಪನ', 'ಕಡಿಮೆ ಎಂಜಿನ್ ಬಾಳಿಕೆ'],
+        correctAnswer: 'Reduced power output'
+    },
+    {
+        text: 'When does Toyota typically use the Atkinson cycle?',
+        textKn: 'ಟೊಯೋಟಾ ಸಾಮಾನ್ಯವಾಗಿ ಅಟ್ಕಿನ್ಸನ್ ಸೈಕಲ್ ಅನ್ನು ಯಾವಾಗ ಬಳಸುತ್ತದೆ?',
+        options: ['During hard acceleration', 'During highway cruising or low power demand', 'When braking', 'During cold starts'],
+        optionsKn: ['ಬಲವಾದ ವೇಗವರ್ಧನೆಯ ಸಮಯದಲ್ಲಿ', 'ಹೆದ್ದಾರಿ ಕ್ರೂಸಿಂಗ್ ಅಥವಾ ಕಡಿಮೆ ವಿದ್ಯುತ್ ಬೇಡಿಕೆಯ ಸಮಯದಲ್ಲಿ', 'ಬ್ರೇಕ್ ಮಾಡುವಾಗ', 'ಕೋಲ್ಡ್ ಸ್ಟಾರ್ಟ್ ಸಮಯದಲ್ಲಿ'],
+        correctAnswer: 'During highway cruising or low power demand'
+    },
+    {
+        text: 'What does VVT-iW allow the engine to switch between?',
+        textKn: 'VVT-iW ಎಂಜಿನ್‌ಗೆ ಯಾವುದರ ನಡುವೆ ಬದಲಾಯಿಸಲು ಅನುಮತಿಸುತ್ತದೆ?',
+        options: ['Otto and Diesel cycles', 'Otto and Atkinson cycles', 'Electric and fuel modes', 'Single and twin-turbo'],
+        optionsKn: ['ಒಟ್ಟೊ ಮತ್ತು ಡೀಸೆಲ್ ಸೈಕಲ್‌ಗಳು', 'ಒಟ್ಟೊ ಮತ್ತು ಅಟ್ಕಿನ್ಸನ್ ಸೈಕಲ್‌ಗಳು', 'ಎಲೆಕ್ಟ್ರಿಕ್ ಮತ್ತು ಇಂಧನ ಮೋಡ್‌ಗಳು', 'ಸಿಂಗಲ್ ಮತ್ತು ಟ್ವಿನ್-ಟರ್ಬೊ'],
+        correctAnswer: 'Otto and Atkinson cycles'
+    },
+    {
+        text: 'Why is Atkinson cycle ideal for hybrids?',
+        textKn: 'ಹೈಬ್ರಿಡ್‌ಗಳಿಗೆ ಅಟ್ಕಿನ್ಸನ್ ಸೈಕಲ್ ಏಕೆ ಸೂಕ್ತವಾಗಿದೆ?',
+        options: ['It increases noise levels', 'It relies on extra power from electric motors', 'It requires no cooling system', 'It uses fewer cylinders'],
+        optionsKn: ['ಇದು ಶಬ್ದ ಮಟ್ಟವನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ', 'ಇದು ಎಲೆಕ್ಟ್ರಿಕ್ ಮೋಟಾರ್‌ಗಳಿಂದ ಹೆಚ್ಚುವರಿ ಶಕ್ತಿಯನ್ನು ಅವಲಂಬಿಸಿದೆ', 'ಇದಕ್ಕೆ ಕೂಲಿಂಗ್ ಸಿಸ್ಟಮ್ ಅಗತ್ಯವಿಲ್ಲ', 'ಇದು ಕಡಿಮೆ ಸಿಲಿಂಡರ್‌ಗಳನ್ನು ಬಳಸುತ್ತದೆ'],
+        correctAnswer: 'It relies on extra power from electric motors'
+    },
+    {
+        text: 'What does Toyota’s valvetrain design balance using VVT-i and Atkinson cycle?',
+        textKn: 'VVT-i ಮತ್ತು ಅಟ್ಕಿನ್ಸೋ ಸೈಕಲ್ ಬಳಸಿ ಟೊಯೋಟಾದ ವಾಲ್ವ್‌ಟ್ರೇನ್ ವಿನ್ಯಾಸವು ಏನನ್ನು ಸಮತೋಲನಗೊಳಿಸುತ್ತದೆ?',
+        options: ['Power and efficiency', 'Noise and vibration', 'Torque and cooling', 'Fuel and oil ratio'],
+        optionsKn: ['ಶಕ್ತಿ ಮತ್ತು ದಕ್ಷತೆ', 'ಶಬ್ದ ಮತ್ತು ಕಂಪನ', 'ಟಾರ್ಕ್ ಮತ್ತು ಕೂಲಿಂಗ್', 'ಇಂಧನ ಮತ್ತು ತೈಲ ಅನುಪಾತ'],
+        correctAnswer: 'Power and efficiency'
+    },
+    {
+        text: 'What is the main takeaway from the video about Toyota’s engine technologies?',
+        textKn: 'ಟೊಯೋಟಾದ ಎಂಜಿನ್ ತಂತ್ರಜ್ಞಾನಗಳ ವೀಡಿಯೊದಿಂದ ಮುಖ್ಯವಾದ ಅಂಶ ಯಾವುದು?',
+        options: ['They adjust valve timing to optimize power and efficiency', 'They use fixed valve timing', 'They eliminate the need for camshafts', 'They only focus on electric drive'],
+        optionsKn: ['ಶಕ್ತಿ ಮತ್ತು ದಕ್ಷತೆಯನ್ನು ಅತ್ಯುತ್ತಮವಾಗಿಸಲು ಅವರು ವಾಲ್ವ್ ಟೈಮಿಂಗ್ ಅನ್ನು ಸರಿಹೊಂದಿಸುತ್ತಾರೆ', 'ಅವರು ಸ್ಥಿರ ವಾಲ್ವ್ ಟೈಮಿಂಗ್ ಅನ್ನು ಬಳಸುತ್ತಾರೆ', 'ಅವರು ಕ್ಯಾಮ್‌ಶಾಫ್ಟ್‌ಗಳ ಅಗತ್ಯವನ್ನು ನಿವಾರಿಸುತ್ತಾರೆ', 'ಅವರು ಎಲೆಕ್ಟ್ರಿಕ್ ಡ್ರೈವ್ ಮೇಲೆ ಮಾತ್ರ ಗಮನ ಹರಿಸುತ್ತಾರೆ'],
+        correctAnswer: 'They adjust valve timing to optimize power and efficiency'
+    }
+]
+
       ,
-      [
-        { text: "What two main components combine in the Toyota Hybrid System to achieve high energy efficiency?", options: ["Engine and motor", "Motor and alternator", "Battery and generator", "Turbo and motor"], correctAnswer: "Engine and motor" },
-        { textKn: 'ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್ನಲ್ಲಿ ಹೆಚ್ಚು ಶಕ್ತಿ ದಕ್ಷತೆ ಸಾಧಿಸಲು ಯಾವ ಎರಡು ಮುಖ್ಯ ಘಟಕಗಳು ಸೇರಿವೆ?', text: "What two main components combine in the Toyota Hybrid System to achieve high energy efficiency?", options: ["Engine and motor", "Motor and alternator", "Battery and generator", "Turbo and motor"], optionsKn: ['ಎಂಜಿನ್ ಮತ್ತು ಮೋಟಾರ್', 'ಮೋಟಾರ್ ಮತ್ತು અલ્ટರ್ನೇಟರ್', 'ಬ್ಯಾಟರಿ ಮತ್ತು ಜನರೇಟರ್', 'ಟರ್ಬೊ ಮತ್ತು ಮೋಟಾರ್'], correctAnswer: "Engine and motor" },
-      
-        { text: "What is the function of the power split device in the Toyota Hybrid System?", options: ["Divides energy between electrical generation and driving", "Controls air-fuel ratio", "Increases turbo pressure", "Manages braking power"], correctAnswer: "Divides energy between electrical generation and driving" },
-        { textKn: 'ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್ನಲ್ಲಿ ಪವರ್ ಸ್ಪ್ಲಿಟ್ ಸಾಧನದ ಕಾರ್ಯವೇನು?', text: "What is the function of the power split device in the Toyota Hybrid System?", options: ["Divides energy between electrical generation and driving", "Controls air-fuel ratio", "Increases turbo pressure", "Manages braking power"], optionsKn: ['ವಿದ್ಯುತ್ ಉತ್ಪಾದನೆ ಮತ್ತು ಚಾಲನೆಯ ಮಧ್ಯೆ ಶಕ್ತಿಯನ್ನು વહಿಸಿ', 'ಗಾಳಿ-ಇಂಧನ ಅನುಪಾತವನ್ನು ನಿರ್ವಹಿಸು', 'ಟರ್ಬೊ ಒತ್ತಡವನ್ನು ಹೆಚ್ಚಿಸು', 'ಬ್ರೇಕಿಂಗ್ ಶಕ್ತಿಯನ್ನು ನಿರ್ವಹಿಸು'], correctAnswer: "Divides energy between electrical generation and driving" },
-      
-        { text: "Where is the power split device located in a Toyota hybrid?", options: ["Inside the transmission", "In the exhaust system", "Next to the cooling unit", "In the fuel tank"], correctAnswer: "Inside the transmission" },
-        { textKn: 'ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್‌ನಲ್ಲಿ ಪವರ್ ಸ್ಪ್ಲಿಟ್ ಸಾಧನವು ಎಲ್ಲಿದ್ದಿದೆ?', text: "Where is the power split device located in a Toyota hybrid?", options: ["Inside the transmission", "In the exhaust system", "Next to the cooling unit", "In the fuel tank"], optionsKn: ['ಟ್ರಾನ್ಸ್ಮಿಷನ್ ಒಳಗೆ', 'ಏಗ್ಝಾಸ್ಟ್ ವ್ಯವಸ್ಥೆಯಲ್ಲಿ', 'ಸೂಕ್ಷ್ಮ ಘಟಕದ ಪಕ್ಕದಲ್ಲಿ', 'ಇಂಧನ ಟ್ಯಾಂಕ್‌ನಲ್ಲಿ'], correctAnswer: "Inside the transmission" },
-      
-        { text: "What is the main role of the generator in the hybrid system?", options: ["Generate electricity using engine rotation", "Boost the intake air", "Lubricate engine parts", "Control fuel injection"], correctAnswer: "Generate electricity using engine rotation" },
-        { textKn: 'ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್ನಲ್ಲಿ ಜನರೇಟರ್‌ನ ಮುಖ್ಯ ಪಾತ್ರವೇನು?', text: "What is the main role of the generator in the hybrid system?", options: ["Generate electricity using engine rotation", "Boost the intake air", "Lubricate engine parts", "Control fuel injection"], optionsKn: ['ಎಂಜಿನ್ ತಿರುಗುವಿಕೆಯಿಂದ ವಿದ್ಯುತ್ ಉತ್ಪಾದನೆ', 'ಇಂಟೇಕ್ ಗಾಳಿಯನ್ನು ಹೆಚ್ಚಿಸಿ', 'ಎಂಜಿನ್ ಭಾಗಗಳನ್ನು ಓಯಿಲ್ ಮಾಡು', 'ಇಂಧನ ಇಂಜೆಕ್ಷನ್ ಅನ್ನು ನಿಯಂತ್ರಿಸು'], correctAnswer: "Generate electricity using engine rotation" },
-      
-        { text: "What additional function does the generator perform besides electricity generation?", options: ["Acts as the engine starter", "Charges external devices", "Regulates tire pressure", "Controls coolant flow"], correctAnswer: "Acts as the engine starter" },
-      
-        { text: "What is the main function of the power control unit in the hybrid system?", options: ["Control the electricity flow to each component", "Store electrical energy", "Regulate tire pressure", "Control air conditioning"], correctAnswer: "Control the electricity flow to each component" },
-      
-        { text: "What is the purpose of the drive batteries in a Toyota hybrid?", options: ["Store generated electricity and supply it to the motor", "Run the air conditioning system", "Start the fuel pump", "Power the headlights only"], correctAnswer: "Store generated electricity and supply it to the motor" },
-      
-        { text: "Do Toyota hybrid batteries require external charging?", options: ["Yes, daily", "No, they self-charge using the system", "Yes, every month", "Only when replacing"], correctAnswer: "No, they self-charge using the system" },
-      
-        { text: "What characteristic do Toyota hybrid batteries have?", options: ["Superior durability and heat resistance", "High water content", "Fragile and light", "Low voltage only"], correctAnswer: "Superior durability and heat resistance" },
-      
-        { text: "What happens to all units of a Toyota hybrid when the vehicle is not moving?", options: ["They stop to prevent energy waste", "They continue running at low power", "Only the engine runs", "Only the motor runs"], correctAnswer: "They stop to prevent energy waste" },
-      
-        { text: "Which unit drives the vehicle quietly during initial acceleration?", options: ["Motor", "Engine", "Generator", "Power split device"], correctAnswer: "Motor" },
-      
-        { text: "How is low fuel consumption achieved at low speeds in a Toyota hybrid?", options: ["Using only the motor", "Using only the engine", "Using both engine and motor at high power", "Shutting down the system"], correctAnswer: "Using only the motor" },
-      
-        { text: "During acceleration, how is power delivered efficiently?", options: ["Motor drive combined with engine drive in an efficient rotation range", "Engine alone at high RPM", "Motor alone at high RPM", "Generator only"], correctAnswer: "Motor drive combined with engine drive in an efficient rotation range" },
-      
-        { text: "What additional benefit occurs when the engine drives the vehicle while charging the batteries?", options: ["Increased energy efficiency", "Reduced braking power", "Higher emissions", "Lower vehicle speed"], correctAnswer: "Increased energy efficiency" },
-      
-  { text: "How is energy recovered during deceleration?", textKn: 'ಗತಿಸ್ಥಿತಿ ತಗ್ಗುವಾಗ ಶಕ್ತಿ ಹೇಗೆ ಮರಳಿ ಗಳಿಸಲಾಗುತ್ತದೆ?', options: ["Tire rotation drives the motor to generate electricity", "Engine generates excess power", "Excess fuel is stored", "Motor shuts off"], optionsKn: ['ಟೈರ್‌ನ ಸುತ್ತು ಮೋಟಾರ್ ಅನ್ನು ಚಾಲನೆ ಮಾಡಿ ವಿದ್ಯುತ್ ಉತ್ಪಾದಿಸುತ್ತದೆ', 'ಎಂಜಿನ್ ಅಧಿಕ ಶಕ್ತಿ ಉತ್ಪಾದಿಸುತ್ತದೆ', 'ಅತಿರಿಕ್ತ ಇಂಧನವನ್ನು ಸಂಗ್ರಹಿಸಲಾಗುತ್ತದೆ', 'ಮೋಟಾರ್ ನ ತಡೆ'], correctAnswer: "Tire rotation drives the motor to generate electricity" },
-      
-        { text: "Where is recovered energy stored during regenerative braking?", options: ["Drive batteries", "Fuel tank", "Cooling system", "Exhaust"], correctAnswer: "Drive batteries" },
-      
-        { text: "How does the Toyota hybrid system improve overall fuel efficiency?", options: ["By running the engine in an efficient rotation range and reusing energy", "By using a smaller engine", "By turning off the motor during acceleration", "By using only the engine"], correctAnswer: "By running the engine in an efficient rotation range and reusing energy" },
-      
-        { text: "What is the main purpose of the Toyota hybrid system?", options: ["Achieve both driving fun and superior environmental performance", "Increase engine noise", "Reduce vehicle weight only", "Provide external charging"], correctAnswer: "Achieve both driving fun and superior environmental performance" },
-      
-        { text: "How does the motor contribute to smooth acceleration?", options: ["It is compact and high efficiency", "It increases fuel injection", "It runs at high voltage only", "It engages only at high speeds"], correctAnswer: "It is compact and high efficiency" },
-      
-        { text: "What is the significance of maximum thermal efficiency in the hybrid engine?", options: ["Achieves low fuel consumption and low emissions", "Increases engine vibration", "Reduces engine lifespan", "Boosts motor noise"], correctAnswer: "Achieves low fuel consumption and low emissions" },
-      
-        { text: "Does the Toyota hybrid system require battery replacement periodically?", options: ["No", "Yes, every year", "Yes, every 6 months", "Only for high-mileage cars"], correctAnswer: "No" },
-      
-        { text: "How does the generator support engine starting?", options: ["It provides smooth engine starting", "It ignites the fuel directly", "It cools the engine", "It spins the tires"], correctAnswer: "It provides smooth engine starting" },
-      
-        { text: "During low-speed driving, which unit primarily powers the vehicle?", options: ["Motor", "Engine", "Generator", "Power control unit"], correctAnswer: "Motor" },
-      
-        { text: "During moderate acceleration, what is the energy source?", options: ["Combination of engine and motor", "Motor only", "Engine only", "Generator only"], correctAnswer: "Combination of engine and motor" },
-      
-        { text: "What technology allows energy reuse that was previously wasted?", options: ["Regenerative braking", "Turbocharging", "Variable valve timing", "Atkinson cycle"], correctAnswer: "Regenerative braking" },
-      
-        { text: "How does the power control unit optimize the hybrid system?", options: ["By supplying electricity appropriately to each unit", "By charging external devices", "By controlling fuel type", "By managing tire rotation"], correctAnswer: "By supplying electricity appropriately to each unit" },
-      
-        { text: "What ensures that the hybrid system operates efficiently under various driving conditions?", options: ["Power split device and regenerative system", "Air conditioning", "Transmission only", "Brakes only"], correctAnswer: "Power split device and regenerative system" },
-      
-        { text: "What combination allows the hybrid to drive efficiently and reduce fuel consumption?", options: ["Engine running in efficient range + energy reuse", "Motor running at max speed", "Engine off at all times", "Battery only"], correctAnswer: "Engine running in efficient range + energy reuse" },
-      
-        { text: "What ensures durability and reliability in Toyota hybrid units?", options: ["Years of design development and continuous progress", "Random maintenance", "External battery charging", "Lightweight materials only"], correctAnswer: "Years of design development and continuous progress" },
-      
-        { text: "How does the Toyota hybrid system provide superior environmental performance?", options: ["By combining motor and engine efficiently and reusing energy", "By using diesel fuel", "By reducing tire size", "By shutting off the engine at high speeds"], correctAnswer: "By combining motor and engine efficiently and reusing energy" }
-      ]
+    
+[
+    {
+        text: "What two main components combine in the Toyota Hybrid System to achieve high energy efficiency?",
+        textKn: "ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್ನಲ್ಲಿ ಹೆಚ್ಚು ಶಕ್ತಿ ದಕ್ಷತೆ ಸಾಧಿಸಲು ಯಾವ ಎರಡು ಮುಖ್ಯ ಘಟಕಗಳು ಸೇರಿವೆ?",
+        options: ["Engine and motor", "Motor and alternator", "Battery and generator", "Turbo and motor"],
+        optionsKn: ['ಎಂಜಿನ್ ಮತ್ತು ಮೋಟಾರ್', 'ಮೋಟಾರ್ ಮತ್ತು ಆಲ್ಟರ್ನೇಟರ್', 'ಬ್ಯಾಟರಿ ಮತ್ತು ಜನರೇಟರ್', 'ಟರ್ಬೊ ಮತ್ತು ಮೋಟಾರ್'],
+        correctAnswer: "Engine and motor"
+    },
+    {
+        text: "What is the function of the power split device in the Toyota Hybrid System?",
+        textKn: "ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್ನಲ್ಲಿ ಪವರ್ ಸ್ಪ್ಲಿಟ್ ಸಾಧನದ ಕಾರ್ಯವೇನು?",
+        options: ["Divides energy between electrical generation and driving", "Controls air-fuel ratio", "Increases turbo pressure", "Manages braking power"],
+        optionsKn: ['ವಿದ್ಯುತ್ ಉತ್ಪಾದನೆ ಮತ್ತು ಚಾಲನೆಯ ನಡುವೆ ಶಕ್ತಿಯನ್ನು ವಿಭಜಿಸುತ್ತದೆ', 'ಗಾಳಿ-ಇಂಧನ ಅನುಪಾತವನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ', 'ಟರ್ಬೊ ಒತ್ತಡವನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ', 'ಬ್ರೇಕಿಂಗ್ ಶಕ್ತಿಯನ್ನು ನಿರ್ವಹಿಸುತ್ತದೆ'],
+        correctAnswer: "Divides energy between electrical generation and driving"
+    },
+    {
+        text: "Where is the power split device located in a Toyota hybrid?",
+        textKn: "ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್‌ನಲ್ಲಿ ಪವರ್ ಸ್ಪ್ಲಿಟ್ ಸಾಧನವು ಎಲ್ಲಿದೆ?",
+        options: ["Inside the transmission", "In the exhaust system", "Next to the cooling unit", "In the fuel tank"],
+        optionsKn: ['ಟ್ರಾನ್ಸ್ಮಿಷನ್ ಒಳಗೆ', 'ಎಕ್ಸಾಸ್ಟ್ ವ್ಯವಸ್ಥೆಯಲ್ಲಿ', 'ಕೂಲಿಂಗ್ ಯುನಿಟ್ ಪಕ್ಕದಲ್ಲಿ', 'ಇಂಧನ ಟ್ಯಾಂಕ್‌ನಲ್ಲಿ'],
+        correctAnswer: "Inside the transmission"
+    },
+    {
+        text: "What is the main role of the generator in the hybrid system?",
+        textKn: "ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್ನಲ್ಲಿ ಜನರೇಟರ್‌ನ ಮುಖ್ಯ ಪಾತ್ರವೇನು?",
+        options: ["Generate electricity using engine rotation", "Boost the intake air", "Lubricate engine parts", "Control fuel injection"],
+        optionsKn: ['ಎಂಜಿನ್ ತಿರುಗುವಿಕೆಯನ್ನು ಬಳಸಿ ವಿದ್ಯುತ್ ಉತ್ಪಾದಿಸುವುದು', 'ಇಂಟೇಕ್ ಗಾಳಿಯನ್ನು ಹೆಚ್ಚಿಸುವುದು', 'ಎಂಜಿನ್ ಭಾಗಗಳನ್ನು ಲೂಬ್ರಿಕೇಟ್ ಮಾಡುವುದು', 'ಇಂಧನ ಇಂಜೆಕ್ಷನ್ ಅನ್ನು ನಿಯಂತ್ರಿಸುವುದು'],
+        correctAnswer: "Generate electricity using engine rotation"
+    },
+    {
+        text: "What additional function does the generator perform besides electricity generation?",
+        textKn: "ವಿದ್ಯುತ್ ಉತ್ಪಾದನೆಯ ಹೊರತಾಗಿ ಜನರೇಟರ್ ಯಾವ ಹೆಚ್ಚುವರಿ ಕಾರ್ಯವನ್ನು ನಿರ್ವಹಿಸುತ್ತದೆ?",
+        options: ["Acts as the engine starter", "Charges external devices", "Regulates tire pressure", "Controls coolant flow"],
+        optionsKn: ['ಎಂಜಿನ್ ಸ್ಟಾರ್ಟರ್ ಆಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ', 'ಬಾಹ್ಯ ಸಾಧನಗಳನ್ನು ಚಾರ್ಜ್ ಮಾಡುತ್ತದೆ', 'ಟೈರ್ ಒತ್ತಡವನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ', 'ಕೂಲೆಂಟ್ ಹರಿವನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ'],
+        correctAnswer: "Acts as the engine starter"
+    },
+    {
+        text: "What is the main function of the power control unit in the hybrid system?",
+        textKn: "ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್‌ನಲ್ಲಿ ಪವರ್ ಕಂಟ್ರೋಲ್ ಯುನಿಟ್‌ನ ಮುಖ್ಯ ಕಾರ್ಯವೇನು?",
+        options: ["Control the electricity flow to each component", "Store electrical energy", "Regulate tire pressure", "Control air conditioning"],
+        optionsKn: ['ಪ್ರತಿ ಘಟಕಕ್ಕೆ ವಿದ್ಯುತ್ ಹರಿವನ್ನು ನಿಯಂತ್ರಿಸುವುದು', 'ವಿದ್ಯುತ್ ಶಕ್ತಿಯನ್ನು ಸಂಗ್ರಹಿಸುವುದು', 'ಟೈರ್ ಒತ್ತಡವನ್ನು ನಿಯಂತ್ರಿಸುವುದು', 'ಏರ್ ಕಂಡೀಷನಿಂಗ್ ಅನ್ನು ನಿಯಂತ್ರಿಸುವುದು'],
+        correctAnswer: "Control the electricity flow to each component"
+    },
+    {
+        text: "What is the purpose of the drive batteries in a Toyota hybrid?",
+        textKn: "ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್‌ನಲ್ಲಿ ಡ್ರೈವ್ ಬ್ಯಾಟರಿಗಳ ಉದ್ದೇಶವೇನು?",
+        options: ["Store generated electricity and supply it to the motor", "Run the air conditioning system", "Start the fuel pump", "Power the headlights only"],
+        optionsKn: ['ಉತ್ಪಾದಿತ ವಿದ್ಯುತ್ ಅನ್ನು ಸಂಗ್ರಹಿಸಿ ಅದನ್ನು ಮೋಟಾರ್‌ಗೆ ಪೂರೈಸುವುದು', 'ಏರ್ ಕಂಡೀಷನಿಂಗ್ ಸಿಸ್ಟಮ್ ಅನ್ನು ಚಲಾಯಿಸುವುದು', 'ಇಂಧನ ಪಂಪ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸುವುದು', 'ಹೆಡ್‌ಲೈಟ್‌ಗಳಿಗೆ ಮಾತ್ರ ಶಕ್ತಿ ನೀಡುವುದು'],
+        correctAnswer: "Store generated electricity and supply it to the motor"
+    },
+    {
+        text: "Do Toyota hybrid batteries require external charging?",
+        textKn: "ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್ ಬ್ಯಾಟರಿಗಳಿಗೆ ಬಾಹ್ಯ ಚಾರ್ಜಿಂಗ್ ಅಗತ್ಯವಿದೆಯೇ?",
+        options: ["Yes, daily", "No, they self-charge using the system", "Yes, every month", "Only when replacing"],
+        optionsKn: ['ಹೌದು, ಪ್ರತಿದಿನ', 'ಇಲ್ಲ, ಅವು ಸಿಸ್ಟಮ್ ಬಳಸಿ ಸ್ವಯಂ-ಚಾರ್ಜ್ ಆಗುತ್ತವೆ', 'ಹೌದು, ಪ್ರತಿ ತಿಂಗಳು', 'ಬದಲಾಯಿಸುವಾಗ ಮಾತ್ರ'],
+        correctAnswer: "No, they self-charge using the system"
+    },
+    {
+        text: "What characteristic do Toyota hybrid batteries have?",
+        textKn: "ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್ ಬ್ಯಾಟರಿಗಳು ಯಾವ ಗುಣಲಕ್ಷಣವನ್ನು ಹೊಂದಿವೆ?",
+        options: ["Superior durability and heat resistance", "High water content", "Fragile and light", "Low voltage only"],
+        optionsKn: ['ಉತ್ತಮ ಬಾಳಿಕೆ ಮತ್ತು ಶಾಖ ನಿರೋಧಕತೆ', 'ಹೆಚ್ಚಿನ ನೀರಿನ ಅಂಶ', 'ದುರ್ಬಲ ಮತ್ತು ಹಗುರ', 'ಕಡಿಮೆ ವೋಲ್ಟೇಜ್ ಮಾತ್ರ'],
+        correctAnswer: "Superior durability and heat resistance"
+    },
+    {
+        text: "What happens to all units of a Toyota hybrid when the vehicle is not moving?",
+        textKn: "ವಾಹನ ಚಲಿಸದಿದ್ದಾಗ ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್‌ನ ಎಲ್ಲಾ ಘಟಕಗಳಿಗೆ ಏನಾಗುತ್ತದೆ?",
+        options: ["They stop to prevent energy waste", "They continue running at low power", "Only the engine runs", "Only the motor runs"],
+        optionsKn: ['ಶಕ್ತಿಯ ವ್ಯರ್ಥವನ್ನು ತಡೆಯಲು ಅವು ನಿಲ್ಲುತ್ತವೆ', 'ಅವು ಕಡಿಮೆ ಶಕ್ತಿಯಲ್ಲಿ ಚಾಲನೆಯಾಗುವುದನ್ನು ಮುಂದುವರಿಸುತ್ತವೆ', 'ಕೇವಲ ಎಂಜಿನ್ ಚಲಿಸುತ್ತದೆ', 'ಕೇವಲ ಮೋಟಾರ್ ಚಲಿಸುತ್ತದೆ'],
+        correctAnswer: "They stop to prevent energy waste"
+    },
+    {
+        text: "Which unit drives the vehicle quietly during initial acceleration?",
+        textKn: "ಆರಂಭಿಕ ವೇಗವರ್ಧನೆಯ ಸಮಯದಲ್ಲಿ ಯಾವ ಘಟಕವು ವಾಹನವನ್ನು ನಿಶ್ಯಬ್ದವಾಗಿ ಚಾಲನೆ ಮಾಡುತ್ತದೆ?",
+        options: ["Motor", "Engine", "Generator", "Power split device"],
+        optionsKn: ['ಮೋಟಾರ್', 'ಎಂಜಿನ್', 'ಜನರೇಟರ್', 'ಪವರ್ ಸ್ಪ್ಲಿಟ್ ಸಾಧನ'],
+        correctAnswer: "Motor"
+    },
+    {
+        text: "How is low fuel consumption achieved at low speeds in a Toyota hybrid?",
+        textKn: "ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್‌ನಲ್ಲಿ ಕಡಿಮೆ ವೇಗದಲ್ಲಿ ಕಡಿಮೆ ಇಂಧನ ಬಳಕೆಯನ್ನು ಹೇಗೆ ಸಾಧಿಸಲಾಗುತ್ತದೆ?",
+        options: ["Using only the motor", "Using only the engine", "Using both engine and motor at high power", "Shutting down the system"],
+        optionsKn: ['ಕೇವಲ ಮೋಟಾರ್ ಬಳಸಿ', 'ಕೇವಲ ಎಂಜಿನ್ ಬಳಸಿ', 'ಎಂಜಿನ್ ಮತ್ತು ಮೋಟಾರ್ ಎರಡನ್ನೂ ಅಧಿಕ ಶಕ್ತಿಯಲ್ಲಿ ಬಳಸಿ', 'ಸಿಸ್ಟಮ್ ಅನ್ನು ಸ್ಥಗಿತಗೊಳಿಸುವುದು'],
+        correctAnswer: "Using only the motor"
+    },
+    {
+        text: "During acceleration, how is power delivered efficiently?",
+        textKn: "ವೇಗವರ್ಧನೆಯ ಸಮಯದಲ್ಲಿ, ಶಕ್ತಿಯನ್ನು ಪರಿಣಾಮಕಾರಿಯಾಗಿ ಹೇಗೆ ತಲುಪಿಸಲಾಗುತ್ತದೆ?",
+        options: ["Motor drive combined with engine drive in an efficient rotation range", "Engine alone at high RPM", "Motor alone at high RPM", "Generator only"],
+        optionsKn: ['ದಕ್ಷ ತಿರುಗುವಿಕೆಯ ವ್ಯಾಪ್ತಿಯಲ್ಲಿ ಎಂಜಿನ್ ಡ್ರೈವ್‌ನೊಂದಿಗೆ ಮೋಟಾರ್ ಡ್ರೈವ್ ಅನ್ನು ಸಂಯೋಜಿಸುವುದು', 'ಹೆಚ್ಚಿನ RPM ನಲ್ಲಿ ಎಂಜಿನ್ ಮಾತ್ರ', 'ಹೆಚ್ಚಿನ RPM ನಲ್ಲಿ ಮೋಟಾರ್ ಮಾತ್ರ', 'ಜನರೇಟರ್ ಮಾತ್ರ'],
+        correctAnswer: "Motor drive combined with engine drive in an efficient rotation range"
+    },
+    {
+        text: "What additional benefit occurs when the engine drives the vehicle while charging the batteries?",
+        textKn: "ಬ್ಯಾಟರಿಗಳನ್ನು ಚಾರ್ಜ್ ಮಾಡುವಾಗ ಎಂಜಿನ್ ವಾಹನವನ್ನು ಚಾಲನೆ ಮಾಡುವಾಗ ಯಾವ ಹೆಚ್ಚುವರಿ ಪ್ರಯೋಜನ ಉಂಟಾಗುತ್ತದೆ?",
+        options: ["Increased energy efficiency", "Reduced braking power", "Higher emissions", "Lower vehicle speed"],
+        optionsKn: ['ಹೆಚ್ಚಿದ ಶಕ್ತಿ ದಕ್ಷತೆ', 'ಕಡಿಮೆಯಾದ ಬ್ರೇಕಿಂಗ್ ಶಕ್ತಿ', 'ಹೆಚ್ಚಿನ ಹೊರಸೂಸುವಿಕೆ', 'ಕಡಿಮೆ ವಾಹನ ವೇಗ'],
+        correctAnswer: "Increased energy efficiency"
+    },
+    {
+        text: "How is energy recovered during deceleration?",
+        textKn: "ವೇಗ ಕಡಿಮೆಯಾದಾಗ ಶಕ್ತಿ ಹೇಗೆ ಮರಳಿ ಗಳಿಸಲಾಗುತ್ತದೆ?",
+        options: ["Tire rotation drives the motor to generate electricity", "Engine generates excess power", "Excess fuel is stored", "Motor shuts off"],
+        optionsKn: ['ಟೈರ್ ತಿರುಗುವಿಕೆಯು ಮೋಟಾರ್ ಅನ್ನು ಚಾಲನೆ ಮಾಡಿ ವಿದ್ಯುತ್ ಉತ್ಪಾದಿಸುತ್ತದೆ', 'ಎಂಜಿನ್ ಅಧಿಕ ಶಕ್ತಿ ಉತ್ಪಾದಿಸುತ್ತದೆ', 'ಹೆಚ್ಚುವರಿ ಇಂಧನವನ್ನು ಸಂಗ್ರಹಿಸಲಾಗುತ್ತದೆ', 'ಮೋಟಾರ್ ಆಫ್ ಆಗುತ್ತದೆ'],
+        correctAnswer: "Tire rotation drives the motor to generate electricity"
+    },
+    {
+        text: "Where is recovered energy stored during regenerative braking?",
+        textKn: "ರಿಜೆನೆರೇಟಿವ್ ಬ್ರೇಕಿಂಗ್ ಸಮಯದಲ್ಲಿ ಮರುಪಡೆಯಲಾದ ಶಕ್ತಿಯನ್ನು ಎಲ್ಲಿ ಸಂಗ್ರಹಿಸಲಾಗುತ್ತದೆ?",
+        options: ["Drive batteries", "Fuel tank", "Cooling system", "Exhaust"],
+        optionsKn: ['ಡ್ರೈವ್ ಬ್ಯಾಟರಿಗಳು', 'ಇಂಧನ ಟ್ಯಾಂಕ್', 'ಕೂಲಿಂಗ್ ಸಿಸ್ಟಮ್', 'ಎಕ್ಸಾಸ್ಟ್'],
+        correctAnswer: "Drive batteries"
+    },
+    {
+        text: "How does the Toyota hybrid system improve overall fuel efficiency?",
+        textKn: "ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್ ಒಟ್ಟಾರೆ ಇಂಧನ ದಕ್ಷತೆಯನ್ನು ಹೇಗೆ ಸುಧಾರಿಸುತ್ತದೆ?",
+        options: ["By running the engine in an efficient rotation range and reusing energy", "By using a smaller engine", "By turning off the motor during acceleration", "By using only the engine"],
+        optionsKn: ['ಎಂಜಿನ್ ಅನ್ನು ದಕ್ಷ ತಿರುಗುವಿಕೆಯ ವ್ಯಾಪ್ತಿಯಲ್ಲಿ ಚಾಲನೆ ಮಾಡುವ ಮೂಲಕ ಮತ್ತು ಶಕ್ತಿಯನ್ನು ಮರುಬಳಕೆ ಮಾಡುವ ಮೂಲಕ', 'ಸಣ್ಣ ಎಂಜಿನ್ ಬಳಸುವ ಮೂಲಕ', 'ವೇಗವರ್ಧನೆಯ ಸಮಯದಲ್ಲಿ ಮೋಟಾರ್ ಅನ್ನು ಆಫ್ ಮಾಡುವ ಮೂಲಕ', 'ಕೇವಲ ಎಂಜಿನ್ ಬಳಸುವ ಮೂಲಕ'],
+        correctAnswer: "By running the engine in an efficient rotation range and reusing energy"
+    },
+    {
+        text: "What is the main purpose of the Toyota hybrid system?",
+        textKn: "ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್‌ನ ಮುಖ್ಯ ಉದ್ದೇಶವೇನು?",
+        options: ["Achieve both driving fun and superior environmental performance", "Increase engine noise", "Reduce vehicle weight only", "Provide external charging"],
+        optionsKn: ['ಚಾಲನೆಯ ವಿನೋದ ಮತ್ತು ಉತ್ತಮ ಪರಿಸರ ಕಾರ್ಯಕ್ಷಮತೆ ಎರಡನ್ನೂ ಸಾಧಿಸುವುದು', 'ಎಂಜಿನ್ ಶಬ್ದವನ್ನು ಹೆಚ್ಚಿಸುವುದು', 'ವಾಹನದ ತೂಕವನ್ನು ಮಾತ್ರ ಕಡಿಮೆ ಮಾಡುವುದು', 'ಬಾಹ್ಯ ಚಾರ್ಜಿಂಗ್ ಒದಗಿಸುವುದು'],
+        correctAnswer: "Achieve both driving fun and superior environmental performance"
+    },
+    {
+        text: "How does the motor contribute to smooth acceleration?",
+        textKn: "ಸುಗಮ ವೇಗವರ್ಧನೆಗೆ ಮೋಟಾರ್ ಹೇಗೆ ಕೊಡುಗೆ ನೀಡುತ್ತದೆ?",
+        options: ["It is compact and high efficiency", "It increases fuel injection", "It runs at high voltage only", "It engages only at high speeds"],
+        optionsKn: ['ಇದು ಕಾಂಪ್ಯಾಕ್ಟ್ ಮತ್ತು ಹೆಚ್ಚಿನ ದಕ್ಷತೆಯನ್ನು ಹೊಂದಿದೆ', 'ಇದು ಇಂಧನ ಇಂಜೆಕ್ಷನ್ ಅನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ', 'ಇದು ಹೆಚ್ಚಿನ ವೋಲ್ಟೇಜ್‌ನಲ್ಲಿ ಮಾತ್ರ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ', 'ಇದು ಹೆಚ್ಚಿನ ವೇಗದಲ್ಲಿ ಮಾತ್ರ ತೊಡಗಿಸಿಕೊಳ್ಳುತ್ತದೆ'],
+        correctAnswer: "It is compact and high efficiency"
+    },
+    {
+        text: "What is the significance of maximum thermal efficiency in the hybrid engine?",
+        textKn: "ಹೈಬ್ರಿಡ್ ಎಂಜಿನ್‌ನಲ್ಲಿ ಗರಿಷ್ಠ ಉಷ್ಣ ದಕ್ಷತೆಯ ಮಹತ್ವವೇನು?",
+        options: ["Achieves low fuel consumption and low emissions", "Increases engine vibration", "Reduces engine lifespan", "Boosts motor noise"],
+        optionsKn: ['ಕಡಿಮೆ ಇಂಧನ ಬಳಕೆ ಮತ್ತು ಕಡಿಮೆ ಹೊರಸೂಸುವಿಕೆಯನ್ನು ಸಾಧಿಸುತ್ತದೆ', 'ಎಂಜಿನ್ ಕಂಪನವನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ', 'ಎಂಜಿನ್ ಜೀವಿತಾವಧಿಯನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ', 'ಮೋಟಾರ್ ಶಬ್ದವನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ'],
+        correctAnswer: "Achieves low fuel consumption and low emissions"
+    },
+    {
+        text: "Does the Toyota hybrid system require battery replacement periodically?",
+        textKn: "ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್‌ಗೆ ನಿಯತಕಾಲಿಕವಾಗಿ ಬ್ಯಾಟರಿ ಬದಲಿ ಅಗತ್ಯವಿದೆಯೇ?",
+        options: ["No", "Yes, every year", "Yes, every 6 months", "Only for high-mileage cars"],
+        optionsKn: ['ಇಲ್ಲ', 'ಹೌದು, ಪ್ರತಿ ವರ್ಷ', 'ಹೌದು, ಪ್ರತಿ 6 ತಿಂಗಳಿಗೊಮ್ಮೆ', 'ಹೆಚ್ಚಿನ ಮೈಲೇಜ್ ಕಾರುಗಳಿಗೆ ಮಾತ್ರ'],
+        correctAnswer: "No"
+    },
+    {
+        text: "How does the generator support engine starting?",
+        textKn: "ಎಂಜಿನ್ ಪ್ರಾರಂಭಿಸಲು ಜನರೇಟರ್ ಹೇಗೆ ಬೆಂಬಲಿಸುತ್ತದೆ?",
+        options: ["It provides smooth engine starting", "It ignites the fuel directly", "It cools the engine", "It spins the tires"],
+        optionsKn: ['ಇದು ಸುಗಮ ಎಂಜಿನ್ ಪ್ರಾರಂಭವನ್ನು ಒದಗಿಸುತ್ತದೆ', 'ಇದು ಇಂಧನವನ್ನು ನೇರವಾಗಿ ಹೊತ್ತಿಸುತ್ತದೆ', 'ಇದು ಎಂಜಿನ್ ಅನ್ನು ತಂಪಾಗಿಸುತ್ತದೆ', 'ಇದು ಟೈರ್‌ಗಳನ್ನು ತಿರುಗಿಸುತ್ತದೆ'],
+        correctAnswer: "It provides smooth engine starting"
+    },
+    {
+        text: "During low-speed driving, which unit primarily powers the vehicle?",
+        textKn: "ಕಡಿಮೆ ವೇಗದ ಚಾಲನೆಯ ಸಮಯದಲ್ಲಿ, ಯಾವ ಘಟಕವು ಪ್ರಾಥಮಿಕವಾಗಿ ವಾಹನಕ್ಕೆ ಶಕ್ತಿ ನೀಡುತ್ತದೆ?",
+        options: ["Motor", "Engine", "Generator", "Power control unit"],
+        optionsKn: ['ಮೋಟಾರ್', 'ಎಂಜಿನ್', 'ಜನರೇಟರ್', 'ಪವರ್ ಕಂಟ್ರೋಲ್ ಯುನಿಟ್'],
+        correctAnswer: "Motor"
+    },
+    {
+        text: "During moderate acceleration, what is the energy source?",
+        textKn: "ಮಧ್ಯಮ ವೇಗವರ್ಧನೆಯ ಸಮಯದಲ್ಲಿ, ಶಕ್ತಿಯ ಮೂಲ ಯಾವುದು?",
+        options: ["Combination of engine and motor", "Motor only", "Engine only", "Generator only"],
+        optionsKn: ['ಎಂಜಿನ್ ಮತ್ತು ಮೋಟಾರ್ ಸಂಯೋಜನೆ', 'ಮೋಟಾರ್ ಮಾತ್ರ', 'ಎಂಜಿನ್ ಮಾತ್ರ', 'ಜನರೇಟರ್ ಮಾತ್ರ'],
+        correctAnswer: "Combination of engine and motor"
+    },
+    {
+        text: "What technology allows energy reuse that was previously wasted?",
+        textKn: "ಹಿಂದೆ ವ್ಯರ್ಥವಾಗುತ್ತಿದ್ದ ಶಕ್ತಿಯನ್ನು ಮರುಬಳಕೆ ಮಾಡಲು ಯಾವ ತಂತ್ರಜ್ಞಾನ ಅನುಮತಿಸುತ್ತದೆ?",
+        options: ["Regenerative braking", "Turbocharging", "Variable valve timing", "Atkinson cycle"],
+        optionsKn: ['ರಿಜೆನೆರೇಟಿವ್ ಬ್ರೇಕಿಂಗ್', 'ಟರ್ಬೋಚಾರ್ಜಿಂಗ್', 'ವೇರಿಯಬಲ್ ವಾಲ್ವ್ ಟೈಮಿಂಗ್', 'ಅಟ್ಕಿನ್ಸನ್ ಸೈಕಲ್'],
+        correctAnswer: "Regenerative braking"
+    },
+    {
+        text: "How does the power control unit optimize the hybrid system?",
+        textKn: "ಪವರ್ ಕಂಟ್ರೋಲ್ ಯುನಿಟ್ ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್ ಅನ್ನು ಹೇಗೆ ಆಪ್ಟಿಮೈಜ್ ಮಾಡುತ್ತದೆ?",
+        options: ["By supplying electricity appropriately to each unit", "By charging external devices", "By controlling fuel type", "By managing tire rotation"],
+        optionsKn: ['ಪ್ರತಿ ಘಟಕಕ್ಕೆ ಸೂಕ್ತವಾಗಿ ವಿದ್ಯುತ್ ಪೂರೈಸುವ ಮೂಲಕ', 'ಬಾಹ್ಯ ಸಾಧನಗಳನ್ನು ಚಾರ್ಜ್ ಮಾಡುವ ಮೂಲಕ', 'ಇಂಧನ ಪ್ರಕಾರವನ್ನು ನಿಯಂತ್ರಿಸುವ ಮೂಲಕ', 'ಟೈರ್ ತಿರುಗುವಿಕೆಯನ್ನು ನಿರ್ವಹಿಸುವ ಮೂಲಕ'],
+        correctAnswer: "By supplying electricity appropriately to each unit"
+    },
+    {
+        text: "What ensures that the hybrid system operates efficiently under various driving conditions?",
+        textKn: "ವಿವಿಧ ಚಾಲನಾ ಪರಿಸ್ಥಿತಿಗಳಲ್ಲಿ ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್ ದಕ್ಷತೆಯಿಂದ ಕಾರ್ಯನಿರ್ವಹಿಸುವುದನ್ನು ಯಾವುದು ಖಚಿತಪಡಿಸುತ್ತದೆ?",
+        options: ["Power split device and regenerative system", "Air conditioning", "Transmission only", "Brakes only"],
+        optionsKn: ['ಪವರ್ ಸ್ಪ್ಲಿಟ್ ಸಾಧನ ಮತ್ತು ರಿಜೆನೆರೇಟಿವ್ ಸಿಸ್ಟಮ್', 'ಏರ್ ಕಂಡೀಷನಿಂಗ್', 'ಟ್ರಾನ್ಸ್ಮಿಷನ್ ಮಾತ್ರ', 'ಬ್ರೇಕ್‌ಗಳು ಮಾತ್ರ'],
+        correctAnswer: "Power split device and regenerative system"
+    },
+    {
+        text: "What combination allows the hybrid to drive efficiently and reduce fuel consumption?",
+        textKn: "ಯಾವ ಸಂಯೋಜನೆಯು ಹೈಬ್ರಿಡ್ ಅನ್ನು ದಕ್ಷತೆಯಿಂದ ಚಲಾಯಿಸಲು ಮತ್ತು ಇಂಧನ ಬಳಕೆಯನ್ನು ಕಡಿಮೆ ಮಾಡಲು ಅನುವು ಮಾಡಿಕೊಡುತ್ತದೆ?",
+        options: ["Engine running in efficient range + energy reuse", "Motor running at max speed", "Engine off at all times", "Battery only"],
+        optionsKn: ['ದಕ್ಷ ವ್ಯಾಪ್ತಿಯಲ್ಲಿ ಚಲಿಸುವ ಎಂಜಿನ್ + ಶಕ್ತಿ ಮರುಬಳಕೆ', 'ಗರಿಷ್ಠ ವೇಗದಲ್ಲಿ ಚಲಿಸುವ ಮೋಟಾರ್', 'ಎಲ್ಲಾ ಸಮಯದಲ್ಲೂ ಎಂಜಿನ್ ಆಫ್', 'ಬ್ಯಾಟರಿ ಮಾತ್ರ'],
+        correctAnswer: "Engine running in efficient range + energy reuse"
+    },
+    {
+        text: "What ensures durability and reliability in Toyota hybrid units?",
+        textKn: "ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್ ಘಟಕಗಳಲ್ಲಿ ಬಾಳಿಕೆ ಮತ್ತು ವಿಶ್ವಾಸಾರ್ಹತೆಯನ್ನು ಯಾವುದು ಖಚಿತಪಡಿಸುತ್ತದೆ?",
+        options: ["Years of design development and continuous progress", "Random maintenance", "External battery charging", "Lightweight materials only"],
+        optionsKn: ['ವರ್ಷಗಳ ವಿನ್ಯಾಸ ಅಭಿವೃದ್ಧಿ ಮತ್ತು ನಿರಂತರ ಪ್ರಗತಿ', 'ಯಾದೃಚ್ಛಿಕ ನಿರ್ವಹಣೆ', 'ಬಾಹ್ಯ ಬ್ಯಾಟರಿ ಚಾರ್ಜಿಂಗ್', 'ಹಗುರವಾದ ವಸ್ತುಗಳು ಮಾತ್ರ'],
+        correctAnswer: "Years of design development and continuous progress"
+    },
+    {
+        text: "How does the Toyota hybrid system provide superior environmental performance?",
+        textKn: "ಟೊಯೋಟಾ ಹೈಬ್ರಿಡ್ ಸಿಸ್ಟಮ್ ಉತ್ತಮ ಪರಿಸರ ಕಾರ್ಯಕ್ಷಮತೆಯನ್ನು ಹೇಗೆ ಒದಗಿಸುತ್ತದೆ?",
+        options: ["By combining motor and engine efficiently and reusing energy", "By using diesel fuel", "By reducing tire size", "By shutting off the engine at high speeds"],
+        optionsKn: ['ಮೋಟಾರ್ ಮತ್ತು ಎಂಜಿನ್ ಅನ್ನು ದಕ್ಷತೆಯಿಂದ ಸಂಯೋಜಿಸುವ ಮೂಲಕ ಮತ್ತು ಶಕ್ತಿಯನ್ನು ಮರುಬಳಕೆ ಮಾಡುವ ಮೂಲಕ', 'ಡೀಸೆಲ್ ಇಂಧನವನ್ನು ಬಳಸುವ ಮೂಲಕ', 'ಟೈರ್ ಗಾತ್ರವನ್ನು ಕಡಿಮೆ ಮಾಡುವ ಮೂಲಕ', 'ಹೆಚ್ಚಿನ ವೇಗದಲ್ಲಿ ಎಂಜಿನ್ ಅನ್ನು ಸ್ಥಗಿತಗೊಳಿಸುವ ಮೂಲಕ'],
+        correctAnswer: "By combining motor and engine efficiently and reusing energy"
+    }
+]
       ,
     ]
   },
