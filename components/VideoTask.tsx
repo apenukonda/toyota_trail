@@ -108,6 +108,13 @@ const VideoTask: React.FC = () => {
     {}
   );
 
+  const QUESTIONS_PER_VIDEO = 7;
+
+  const getRpcModuleName = (moduleId?: string) => {
+    if (!moduleId) return '';
+    return moduleId.toLowerCase() === 'm1' ? 'm1' : moduleId.toLowerCase() === 'm2' ? 'm2' : moduleId.toLowerCase() === 'm3' ? 'm3' : '';
+  };
+
   const playerRef = useRef<any>(null);
   const playerContainerRef = useRef<HTMLDivElement>(null);
 
@@ -367,8 +374,8 @@ const VideoTask: React.FC = () => {
         };
         setVideoProgress(updatedVP);
 
-        // Persist cumulative per-task score using authoritative progress
-        const questionsPerVideo = 7;
+  // Persist cumulative per-task score using authoritative progress
+  const questionsPerVideo = QUESTIONS_PER_VIDEO;
         const completedVideos = Object.values(updatedVP).filter(
           (p: { isComplete: boolean }) => p.isComplete
         ).length;
@@ -387,11 +394,12 @@ const VideoTask: React.FC = () => {
           // Persist module-level progress for this specific module/video
           try {
             const moduleId = currentModule?.id || '';
-            // Map module id to rpc module name (m1/m2/m3)
-            const moduleName = moduleId === 'M1' ? 'm1' : moduleId === 'M2' ? 'm2' : moduleId === 'M3' ? 'm3' : '';
+            const moduleName = getRpcModuleName(moduleId);
+            console.debug('VideoTask about to call updateModuleTask', { moduleId, moduleName, videoIndex: currentVideoIndex, score, userId: currentUser?.id });
             if (moduleName && typeof updateModuleTask === 'function') {
               // task index is 1-based based on currentVideoIndex
-              await updateModuleTask(moduleName, currentVideoIndex + 1, true, score);
+              const res = await updateModuleTask(moduleName, currentVideoIndex + 1, true, score);
+              console.debug('VideoTask updateModuleTask returned', { res });
             }
           } catch (e) {
             console.error('Error calling updateModuleTask RPC:', e);
@@ -448,7 +456,7 @@ const VideoTask: React.FC = () => {
     const currentModule = ADVANCED_MODULES[currentModuleIndex];
     const currentVideo = currentModule.videos[currentVideoIndex];
     const videoId = currentVideo.id;
-    const questionsPerVideo = 7; // Assuming 7 questions per video
+    const questionsPerVideo = QUESTIONS_PER_VIDEO; // Assuming 7 questions per video
 
     // 1. Save the current video's score locally
     setQuizScores((prevScores) => ({ ...prevScores, [videoId]: currentQuizScore }));
@@ -486,9 +494,11 @@ const VideoTask: React.FC = () => {
       console.debug('confirmBack: persisting task6', { videoId, currentQuizScore, totalScore, completedSteps });
       try {
         const moduleId = currentModule?.id || '';
-        const moduleName = moduleId === 'M1' ? 'm1' : moduleId === 'M2' ? 'm2' : moduleId === 'M3' ? 'm3' : '';
+        const moduleName = getRpcModuleName(moduleId);
+        console.debug('confirmBack calling updateModuleTask', { moduleId, moduleName, videoIndex: currentVideoIndex, currentQuizScore, userId: currentUser?.id });
         if (moduleName && typeof updateModuleTask === 'function') {
-          await updateModuleTask(moduleName, currentVideoIndex + 1, true, currentQuizScore);
+          const res = await updateModuleTask(moduleName, currentVideoIndex + 1, true, currentQuizScore);
+          console.debug('confirmBack updateModuleTask returned', { res });
         }
       } catch (e) {
         console.error('Error calling updateModuleTask RPC on back:', e);

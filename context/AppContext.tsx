@@ -726,9 +726,14 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   };
 
   const updateModuleTask = async (moduleName: string, taskIndex: number, completed: boolean, score: number): Promise<number | null> => {
-    if (!currentUser) return null;
+    if (!currentUser) {
+      console.debug('updateModuleTask: no currentUser, skipping RPC', { moduleName, taskIndex, completed, score });
+      return null;
+    }
     try {
+      console.debug('updateModuleTask: calling RPC', { moduleName, taskIndex, completed, score, userId: currentUser.id });
       const { data, error } = await supabaseClient.rpc('update_module_task', { module_name: moduleName, user_id_in: currentUser.id, task_index: taskIndex, completed: completed, score: score });
+      console.debug('update_module_task rpc response', { data, error });
       if (error) {
         console.error('update_module_task RPC error:', error.message || error);
         return null;

@@ -14,6 +14,13 @@ if (!supabaseClient) {
   const supabaseUrl = 'https://kescaddzecbnhnhpifha.supabase.co';
   const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtlc2NhZGR6ZWNibmhuaHBpZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk4MzAxMjksImV4cCI6MjA3NTQwNjEyOX0.h69xRfbJSzq_7xd4bR40AmmXoa9zgcMUjxPeWBmkynM';
   supabaseClient = createClient(supabaseUrl, supabaseKey);
+  try {
+    // non-sensitive debug: print only the supabaseUrl so hosted vs local differences are obvious
+    // eslint-disable-next-line no-console
+    console.debug('[supabaseClient] using supabaseUrl=', supabaseUrl);
+  } catch (e) {
+    // ignore
+  }
   globalAny.__TOYOTA_SUPABASE_CLIENT__ = supabaseClient;
 }
 
