@@ -242,6 +242,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     kn: {
   // Advanced Quality Principles translations
   'Advanced Quality Principles': 'ಅತ್ಯಾಧುನಿಕ ಗುಣಮಟ್ಟದ ತತ್ವಗಳು',
+  'Video awareness and evaluation module': '\u0cb5\u0cc0\u0ca1\u0cbf\u0caf\u0cca \u0c9c\u0cbe\u0c97\u0cc3\u0ca4\u0cbf \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0cae\u0ccc\u0cb2\u0ccd\u0faf\u0cae\u0cbe\u0caa\u0ca8 \u0cae\u0cbe\u0ca1\u0ccd\u0caf\u0cc2\u0cb2\u0ccd',
   'Instructions Title': 'ಸೂಚನೆಗಳ ಶೀರ್ಷಿಕೆ',
   advanced_instructions_bullet_1: 'ಈ ಘಟಕವು ವೀಡಿಯೊ ಪಾಠಗಳು ಮತ್ತು ಕ್ವಿಜ್‌ಗಳನ್ನು ಒಳಗೊಂಡಿದೆ, ಒಟ್ಟು 70 ಅಂಕಗಳವರೆಗೆ.',
   advanced_instructions_bullet_2: 'ಪ್ರತೀ ವೀಡಿಯೋವನ್ನು ವೀಕ್ಷಿಸಲು ನೀವು 7 ಅಂಕಗಳ ಕ್ವಿಜ್ ಅನ್ನು ಅನ್ಲಾಕ್ ಮಾಡಬೇಕು.',
