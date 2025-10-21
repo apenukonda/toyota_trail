@@ -5,13 +5,13 @@ import { Page } from '../types';
 import Quiz from './Quiz';
 // FIX: Renamed imports to use constants that are actually exported from the constants file.
 import { ADVANCED_VIDEOS, ADVANCED_QUIZZES } from '../constants';
-import { ChevronLeftIcon, PlayIcon, CheckIcon } from './icons';
+import { ChevronLeftIcon, PlayIcon, CheckIcon, XCircleIcon } from './icons';
 
 type View = 'video_list' | 'video_player' | 'quiz' | 'completed';
 
 const EngineFunctionsTask: React.FC = () => {
   // FIX: Renamed 'updateTaskProgress' to 'updateTaskCompletion' to match the AppContext provider.
-  const { setCurrentPage, updateTaskCompletion, tasks } = useContext(AppContext);
+  const { setCurrentPage, updateTaskCompletion, tasks, t } = useContext(AppContext);
   const [view, setView] = useState<View>('video_list');
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [videoProgress, setVideoProgress] = useState(0);
@@ -19,6 +19,8 @@ const EngineFunctionsTask: React.FC = () => {
   // FIX: Renamed to use ADVANCED_VIDEOS.
   const [completedVideos, setCompletedVideos] = useState<boolean[]>(new Array(ADVANCED_VIDEOS.length).fill(false));
   const intervalRef = useRef<number | null>(null);
+  const [showResultModal, setShowResultModal] = useState(false);
+  const [resultScore, setResultScore] = useState<number | null>(null);
 
   const task = tasks.find(t => t.id === 'task2');
 
@@ -58,6 +60,9 @@ const EngineFunctionsTask: React.FC = () => {
     } else {
         setView('video_list');
     }
+  // show result modal in this parent
+  setResultScore(score);
+  setShowResultModal(true);
   };
   
   const selectVideo = (index: number) => {
@@ -128,7 +133,7 @@ const EngineFunctionsTask: React.FC = () => {
             );
     case 'quiz':
       // FIX: Renamed to use ADVANCED_QUIZZES.
-      return <Quiz questions={ADVANCED_QUIZZES[currentVideoIndex]} onComplete={handleQuizComplete} />
+  return <Quiz questions={ADVANCED_QUIZZES[currentVideoIndex]} onComplete={handleQuizComplete} onShowResult={(s) => { setResultScore(s); setTimeout(() => setShowResultModal(true), 120); }} />
         case 'completed':
             return (
                 <div className="text-center animate-fade-in">
@@ -153,6 +158,32 @@ const EngineFunctionsTask: React.FC = () => {
         Back
       </button>
       {renderContent()}
+
+      {showResultModal && resultScore !== null && (
+        <div className="fixed inset-0 bg-white/90 backdrop-blur-md flex items-center justify-center z-50 p-4 sm:p-6">
+          <div className="relative bg-white rounded-2xl shadow-xl w-[95%] max-w-4xl mx-auto overflow-hidden">
+            <button
+              onClick={() => setShowResultModal(false)}
+              className="absolute top-4 right-4 text-blue-400 hover:text-blue-600 transition-colors z-20"
+            >
+              <XCircleIcon className="w-8 h-8" />
+            </button>
+            <div className="bg-blue-600 pt-12 pb-16 px-6 text-center relative">
+              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-2 tracking-tight">{t('congratulations') || 'Congratulations!'}</h2>
+              <p className="text-xl text-blue-50 font-medium">{t('excellent_work') || 'Excellent work!'}</p>
+            </div>
+            <div className="relative -mt-12 mb-8 flex justify-center">
+              <div className="w-44 h-44 rounded-full bg-white flex flex-col items-center justify-center border-[12px] border-blue-100 shadow-lg">
+                <div className="text-sm uppercase tracking-wide font-medium text-gray-500 mb-1">{t('your_score') || 'Your Score'}</div>
+                <div className="text-4xl font-bold text-blue-600 tracking-tight">{resultScore}/{ADVANCED_QUIZZES[currentVideoIndex].length}</div>
+              </div>
+            </div>
+            <div className="px-8 pb-12 text-center">
+              <p className="text-gray-600 text-lg mb-6 max-w-xl mx-auto">{t('quiz_result_detail') || 'You have completed the quiz. Your score has been recorded.'}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

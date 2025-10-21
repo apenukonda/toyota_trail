@@ -104,6 +104,8 @@ const VideoTask: React.FC = () => {
   const [startedQuiz, setStartedQuiz] = useState(false);
   const [showBackWarning, setShowBackWarning] = useState(false);
   const [currentQuizScore, setCurrentQuizScore] = useState(0);
+  const [showResultModal, setShowResultModal] = useState(false);
+  const [resultScore, setResultScore] = useState<number | null>(null);
   // Track per-video quiz scores
   const [quizScores, setQuizScores] = useState<{ [videoId: string]: number }>(
     {}
@@ -401,32 +403,42 @@ const VideoTask: React.FC = () => {
           const totalScore = Object.values(updatedScoresMap).reduce((sum: number, s: number) => sum + (s || 0), 0);
           const completedSteps = completedVideos * questionsPerVideo;
           console.debug('handleQuizComplete: persisting task6', { videoId, score, updatedScoresMap, totalScore, completedSteps });
-          // Persist module-level progress for this specific module/video
+
+          // Persist per-module progress (module_m{n}_progress). This RPC will
+          // set the appropriate taskX_completed=true and taskX_score to the
+          // passed score for the currently authenticated user.
           try {
             const moduleId = currentModule?.id || '';
             const moduleName = getRpcModuleName(moduleId);
             console.debug('VideoTask about to call updateModuleTask', { moduleId, moduleName, videoIndex: currentVideoIndex, score, userId: currentUser?.id });
-              // Call updateModuleTask to persist per-module progress (we don't treat its return as the global total)
-              if (moduleName && typeof updateModuleTask === 'function') {
-                try {
-                  const res = await updateModuleTask(moduleName, currentVideoIndex + 1, true, score);
-                  console.debug('VideoTask updateModuleTask returned', { res });
-                } catch (e) {
-                  console.debug('updateModuleTask failed (non-fatal)', e);
-                }
-              }
-              // Compute authoritative total: prefer the larger of our computed totalScore and any module progress aggregates
+            if (moduleName && typeof updateModuleTask === 'function') {
               try {
-                const totalFromProgress = await getModuleProgressTotal() as number;
-                const authoritativeTotal = Math.max(Number(totalScore), Number(totalFromProgress || 0));
-                await updateTaskCompletion('task6', completedSteps, authoritativeTotal);
+                const res = await updateModuleTask(moduleName, currentVideoIndex + 1, true, score);
+                console.debug('VideoTask updateModuleTask returned', { res });
               } catch (e) {
-                await updateTaskCompletion('task6', completedSteps, totalScore);
+                console.debug('updateModuleTask failed (non-fatal)', e);
               }
+            }
           } catch (e) {
             console.error('Error calling updateModuleTask RPC:', e);
           }
-          
+
+          // Compute authoritative total: prefer the larger of our computed
+          // totalScore (sum of per-video quiz scores) and any score aggregated
+          // in the module progress tables (to avoid accidental decreases).
+          try {
+            // Do not pass the combined authoritative total to updateTaskCompletion; pass
+            // the per-task totalScore (sum of quiz scores) so the DB function will
+            // upsert the task6 row correctly. The DB will recompute profiles.score
+            // by summing user_tasks and comparing with module progress as needed.
+            // For module quizzes (task6) we only update the module progress table here.
+            // The profile total will be recomputed server-side by triggers/helper functions.
+            // Do NOT call updateTaskCompletion for task6 to avoid updating profiles directly.
+          } catch (e) {
+            // If updateModuleTask fails, do not update profiles directly here.
+            // Module progress was attempted; the DB trigger/helper will recompute profiles.score.
+            console.debug('updateModuleTask failed; skipping direct profile update for task6', e);
+          }
         } catch (err) {
           console.error('Error persisting task6 score after quiz completion:', err);
         }
@@ -533,16 +545,16 @@ const VideoTask: React.FC = () => {
         const completedStepsNow = completedVideos * questionsPerVideo;
 
         try {
-          const totalFromProgress = await getModuleProgressTotal() as number;
-          const authoritativeTotal = Math.max(Number(totalScore), Number(totalFromProgress || 0));
-          await updateTaskCompletion('task6', completedStepsNow, authoritativeTotal);
+          // We persist module table via updateModuleTask above.
+          // Do NOT call updateTaskCompletion for task6 here; profiles are recomputed by DB triggers.
+          console.debug('confirmBack: updateModuleTask persisted; skipping updateTaskCompletion for task6');
         } catch (e) {
-          await updateTaskCompletion('task6', completedStepsNow, totalScore);
+          console.debug('confirmBack: skipping updateTaskCompletion for task6 due to error', e);
         }
       } catch (e) {
         console.error('Error calling updateModuleTask RPC on back:', e);
-        // Fallback to previous updateTaskCompletion with computed totals
-        await updateTaskCompletion('task6', completedSteps, totalScore);
+        // Do not call updateTaskCompletion for task6; rely on module triggers to recompute profiles.
+        console.debug('confirmBack: failed to call updateModuleTask; not updating profiles directly for task6');
       }
     } catch (err) {
       console.error('Error computing/persisting new task score on back:', err);
@@ -820,6 +832,7 @@ const VideoTask: React.FC = () => {
           onComplete={handleQuizComplete}
           onScoreUpdate={setCurrentQuizScore}
           quizId={`${currentModule?.id || 'M'}-${currentVideoIndex}`}
+            onShowResult={(s) => { setResultScore(s); setTimeout(() => setShowResultModal(true), 120); }}
         />
       )}
 
@@ -898,6 +911,31 @@ const VideoTask: React.FC = () => {
           {t("Return to Dashboard")}
         </button>
       </div>
+      {showResultModal && resultScore !== null && (
+        <div className="fixed inset-0 bg-white/90 backdrop-blur-md flex items-center justify-center z-50 p-4 sm:p-6">
+          <div className="relative bg-white rounded-2xl shadow-xl w-[95%] max-w-4xl mx-auto overflow-hidden">
+            <button
+              onClick={() => setShowResultModal(false)}
+              className="absolute top-4 right-4 text-blue-400 hover:text-blue-600 transition-colors z-20"
+            >
+              <XCircleIcon className="w-8 h-8" />
+            </button>
+            <div className="bg-blue-600 pt-12 pb-16 px-6 text-center relative">
+              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-2 tracking-tight">{t('congratulations') || 'Congratulations!'}</h2>
+              <p className="text-xl text-blue-50 font-medium">{t('excellent_work') || 'Excellent work!'}</p>
+            </div>
+            <div className="relative -mt-12 mb-8 flex justify-center">
+              <div className="w-44 h-44 rounded-full bg-white flex flex-col items-center justify-center border-[12px] border-blue-100 shadow-lg">
+                <div className="text-sm uppercase tracking-wide font-medium text-gray-500 mb-1">{t('your_score') || 'Your Score'}</div>
+                <div className="text-4xl font-bold text-blue-600 tracking-tight">{resultScore}/{QUESTIONS_PER_VIDEO}</div>
+              </div>
+            </div>
+            <div className="px-8 pb-12 text-center">
+              <p className="text-gray-600 text-lg mb-6 max-w-xl mx-auto">{t('quiz_result_detail') || 'You have completed the quiz. Your score has been recorded.'}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

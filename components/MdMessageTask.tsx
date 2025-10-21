@@ -20,6 +20,8 @@ const MdMessageTask: React.FC = () => {
   const [showBackWarning, setShowBackWarning] = useState(false);
   const [quizQuestions, setQuizQuestions] = useState<Question[]>([]);
   const [currentQuizScore, setCurrentQuizScore] = useState(0);
+  const [showResultModal, setShowResultModal] = useState(false);
+  const [resultScore, setResultScore] = useState<number | null>(null);
 
   useEffect(() => {
     const task = tasks.find(t => t.id === 'task1');
@@ -40,6 +42,12 @@ const MdMessageTask: React.FC = () => {
   const handleQuizComplete = (score: number) => {
     updateTaskCompletion('task1', 7, score);
     setView('completed');
+  };
+
+  const handleShowResult = (score: number) => {
+    setResultScore(score);
+    // Small delay to avoid render/unmount races with onComplete navigation
+    setTimeout(() => setShowResultModal(true), 120);
   };
 
   const handleBack = () => {
@@ -98,7 +106,9 @@ const MdMessageTask: React.FC = () => {
         </div>
       )}
 
-  {view === 'quiz' && quizQuestions.length > 0 && <Quiz questions={quizQuestions} onComplete={handleQuizComplete} onScoreUpdate={setCurrentQuizScore} />}
+  {view === 'quiz' && quizQuestions.length > 0 && (
+    <Quiz questions={quizQuestions} onComplete={handleQuizComplete} onScoreUpdate={setCurrentQuizScore} onShowResult={handleShowResult} />
+  )}
       
       {view === 'completed' && (
         <div className="text-center animate-fade-in">
@@ -123,6 +133,31 @@ const MdMessageTask: React.FC = () => {
             <div className="flex gap-4">
               <button onClick={cancelBack} className="flex-1 py-2 bg-white text-black font-bold rounded-lg hover:bg-gray-300 transition-colors">Cancel</button>
               <button onClick={confirmBack} className="flex-1 py-2 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors">Confirm</button>
+            </div>
+          </div>
+        </div>
+      )}
+      {showResultModal && resultScore !== null && (
+        <div className="fixed inset-0 bg-white/90 backdrop-blur-md flex items-center justify-center z-50 p-4 sm:p-6">
+          <div className="relative bg-white rounded-2xl shadow-xl w-[95%] max-w-4xl mx-auto overflow-hidden">
+            <button
+              onClick={() => setShowResultModal(false)}
+              className="absolute top-4 right-4 text-blue-400 hover:text-blue-600 transition-colors z-20"
+            >
+              <XCircleIcon className="w-8 h-8" />
+            </button>
+            <div className="bg-blue-600 pt-12 pb-16 px-6 text-center relative">
+              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-2 tracking-tight">{t('congratulations') || 'Congratulations!'}</h2>
+              <p className="text-xl text-blue-50 font-medium">{t('excellent_work') || `Excellent work!`}</p>
+            </div>
+            <div className="relative -mt-12 mb-8 flex justify-center">
+              <div className="w-44 h-44 rounded-full bg-white flex flex-col items-center justify-center border-[12px] border-blue-100 shadow-lg">
+                <div className="text-sm uppercase tracking-wide font-medium text-gray-500 mb-1">{t('your_score') || 'Your Score'}</div>
+                <div className="text-4xl font-bold text-blue-600 tracking-tight">{resultScore}/7</div>
+              </div>
+            </div>
+            <div className="px-8 pb-12 text-center">
+              <p className="text-gray-600 text-lg mb-6 max-w-xl mx-auto">{t('quiz_result_detail') || 'You have completed the quiz. Your score has been saved.'}</p>
             </div>
           </div>
         </div>

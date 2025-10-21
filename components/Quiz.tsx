@@ -8,22 +8,24 @@ interface QuizProps {
   questions: Question[];
   onComplete: (score: number) => void;
   onScoreUpdate?: (score: number) => void;
+  onShowResult?: (score: number) => void;
   quizId?: string;
 }
 
 const TIMER_DURATION = 20;
 
-const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate, quizId }) => {
+const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate, onShowResult = undefined, quizId }) => {
   // Parent component should persist the quiz score (via updateTaskCompletion or addScore)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(TIMER_DURATION);
   const [showFeedback, setShowFeedback] = useState(false);
+  // Modal is shown by parent via onShowResult prop. Quiz no longer manages result modal UI.
 
   const currentQuestion = questions && questions.length > 0 ? questions[currentQuestionIndex] : undefined;
   const isCorrect = currentQuestion ? selectedOption === currentQuestion.correctAnswer : false;
-  const { t, language } = useContext(AppContext);
+  const { t, language, currentUser } = useContext(AppContext);
   const [langVersion, setLangVersion] = useState(0);
 
   useEffect(() => {
@@ -112,7 +114,11 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate, quizI
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
     } else {
-      onComplete(score); // Pass the final score
+      // When it's the last question and user clicks finish
+      // Inform parent that quiz is complete first
+      onComplete(score);
+      // Ask parent to show the result UI if it wants to (call safely)
+      if (typeof onShowResult === 'function') onShowResult(score);
     }
   };
 
@@ -237,6 +243,8 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete, onScoreUpdate, quizI
           </div>
         </div>
       )}
+
+      {/* Result modal UI is now managed by parent components via onShowResult */}
     </div>
   );
 };

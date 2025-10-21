@@ -237,6 +237,10 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   instr_read_each: 'Read each question carefully and select the correct answer from the given choices.',
   instr_top_scorer: 'The top scorer will be recognized and selected for the next round of evaluation (considering all types of quizzes).',
   begin_quiz: 'Begin Quiz',
+  excellent_work: 'Excellent work!',
+  congratulations: 'Congratulations!',
+  quiz_result_detail: 'You have completed the quiz. Your score has been saved.',
+  your_score: 'Your Score',
       click_to_upload: 'Click to upload',
   or_drag_and_drop: 'or drag and drop',
   image_submission_title: 'Image Submission (5 Points)',
@@ -268,6 +272,11 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   'Start Learning': 'ಅಭ್ಯಾಸ ಪ್ರಾರಂಭಿಸಿ',
   md_message_title: 'ವ್ಯವಸ್ಥಾಪಕ ನಿರ್ದೇಶಕರಿಂದ ಸಂದೇಶ',
   start_quiz: 'ಕ್ವಿಜ್ ಪ್ರಾರಂಭಿಸಿ (7 ಅಂಕಗಳು)',
+  excellent_work: 'ಉತ್ತಮ ಕಾರ್ಯ!',
+  congratulations: 'ಅಭಿನಂದನೆಗಳು!',
+  quiz_result_detail: 'ನೀವು ಕ್ವಿಜ್ ಅನ್ನು ಪೂರ್ಣಗೊಳಿಸಿದ್ದೀರಿ. ನಿಮ್ಮ ಸ್ಕೋರ್ ಉಳಿಸಲಾಗಿದೆ.',
+  your_score: 'ನಿಮ್ಮ ಸ್ಕೋರ್',
+  
   task_completed_title: 'ಕಾರ್ಯ ಪೂರ್ಣವಾಗಿದೆ!',
   task_completed_message: 'ನೀವು ಯಶಸ್ವಿಯಾಗಿ MD ಸಂದೇಶ ಘಟಕವನ್ನು ಪೂರ್ಣಗೊಳಿಸಿದ್ದೀರಿ.',
       dashboard: 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್',
@@ -791,6 +800,24 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       if (error) {
         console.error('update_module_task RPC error:', error.message || error);
         return null;
+      }
+      // After successful RPC, fetch the authoritative profile row so the UI shows updated score
+      try {
+        const { data: profileData, error: profileError } = await supabaseClient
+          .from('profiles')
+          .select('*')
+          .eq('id', currentUser.id)
+          .single();
+        if (!profileError && profileData) {
+          const updatedUser = { ...currentUser, ...profileData };
+          setCurrentUser(updatedUser);
+          saveSession(updatedUser);
+          console.debug('updateModuleTask: refreshed currentUser from profiles', { score: updatedUser.score });
+        } else if (profileError) {
+          console.debug('updateModuleTask: could not refresh profile after RPC', profileError.message || profileError);
+        }
+      } catch (err) {
+        console.debug('updateModuleTask: error fetching profile after RPC', err);
       }
       // RPC returns new total; normalize numeric return
       if (typeof data === 'number') return data as number;
