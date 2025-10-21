@@ -54,10 +54,11 @@ const App: React.FC = () => {
           taskId="task4" 
           title="Slogan Competition" 
           instructions={[
-            "The theme for this year is 'Think Differently.'",
-            "Craft a catchy and inspiring slogan related to quality and innovation.",
-            "Submissions will be reviewed by the management committee.",
-            "The winning slogan will be featured in next month's company-wide newsletter."
+            "The slogan should be related to Quality.",
+            "Slogans are accepted in both Kannada and English.",
+            "A unique slogan is preferred for prize selection.",
+            "Upon submission, 3 points will be added to your account for overall evaluation.",
+            "This category will have a separate Top-3 special recognition."
           ]}
           score={3}
          />;
@@ -66,10 +67,14 @@ const App: React.FC = () => {
           taskId="task5"
           title="Kaizen Suggestion"
           instructions={[
-            "This is your chance to contribute to Kaizen (Continuous Improvement).",
-            "Think about a process in your daily work that could be more efficient or safer.",
-            "Describe the problem and your proposed solution.",
-            "All suggestions will be evaluated for feasibility and impact."
+            "Click the “Open Microsoft Form” button to participate in the contest.",
+            "Once you click the link, you will be redirected to the Microsoft Form.",
+            "Read the instructions on the Microsoft Form carefully.",
+            "After submitting the Microsoft Form, click the “Mark as Complete” button to receive your completion score.",
+            "Once you click “Mark as Complete,” you will not be able to participate in the contest again.",
+            "Upon submission, 3 points will be added to your account for overall evaluation.",
+            "This category will also have a separate Top-3 special recognition.",
+            "If you have more than one suggestion for the Kaizen suggestion, they are also accepted. For this, please contact Mr. Ashwin – 8904799083, Quality Department."
           ]}
           score={3}
          />;

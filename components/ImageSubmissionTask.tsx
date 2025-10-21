@@ -180,14 +180,56 @@ const ImageSubmissionTask: React.FC = () => {
             </button>
                       <div className="w-full max-w-2xl">
                           <h1 className="text-4xl font-bold mb-4 text-center">{t('Cartoon Submission')}</h1>
-                 <div className="bg-white p-8 rounded-2xl shadow-xl text-left">
-                        <h2 className="text-2xl font-semibold text-black mb-4">{t('Instructions') || 'Instructions'}</h2>
-                     <ul className="list-disc list-inside space-y-2 text-black">
-                        <li>{t('upload_cartoon_instruction') || (language === 'kn' ? 'ಗುಣಮಟ್ಟ ಅಥವಾ ತಂಡಕಾರ್ಯಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಕಾರ್ಟೂನ್ ಚಿತ್ರವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ.' : 'Upload an image of a cartoon related to quality or teamwork.')}</li>
-                        <li>{t('submit_hardcopy_instruction') || (language === 'kn' ? 'ನಿಮ್ಮ ಚಿತ್ರದ ಹಾರ್ಡ್ ಕಾಪಿಯನ್ನು HR ಕಚೇರಿಗೆ ಸಲ್ಲಿಸಿ.' : 'Submit the hard copy of your drawing at the HR office.')}</li>
-                        <li>{t('file_size_instruction') || (language === 'kn' ? 'ಅಪ್‌ಲೋಡ್ ಮಾಡಿದ ಚಿತ್ರದ ಗಾತ್ರವು 500KB ಕಿಂತ ಕಡಿಮೆ ಇರಬೇಕು.' : 'The uploaded image file size must be below 500kb.')}</li>
-                     </ul>
-                 </div>
+                <div className="bg-white p-8 rounded-2xl shadow-xl text-left">
+  <h2 className="text-2xl font-semibold text-black mb-4">
+    {t('Instructions') || (language === 'kn' ? 'ಸೂಚನೆಗಳು' : 'Instructions')}
+  </h2>
+  <ul className="list-decimal list-inside space-y-2 text-black text-base leading-relaxed">
+    <li>
+      {t('cartoon_quality_related') || 
+        (language === 'kn' 
+          ? 'ಕಾರ್ಟೂನ್ ಚಿತ್ರವು ಗುಣಮಟ್ಟದ ಕಾರ್ಯಗಳಿಗೆ ಸಂಬಂಧಿಸಿದಿರಬೇಕು.' 
+          : 'The cartoon drawing should be related to Quality functions.')}
+    </li>
+    <li>
+      {t('drawing_size') || 
+        (language === 'kn' 
+          ? 'ಚಿತ್ರವು A3 ಅಥವಾ A2 ಗಾತ್ರದ ಕಾಗದದಲ್ಲಿ ಇರಬೇಕು. ಯಾವುದೇ ರೀತಿಯ ಚಿತ್ರ (ಉದಾ: ಪೆನ್ಸಿಲ್ ಚಿತ್ರ, ವಾಟರ್‌ಕಲರ್ ಇತ್ಯಾದಿ) ಸ್ವೀಕಾರಾರ್ಹ.' 
+          : 'The drawing should be on A3 or A2 size paper. Any type of drawing is accepted (e.g., pencil sketch, watercolor, etc.).')}
+    </li>
+    <li>
+      {t('unique_idea') || 
+        (language === 'kn' 
+          ? 'ಪ್ರಶಸ್ತಿ ಆಯ್ಕೆಗೆ ವಿಶಿಷ್ಟವಾದ ಕಲ್ಪನೆಗೆ ಆದ್ಯತೆ ನೀಡಲಾಗುತ್ತದೆ.' 
+          : 'A unique idea is preferred for prize selection.')}
+    </li>
+    <li>
+      {t('file_size') || 
+        (language === 'kn' 
+          ? 'ಅಪ್‌ಲೋಡ್ ಮಾಡಿದ ಚಿತ್ರದ ಗಾತ್ರವು 500KB ಕ್ಕಿಂತ ಕಡಿಮೆ ಇರಬೇಕು.' 
+          : 'The uploaded image file must be less than 500 KB.')}
+    </li>
+    <li>
+      {t('submit_hardcopy') || 
+        (language === 'kn' 
+          ? 'ಪೋರ್ಟಲ್‌ನಲ್ಲಿ ಚಿತ್ರವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿದ ನಂತರ, ದಯವಿಟ್ಟು ಹಾರ್ಡ್ ಕಾಪಿಯನ್ನು ಗುಣಮಟ್ಟ ಎಂಜಿನಿಯರಿಂಗ್ ತಂಡಕ್ಕೆ ಸಲ್ಲಿಸಿ.' 
+          : 'After submitting the image on the portal, kindly submit a hard copy to the Quality Engineering team.')}
+    </li>
+    <li>
+      {t('points_reward') || 
+        (language === 'kn' 
+          ? 'ಚಿತ್ರವನ್ನು ಸಲ್ಲಿಸಿದ ನಂತರ ನಿಮ್ಮ ಖಾತೆಗೆ 5 ಅಂಕಗಳು ಸೇರಿಸಲಾಗುತ್ತದೆ.' 
+          : 'Upon submission, 5 points will be added to your account.')}
+    </li>
+    <li>
+      {t('special_recognition') || 
+        (language === 'kn' 
+          ? 'ಈ ವಿಭಾಗಕ್ಕೆ ಪ್ರತ್ಯೇಕ Top-3 ವಿಶೇಷ ಗೌರವ ನೀಡಲಾಗುತ್ತದೆ.' 
+          : 'This category will have a separate Top-3 special recognition.')}
+    </li>
+  </ul>
+</div>
+
 
                  <div className="mt-8 bg-white p-8 rounded-2xl shadow-xl">
                      {!isCloudinaryConfigured && (

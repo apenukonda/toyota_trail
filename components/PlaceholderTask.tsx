@@ -120,17 +120,15 @@ const PlaceholderTask: React.FC<PlaceholderTaskProps> = ({ taskId, title, instru
         ) : title === 'Kaizen Suggestion' ? (
           <div className="bg-white p-8 rounded-2xl shadow-xl text-center">
             <h2 className="text-2xl font-semibold text-black mb-4">{language === 'kn' ? 'ಸಲಹೆ ಫಾರ್ಮ್' : 'Suggestion Form'}</h2>
-            <p className="text-black mb-6">{language === 'kn' ? 'ನಿಮ್ಮ ಕೈಜೆನ್ ಸಲಹೆಯನ್ನು ಸಲ್ಲಿಸಲು ದಯವಿಟ್ಟು ಕೆಳಗಿನ ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ. ಫಾರ್ಮ್ ಅನ್ನು ಪೂರ್ಣಗೊಳಿಸಿದ ನಂತರ, ಅಂಕಗಳನ್ನು ಪಡೆಯಲು ಇಲ್ಲಿಗೆ ಹಿಂತಿರುಗಿ ಮತ್ತು "ಪೂರ್ಣಗೊಂಡಿದೆ ಎಂದು ಗುರುತಿಸಿ" ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ.' : 'Please click the button below to open the Google Form to submit your Kaizen suggestion. After completing the form, return here and click "Mark as Complete" to get your points.'}</p>
             <a 
-              href="https://forms.office.com/r/vJ2dA7FUGW" // <-- TODO: Replace with your actual Google Form URL
+              href="https://forms.office.com/r/vJ2dA7FUGW" // Microsoft Form URL
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-block px-8 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors mb-6"
             >
-              {language === 'kn' ? 'Google ಫಾರ್ಮ್ ತೆರೆಯಿರಿ' : 'Open Google Form'}
+              {language === 'kn' ? 'Microsoft ಫಾರ್ಮ್ ತೆರೆಯಿರಿ' : 'Open Microsoft Form'}
             </a>
             <hr className="my-4 border-gray-200" />
-            <p className="text-sm text-gray-600 mb-4">{language === 'kn' ? 'ಫಾರ್ಮ್ ಸಲ್ಲಿಸಿದ ನಂತರ, ದಯವಿಟ್ಟು ಕೆಳಗೆ ಕ್ಲಿಕ್ ಮಾಡಿ:' : 'Once you have submitted the form, please click below:'}</p>
             <button
               onClick={handleKaizenComplete}
               className="px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50"
@@ -158,18 +156,38 @@ const PlaceholderTask: React.FC<PlaceholderTaskProps> = ({ taskId, title, instru
 
 // Minimal translation for the hardcoded instruction lines used in Slogan Writer / Suggestion Box.
 function translateInstruction(inst: string) {
-  // Map a few known English instruction sentences to Kannada. For other sentences return original.
-  const map: Record<string, string> = {
+  const translations: Record<string, string> = {
+    // Slogan task lines
+    "The slogan should be related to Quality.": 'ಘೋಷವಾಕ್ಯವು ಗುಣಮಟ್ಟಕ್ಕೆ ಸಂಬಂಧಿಸಿದಿರಬೇಕು.',
+    "Slogans are accepted in both Kannada and English.": 'ಘೋಷವಾಕ್ಯಗಳನ್ನು ಕನ್ನಡ ಮತ್ತು ಇಂಗ್ಲಿಷ್ ಎರಡಲ್ಲಿಯೂ ಸ್ವೀಕರಿಸಲಾಗುತ್ತದೆ.',
+    "A unique slogan is preferred for prize selection.": 'ಬಹುಮಾನ ಆಯ್ಕೆಗಾಗಿ ವಿಶಿಷ್ಟ ಘೋಷವಾಕ್ಯಕ್ಕೆ ಆದ್ಯತೆ ಕೊಡಲಾಗುತ್ತದೆ.',
+    
+    "This category will have a separate Top-3 special recognition.": 'ಈ ವರ್ಗಕ್ಕೆ ವಿಶಿಷ್ಟವಾದ Top-3 ವಿಶೇಷ ಗೌರವಗಳನ್ನು ನೀಡಲಾಗುತ್ತದೆ.',
+
+    // Previous slogan/sample lines
     "The theme for this year is 'Think Differently.'": 'ಈ ವರ್ಷದ ವಿಷಯ: ವಿಭಿನ್ನವಾಗಿ ಯೋಚಿಸಿ.',
     "Craft a catchy and inspiring slogan related to quality and innovation.": 'ಗುಣಮಟ್ಟ ಮತ್ತು ನಾವೀನ್ಯತೆಗೆ ಸಂಬಂಧಿಸಿದ ಕ್ಯಾಚಿ ಮತ್ತು ಪ್ರೇರಣಾದಾಯಕ ಸ್ಲೋಗನ್ ರಚಿಸಿ.',
     "Submissions will be reviewed by the management committee.": 'ಸಲ್ಲಿಕೆಗಳನ್ನು ನಿರ್ವಹಣಾ ಸಮಿತಿ ಪರಿಶೀಲಿಸುವುದು.' ,
     "The winning slogan will be featured in next month's company-wide newsletter.": 'ವಿಜೇತ ಸ್ಲೋಗನ್ ಮುಂದಿನ ತಿಂಗಳ ಸಂಸ್ಥಾಪ್ರಚಾರ ಪತ್ರಿಕೆಯಲ್ಲಿ ಪ್ರದರ್ಶಿಸಲಾಗುತ್ತದೆ.',
+
+    // Kaizen suggestion lines
     "This is your chance to contribute to Kaizen (Continuous Improvement).": 'ಕೈಝೆನ್ (ನಿರಂತರ ಸುಧಾರಣೆ) ಗೆ ನಿಮ್ಮ ಕೊಡುಗೆ ನೀಡಲು ಇದು ನಿಮ್ಮ ಅವಕಾಶ.',
     "Think about a process in your daily work that could be more efficient or safer.": 'ನಿಮ್ಮ ದೈನಂದಿನ ಕೆಲಸದಲ್ಲಿನ ಹೆಚ್ಚು ಕಾರ್ಯಕ್ಷಮ ಅಥವಾ ಸುರಕ್ಷಿತವಾಗಲು ಸಾಧ್ಯವಾಗುವ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಕುರಿತು ಯೋಚಿಸಿ.' ,
     "Describe the problem and your proposed solution.": 'ಸಮಸ್ಯೆಯನ್ನು ಮತ್ತು ನಿಮಗೆ ತೋರಿಸಿದ ಪರಿಹಾರವನ್ನು ವಿವರಿಸಿ.' ,
     "All suggestions will be evaluated for feasibility and impact.": 'ಎಲ್ಲಾ ಸಲಹೆಗಳನ್ನೂ ಕಾರ್ಯಪ್ರವೃತ್ತಿಗಾಗಿ ಮತ್ತು ಪರಿಣಾಮಕ್ಕಾಗಿ ಮೌಲ್ಯಮಾಪನ ಮಾಡಲಾಗುತ್ತದೆ.'
+  ,
+  // New Kaizen instruction lines translations
+  "Click the “Open Microsoft Form” button to participate in the contest.": 'ಸ್ಪರ್ಧೆಯಲ್ಲಿ ಭಾಗವಹಿಸಲು ದಯவಿಟ್ಟು "Microsoft ಫಾರ್ಮ್ ತೆರೆಯಿರಿ" ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ.',
+  "Once you click the link, you will be redirected to the Microsoft Form.": 'ನೀವು ಲಿಂಕ್ ಕ್ಲಿಕ್ ಮಾಡಿದ ನಂತರ, ನೀವು Microsoft ಫಾರ್ಮ್‌ಗೆ ಪುನರ್‌ನಿರ್ದೇಶಿಸಲ್ಪಡುವಿರಿ.',
+  "Read the instructions on the Microsoft Form carefully.": 'Microsoft ಫಾರ್ಮ್ನಲ್ಲಿನ ಸೂಚನೆಗಳನ್ನು ದಯವಿಟ್ಟು ಗಮನದಿಂದ ಓದಿ.',
+  "After submitting the Microsoft Form, click the “Mark as Complete” button to receive your completion score.": 'Microsoft ಫಾರ್ಮ್ ಸಲ್ಲಿಸಿದ ಮೇಲೆ, ನಿಮ್ಮ ಪೂರ್ಣಗೊಂಡ ಅಂಕಗಳನ್ನು ಪಡೆಯಲು "ಪೂರ್ಣಗೊಂಡಿದೆ ಎಂದು ಗುರುತಿಸಿ" ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ.',
+  "Once you click “Mark as Complete,” you will not be able to participate in the contest again.": 'ನೀವು "ಪೂರ್ಣಗೊಂಡಿದೆ ಎಂದು ಗುರುತಿಸಿದ" ನಂತರ, ನೀವು ಮತ್ತೆ ಸ್ಪರ್ಧೆಯಲ್ಲಿ ಭಾಗವಹಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ.',
+  "Upon submission, 3 points will be added to your account for overall evaluation.": 'ಸಲ್ಲಿಕೆಯಾದ ನಂತರ, ಒಟ್ಟು ಮೌಲ್ಯಮಾಪನಕ್ಕಾಗಿ ನಿಮ್ಮ ಖಾತೆಗೆ 3 ಅಂಕಗಳನ್ನು ಸೇರಿಸಲಾಗುತ್ತದೆ.',
+  "This category will also have a separate Top-3 special recognition.": 'ಈ ವರ್ಗಕ್ಕೆ ವಿಶೇಷ Top-3 ಗೌರವಗಳೂ ಇರಲಿವೆ.',
+  "If you have more than one suggestion for the Kaizen suggestion, they are also accepted. For this, please contact Mr. Ashwin – 8904799083, Quality Department.": 'ನಿಮಗೆ ಕೈಝೆನ್ ಸಲಹೆಗೆ ಒಂದಕ್ಕಿಂತ ಹೆಚ್ಚು ಸಲಹೆಗಳಿದ್ದರೆ, ಅವು ಸಹ ಸ್ವೀಕರಿಸಲಾಗುವುದು. ಇದರಿಗಾಗಿ ದಯವಿಟ್ಟು ಶ್ರೀ ಅಶ್ವಿನ್ ಅವರನ್ನು ಸಂಪರ್ಕಿಸಿ - 8904799083, ಗುಣಮಟ್ಟ ವಿಭಾಗ.'
   };
-  return map[inst] || inst;
+
+  return translations[inst] || inst;
 }
 
 export default PlaceholderTask;

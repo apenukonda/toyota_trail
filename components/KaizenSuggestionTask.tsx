@@ -18,7 +18,7 @@ const KaizenSuggestionTask: React.FC = () => {
     <div>
       <h2>Kaizen Suggestion</h2>
       <p>Share your ideas for continuous improvement (Kaizen).</p>
-      <button onClick={handleOpenGoogleForm}>Open Google Form</button>
+      <button onClick={handleOpenGoogleForm}>Open Microsoft Form</button>
       <button onClick={handleSubmit}>Submit</button>
     </div>
   );
