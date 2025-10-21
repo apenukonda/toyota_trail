@@ -573,10 +573,27 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
     const totalScore = (allTasks || []).reduce((sum, t) => sum + (t.score || 0), 0);
 
+    // Also attempt to compute total from per-module progress tables (if present)
+    let moduleProgressTotal = 0;
+    try {
+      const tables = ['module_m1_progress', 'module_m2_progress', 'module_m3_progress'];
+      for (const tbl of tables) {
+        const { data: mpData, error: mpError } = await supabaseClient.from(tbl).select('score').eq('user_id', currentUser.id);
+        if (!mpError && mpData) {
+          moduleProgressTotal += (mpData as any[]).reduce((s, r) => s + (r.score || 0), 0);
+        }
+      }
+    } catch (e) {
+      // ignore module progress read errors
+    }
+
+    // Use the maximum of the two totals as the authoritative total to avoid accidental decreases
+    const authoritativeTotal = Math.max(totalScore, moduleProgressTotal || 0);
+
     // Update total score in profiles
     const { error: scoreError } = await supabaseClient
       .from('profiles')
-      .update({ score: totalScore })
+      .update({ score: authoritativeTotal })
       .eq('id', currentUser.id);
 
     if (scoreError) {

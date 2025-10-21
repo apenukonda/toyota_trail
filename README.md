@@ -128,14 +128,48 @@ begin
   do update set
     completed_steps = excluded.completed_steps,
     score = excluded.score;
+  -- Compute total from user_tasks
+  -- and total from per-module progress tables (if present). Use the larger
+  -- of the two as authoritative so we don't accidentally reduce a user's
+  -- total when module progress tables are the source of truth for some quizzes.
+  declare
+    total_user_tasks int := 0;
+    total_module_progress int := 0;
+    m1_sum int := 0;
+    m2_sum int := 0;
+    m3_sum int := 0;
+  begin
+    select coalesce(sum(score), 0) into total_user_tasks from public.user_tasks where user_id = user_id_in;
 
-  -- Update the user's total score by summing up all their task scores
-  update public.profiles
-  set score = (select coalesce(sum(score), 0) from public.user_tasks where user_id = user_id_in)
-  where id = user_id_in
-  returning score into new_total_score;
+    -- If the module progress tables exist, sum their scores. If they don't exist
+    -- the SELECT will yield NULL, so coalesce to 0.
+    begin
+      select coalesce(sum(score),0) into m1_sum from public.module_m1_progress where user_id = user_id_in;
+    exception when undefined_table then
+      m1_sum := 0;
+    end;
+    begin
+      select coalesce(sum(score),0) into m2_sum from public.module_m2_progress where user_id = user_id_in;
+    exception when undefined_table then
+      m2_sum := 0;
+    end;
+    begin
+      select coalesce(sum(score),0) into m3_sum from public.module_m3_progress where user_id = user_id_in;
+    exception when undefined_table then
+      m3_sum := 0;
+    end;
 
-  return new_total_score;
+    total_module_progress := coalesce(m1_sum,0) + coalesce(m2_sum,0) + coalesce(m3_sum,0);
+
+    new_total_score := greatest(total_user_tasks, total_module_progress);
+
+    update public.profiles
+    set score = new_total_score
+    where id = user_id_in
+    returning score into new_total_score;
+
+    return new_total_score;
+  end;
 end;
 $$;
 ```

@@ -5,6 +5,7 @@ import React, {
   useRef,
   useCallback,
 } from "react";
+import supabaseClient from '../context/supabaseClient';
 import { AppContext } from "../context/AppContext";
 import { Page, Question } from "../types";
 import Quiz from "./Quiz";
@@ -110,6 +111,39 @@ const VideoTask: React.FC = () => {
 
   const QUESTIONS_PER_VIDEO = 7;
 
+  // Helper: fetch existing stored task6 score (if any)
+  const getExistingTask6Score = async (): Promise<number> => {
+    if (!currentUser) return 0;
+    try {
+      const { data, error } = await supabaseClient
+        .from('user_tasks')
+        .select('score')
+        .eq('user_id', currentUser.id)
+        .eq('task_id', 'task6')
+        .single();
+      if (error) return 0;
+      return (data && data.score) ? Number(data.score) : 0;
+    } catch (e) {
+      return 0;
+    }
+  };
+
+  // Helper: try to compute total from module progress tables if present
+  const getModuleProgressTotal = async (): Promise<number> => {
+    if (!currentUser) return 0;
+    const tables = ['module_m1_progress', 'module_m2_progress', 'module_m3_progress'];
+    let sum = 0;
+    for (const tbl of tables) {
+      try {
+        const { data, error } = await supabaseClient.from(tbl).select('score').eq('user_id', currentUser.id);
+        if (!error && data) sum += (data as any[]).reduce((s, r) => s + (r.score || 0), 0);
+      } catch (e) {
+        // ignore table errors
+      }
+    }
+    return sum;
+  };
+
   const getRpcModuleName = (moduleId?: string) => {
     if (!moduleId) return '';
     return moduleId.toLowerCase() === 'm1' ? 'm1' : moduleId.toLowerCase() === 'm2' ? 'm2' : moduleId.toLowerCase() === 'm3' ? 'm3' : '';
@@ -204,12 +238,9 @@ const VideoTask: React.FC = () => {
 
   // Effect to manage the YouTube Player lifecycle
   useEffect(() => {
-    // If we're not in player view, ensure any existing player is destroyed.
-    if (view !== "player") {
-      if (
-        playerRef.current &&
-        typeof playerRef.current.destroy === "function"
-      ) {
+    // If not in player view, destroy any existing player and return early
+    if (view !== 'player') {
+      if (playerRef.current && typeof playerRef.current.destroy === 'function') {
         playerRef.current.destroy();
         playerRef.current = null;
       }
@@ -221,64 +252,43 @@ const VideoTask: React.FC = () => {
     const videoId = currentVideo.id;
 
     const createPlayer = () => {
-      // Ensure the container exists and a player isn't already there.
-      if (!playerContainerRef.current || playerRef.current) {
-        return;
-      }
-
-      playerRef.current = new (window as any).YT.Player(
-        playerContainerRef.current,
-        {
-          videoId,
-          playerVars: { autoplay: 1, controls: 1, modestbranding: 1, rel: 0 },
-          events: {
-            onReady: (event: any) => {
-              setVideoDuration(event.target.getDuration());
-            },
-            onStateChange: (event: any) => {
-              if (event.data === (window as any).YT.PlayerState.ENDED) {
-                const duration = event.target.getDuration();
-                updateVideoProgress(videoId, duration, true);
-                setVideoProgress((prev) => ({
-                  ...prev,
-                  [videoId]: {
-                    ...prev[videoId],
-                    watchedSeconds: duration,
-                    isComplete: true,
-                  },
-                }));
-              }
-            },
-          },
+      if (!playerContainerRef.current || playerRef.current) return;
+      playerRef.current = new (window as any).YT.Player(playerContainerRef.current, {
+        videoId,
+        playerVars: { autoplay: 1, controls: 1, modestbranding: 1, rel: 0 },
+        events: {
+          onReady: (event: any) => setVideoDuration(event.target.getDuration()),
+          onStateChange: (event: any) => {
+            if (event.data === (window as any).YT.PlayerState.ENDED) {
+              const duration = event.target.getDuration();
+              updateVideoProgress(videoId, duration, true);
+              setVideoProgress(prev => ({
+                ...prev,
+                [videoId]: {
+                  ...prev[videoId],
+                  watchedSeconds: duration,
+                  isComplete: true,
+                }
+              }));
+            }
+          }
         }
-      );
+      });
     };
 
-    // If the YouTube script is already loaded, create the player immediately.
     if ((window as any).YT && (window as any).YT.Player) {
       createPlayer();
     } else {
-      // Set the global callback function that the YouTube script will call when it's ready.
       (window as any).onYouTubeIframeAPIReady = createPlayer;
-
-      // If the script tag isn't on the page yet, add it.
-      if (
-        !document.querySelector(
-          'script[src="https://www.youtube.com/iframe_api"]'
-        )
-      ) {
-        const tag = document.createElement("script");
-        tag.src = "https://www.youtube.com/iframe_api";
+      if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
         document.body.appendChild(tag);
       }
     }
 
-    // Cleanup function to destroy the player when the component unmounts or view changes.
     return () => {
-      if (
-        playerRef.current &&
-        typeof playerRef.current.destroy === "function"
-      ) {
+      if (playerRef.current && typeof playerRef.current.destroy === 'function') {
         playerRef.current.destroy();
         playerRef.current = null;
       }
@@ -396,15 +406,27 @@ const VideoTask: React.FC = () => {
             const moduleId = currentModule?.id || '';
             const moduleName = getRpcModuleName(moduleId);
             console.debug('VideoTask about to call updateModuleTask', { moduleId, moduleName, videoIndex: currentVideoIndex, score, userId: currentUser?.id });
-            if (moduleName && typeof updateModuleTask === 'function') {
-              // task index is 1-based based on currentVideoIndex
-              const res = await updateModuleTask(moduleName, currentVideoIndex + 1, true, score);
-              console.debug('VideoTask updateModuleTask returned', { res });
-            }
+              // Call updateModuleTask to persist per-module progress (we don't treat its return as the global total)
+              if (moduleName && typeof updateModuleTask === 'function') {
+                try {
+                  const res = await updateModuleTask(moduleName, currentVideoIndex + 1, true, score);
+                  console.debug('VideoTask updateModuleTask returned', { res });
+                } catch (e) {
+                  console.debug('updateModuleTask failed (non-fatal)', e);
+                }
+              }
+              // Compute authoritative total: prefer the larger of our computed totalScore and any module progress aggregates
+              try {
+                const totalFromProgress = await getModuleProgressTotal() as number;
+                const authoritativeTotal = Math.max(Number(totalScore), Number(totalFromProgress || 0));
+                await updateTaskCompletion('task6', completedSteps, authoritativeTotal);
+              } catch (e) {
+                await updateTaskCompletion('task6', completedSteps, totalScore);
+              }
           } catch (e) {
             console.error('Error calling updateModuleTask RPC:', e);
           }
-          await updateTaskCompletion('task6', completedSteps, totalScore);
+          
         } catch (err) {
           console.error('Error persisting task6 score after quiz completion:', err);
         }
@@ -497,13 +519,31 @@ const VideoTask: React.FC = () => {
         const moduleName = getRpcModuleName(moduleId);
         console.debug('confirmBack calling updateModuleTask', { moduleId, moduleName, videoIndex: currentVideoIndex, currentQuizScore, userId: currentUser?.id });
         if (moduleName && typeof updateModuleTask === 'function') {
-          const res = await updateModuleTask(moduleName, currentVideoIndex + 1, true, currentQuizScore);
-          console.debug('confirmBack updateModuleTask returned', { res });
+          try {
+            const res = await updateModuleTask(moduleName, currentVideoIndex + 1, true, currentQuizScore);
+            console.debug('confirmBack updateModuleTask returned', { res });
+          } catch (e) {
+            console.debug('updateModuleTask failed (non-fatal)', e);
+          }
+        }
+
+        // Build an authoritative snapshot of video progress including this video as complete
+        const updatedVP = { ...(videoProgress || {}), [videoId]: { watchedSeconds: videoProgress[videoId]?.watchedSeconds || videoDuration, isComplete: true } };
+        const completedVideos = Object.values(updatedVP).filter((p: any) => p.isComplete).length;
+        const completedStepsNow = completedVideos * questionsPerVideo;
+
+        try {
+          const totalFromProgress = await getModuleProgressTotal() as number;
+          const authoritativeTotal = Math.max(Number(totalScore), Number(totalFromProgress || 0));
+          await updateTaskCompletion('task6', completedStepsNow, authoritativeTotal);
+        } catch (e) {
+          await updateTaskCompletion('task6', completedStepsNow, totalScore);
         }
       } catch (e) {
         console.error('Error calling updateModuleTask RPC on back:', e);
+        // Fallback to previous updateTaskCompletion with computed totals
+        await updateTaskCompletion('task6', completedSteps, totalScore);
       }
-      await updateTaskCompletion('task6', completedSteps, totalScore);
     } catch (err) {
       console.error('Error computing/persisting new task score on back:', err);
     }
