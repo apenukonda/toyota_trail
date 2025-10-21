@@ -603,13 +603,14 @@ const VideoTask: React.FC = () => {
         </h1>
         <div className="bg-white p-8 rounded-2xl shadow-xl text-center">
           <h2 className="text-2xl font-semibold text-black mb-4">
-            {t("Instructions Title") || "Instructions"}
+            {t("Instructions") || "Instructions"}
           </h2>
           <ul className="list-disc list-inside space-y-2 text-black text-left">
-            <li>{t('advanced_instructions_bullet_1') || 'This module consists of video lessons and quizzes, worth a total of 70 points.'}</li>
-            <li>{t('advanced_instructions_bullet_2') || 'You must watch each video to unlock a 7-point quiz.'}</li>
-            <li>{t('advanced_instructions_bullet_3') || 'Complete all videos and quizzes to finish this task.'}</li>
-            <li>{t('advanced_instructions_bullet_4') || 'Your progress is saved automatically.'}</li>
+            <li>{t('advanced_instructions_bullet_1') || 'This module is consists of different topics with multiple videos in each topics'}</li>
+            <li>{t('advanced_instructions_bullet_2') || 'After completion of each video “Quiz start” button will be appeared automatically.'}</li>
+            <li>{t('advanced_instructions_bullet_3') || 'Read each question carefully and select the correct answer from the given choices.'}</li>
+            <li>{t('advanced_instructions_bullet_4') || 'Each correct answer will earn 1 point.'}</li>
+            <li>{t('advanced_instructions_bullet_5') || 'The top scorer will be recognized and selected for the next round of evaluation.(Considering all types of quizzes)'}</li>
           </ul>
         </div>
         <button

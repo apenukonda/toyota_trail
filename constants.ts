@@ -310,24 +310,19 @@ export const INITIAL_TASKS: Task[] = [
     id: 'task6',
     title: 'Video awareness and evaluation module',
     titleKn: 'ವೀಡಿಯೊ ಜಾಗೃತಿ ಮತ್ತು ಮೌಲ್ಯಮಾಪನ ಮಾಡ್ಯೂಲ್',
-// NOTE: placeholders for missing Kannada fields (textKn/optionsKn)
-// should be populated as static data (or via an external script that
-// writes updated constants) rather than by running code at module
-// evaluation time. A follow-up step will insert safe, static
-// placeholder copies for any remaining M1/M2 questions.
-    description: 'Self learning courses related to quality with quiz evaluation.',
-    descriptionKn: 'ಗುಣಮಟ್ಟಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಸ್ವಯಂ ಕಲಿಕಾ ಕೋರ್ಸ್‌ಗಳು ಕ್ವಿಜ್ ಮೌಲ್ಯಮಾಪನದೊಂದಿಗೆ.',
+    description: 'Self learning video training modules related to TIEI Functions with Quiz evaluation.',
+    descriptionKn: 'ಟಿಐಇಐ ಕಾರ್ಯಗಳಿಗೆ ಸಂಬಂಧಿಸಿದ ಸ್ವಯಂ ಅಧ್ಯಯನ ವೀಡಿಯೋ ತರಬೇತಿ ಘಟಕಗಳು ಮತ್ತು ಪ್ರಶ್ನೋತ್ತರ ಮೌಲ್ಯಮಾಪನ.',
     page: Page.VIDEO_TASK,
-    totalSteps: 105, // 70 questions total
+    totalSteps: 105,
     completedSteps: 0,
-    maxScore: 105,
+    maxScore: 105
   },
   {
     id: 'task3',
     title: 'Cartoon competition',
     titleKn: 'ಕಾರ್ಟೂನ್ ಸಲ್ಲಿಕೆ',
-    description: 'Submit your cartoon image for the quality month contest.',
-    descriptionKn: 'ಗುಣಮಟ್ಟದ ತಿಂಗಳ ಸ್ಪರ್ಧೆಗಾಗಿ ನಿಮ್ಮ ಕಾರ್ಟೂನ್ ಚಿತ್ರವನ್ನು ಸಲ್ಲಿಸಿ.',
+    description: 'Submit your cartoon drawing related to Quality for the contest.',
+    descriptionKn: 'ಗುಣಮಟ್ಟಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ನಿಮ್ಮ ಕಾರ್ಟೂನ್ ಚಿತ್ರವನ್ನು ಸ್ಪರ್ಧೆಗೆ ಸಲ್ಲಿಸಿ.',
     page: Page.IMAGE_SUBMISSION,
     totalSteps: 1,
     completedSteps: 0,
@@ -337,8 +332,8 @@ export const INITIAL_TASKS: Task[] = [
     id: 'task4',
     title: 'Slogan competition',
     titleKn: 'ಸ್ಲೋಗನ್ ಸ್ಪರ್ಧೆ',
-    description: 'Contribute a slogan for this year\'s quality theme.',
-    descriptionKn: 'ಈ ವರ್ಷದ ಗುಣಮಟ್ಟದ ಥೀಮಿಗೆ ಸ್ಲೋಗನ್ ರಚನೆ ಮಾಡಿ.',
+    description: 'Submit your Slogan related to Quality for the contest.',
+    descriptionKn: 'ಗುಣಮಟ್ಟಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ನಿಮ್ಮ ಘೋಷವಾಕ್ಯವನ್ನು ಸ್ಪರ್ಧೆಗೆ ಸಲ್ಲಿಸಿ.',
     page: Page.SLOGAN_WRITER,
     totalSteps: 1,
     completedSteps: 0,
