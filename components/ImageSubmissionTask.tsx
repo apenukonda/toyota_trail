@@ -181,10 +181,10 @@ const ImageSubmissionTask: React.FC = () => {
                       <div className="w-full max-w-2xl">
                           <h1 className="text-4xl font-bold mb-4 text-center">{t('Cartoon Submission')}</h1>
                 <div className="bg-white p-8 rounded-2xl shadow-xl text-left">
-  <h2 className="text-2xl font-semibold text-black mb-4">
+  <h2 className="text-2xl font-semibold text-black mb-4 text-center">
     {t('Instructions') || (language === 'kn' ? 'ಸೂಚನೆಗಳು' : 'Instructions')}
   </h2>
-  <ul className="list-decimal list-inside space-y-2 text-black text-base leading-relaxed">
+  <ul className="list-disc list-outside space-y-2 text-black text-base leading-relaxed">
     <li>
       {t('cartoon_quality_related') || 
         (language === 'kn' 

@@ -683,7 +683,7 @@ const VideoTask: React.FC = () => {
           <h2 className="text-2xl font-semibold text-black mb-4">
             {t("Instructions") || "Instructions"}
           </h2>
-          <ul className="list-disc list-inside space-y-2 text-black text-left">
+          <ul className="list-disc list-outside space-y-2 text-black text-left">
             <li>{t('advanced_instructions_bullet_1') || 'This module is consists of different topics with multiple videos in each topics'}</li>
             <li>{t('advanced_instructions_bullet_2') || 'After completion of each video “Quiz start” button will be appeared automatically.'}</li>
             <li>{t('advanced_instructions_bullet_3') || 'Read each question carefully and select the correct answer from the given choices.'}</li>
