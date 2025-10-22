@@ -51,6 +51,8 @@ const VideoTask: React.FC = () => {
     selectedModuleIndex,
     setSelectedModuleIndex,
     getTaskScore,
+    fetchUserTasks,
+    setTaskCompletedSteps,
   } = useContext(AppContext);
   
 
@@ -419,11 +421,15 @@ const VideoTask: React.FC = () => {
                 // by calling updateTaskCompletion with an authoritative total
                 // computed from module progress so the dashboard card updates.
                 try {
-                  const totalFromProgress = await getModuleProgressTotal();
-                  const authoritativeTotal = Math.max(Number(totalScore), Number(totalFromProgress || 0));
-                  await updateTaskCompletion('task6', completedSteps, authoritativeTotal);
+                  if (currentUser) {
+                    // Optimistically update the UI progress for task6 so the
+                    // EventCard progress bar reacts immediately while we
+                    // refresh the authoritative rows in the background.
+                    try { if (typeof (fetchUserTasks) === 'function') await fetchUserTasks(currentUser.id); } catch(e) { console.debug('fetchUserTasks failed', e); }
+                    try { if (typeof (setTaskCompletedSteps) === 'function') setTaskCompletedSteps('task6', completedSteps); } catch(e) { console.debug('setTaskCompletedSteps failed', e); }
+                  }
                 } catch (e) {
-                  console.debug('Failed to reconcile/update task6 after module RPC (non-fatal)', e);
+                  console.debug('Failed to fetchUserTasks after module RPC (non-fatal)', e);
                 }
               } catch (e) {
                 console.debug('updateModuleTask failed (non-fatal)', e);
@@ -547,11 +553,12 @@ const VideoTask: React.FC = () => {
               // After persisting module progress, update the task6 per-task row
               // so the EventCard progress (tasks.completedSteps) refreshes.
               try {
-                const totalFromProgress = await getModuleProgressTotal();
-                const authoritativeTotal = Math.max(Number(totalScore), Number(totalFromProgress || 0));
-                await updateTaskCompletion('task6', completedSteps, authoritativeTotal);
+                if (currentUser) {
+                  try { if (typeof (fetchUserTasks) === 'function') await fetchUserTasks(currentUser.id); } catch(e) { console.debug('confirmBack fetchUserTasks failed', e); }
+                  try { if (typeof (setTaskCompletedSteps) === 'function') setTaskCompletedSteps('task6', completedSteps); } catch(e) { console.debug('confirmBack setTaskCompletedSteps failed', e); }
+                }
               } catch (e) {
-                console.debug('confirmBack: failed to update task6 after module RPC (non-fatal)', e);
+                console.debug('confirmBack: failed to fetchUserTasks after module RPC (non-fatal)', e);
               }
           } catch (e) {
             console.debug('updateModuleTask failed (non-fatal)', e);

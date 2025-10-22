@@ -27,6 +27,8 @@ interface AppContextType {
   submitImageUrl: (taskId: string, imageUrl: string) => Promise<{ success: boolean; error?: any }>;
   getTopScores: (department?: string) => Promise<{ name: string; department: string; score: number }[]>;
   getTaskScore: (taskId: string) => Promise<number>;
+  fetchUserTasks: (userId: string) => Promise<void>;
+  setTaskCompletedSteps: (taskId: string, completedSteps: number) => void;
 }
 
 export const AppContext = createContext<AppContextType>({} as AppContextType);
@@ -538,7 +540,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   const updateTaskCompletion = async (taskId: string, completedSteps: number, scoreEarned: number) => {
     if (!currentUser) return;
 
-    console.log('Updating task completion:', { taskId, completedSteps, scoreEarned });
+  console.log('Updating task completion:', { taskId, completedSteps, scoreEarned, prevScore: currentUser.score });
     // Prefer server-side RPC which handles inserting/updating the user_tasks row
     // and recalculates the user's total score in `profiles` atomically.
     try {
@@ -551,26 +553,57 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
       console.debug('RPC handle_task_completion result:', { rpcData, rpcError });
 
-      if (!rpcError && rpcData != null) {
+      if (!rpcError) {
         // rpc can return scalar or an object depending on DB function; try to normalize
-        let newScore: number = currentUser.score + scoreEarned;
-        if (typeof rpcData === 'number') {
-          newScore = rpcData as number;
-        } else if (Array.isArray(rpcData) && rpcData.length > 0 && typeof rpcData[0] === 'number') {
-          newScore = rpcData[0] as number;
-        } else if (rpcData && typeof rpcData === 'object' && 'score' in rpcData) {
-          // e.g. { score: 42 }
-          // @ts-ignore
-          newScore = Number(rpcData.score);
+        let newScore: number | null = null;
+        if (rpcData != null) {
+          if (typeof rpcData === 'number') {
+            newScore = rpcData as number;
+          } else if (Array.isArray(rpcData) && rpcData.length > 0 && typeof rpcData[0] === 'number') {
+            newScore = rpcData[0] as number;
+          } else if (rpcData && typeof rpcData === 'object' && 'score' in rpcData) {
+            // e.g. { score: 42 }
+            // @ts-ignore
+            newScore = Number(rpcData.score);
+          }
         }
 
-        // Update local state from authoritative DB result
+        // Update local tasks completedSteps regardless
         setTasks(prevTasks => prevTasks.map(task => task.id === taskId ? { ...task, completedSteps } : task));
-        const updatedUser = { ...currentUser, score: newScore };
-        setCurrentUser(updatedUser);
-        saveSession(updatedUser);
-        console.log('Score updated via RPC, new score:', newScore);
-        return;
+
+        if (newScore !== null) {
+          // If RPC returned a numeric authoritative total, use it
+          console.debug('updateTaskCompletion (RPC returned numeric). Prev score:', currentUser.score, 'New score:', newScore);
+          const updatedUser = { ...currentUser, score: newScore };
+          console.trace('updateTaskCompletion: setting currentUser (RPC numeric)');
+          setCurrentUser(updatedUser);
+          saveSession(updatedUser);
+          console.log('Score updated via RPC, new score:', newScore);
+          return;
+        }
+
+        // RPC did not return a value. Fetch the authoritative profile row
+        // so we don't accidentally add the passed `scoreEarned` onto an already
+        // updated client-side score (which causes doubling).
+        try {
+          const { data: profileRow, error: profileErr } = await supabaseClient
+            .from('profiles')
+            .select('*')
+            .eq('id', currentUser.id)
+            .single();
+          if (!profileErr && profileRow) {
+            console.debug('updateTaskCompletion: fetched profile after RPC with no return. Prev score:', currentUser.score, 'Profile score:', profileRow.score);
+            const updatedUser = { ...currentUser, ...profileRow };
+            console.trace('updateTaskCompletion: setting currentUser (refreshed from profiles)');
+            setCurrentUser(updatedUser);
+            saveSession(updatedUser);
+            console.log('Score refreshed from profiles after RPC (no return):', updatedUser.score);
+            return;
+          }
+        } catch (e) {
+          console.debug('Failed to fetch profile after RPC with no return value', e);
+        }
+        // If fetching the profile failed, fall through to the fallback path below
       }
       if (rpcError) console.warn('RPC handle_task_completion failed, falling back to client update:', rpcError.message || rpcError);
     } catch (err) {
@@ -830,8 +863,12 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     }
   };
 
+  const setTaskCompletedSteps = (taskId: string, completedSteps: number) => {
+    setTasks(prev => prev.map(t => t.id === taskId ? { ...t, completedSteps } : t));
+  };
+
   return (
-    <AppContext.Provider value={{ theme, setTheme, currentPage, setCurrentPage, currentUser, language, setLanguage, t, login, signup, logout, tasks, updateTaskCompletion, updateModuleTask, resetTasks, getVideoProgress, updateVideoProgress, getSubmission, submitImageUrl, getTopScores, getTaskScore }}>
+    <AppContext.Provider value={{ theme, setTheme, currentPage, setCurrentPage, currentUser, language, setLanguage, t, login, signup, logout, tasks, updateTaskCompletion, updateModuleTask, resetTasks, getVideoProgress, updateVideoProgress, getSubmission, submitImageUrl, getTopScores, getTaskScore, fetchUserTasks, setTaskCompletedSteps }}>
       {children}
     </AppContext.Provider>
   );
