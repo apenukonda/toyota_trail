@@ -415,6 +415,16 @@ const VideoTask: React.FC = () => {
               try {
                 const res = await updateModuleTask(moduleName, currentVideoIndex + 1, true, score);
                 console.debug('VideoTask updateModuleTask returned', { res });
+                // If module RPC returned successfully, refresh the per-task row
+                // by calling updateTaskCompletion with an authoritative total
+                // computed from module progress so the dashboard card updates.
+                try {
+                  const totalFromProgress = await getModuleProgressTotal();
+                  const authoritativeTotal = Math.max(Number(totalScore), Number(totalFromProgress || 0));
+                  await updateTaskCompletion('task6', completedSteps, authoritativeTotal);
+                } catch (e) {
+                  console.debug('Failed to reconcile/update task6 after module RPC (non-fatal)', e);
+                }
               } catch (e) {
                 console.debug('updateModuleTask failed (non-fatal)', e);
               }
@@ -534,6 +544,15 @@ const VideoTask: React.FC = () => {
           try {
             const res = await updateModuleTask(moduleName, currentVideoIndex + 1, true, currentQuizScore);
             console.debug('confirmBack updateModuleTask returned', { res });
+              // After persisting module progress, update the task6 per-task row
+              // so the EventCard progress (tasks.completedSteps) refreshes.
+              try {
+                const totalFromProgress = await getModuleProgressTotal();
+                const authoritativeTotal = Math.max(Number(totalScore), Number(totalFromProgress || 0));
+                await updateTaskCompletion('task6', completedSteps, authoritativeTotal);
+              } catch (e) {
+                console.debug('confirmBack: failed to update task6 after module RPC (non-fatal)', e);
+              }
           } catch (e) {
             console.debug('updateModuleTask failed (non-fatal)', e);
           }
