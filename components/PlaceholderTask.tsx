@@ -66,8 +66,8 @@ const PlaceholderTask: React.FC<PlaceholderTaskProps> = ({ taskId, title, instru
       <div className="w-full max-w-2xl">
   <h1 className="text-4xl font-bold mb-4">{language === 'kn' && (title === 'Slogan Writer' || title === 'Suggestion Box' || title === 'Slogan Competition' || title === 'Kaizen Suggestion') ? (title === 'Slogan Writer' ? 'ಸ್ಲೋಗನ್ ರಚನೆ' : title === 'Suggestion Box' ? 'ಸಲಹೆ ಪೆಟ್ಟಿಗೆ' : title === 'Slogan Competition' ? 'ಸ್ಲೋಗನ್ ಸ್ಪರ್ಧೆ' : 'ಕೈಝೆನ್ ಸಲಹೆ') : title}</h1>
         <div className="bg-white p-8 rounded-2xl shadow-xl text-left mb-8">
-      <h2 className="text-2xl font-semibold text-black mb-4">{language === 'kn' ? 'ಸೂಚನೆಗಳು' : 'Instructions'}</h2>
-            <ul className="list-disc list-inside space-y-2 text-black">
+      <h2 className="text-2xl font-semibold text-black mb-4 text-center">{language === 'kn' ? 'ಸೂಚನೆಗಳು' : 'Instructions'}</h2>
+            <ul className="list-disc list-outside text-l space-y-2 text-black">
         {instructions.map((inst, index) => <li key={index}>{language === 'kn' ? translateInstruction(inst) : inst}</li>)}
             </ul>
         </div>
