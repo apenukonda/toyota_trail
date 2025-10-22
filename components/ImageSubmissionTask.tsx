@@ -161,7 +161,14 @@ const ImageSubmissionTask: React.FC = () => {
                     <div className="bg-white p-8 rounded-2xl shadow-xl">
                         <CheckCircleIcon className="w-16 h-16 text-green-500 mx-auto mb-4" />
                         <p className="text-lg text-black mb-6">{t('thank_you_submission')} {language === 'kn' ? '5 ಅಂಕಗಳನ್ನು' : '5 points'} {language === 'kn' ? 'ಮತ್ತು ಈ ಟಾಸ್ಕ್ ಅನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಮುಗಿಸಿದ್ದೀರಿ.' : 'and successfully completed this task.'}</p>
-                        <img src={submittedImageUrl} alt="Submitted cartoon" className="max-w-xs mx-auto rounded-lg shadow-lg" />
+                        <div className="w-full flex justify-center">
+                            {/* Limit the image max-height so tall images don't overflow mobile viewports */}
+                            <img
+                                src={submittedImageUrl}
+                                alt="Submitted cartoon"
+                                className="w-full h-auto max-w-full sm:max-w-md mx-auto rounded-lg shadow-lg object-contain max-h-[60vh]"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -179,7 +186,8 @@ const ImageSubmissionTask: React.FC = () => {
                 {t('back')}
             </button>
                       <div className="w-full max-w-2xl">
-                          <h1 className="text-4xl font-bold mb-4 text-center">{t('Cartoon Submission')}</h1>
+                          {/* Add small top margin on mobile so title doesn't overlap with absolute Back button */}
+                          <h1 className="text-4xl font-bold mb-4 text-center mt-6 sm:mt-0">{t('Cartoon Submission')}</h1>
                 <div className="bg-white p-8 rounded-2xl shadow-xl text-left">
   <h2 className="text-2xl font-semibold text-black mb-4 text-center">
     {t('Instructions') || (language === 'kn' ? 'ಸೂಚನೆಗಳು' : 'Instructions')}
@@ -247,7 +255,14 @@ const ImageSubmissionTask: React.FC = () => {
                      {preview && (
                          <div className="mt-6 text-center">
                             <h3 className="text-lg font-semibold">{t('image_preview')}</h3>
-                             <img src={preview} alt="Image preview" className="mt-2 max-w-xs mx-auto rounded-lg shadow-md" />
+                            <div className="mt-2 w-full flex justify-center">
+                             {/* Preview: constrain height to avoid overflow on small screens */}
+                             <img
+                                 src={preview}
+                                 alt="Image preview"
+                                 className="w-full h-auto max-w-full sm:max-w-sm mx-auto rounded-lg shadow-md object-contain max-h-[60vh]"
+                             />
+                            </div>
                          </div>
                      )}
                      

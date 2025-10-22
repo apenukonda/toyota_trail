@@ -81,8 +81,8 @@ const MdMessageTask: React.FC = () => {
       </button>
 
       {view === 'message' && (
-        <div className="w-full max-w-3xl text-center">
-            <h1 className="text-4xl font-bold mb-4">{t('md_message_title')}</h1>
+    <div className="w-full max-w-3xl text-center">
+      <h1 className="text-4xl font-bold mb-4 mt-8 sm:mt-0">{t('md_message_title')}</h1>
       <div>
         {/* Show English poster by default; switch to Kannada poster when language === 'kn' */}
         <img src={language === 'kn' ? '/MDKan.png' : '/MDEng.png'} alt={t('md_message_title')} className="w-full h-auto rounded-lg mb-4" />

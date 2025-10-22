@@ -9,16 +9,15 @@ const KnowledgeCentrePage: React.FC = () => {
   const [selectedModule, setSelectedModule] = useState<VideoModule | null>(null);
 
   return (
-    <div className="min-h-screen p-6 pt-24 bg-gray-50">
+  <div className="min-h-screen p-6 pt-20 bg-gray-50">
       <div className="max-w-6xl mx-auto">
-  <button data-kn-skip onClick={() => setCurrentPage(Page.DASHBOARD)} className="flex items-center gap-2 text-black hover:text-red-500 mb-6">
+  <button data-kn-skip onClick={() => setCurrentPage(Page.DASHBOARD)} className="flex items-center gap-2 text-black hover:text-red-500 mb-3">
           <ChevronLeftIcon className="w-6 h-6" />
           {t('back')}
         </button>
 
         <header className="mb-8 text-center">
           <h1 className="text-4xl font-extrabold text-gray-900">{t('knowledge_centre') || (language === 'kn' ? 'ಜ್ಞಾನ ಕೇಂದ್ರ' : 'Knowledge Centre')}</h1>
-          <p className="text-gray-600 mt-2 max-w-2xl mx-auto">{t('Knowledge Centre Sub') || (language === 'kn' ? 'ಎಲ್ಲಾ ವಿದ್ಯಾ ಸಂಪನ್ಮೂಲಗಳ ಸಂಗ್ರಹ' : 'A curated collection of learning resources')}</p>
         </header>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -49,18 +48,18 @@ const KnowledgeCentrePage: React.FC = () => {
       </div>
       {selectedModule && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-3xl w-full text-left overflow-hidden">
+          <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-full sm:max-w-3xl w-full text-left overflow-hidden">
             <button onClick={() => setSelectedModule(null)} className="absolute top-4 right-4 text-gray-400 hover:text-red-500 z-10">
               <XCircleIcon className="w-8 h-8" />
             </button>
-            <div className="p-6">
-              <h2 className="text-2xl font-bold mb-2">{language === 'kn' ? (selectedModule.titleKn || selectedModule.title) : selectedModule.title}</h2>
+              <div className="p-6">
+              <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">{language === 'kn' ? (selectedModule.titleKn || selectedModule.title) : selectedModule.title}</h2>
               <p className="text-sm text-gray-500 mb-4">{selectedModule.videos.length} {t('videos') || (language === 'kn' ? 'ವೀಡಿಯೋಗಳು' : 'videos')}</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {selectedModule.videos.map((vid: VideoItem) => (
                   <a key={vid.id} href={`https://www.youtube.com/watch?v=${vid.id}`} target="_blank" rel="noopener noreferrer" className="block bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all">
                     <div className="flex items-center gap-4 p-3">
-                      <img src={`https://img.youtube.com/vi/${vid.id}/mqdefault.jpg`} alt={vid.title} className="w-36 h-20 object-cover rounded-md" />
+                      <img src={`https://img.youtube.com/vi/${vid.id}/mqdefault.jpg`} alt={vid.title} className="w-24 sm:w-36 h-14 sm:h-20 object-cover rounded-md flex-shrink-0" />
                       <div>
                         <div className="font-semibold text-gray-900">{vid.title}</div>
                         <div className="text-sm text-gray-500">{t('Play on YouTube') || (language === 'kn' ? 'YouTube ನಲ್ಲಿ ಆಡಿ' : 'Play on YouTube')}</div>

@@ -15,11 +15,26 @@ const KaizenSuggestionTask: React.FC = () => {
   };
 
   return (
-    <div>
-      <h2>Kaizen Suggestion</h2>
-      <p>Share your ideas for continuous improvement (Kaizen).</p>
-      <button onClick={handleOpenGoogleForm}>Open Microsoft Form</button>
-      <button onClick={handleSubmit}>Submit</button>
+    <div className="px-4 sm:px-8">
+      {/* Add responsive top margin so title doesn't collide with absolute Back button on small screens */}
+      <h2 className="text-2xl font-semibold mt-10 sm:mt-0">Kaizen Suggestion</h2>
+      <p className="mt-4">Share your ideas for continuous improvement (Kaizen).</p>
+
+      <div className="mt-6 flex flex-col gap-3 max-w-xl">
+        <button
+          className="bg-blue-600 text-white py-2 px-4 rounded"
+          onClick={handleOpenGoogleForm}
+        >
+          Open Microsoft Form
+        </button>
+
+        <button
+          className="bg-green-600 text-white py-2 px-4 rounded"
+          onClick={handleSubmit}
+        >
+          Submit
+        </button>
+      </div>
     </div>
   );
 };
