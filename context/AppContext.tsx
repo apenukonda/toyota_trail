@@ -183,12 +183,12 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       // Advanced Quality Principles page
       'Advanced Quality Principles': 'Advanced Quality Principles',
       'Instructions Title': 'Instructions Title',
-      advanced_instructions_bullet_1: 'This module is consists of different topics with multiple videos in each topics.',
-      advanced_instructions_bullet_2: 'After completion of each video “Proceed to Quiz” button will be appeared automatically.',
-      advanced_instructions_bullet_3: 'Read each question carefully and select the correct answer from the given choices.',
-      advanced_instructions_bullet_4: 'Each correct answer will earn 1 point.',
+      advanced_instructions_bullet_1: 'This module consists of video lessons and quizzes, worth a total of 70 points.',
+      advanced_instructions_bullet_2: 'You must watch each video to unlock a 7-point quiz.',
+      advanced_instructions_bullet_3: 'Complete all videos and quizzes to finish this task.',
+      advanced_instructions_bullet_4: 'Your progress is saved automatically.',
     // Additional advanced module instruction (missing key)
-    advanced_instructions_bullet_5: 'The top scorer will be recognized and selected for the next round of evaluation.(Considering all types of quizzes)',
+    advanced_instructions_bullet_5: 'Scores from the video quizzes contribute to your overall evaluation and leaderboard rank.',
       'Start Learning': 'Start Learning',
       md_message_title: 'A Message from the Managing Director',
       start_quiz: 'Start Quiz (7 Points)',
@@ -263,14 +263,14 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     kn: {
   // Advanced Quality Principles translations
   'Advanced Quality Principles': 'ಅತ್ಯಾಧುನಿಕ ಗುಣಮಟ್ಟದ ತತ್ವಗಳು',
-  'Video awareness and evaluation module': 'ವೀಡಿಯೊ ಜಾಗೃತಿ ಮತ್ತು ಮೌಲ್ಯಮಾಪನ ಘಟಕ',
+  'Video awareness and evaluation module': '\u0cb5\u0cc0\u0ca1\u0cbf\u0caf\u0cca \u0c9c\u0cbe\u0c97\u0cc3\u0ca4\u0cbf \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0cae\u0ccc\u0cb2\u0ccd\u0faf\u0cae\u0cbe\u0caa\u0ca8 \u0cae\u0cbe\u0ca1\u0ccd\u0caf\u0cc2\u0cb2\u0ccd',
   'Instructions Title': 'ಸೂಚನೆಗಳ ಶೀರ್ಷಿಕೆ',
-  advanced_instructions_bullet_1: 'ಈ ಘಟಕದಲ್ಲಿ ವಿವಿಧ ವಿಷಯಗಳು ಒಳಗೊಂಡಿವೆ ಮತ್ತು ಪ್ರತಿಯೊಂದು ವಿಷಯದಲ್ಲೂ ಅನೇಕ ವಿಡಿಯೋಗಳಿವೆ.',
-  advanced_instructions_bullet_2: 'ಪ್ರತಿಯೊಂದು ವಿಡಿಯೋ ಪೂರ್ಣಗೊಂಡ ನಂತರ “Proceed to Quiz” ಎಂಬ ಬಟನ್ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಕಾಣಿಸುತ್ತದೆ.',
-  advanced_instructions_bullet_3: 'ಪ್ರತಿಯೊಂದು ಪ್ರಶ್ನೆಯನ್ನು ಎಚ್ಚರಿಕೆಯಿಂದ ಓದಿ, ನೀಡಿರುವ ಆಯ್ಕೆಗಳಲ್ಲಿಂದ ಸರಿಯಾದ ಉತ್ತರವನ್ನು ಆಯ್ಕೆಮಾಡಿ.',
-  advanced_instructions_bullet_4: 'ಪ್ರತಿಯೊಂದು ಸರಿಯಾದ ಉತ್ತರಕ್ಕೆ 1 ಅಂಕ ನೀಡಲಾಗುತ್ತದೆ.',
+  advanced_instructions_bullet_1: 'ಈ ಘಟಕವು ವೀಡಿಯೊ ಪಾಠಗಳು ಮತ್ತು ಕ್ವಿಜ್‌ಗಳನ್ನು ಒಳಗೊಂಡಿದೆ, ಒಟ್ಟು 70 ಅಂಕಗಳವರೆಗೆ.',
+  advanced_instructions_bullet_2: 'ಪ್ರತೀ ವೀಡಿಯೋವನ್ನು ವೀಕ್ಷಿಸಲು ನೀವು 7 ಅಂಕಗಳ ಕ್ವಿಜ್ ಅನ್ನು ಅನ್ಲಾಕ್ ಮಾಡಬೇಕು.',
+  advanced_instructions_bullet_3: 'ಈ ಟಾಸ್ಕ್ ಅನ್ನು ಮುಗಿಸಲು ಎಲ್ಲಾ ವೀಡಿಯೊಗಳು ಮತ್ತು ಕ್ವಿಜ್‌ಗಳನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ.',
+  advanced_instructions_bullet_4: 'ನಿಮ್ಮ ಪ್ರಗತಿ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸಂರಕ್ಷಿಸಲಾಗುತ್ತದೆ.',
     // Additional advanced module instruction (missing key)
-    advanced_instructions_bullet_5: 'ಅತ್ಯಧಿಕ ಅಂಕ ಪಡೆದವರು ಗುರುತಿಸಲ್ಪಟ್ಟು ಮುಂದಿನ ಮೌಲ್ಯಮಾಪನ ಸುತ್ತಿಗೆ ಆಯ್ಕೆಯಾಗುತ್ತಾರೆ (ಎಲ್ಲಾ ರೀತಿಯ ಕ್ವಿಜ್‌ಗಳನ್ನು ಪರಿಗಣಿಸಲಾಗುತ್ತದೆ).',
+    advanced_instructions_bullet_5: 'ವೀಡಿಯೊ ಕ್ವಿಜ್‌ಗಳಿಂದ ಸಿಕ್ಕ ಅಂಕಗಳು ನಿಮ್ಮ ಒಟ್ಟು ಮೌಲ್ಯಮಾಪನ ಮತ್ತು ಲೀಡರ್‌ಬೋರ್ಡ್ ರ್ಯಾಂಕ್‌ಗೆ ಸೇರಿಕೊಳ್ಳುತ್ತವೆ.',
   'Start Learning': 'ಅಭ್ಯಾಸ ಪ್ರಾರಂಭಿಸಿ',
   md_message_title: 'ವ್ಯವಸ್ಥಾಪಕ ನಿರ್ದೇಶಕರಿಂದ ಸಂದೇಶ',
   start_quiz: 'ಕ್ವಿಜ್ ಪ್ರಾರಂಭಿಸಿ (7 ಅಂಕಗಳು)',
