@@ -3,6 +3,7 @@ import { Page, User, Task, Department, Designation } from '../types';
 import { INITIAL_TASKS } from '../constants';
 
 import supabaseClient from './supabaseClient';
+import bcrypt from 'bcryptjs';
 
 interface AppContextType {
   theme: 'light' | 'dark';
@@ -184,8 +185,8 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       'Advanced Quality Principles': 'Advanced Quality Principles',
       'Instructions Title': 'Instructions Title',
       advanced_instructions_bullet_1: 'This module is consists of different topics with multiple videos in each topics.',
-      advanced_instructions_bullet_2: 'After completion of each video “Proceed to Quiz” button will be appeared automatically.',
-      advanced_instructions_bullet_3: 'Read each question carefully and select the correct answer from the given choices.',
+      advanced_instructions_bullet_2: 'After completion of each video “Quiz start” button will be appeared automatically.',
+      advanced_instructions_bullet_3: 'Read each question carefully and select the correct answer from the given choices',
       advanced_instructions_bullet_4: 'Each correct answer will earn 1 point.',
     // Additional advanced module instruction (missing key)
     advanced_instructions_bullet_5: 'The top scorer will be recognized and selected for the next round of evaluation.(Considering all types of quizzes)',
@@ -266,7 +267,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   'Video awareness and evaluation module': 'ವೀಡಿಯೊ ಜಾಗೃತಿ ಮತ್ತು ಮೌಲ್ಯಮಾಪನ ಘಟಕ',
   'Instructions Title': 'ಸೂಚನೆಗಳ ಶೀರ್ಷಿಕೆ',
   advanced_instructions_bullet_1: 'ಈ ಘಟಕದಲ್ಲಿ ವಿವಿಧ ವಿಷಯಗಳು ಒಳಗೊಂಡಿವೆ ಮತ್ತು ಪ್ರತಿಯೊಂದು ವಿಷಯದಲ್ಲೂ ಅನೇಕ ವಿಡಿಯೋಗಳಿವೆ.',
-  advanced_instructions_bullet_2: 'ಪ್ರತಿಯೊಂದು ವಿಡಿಯೋ ಪೂರ್ಣಗೊಂಡ ನಂತರ “Proceed to Quiz” ಎಂಬ ಬಟನ್ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಕಾಣಿಸುತ್ತದೆ.',
+  advanced_instructions_bullet_2: 'ಪ್ರತಿಯೊಂದು ವಿಡಿಯೋ ಪೂರ್ಣಗೊಂಡ ನಂತರ “ಕ್ವಿಜ್ ಪ್ರಾರಂಭಿಸಿ” ಎಂಬ ಬಟನ್ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಕಾಣಿಸುತ್ತದೆ.',
   advanced_instructions_bullet_3: 'ಪ್ರತಿಯೊಂದು ಪ್ರಶ್ನೆಯನ್ನು ಎಚ್ಚರಿಕೆಯಿಂದ ಓದಿ, ನೀಡಿರುವ ಆಯ್ಕೆಗಳಲ್ಲಿಂದ ಸರಿಯಾದ ಉತ್ತರವನ್ನು ಆಯ್ಕೆಮಾಡಿ.',
   advanced_instructions_bullet_4: 'ಪ್ರತಿಯೊಂದು ಸರಿಯಾದ ಉತ್ತರಕ್ಕೆ 1 ಅಂಕ ನೀಡಲಾಗುತ್ತದೆ.',
     // Additional advanced module instruction (missing key)
@@ -461,22 +462,46 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   };
   
   const signup = async (details: { userId: string; name: string; department: Department, designation: Designation, passcode: string }): Promise<{ success: boolean; error?: string }> => {
-    const { userId, name, department, designation, passcode } = details;
-    const trimmedUserId = userId.trim();
-  const email = `${trimmedUserId}@quality-event.internal`;
-  // Transform user-facing passcode to a stronger password for Supabase
-  const password = mapPasscodeToPassword(passcode);
+  //   const { userId, name, department, designation, passcode } = details;
+  //   const trimmedUserId = userId.trim();
+  // const email = `${trimmedUserId}@quality-event.internal`;
+  // // Transform user-facing passcode to a stronger password for Supabase
+  // const password = mapPasscodeToPassword(passcode);
 
-    // The trigger 'on_auth_user_created' will create the profile. Include role='user' in metadata.
-  const { data, error } = await supabaseClient.auth.signUp({
-    email,
-    password,
-    options: {
-      // include passcode in user metadata so the DB trigger can populate profiles.passcode
-      // NOTE: storing plaintext passcode in metadata is insecure; only do this if expected by your backend.
-      data: { userId: trimmedUserId, name, department, designation, role: 'user', passcode }
+  //   // The trigger 'on_auth_user_created' will create the profile. Include role='user' in metadata.
+  // const { data, error } = await supabaseClient.auth.signUp({
+  //   email,
+  //   password,
+  //   options: {
+  //     // include passcode in user metadata so the DB trigger can populate profiles.passcode
+  //     // NOTE: storing plaintext passcode in metadata is insecure; only do this if expected by your backend.
+  //     data: { userId: trimmedUserId, name, department, designation, role: 'user', passcode }
+  //   }
+  // });
+  const { userId, name, department, designation, passcode } = details;
+const trimmedUserId = userId.trim();
+const email = `${trimmedUserId}@quality-event.internal`;
+const password = mapPasscodeToPassword(passcode);
+
+// 🔐 Hash the passcode before storing in metadata
+const salt = bcrypt.genSaltSync(10);
+const hashedPasscode = bcrypt.hashSync(passcode, salt);
+
+const { data, error } = await supabaseClient.auth.signUp({
+  email,
+  password,
+  options: {
+    data: { 
+      userId: trimmedUserId,
+      name,
+      department,
+      designation,
+      role: 'user',
+      passcode: hashedPasscode // store hash instead of plaintext
     }
-  });
+  }
+});
+
     if (error) {
       // Normalize common 'already exists' messages into a friendlier message
       const em = (error.message || '').toLowerCase();
