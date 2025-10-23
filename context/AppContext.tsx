@@ -3,6 +3,7 @@ import { Page, User, Task, Department, Designation } from '../types';
 import { INITIAL_TASKS } from '../constants';
 
 import supabaseClient from './supabaseClient';
+import bcrypt from 'bcryptjs';
 
 interface AppContextType {
   theme: 'light' | 'dark';
@@ -461,22 +462,46 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   };
   
   const signup = async (details: { userId: string; name: string; department: Department, designation: Designation, passcode: string }): Promise<{ success: boolean; error?: string }> => {
-    const { userId, name, department, designation, passcode } = details;
-    const trimmedUserId = userId.trim();
-  const email = `${trimmedUserId}@quality-event.internal`;
-  // Transform user-facing passcode to a stronger password for Supabase
-  const password = mapPasscodeToPassword(passcode);
+  //   const { userId, name, department, designation, passcode } = details;
+  //   const trimmedUserId = userId.trim();
+  // const email = `${trimmedUserId}@quality-event.internal`;
+  // // Transform user-facing passcode to a stronger password for Supabase
+  // const password = mapPasscodeToPassword(passcode);
 
-    // The trigger 'on_auth_user_created' will create the profile. Include role='user' in metadata.
-  const { data, error } = await supabaseClient.auth.signUp({
-    email,
-    password,
-    options: {
-      // include passcode in user metadata so the DB trigger can populate profiles.passcode
-      // NOTE: storing plaintext passcode in metadata is insecure; only do this if expected by your backend.
-      data: { userId: trimmedUserId, name, department, designation, role: 'user', passcode }
+  //   // The trigger 'on_auth_user_created' will create the profile. Include role='user' in metadata.
+  // const { data, error } = await supabaseClient.auth.signUp({
+  //   email,
+  //   password,
+  //   options: {
+  //     // include passcode in user metadata so the DB trigger can populate profiles.passcode
+  //     // NOTE: storing plaintext passcode in metadata is insecure; only do this if expected by your backend.
+  //     data: { userId: trimmedUserId, name, department, designation, role: 'user', passcode }
+  //   }
+  // });
+  const { userId, name, department, designation, passcode } = details;
+const trimmedUserId = userId.trim();
+const email = `${trimmedUserId}@quality-event.internal`;
+const password = mapPasscodeToPassword(passcode);
+
+// 🔐 Hash the passcode before storing in metadata
+const salt = bcrypt.genSaltSync(10);
+const hashedPasscode = bcrypt.hashSync(passcode, salt);
+
+const { data, error } = await supabaseClient.auth.signUp({
+  email,
+  password,
+  options: {
+    data: { 
+      userId: trimmedUserId,
+      name,
+      department,
+      designation,
+      role: 'user',
+      passcode: hashedPasscode // store hash instead of plaintext
     }
-  });
+  }
+});
+
     if (error) {
       // Normalize common 'already exists' messages into a friendlier message
       const em = (error.message || '').toLowerCase();
