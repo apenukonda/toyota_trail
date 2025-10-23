@@ -19,9 +19,13 @@ const App: React.FC = () => {
   const { currentPage, theme, currentUser } = useContext(AppContext);
   const { language } = useContext(AppContext);
 
+  // determine if the current render is the admin view so we can hide the global navbar
+  const isAdminUser = currentUser && (currentUser.role === 'admin' || currentUser.role === 'ADMIN');
+  const pathnameIsAdmin = typeof window !== 'undefined' && window.location.pathname === '/admin';
+  const isAdminView = Boolean(isAdminUser && (currentPage === Page.DASHBOARD || pathnameIsAdmin));
+
   const renderPage = () => {
-    const isAdmin = currentUser && (currentUser.role === 'admin' || currentUser.role === 'ADMIN');
-    const pathnameIsAdmin = typeof window !== 'undefined' && window.location.pathname === '/admin';
+    const isAdmin = isAdminUser;
 
     // If user directly navigates to /admin, handle it first
     if (pathnameIsAdmin) {
@@ -86,27 +90,26 @@ const App: React.FC = () => {
 
   // Keep the browser URL in sync: if an admin is viewing dashboard, push /admin.
   useEffect(() => {
-    const isAdmin = currentUser && (currentUser.role === 'admin' || currentUser.role === 'ADMIN');
     if (typeof window === 'undefined') return;
 
-    if (isAdmin && (currentPage === Page.DASHBOARD || window.location.pathname === '/admin')) {
+    if (isAdminUser && (currentPage === Page.DASHBOARD || window.location.pathname === '/admin')) {
       if (window.location.pathname !== '/admin') {
         window.history.replaceState(null, '', '/admin');
       }
     } else {
       // if a non-admin is on /admin, push them to home
-      if (window.location.pathname === '/admin' && !isAdmin) {
+      if (window.location.pathname === '/admin' && !isAdminUser) {
         window.history.replaceState(null, '', '/');
       }
     }
-  }, [currentUser, currentPage]);
+  }, [isAdminUser, currentPage]);
 
   return (
     <div className={`${theme} transition-colors duration-500`}>
       <div className="bg-white text-gray-900 min-h-screen">
         {/* Global Kannada font-size scaler */}
         <KnFontScaler enabled={language === 'kn'} />
-        {currentUser && <Navbar />}
+  {currentUser && !isAdminView && <Navbar />}
         <main>{renderPage()}</main>
       </div>
     </div>
