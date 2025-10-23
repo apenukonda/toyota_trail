@@ -27,13 +27,8 @@ type ProfileRow = {
 const Admin: React.FC = () => {
   const { currentUser } = useContext(AppContext);
   const [profiles, setProfiles] = useState<ProfileRow[]>([]);
-<<<<<<< HEAD
   const [selectedView, setSelectedView] = useState<'dashboard' | 'stats' | 'registrations'>('stats');
-  const [selectedAnalytics, setSelectedAnalytics] = useState<'none' | 'videoCompletion' | 'mdMessage'>('none');
-=======
-  const [selectedView, setSelectedView] = useState<'stats' | 'registrations'>('stats');
   const [selectedAnalytics, setSelectedAnalytics] = useState<'none' | 'videoCompletion' | 'mdMessage' | 'slogan'>('none');
->>>>>>> bd6c77e4632ced3a7423c7f0f71bac04a8dd506e
   const [showBy, setShowBy] = useState<'department' | 'designation'>('department');
   const [departmentFilter, setDepartmentFilter] = useState<string>('All');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -75,6 +70,7 @@ const Admin: React.FC = () => {
   const [sloganRows, setSloganRows] = useState<Array<any>>([]);
   const [sloganDeptFilter, setSloganDeptFilter] = useState<string>('All');
   const [sloganDesigFilter, setSloganDesigFilter] = useState<string>('All');
+
   // fetch slogans and join with profiles
   const fetchSlogans = async () => {
     const { data, error } = await supabaseClient
@@ -165,36 +161,7 @@ const Admin: React.FC = () => {
     setVideoRows(joined);
   };
 
-<<<<<<< HEAD
-=======
-  useEffect(() => {
-    // fetch video completions when profiles change (so join is accurate)
-    fetchVideoCompletions();
-    fetchMDCompletions();
-    fetchSlogans();
-    const ch = supabaseClient.channel('public:user_tasks')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'user_tasks' }, () => {
-        fetchVideoCompletions();
-        fetchMDCompletions();
-      })
-      .subscribe();
-
-    // subscribe to changes in user_slogans so the view is live-updating
-    const ch2 = supabaseClient.channel('public:user_slogans')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'user_slogans' }, () => {
-        fetchSlogans();
-      })
-      .subscribe();
-
-    return () => {
-      supabaseClient.removeChannel(ch);
-      supabaseClient.removeChannel(ch2);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [profiles]);
-
   // MD Message (task1) completions
->>>>>>> bd6c77e4632ced3a7423c7f0f71bac04a8dd506e
   const fetchMDCompletions = async () => {
     const { data, error } = await supabaseClient
       .from('user_tasks')
@@ -240,6 +207,7 @@ const Admin: React.FC = () => {
   useEffect(() => {
     fetchVideoCompletions();
     fetchMDCompletions();
+    fetchSlogans();
     const ch = supabaseClient.channel('public:user_tasks')
       .on('postgres_changes', { event: '*', schema: 'public', table: 'user_tasks' }, () => {
         fetchVideoCompletions();
@@ -247,7 +215,16 @@ const Admin: React.FC = () => {
       })
       .subscribe();
 
-    return () => supabaseClient.removeChannel(ch);
+    const ch2 = supabaseClient.channel('public:user_slogans')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'user_slogans' }, () => {
+        fetchSlogans();
+      })
+      .subscribe();
+
+    return () => {
+      supabaseClient.removeChannel(ch);
+      supabaseClient.removeChannel(ch2);
+    };
   }, [profiles]);
 
   const exportToCSV = (rows: Array<any>, filename = 'export.csv') => {
@@ -352,26 +329,6 @@ const Admin: React.FC = () => {
 
   const filteredProfiles = profiles.filter(p => departmentFilter === 'All' ? true : (p.department || 'Unknown') === departmentFilter);
 
-<<<<<<< HEAD
-  return (
-    <div className="flex h-screen bg-gray-50">
-      {/* Sidebar */}
-      <div className={`${isSidebarOpen ? 'w-64' : 'w-0'} transition-all duration-300 bg-white shadow-lg overflow-hidden flex flex-col`}>
-        <div className="p-6 border-b border-gray-200">
-          <div className="flex items-center justify-between mb-4">
-            <h1 className="text-xl font-bold text-gray-800">ADMINS</h1>
-            <button 
-              onClick={() => setIsSidebarOpen(false)}
-              className="lg:hidden p-1 hover:bg-gray-100 rounded"
-            >
-              <X size={20} />
-            </button>
-          </div>
-          
-          <div className="flex flex-col items-center mt-6">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white text-2xl font-bold mb-3">
-              {currentUser?.name?.substring(0, 2).toUpperCase() || 'AD'}
-=======
   // Display lists sorted as requested (descending order highest -> lowest)
   const displayedProfiles = useMemo(() => {
     return filteredProfiles.slice().sort((a, b) => (b.score || 0) - (a.score || 0));
@@ -391,60 +348,29 @@ const Admin: React.FC = () => {
       .sort((a, b) => (b.score || 0) - (a.score || 0));
   }, [mdRows, mdDeptFilter, mdDesigFilter]);
 
-  // For recent registrations box: show top 8 by score (descending)
-  const topProfiles = useMemo(() => {
-    return (profiles || []).slice().sort((a, b) => (b.score || 0) - (a.score || 0)).slice(0, 8);
-  }, [profiles]);
-
-  // determine max value for chart scaling
-  const maxForDept = useMemo(() => {
-    const maxReg = Math.max(...registrationsByDept.map(d => d.count), 1);
-    const maxEmp = Math.max(...employeesByDept.map(e => e.total), 1);
-    return Math.max(maxReg, maxEmp);
-  }, [registrationsByDept, employeesByDept]);
-
-  const maxForDesig = useMemo(() => {
-    const maxReg = Math.max(...registrationsByDesig.map(d => d.count), 1);
-    const maxEmp = Math.max(...employeesByDesig.map(e => e.total), 1);
-    return Math.max(maxReg, maxEmp);
-  }, [registrationsByDesig, employeesByDesig]);
+  const displayedSloganRows = useMemo(() => {
+    return sloganRows
+      .filter(r => (sloganDeptFilter === 'All' || r.department === sloganDeptFilter) && (sloganDesigFilter === 'All' || r.designation === sloganDesigFilter));
+  }, [sloganRows, sloganDeptFilter, sloganDesigFilter]);
 
   return (
-    <div className="min-h-screen pt-20 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="flex gap-6">
-          <aside className="w-64 bg-white border rounded p-4 h-fit sticky top-24">
-            <h2 className="text-lg font-semibold mb-4">Admin Panel</h2>
-            <div className="flex flex-col gap-2">
-              <button
-                onClick={() => { setSelectedView('stats'); setSelectedAnalytics('none'); }}
-                className={`text-left px-3 py-2 rounded ${selectedView === 'stats' ? 'bg-red-600 text-white' : 'hover:bg-gray-100'}`}
-              >
-                Stats (Charts & Table)
-              </button>
-              {/* replaced Registrations Summary with Slogan competition analytics */}
-              <button
-                onClick={async () => { setSelectedAnalytics('slogan'); await fetchSlogans(); }}
-                className={`text-left px-3 py-2 rounded ${selectedAnalytics === 'slogan' ? 'bg-red-600 text-white' : 'hover:bg-gray-100'}`}
-              >
-                Slogan competition analytics
-              </button>
-                <button
-                  onClick={async () => {
-                    setSelectedAnalytics('videoCompletion');
-                    await fetchVideoCompletions();
-                  }}
-                  className={`text-left px-3 py-2 rounded ${selectedAnalytics === 'videoCompletion' ? 'bg-red-600 text-white' : 'hover:bg-gray-100'}`}
-                >
-                  Video completion analytics
-                </button>
-                  <button
-                    onClick={async () => { setSelectedAnalytics('mdMessage'); await fetchMDCompletions(); }}
-                    className={`text-left px-3 py-2 rounded ${selectedAnalytics === 'mdMessage' ? 'bg-red-600 text-white' : 'hover:bg-gray-100'}`}
-                  >
-                    MD Message completion status
-                  </button>
->>>>>>> bd6c77e4632ced3a7423c7f0f71bac04a8dd506e
+    <div className="flex h-screen bg-gray-50">
+      {/* Sidebar */}
+      <div className={`${isSidebarOpen ? 'w-64' : 'w-0'} transition-all duration-300 bg-white shadow-lg overflow-hidden flex flex-col`}>
+        <div className="p-6 border-b border-gray-200">
+          <div className="flex items-center justify-between mb-4">
+            <h1 className="text-xl font-bold text-gray-800">ADMINS</h1>
+            <button 
+              onClick={() => setIsSidebarOpen(false)}
+              className="lg:hidden p-1 hover:bg-gray-100 rounded"
+            >
+              <X size={20} />
+            </button>
+          </div>
+          
+          <div className="flex flex-col items-center mt-6">
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white text-2xl font-bold mb-3">
+              {currentUser?.name?.substring(0, 2).toUpperCase() || 'AD'}
             </div>
             <h2 className="text-lg font-semibold text-gray-800">{currentUser?.name || 'Admin'}</h2>
             <p className="text-sm text-teal-500">Administrator</p>
@@ -484,6 +410,19 @@ const Admin: React.FC = () => {
 
           <button
             onClick={async () => {
+              setSelectedAnalytics('slogan');
+              await fetchSlogans();
+            }}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${
+              selectedAnalytics === 'slogan' ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'
+            }`}
+          >
+            <FileText size={20} />
+            <span className="font-medium">Slogan Competition</span>
+          </button>
+
+          <button
+            onClick={async () => {
               setSelectedAnalytics('videoCompletion');
               await fetchVideoCompletions();
             }}
@@ -492,7 +431,7 @@ const Admin: React.FC = () => {
             }`}
           >
             <Video size={20} />
-            <span className="font-medium">Video Completion Analytics</span>
+            <span className="font-medium">Video Completion</span>
           </button>
 
           <button
@@ -519,7 +458,8 @@ const Admin: React.FC = () => {
             </button>
           )}
           <h2 className="text-2xl font-bold text-gray-800">
-            {selectedAnalytics === 'videoCompletion' ? 'Video Completion Analytics' :
+            {selectedAnalytics === 'slogan' ? 'Slogan Competition Analytics' :
+             selectedAnalytics === 'videoCompletion' ? 'Video Completion Analytics' :
              selectedAnalytics === 'mdMessage' ? 'MD Message Completion Status' :
              selectedView === 'dashboard' ? 'Dashboard' :
              selectedView === 'stats' ? 'Stats (Charts & Table)' :
@@ -531,6 +471,115 @@ const Admin: React.FC = () => {
           <div className="max-w-full mx-auto">
             {selectedView === 'dashboard' && selectedAnalytics === 'none' ? (
               <AdminDashboard />
+            ) : selectedAnalytics === 'slogan' ? (
+              <section>
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-2xl font-semibold">Slogan Competition Analytics</h3>
+                </div>
+
+                {/* Department-wise chart */}
+                <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 mb-6">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Department-wise Submissions</h3>
+                  <div style={{ width: '100%', height: 500 }}>
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        data={(departments as string[]).map(d => ({
+                          category: d,
+                          plan: PLAN_BY_DEPARTMENT[d] ?? 0,
+                          submitted: sloganRows.filter(s => s.department === d).length,
+                        }))}
+                        margin={{ top: 24, right: 30, left: 0, bottom: 60 }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={80} />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend verticalAlign="top" align="right" />
+                        <Bar dataKey="plan" fill="#2563EB" name="Planned" />
+                        <Bar dataKey="submitted" fill="#F59E0B" name="Submitted" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                </div>
+
+                {/* Designation-wise chart */}
+                <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 mb-6">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Designation-wise Submissions</h3>
+                  <div style={{ width: '100%', height: 500 }}>
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        data={(designations as string[]).map(d => ({
+                          category: d,
+                          plan: PLAN_BY_DESIGNATION[d] ?? 0,
+                          submitted: sloganRows.filter(s => s.designation === d).length,
+                        }))}
+                        margin={{ top: 24, right: 30, left: 0, bottom: 60 }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={100} />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend verticalAlign="top" align="right" />
+                        <Bar dataKey="plan" fill="#2563EB" name="Planned" />
+                        <Bar dataKey="submitted" fill="#F59E0B" name="Submitted" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                </div>
+
+                <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="flex items-center gap-2">
+                      <label className="text-sm font-medium text-gray-700">Department:</label>
+                      <select value={sloganDeptFilter} onChange={e => setSloganDeptFilter(e.target.value)} className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                        <option value="All">All</option>
+                        {departments.map(d => <option key={d} value={d}>{d}</option>)}
+                      </select>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <label className="text-sm font-medium text-gray-700">Designation:</label>
+                      <select value={sloganDesigFilter} onChange={e => setSloganDesigFilter(e.target.value)} className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                        <option value="All">All</option>
+                        {designations.map(d => <option key={d} value={d}>{d}</option>)}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="overflow-x-auto">
+                    <div className="flex items-center justify-end mb-2">
+                      <button onClick={() => {
+                        const rows = displayedSloganRows.map(r => ({ employee_id: r.employee_id, name: r.name, slogan: r.slogan }));
+                        exportToCSV(rows, 'slogan_submissions.csv');
+                      }} className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors text-sm font-medium">Export CSV</button>
+                    </div>
+
+                    <table className="min-w-full divide-y divide-gray-200">
+                      <thead className="bg-gray-50">
+                        <tr className="text-left text-sm font-medium text-gray-700">
+                          <th className="px-4 py-3">Employee ID</th>
+                          <th className="px-4 py-3">Name</th>
+                          <th className="px-4 py-3">Slogan Submitted</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-200 bg-white">
+                        {displayedSloganRows.map(r => (
+                          <tr key={r.id} className="hover:bg-gray-50">
+                            <td className="px-4 py-3 text-sm">{r.employee_id}</td>
+                            <td className="px-4 py-3 text-sm">{r.name}</td>
+                            <td className="px-4 py-3 text-sm">{r.slogan}</td>
+                          </tr>
+                        ))}
+                        {displayedSloganRows.length === 0 && (
+                          <tr>
+                            <td colSpan={3} className="px-4 py-8 text-center text-gray-500">No slogan submissions found for selected filters.</td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </section>
             ) : selectedAnalytics === 'videoCompletion' ? (
               <section>
                 <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6">
@@ -570,28 +619,17 @@ const Admin: React.FC = () => {
                           <th className="px-4 py-3">Videos Completed</th>
                         </tr>
                       </thead>
-<<<<<<< HEAD
                       <tbody className="divide-y divide-gray-200 bg-white">
-                        {videoRows.filter(r => (videoDeptFilter === 'All' || r.department === videoDeptFilter) && (videoDesigFilter === 'All' || r.designation === videoDesigFilter)).map(r => (
+                        {displayedVideoRows.map(r => (
                           <tr key={r.id} className="hover:bg-gray-50">
                             <td className="px-4 py-3 text-sm">{r.employee_id}</td>
                             <td className="px-4 py-3 text-sm">{r.name}</td>
                             <td className="px-4 py-3 text-sm">{r.department}</td>
                             <td className="px-4 py-3 text-sm">{r.designation}</td>
                             <td className="px-4 py-3 text-sm font-medium">{r.videosCompleted}</td>
-=======
-                      <tbody className="divide-y">
-                        {displayedVideoRows.map(r => (
-                          <tr key={r.id}>
-                            <td className="px-3 py-2">{r.employee_id}</td>
-                            <td className="px-3 py-2">{r.name}</td>
-                            <td className="px-3 py-2">{r.department}</td>
-                            <td className="px-3 py-2">{r.designation}</td>
-                            <td className="px-3 py-2">{r.videosCompleted}</td>
->>>>>>> bd6c77e4632ced3a7423c7f0f71bac04a8dd506e
                           </tr>
                         ))}
-                        {videoRows.filter(r => (videoDeptFilter === 'All' || r.department === videoDeptFilter) && (videoDesigFilter === 'All' || r.designation === videoDesigFilter)).length === 0 && (
+                        {displayedVideoRows.length === 0 && (
                           <tr>
                             <td colSpan={5} className="px-4 py-8 text-center text-gray-500">No video completion data found for selected filters.</td>
                           </tr>
@@ -601,127 +639,7 @@ const Admin: React.FC = () => {
                   </div>
                 </div>
               </section>
-              ) : selectedAnalytics === 'slogan' ? (
-                <section>
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-2xl font-semibold">Slogan Competition Analytics</h3>
-                  </div>
-
-                  {/* Department-wise chart */}
-                  <div className="bg-white border rounded p-4 mb-6">
-                    <div className="flex gap-4">
-                      <div className="w-16 flex flex-col items-end pr-3 text-sm text-gray-600" />
-                      <div className="flex-1">
-                        <div style={{ width: '100%', maxWidth: 1200, height: 500, margin: '0 auto' }}>
-                          <ResponsiveContainer width="100%" height="100%">
-                            <BarChart
-                              data={(departments as string[]).map(d => ({
-                                category: d,
-                                plan: PLAN_BY_DEPARTMENT[d] ?? 0,
-                                submitted: sloganRows.filter(s => s.department === d).length,
-                              }))}
-                              margin={{ top: 24, right: 30, left: 0, bottom: 60 }}
-                            >
-                              <CartesianGrid strokeDasharray="3 3" />
-                              <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={80} />
-                              <YAxis />
-                              <Tooltip />
-                              <Legend verticalAlign="top" align="right" />
-                              <Bar dataKey="plan" fill="#2563EB" name="Planned" />
-                              <Bar dataKey="submitted" fill="#F59E0B" name="Submitted" />
-                            </BarChart>
-                          </ResponsiveContainer>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Designation-wise chart */}
-                  <div className="bg-white border rounded p-4 mb-6">
-                    <div className="flex gap-4">
-                      <div className="w-16 flex flex-col items-end pr-3 text-sm text-gray-600" />
-                      <div className="flex-1">
-                        <div style={{ width: '100%', maxWidth: 1200, height: 500, margin: '0 auto' }}>
-                          <ResponsiveContainer width="100%" height="100%">
-                            <BarChart
-                              data={(designations as string[]).map(d => ({
-                                category: d,
-                                plan: PLAN_BY_DESIGNATION[d] ?? 0,
-                                submitted: sloganRows.filter(s => s.designation === d).length,
-                              }))}
-                              margin={{ top: 24, right: 30, left: 0, bottom: 60 }}
-                            >
-                              <CartesianGrid strokeDasharray="3 3" />
-                              <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={100} />
-                              <YAxis />
-                              <Tooltip />
-                              <Legend verticalAlign="top" align="right" />
-                              <Bar dataKey="plan" fill="#2563EB" name="Planned" />
-                              <Bar dataKey="submitted" fill="#F59E0B" name="Submitted" />
-                            </BarChart>
-                          </ResponsiveContainer>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="bg-white border rounded p-4">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="flex items-center gap-2">
-                        <label className="text-sm text-gray-600">Department:</label>
-                        <select value={sloganDeptFilter} onChange={e => setSloganDeptFilter(e.target.value)} className="px-3 py-2 border rounded">
-                          <option value="All">All</option>
-                          {departments.map(d => <option key={d} value={d}>{d}</option>)}
-                        </select>
-                      </div>
-
-                      <div className="flex items-center gap-2">
-                        <label className="text-sm text-gray-600">Designation:</label>
-                        <select value={sloganDesigFilter} onChange={e => setSloganDesigFilter(e.target.value)} className="px-3 py-2 border rounded">
-                          <option value="All">All</option>
-                          {designations.map(d => <option key={d} value={d}>{d}</option>)}
-                        </select>
-                      </div>
-                    </div>
-
-                    <div className="overflow-x-auto">
-                      <div className="flex items-center justify-end mb-2">
-                        <button onClick={() => {
-                          const rows = sloganRows
-                            .filter(r => (sloganDeptFilter === 'All' || r.department === sloganDeptFilter) && (sloganDesigFilter === 'All' || r.designation === sloganDesigFilter))
-                            .map(r => ({ employee_id: r.employee_id, name: r.name, slogan: r.slogan }));
-                          exportToCSV(rows, 'slogan_submissions.csv');
-                        }} className="px-3 py-1 bg-blue-600 text-white rounded text-sm">Export CSV</button>
-                      </div>
-
-                      <table className="min-w-full divide-y">
-                        <thead>
-                          <tr className="text-left text-sm text-gray-600">
-                            <th className="px-3 py-2">Employee ID</th>
-                            <th className="px-3 py-2">Name</th>
-                            <th className="px-3 py-2">Slogan submitted</th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y">
-                          {sloganRows.filter(r => (sloganDeptFilter === 'All' || r.department === sloganDeptFilter) && (sloganDesigFilter === 'All' || r.designation === sloganDesigFilter)).map(r => (
-                            <tr key={r.id}>
-                              <td className="px-3 py-2">{r.employee_id}</td>
-                              <td className="px-3 py-2">{r.name}</td>
-                              <td className="px-3 py-2">{r.slogan}</td>
-                            </tr>
-                          ))}
-                          {sloganRows.filter(r => (sloganDeptFilter === 'All' || r.department === sloganDeptFilter) && (sloganDesigFilter === 'All' || r.designation === sloganDesigFilter)).length === 0 && (
-                            <tr>
-                              <td colSpan={3} className="px-3 py-6 text-center text-gray-500">No slogan submissions found for selected filters.</td>
-                            </tr>
-                          )}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </section>
             ) : selectedAnalytics === 'mdMessage' ? (
-<<<<<<< HEAD
               <section className="space-y-6">
                 <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6">
                   <h3 className="text-lg font-semibold text-gray-800 mb-4">Department-wise Completion</h3>
@@ -730,8 +648,8 @@ const Admin: React.FC = () => {
                       <BarChart
                         data={(departments as string[]).map(d => ({
                           category: d,
-                          registered: registrationsByDept.find(r => r.key === d)?.count ?? 0,
-                          finished: mdRows.filter(m => m.department === d && m.finished).length,
+                          plan: PLAN_BY_DEPARTMENT[d] ?? 0,
+                          completed: mdRows.filter(m => m.department === d && m.finished).length,
                         }))}
                         margin={{ top: 24, right: 30, left: 0, bottom: 60 }}
                       >
@@ -740,8 +658,8 @@ const Admin: React.FC = () => {
                         <YAxis />
                         <Tooltip />
                         <Legend verticalAlign="top" align="right" />
-                        <Bar dataKey="registered" fill="#2563EB" name="Registered" />
-                        <Bar dataKey="finished" fill="#10B981" name="Finished" />
+                        <Bar dataKey="plan" fill="#2563EB" name="Planned" />
+                        <Bar dataKey="completed" fill="#10B981" name="Completed" />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
@@ -754,8 +672,8 @@ const Admin: React.FC = () => {
                       <BarChart
                         data={(designations as string[]).map(d => ({
                           category: d,
-                          registered: registrationsByDesig.find(r => r.key === d)?.count ?? 0,
-                          finished: mdRows.filter(m => m.designation === d && m.finished).length,
+                          plan: PLAN_BY_DESIGNATION[d] ?? 0,
+                          completed: mdRows.filter(m => m.designation === d && m.finished).length,
                         }))}
                         margin={{ top: 24, right: 30, left: 0, bottom: 80 }}
                       >
@@ -764,73 +682,10 @@ const Admin: React.FC = () => {
                         <YAxis />
                         <Tooltip />
                         <Legend verticalAlign="top" align="right" />
-                        <Bar dataKey="registered" fill="#2563EB" name="Registered" />
-                        <Bar dataKey="finished" fill="#10B981" name="Finished" />
+                        <Bar dataKey="plan" fill="#2563EB" name="Planned" />
+                        <Bar dataKey="completed" fill="#10B981" name="Completed" />
                       </BarChart>
                     </ResponsiveContainer>
-=======
-              <section>
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-semibold">MD Message Completion Status</h3>
-                </div>
-
-                <div className="bg-white border rounded p-4 mb-6">
-                  <div className="flex gap-4">
-                    <div className="w-16 flex flex-col items-end pr-3 text-sm text-gray-600">
-                      {/* left axis placeholder removed, Recharts will show axis */}
-                    </div>
-                    <div className="flex-1">
-                      <div style={{ width: '100%', maxWidth: 1200, height: 500, margin: '0 auto' }}>
-                        <ResponsiveContainer width="100%" height="100%">
-                          <BarChart
-                            data={(departments as string[]).map(d => ({
-                              category: d,
-                              plan: PLAN_BY_DEPARTMENT[d] ?? 0,
-                              completed: mdRows.filter(m => m.department === d && m.finished).length,
-                            }))}
-                            margin={{ top: 24, right: 30, left: 0, bottom: 60 }}
-                          >
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={80} />
-                            <YAxis />
-                            <Tooltip />
-                            <Legend verticalAlign="top" align="right" />
-                            <Bar dataKey="plan" fill="#2563EB" name="Planned" />
-                            <Bar dataKey="completed" fill="#10B981" name="Completed" />
-                          </BarChart>
-                        </ResponsiveContainer>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Designation-wise chart */}
-                <div className="bg-white border rounded p-4 mb-6">
-                  <div className="flex gap-4">
-                    <div className="w-16 flex flex-col items-end pr-3 text-sm text-gray-600" />
-                    <div className="flex-1">
-                      <div style={{ width: '100%', maxWidth: 1200, height: 500, margin: '0 auto' }}>
-                        <ResponsiveContainer width="100%" height="100%">
-                          <BarChart
-                            data={(designations as string[]).map(d => ({
-                              category: d,
-                              plan: PLAN_BY_DESIGNATION[d] ?? 0,
-                              completed: mdRows.filter(m => m.designation === d && m.finished).length,
-                            }))}
-                            margin={{ top: 24, right: 30, left: 0, bottom: 60 }}
-                          >
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={100} />
-                            <YAxis />
-                            <Tooltip />
-                            <Legend verticalAlign="top" align="right" />
-                            <Bar dataKey="plan" fill="#2563EB" name="Planned" />
-                            <Bar dataKey="completed" fill="#10B981" name="Completed" />
-                          </BarChart>
-                        </ResponsiveContainer>
-                      </div>
-                    </div>
->>>>>>> bd6c77e4632ced3a7423c7f0f71bac04a8dd506e
                   </div>
                 </div>
 
@@ -870,26 +725,16 @@ const Admin: React.FC = () => {
                           <th className="px-4 py-3">Score (task1)</th>
                         </tr>
                       </thead>
-<<<<<<< HEAD
                       <tbody className="divide-y divide-gray-200 bg-white">
-                        {mdRows.filter(r => (mdDeptFilter === 'All' || r.department === mdDeptFilter) && (mdDesigFilter === 'All' || r.designation === mdDesigFilter)).map(r => (
+                        {displayedMdRows.map(r => (
                           <tr key={r.id} className="hover:bg-gray-50">
                             <td className="px-4 py-3 text-sm">{r.employee_id}</td>
                             <td className="px-4 py-3 text-sm">{r.name}</td>
                             <td className="px-4 py-3 text-sm">{r.designation}</td>
                             <td className="px-4 py-3 text-sm font-medium">{r.score}</td>
-=======
-                      <tbody className="divide-y">
-                        {displayedMdRows.map(r => (
-                          <tr key={r.id}>
-                            <td className="px-3 py-2">{r.employee_id}</td>
-                            <td className="px-3 py-2">{r.name}</td>
-                            <td className="px-3 py-2">{r.designation}</td>
-                            <td className="px-3 py-2">{r.score}</td>
->>>>>>> bd6c77e4632ced3a7423c7f0f71bac04a8dd506e
                           </tr>
                         ))}
-                        {mdRows.filter(r => (mdDeptFilter === 'All' || r.department === mdDeptFilter) && (mdDesigFilter === 'All' || r.designation === mdDesigFilter)).length === 0 && (
+                        {displayedMdRows.length === 0 && (
                           <tr>
                             <td colSpan={4} className="px-4 py-8 text-center text-gray-500">No MD Message completion data found for selected filters.</td>
                           </tr>
@@ -985,26 +830,16 @@ const Admin: React.FC = () => {
                           <th className="px-4 py-3">Score</th>
                         </tr>
                       </thead>
-<<<<<<< HEAD
                       <tbody className="divide-y divide-gray-200 bg-white">
-                        {filteredProfiles.map(u => (
+                        {displayedProfiles.map(u => (
                           <tr key={u.id} className="hover:bg-gray-50">
                             <td className="px-4 py-3 text-sm">{u.user_id}</td>
                             <td className="px-4 py-3 text-sm">{u.name}</td>
                             <td className="px-4 py-3 text-sm">{u.department || 'Unknown'}</td>
                             <td className="px-4 py-3 text-sm font-medium">{typeof u.score === 'number' ? u.score : '-'}</td>
-=======
-                      <tbody className="divide-y">
-                        {displayedProfiles.map(u => (
-                          <tr key={u.id}>
-                            <td className="px-3 py-2">{u.user_id}</td>
-                            <td className="px-3 py-2">{u.name}</td>
-                            <td className="px-3 py-2">{u.department || 'Unknown'}</td>
-                            <td className="px-3 py-2">{typeof u.score === 'number' ? u.score : '-'}</td>
->>>>>>> bd6c77e4632ced3a7423c7f0f71bac04a8dd506e
                           </tr>
                         ))}
-                        {filteredProfiles.length === 0 && (
+                        {displayedProfiles.length === 0 && (
                           <tr>
                             <td colSpan={4} className="px-4 py-8 text-center text-gray-500">No users found for selected department.</td>
                           </tr>
@@ -1036,9 +871,9 @@ const Admin: React.FC = () => {
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-800 mb-4">Recent Registrations</h4>
+                    <h4 className="text-lg font-semibold text-gray-800 mb-4">Top Performers (by Score)</h4>
                     <div className="space-y-2">
-                      {profiles.slice(0, 8).map(u => (
+                      {profiles.slice().sort((a, b) => (b.score || 0) - (a.score || 0)).slice(0, 8).map(u => (
                         <div key={u.id} className="flex justify-between items-center border-b border-gray-200 pb-3">
                           <div>
                             <span className="font-medium text-gray-900">{u.name}</span>
