@@ -183,12 +183,12 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       // Advanced Quality Principles page
       'Advanced Quality Principles': 'Advanced Quality Principles',
       'Instructions Title': 'Instructions Title',
-      advanced_instructions_bullet_1: 'This module consists of video lessons and quizzes, worth a total of 70 points.',
-      advanced_instructions_bullet_2: 'You must watch each video to unlock a 7-point quiz.',
-      advanced_instructions_bullet_3: 'Complete all videos and quizzes to finish this task.',
-      advanced_instructions_bullet_4: 'Your progress is saved automatically.',
+      advanced_instructions_bullet_1: 'This module is consists of different topics with multiple videos in each topics.',
+      advanced_instructions_bullet_2: 'After completion of each video “Quiz start” button will be appeared automatically.',
+      advanced_instructions_bullet_3: 'Read each question carefully and select the correct answer from the given choices.',
+      advanced_instructions_bullet_4: 'Each correct answer will earn 1 point.',
     // Additional advanced module instruction (missing key)
-    advanced_instructions_bullet_5: 'Scores from the video quizzes contribute to your overall evaluation and leaderboard rank.',
+    advanced_instructions_bullet_5: 'The top scorer will be recognized and selected for the next round of evaluation.(Considering all types of quizzes)',
       'Start Learning': 'Start Learning',
       md_message_title: 'A Message from the Managing Director',
       start_quiz: 'Start Quiz (7 Points)',

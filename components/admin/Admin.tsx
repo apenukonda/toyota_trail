@@ -31,7 +31,7 @@ const Admin: React.FC = () => {
   const { currentUser } = useContext(AppContext);
   const [profiles, setProfiles] = useState<ProfileRow[]>([]);
   const [selectedView, setSelectedView] = useState<'stats' | 'registrations'>('stats');
-  const [selectedAnalytics, setSelectedAnalytics] = useState<'none' | 'videoCompletion' | 'mdMessage'>('none');
+  const [selectedAnalytics, setSelectedAnalytics] = useState<'none' | 'videoCompletion' | 'mdMessage' | 'slogan'>('none');
   const [showBy, setShowBy] = useState<'department' | 'designation'>('department');
   const [departmentFilter, setDepartmentFilter] = useState<string>('All');
 
@@ -73,6 +73,54 @@ const Admin: React.FC = () => {
   const [mdRows, setMdRows] = useState<Array<any>>([]);
   const [mdDeptFilter, setMdDeptFilter] = useState<string>('All');
   const [mdDesigFilter, setMdDesigFilter] = useState<string>('All');
+  // Slogan competition submissions
+  const [sloganRows, setSloganRows] = useState<Array<any>>([]);
+  const [sloganDeptFilter, setSloganDeptFilter] = useState<string>('All');
+  const [sloganDesigFilter, setSloganDesigFilter] = useState<string>('All');
+  // fetch slogans and join with profiles
+  const fetchSlogans = async () => {
+    const { data, error } = await supabaseClient
+      .from('user_slogans')
+      .select('id, user_id, slogan, created_at');
+    if (error) {
+      console.error('Error fetching user_slogans:', error.message || error);
+      setSloganRows([]);
+      return;
+    }
+
+    const rows = data || [];
+    if (rows.length === 0) {
+      setSloganRows([]);
+      return;
+    }
+
+    const userIds = Array.from(new Set(rows.map((r: any) => r.user_id)));
+    const { data: profilesData, error: profilesError } = await supabaseClient
+      .from('profiles')
+      .select('id, user_id, name, department, designation')
+      .in('id', userIds as any[]);
+    if (profilesError) {
+      console.error('Error fetching profiles for slogans:', profilesError.message || profilesError);
+    }
+
+    const profileMap = new Map<string, any>();
+    (profilesData || []).forEach((p: any) => profileMap.set(p.id, p));
+
+    const joined = rows.map((r: any) => {
+      const profile = profileMap.get(r.user_id) || null;
+      return {
+        id: r.id,
+        user_id: r.user_id,
+        employee_id: profile?.user_id || r.user_id,
+        name: profile?.name || r.user_id,
+        department: profile?.department || 'Unknown',
+        designation: profile?.designation || 'Unknown',
+        slogan: r.slogan || '',
+        created_at: r.created_at || null,
+      };
+    });
+    setSloganRows(joined);
+  };
 
   const fetchVideoCompletions = async () => {
     // task_id 'task6' refers to video completion entries
@@ -126,6 +174,7 @@ const Admin: React.FC = () => {
     // fetch video completions when profiles change (so join is accurate)
     fetchVideoCompletions();
     fetchMDCompletions();
+    fetchSlogans();
     const ch = supabaseClient.channel('public:user_tasks')
       .on('postgres_changes', { event: '*', schema: 'public', table: 'user_tasks' }, () => {
         fetchVideoCompletions();
@@ -133,7 +182,17 @@ const Admin: React.FC = () => {
       })
       .subscribe();
 
-    return () => supabaseClient.removeChannel(ch);
+    // subscribe to changes in user_slogans so the view is live-updating
+    const ch2 = supabaseClient.channel('public:user_slogans')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'user_slogans' }, () => {
+        fetchSlogans();
+      })
+      .subscribe();
+
+    return () => {
+      supabaseClient.removeChannel(ch);
+      supabaseClient.removeChannel(ch2);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profiles]);
 
@@ -291,6 +350,30 @@ const Admin: React.FC = () => {
   // table data filtered by department
   const filteredProfiles = profiles.filter(p => departmentFilter === 'All' ? true : (p.department || 'Unknown') === departmentFilter);
 
+  // Display lists sorted as requested (descending order highest -> lowest)
+  const displayedProfiles = useMemo(() => {
+    return filteredProfiles.slice().sort((a, b) => (b.score || 0) - (a.score || 0));
+  }, [filteredProfiles]);
+
+  const displayedVideoRows = useMemo(() => {
+    return videoRows
+      .filter(r => (videoDeptFilter === 'All' || r.department === videoDeptFilter) && (videoDesigFilter === 'All' || r.designation === videoDesigFilter))
+      .slice()
+      .sort((a, b) => (b.videosCompleted || 0) - (a.videosCompleted || 0));
+  }, [videoRows, videoDeptFilter, videoDesigFilter]);
+
+  const displayedMdRows = useMemo(() => {
+    return mdRows
+      .filter(r => (mdDeptFilter === 'All' || r.department === mdDeptFilter) && (mdDesigFilter === 'All' || r.designation === mdDesigFilter))
+      .slice()
+      .sort((a, b) => (b.score || 0) - (a.score || 0));
+  }, [mdRows, mdDeptFilter, mdDesigFilter]);
+
+  // For recent registrations box: show top 8 by score (descending)
+  const topProfiles = useMemo(() => {
+    return (profiles || []).slice().sort((a, b) => (b.score || 0) - (a.score || 0)).slice(0, 8);
+  }, [profiles]);
+
   // determine max value for chart scaling
   const maxForDept = useMemo(() => {
     const maxReg = Math.max(...registrationsByDept.map(d => d.count), 1);
@@ -317,11 +400,12 @@ const Admin: React.FC = () => {
               >
                 Stats (Charts & Table)
               </button>
+              {/* replaced Registrations Summary with Slogan competition analytics */}
               <button
-                onClick={() => { setSelectedView('registrations'); setSelectedAnalytics('none'); }}
-                className={`text-left px-3 py-2 rounded ${selectedView === 'registrations' ? 'bg-red-600 text-white' : 'hover:bg-gray-100'}`}
+                onClick={async () => { setSelectedAnalytics('slogan'); await fetchSlogans(); }}
+                className={`text-left px-3 py-2 rounded ${selectedAnalytics === 'slogan' ? 'bg-red-600 text-white' : 'hover:bg-gray-100'}`}
               >
-                Registrations Summary
+                Slogan competition analytics
               </button>
                 <button
                   onClick={async () => {
@@ -374,7 +458,7 @@ const Admin: React.FC = () => {
                   <div className="overflow-x-auto">
                     <div className="flex items-center justify-end mb-2">
                       <button onClick={() => {
-                        const rows = videoRows.filter(r => (videoDeptFilter === 'All' || r.department === videoDeptFilter) && (videoDesigFilter === 'All' || r.designation === videoDesigFilter)).map(r => ({ employee_id: r.employee_id, name: r.name, department: r.department, designation: r.designation, videosCompleted: r.videosCompleted }));
+                        const rows = displayedVideoRows.map(r => ({ employee_id: r.employee_id, name: r.name, department: r.department, designation: r.designation, videosCompleted: r.videosCompleted }));
                         exportToCSV(rows, 'video_completion.csv');
                       }} className="px-3 py-1 bg-blue-600 text-white rounded text-sm">Export CSV</button>
                     </div>
@@ -390,7 +474,7 @@ const Admin: React.FC = () => {
                         </tr>
                       </thead>
                       <tbody className="divide-y">
-                        {videoRows.filter(r => (videoDeptFilter === 'All' || r.department === videoDeptFilter) && (videoDesigFilter === 'All' || r.designation === videoDesigFilter)).map(r => (
+                        {displayedVideoRows.map(r => (
                           <tr key={r.id}>
                             <td className="px-3 py-2">{r.employee_id}</td>
                             <td className="px-3 py-2">{r.name}</td>
@@ -409,6 +493,125 @@ const Admin: React.FC = () => {
                   </div>
                 </div>
               </section>
+              ) : selectedAnalytics === 'slogan' ? (
+                <section>
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-2xl font-semibold">Slogan Competition Analytics</h3>
+                  </div>
+
+                  {/* Department-wise chart */}
+                  <div className="bg-white border rounded p-4 mb-6">
+                    <div className="flex gap-4">
+                      <div className="w-16 flex flex-col items-end pr-3 text-sm text-gray-600" />
+                      <div className="flex-1">
+                        <div style={{ width: '100%', maxWidth: 1200, height: 500, margin: '0 auto' }}>
+                          <ResponsiveContainer width="100%" height="100%">
+                            <BarChart
+                              data={(departments as string[]).map(d => ({
+                                category: d,
+                                plan: PLAN_BY_DEPARTMENT[d] ?? 0,
+                                submitted: sloganRows.filter(s => s.department === d).length,
+                              }))}
+                              margin={{ top: 24, right: 30, left: 0, bottom: 60 }}
+                            >
+                              <CartesianGrid strokeDasharray="3 3" />
+                              <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={80} />
+                              <YAxis />
+                              <Tooltip />
+                              <Legend verticalAlign="top" align="right" />
+                              <Bar dataKey="plan" fill="#2563EB" name="Planned" />
+                              <Bar dataKey="submitted" fill="#F59E0B" name="Submitted" />
+                            </BarChart>
+                          </ResponsiveContainer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Designation-wise chart */}
+                  <div className="bg-white border rounded p-4 mb-6">
+                    <div className="flex gap-4">
+                      <div className="w-16 flex flex-col items-end pr-3 text-sm text-gray-600" />
+                      <div className="flex-1">
+                        <div style={{ width: '100%', maxWidth: 1200, height: 500, margin: '0 auto' }}>
+                          <ResponsiveContainer width="100%" height="100%">
+                            <BarChart
+                              data={(designations as string[]).map(d => ({
+                                category: d,
+                                plan: PLAN_BY_DESIGNATION[d] ?? 0,
+                                submitted: sloganRows.filter(s => s.designation === d).length,
+                              }))}
+                              margin={{ top: 24, right: 30, left: 0, bottom: 60 }}
+                            >
+                              <CartesianGrid strokeDasharray="3 3" />
+                              <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={100} />
+                              <YAxis />
+                              <Tooltip />
+                              <Legend verticalAlign="top" align="right" />
+                              <Bar dataKey="plan" fill="#2563EB" name="Planned" />
+                              <Bar dataKey="submitted" fill="#F59E0B" name="Submitted" />
+                            </BarChart>
+                          </ResponsiveContainer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white border rounded p-4">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="flex items-center gap-2">
+                        <label className="text-sm text-gray-600">Department:</label>
+                        <select value={sloganDeptFilter} onChange={e => setSloganDeptFilter(e.target.value)} className="px-3 py-2 border rounded">
+                          <option value="All">All</option>
+                          {departments.map(d => <option key={d} value={d}>{d}</option>)}
+                        </select>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <label className="text-sm text-gray-600">Designation:</label>
+                        <select value={sloganDesigFilter} onChange={e => setSloganDesigFilter(e.target.value)} className="px-3 py-2 border rounded">
+                          <option value="All">All</option>
+                          {designations.map(d => <option key={d} value={d}>{d}</option>)}
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="overflow-x-auto">
+                      <div className="flex items-center justify-end mb-2">
+                        <button onClick={() => {
+                          const rows = sloganRows
+                            .filter(r => (sloganDeptFilter === 'All' || r.department === sloganDeptFilter) && (sloganDesigFilter === 'All' || r.designation === sloganDesigFilter))
+                            .map(r => ({ employee_id: r.employee_id, name: r.name, slogan: r.slogan }));
+                          exportToCSV(rows, 'slogan_submissions.csv');
+                        }} className="px-3 py-1 bg-blue-600 text-white rounded text-sm">Export CSV</button>
+                      </div>
+
+                      <table className="min-w-full divide-y">
+                        <thead>
+                          <tr className="text-left text-sm text-gray-600">
+                            <th className="px-3 py-2">Employee ID</th>
+                            <th className="px-3 py-2">Name</th>
+                            <th className="px-3 py-2">Slogan submitted</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y">
+                          {sloganRows.filter(r => (sloganDeptFilter === 'All' || r.department === sloganDeptFilter) && (sloganDesigFilter === 'All' || r.designation === sloganDesigFilter)).map(r => (
+                            <tr key={r.id}>
+                              <td className="px-3 py-2">{r.employee_id}</td>
+                              <td className="px-3 py-2">{r.name}</td>
+                              <td className="px-3 py-2">{r.slogan}</td>
+                            </tr>
+                          ))}
+                          {sloganRows.filter(r => (sloganDeptFilter === 'All' || r.department === sloganDeptFilter) && (sloganDesigFilter === 'All' || r.designation === sloganDesigFilter)).length === 0 && (
+                            <tr>
+                              <td colSpan={3} className="px-3 py-6 text-center text-gray-500">No slogan submissions found for selected filters.</td>
+                            </tr>
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </section>
             ) : selectedAnalytics === 'mdMessage' ? (
               <section>
                 <div className="flex items-center justify-between mb-4">
@@ -426,8 +629,8 @@ const Admin: React.FC = () => {
                           <BarChart
                             data={(departments as string[]).map(d => ({
                               category: d,
-                              registered: registrationsByDept.find(r => r.key === d)?.count ?? 0,
-                              finished: mdRows.filter(m => m.department === d && m.finished).length,
+                              plan: PLAN_BY_DEPARTMENT[d] ?? 0,
+                              completed: mdRows.filter(m => m.department === d && m.finished).length,
                             }))}
                             margin={{ top: 24, right: 30, left: 0, bottom: 60 }}
                           >
@@ -436,8 +639,8 @@ const Admin: React.FC = () => {
                             <YAxis />
                             <Tooltip />
                             <Legend verticalAlign="top" align="right" />
-                            <Bar dataKey="registered" fill="#2563EB" name="Registered" />
-                            <Bar dataKey="finished" fill="#10B981" name="Finished" />
+                            <Bar dataKey="plan" fill="#2563EB" name="Planned" />
+                            <Bar dataKey="completed" fill="#10B981" name="Completed" />
                           </BarChart>
                         </ResponsiveContainer>
                       </div>
@@ -455,18 +658,18 @@ const Admin: React.FC = () => {
                           <BarChart
                             data={(designations as string[]).map(d => ({
                               category: d,
-                              registered: registrationsByDesig.find(r => r.key === d)?.count ?? 0,
-                              finished: mdRows.filter(m => m.designation === d && m.finished).length,
+                              plan: PLAN_BY_DESIGNATION[d] ?? 0,
+                              completed: mdRows.filter(m => m.designation === d && m.finished).length,
                             }))}
-                            margin={{ top: 24, right: 30, left: 0, bottom: 80 }}
+                            margin={{ top: 24, right: 30, left: 0, bottom: 60 }}
                           >
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={100} />
                             <YAxis />
                             <Tooltip />
                             <Legend verticalAlign="top" align="right" />
-                            <Bar dataKey="registered" fill="#2563EB" name="Registered" />
-                            <Bar dataKey="finished" fill="#10B981" name="Finished" />
+                            <Bar dataKey="plan" fill="#2563EB" name="Planned" />
+                            <Bar dataKey="completed" fill="#10B981" name="Completed" />
                           </BarChart>
                         </ResponsiveContainer>
                       </div>
@@ -496,7 +699,7 @@ const Admin: React.FC = () => {
                   <div className="overflow-x-auto">
                     <div className="flex items-center justify-end mb-2">
                       <button onClick={() => {
-                        const rows = mdRows.filter(r => (mdDeptFilter === 'All' || r.department === mdDeptFilter) && (mdDesigFilter === 'All' || r.designation === mdDesigFilter)).map(r => ({ employee_id: r.employee_id, name: r.name, designation: r.designation, score: r.score }));
+                        const rows = displayedMdRows.map(r => ({ employee_id: r.employee_id, name: r.name, designation: r.designation, score: r.score }));
                         exportToCSV(rows, 'md_message_completion.csv');
                       }} className="px-3 py-1 bg-blue-600 text-white rounded text-sm">Export CSV</button>
                     </div>
@@ -511,7 +714,7 @@ const Admin: React.FC = () => {
                         </tr>
                       </thead>
                       <tbody className="divide-y">
-                        {mdRows.filter(r => (mdDeptFilter === 'All' || r.department === mdDeptFilter) && (mdDesigFilter === 'All' || r.designation === mdDesigFilter)).map(r => (
+                        {displayedMdRows.map(r => (
                           <tr key={r.id}>
                             <td className="px-3 py-2">{r.employee_id}</td>
                             <td className="px-3 py-2">{r.name}</td>
@@ -612,7 +815,7 @@ const Admin: React.FC = () => {
                   <div className="overflow-x-auto">
                     <div className="flex items-center justify-end mb-2">
                       <button onClick={() => {
-                        const rows = filteredProfiles.map(u => ({ user_id: u.user_id, name: u.name, department: u.department || 'Unknown', score: u.score }));
+                        const rows = displayedProfiles.map(u => ({ user_id: u.user_id, name: u.name, department: u.department || 'Unknown', score: u.score }));
                         exportToCSV(rows, 'registered_users.csv');
                       }} className="px-3 py-1 bg-blue-600 text-white rounded text-sm">Export CSV</button>
                     </div>
@@ -627,7 +830,7 @@ const Admin: React.FC = () => {
                         </tr>
                       </thead>
                       <tbody className="divide-y">
-                        {filteredProfiles.map(u => (
+                        {displayedProfiles.map(u => (
                           <tr key={u.id}>
                             <td className="px-3 py-2">{u.user_id}</td>
                             <td className="px-3 py-2">{u.name}</td>
