@@ -300,7 +300,7 @@ export const INITIAL_TASKS: Task[] = [
     title: 'Message from Managing Director',
     titleKn: 'ವ್ಯವಸ್ಥಾಪಕ ನಿರ್ದೇಶಕರಿಂದ ಸಂದೇಶ',
     description: 'Watch the opening message and complete a short quiz.',
-    descriptionKn: 'ತಿಡಿ ಸಂದೇಶವನ್ನು ವೀಕ್ಷಿಸಿ ಮತ್ತು ಒಂದು ಹಾದು ಕ್ವಿಜ್ ಅನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ.',
+    descriptionKn: 'ಆರಂಭದ ಸಂದೇಶವನ್ನು ನೋಡಿ ಮತ್ತು ಒಂದು ಚಿಕ್ಕ ಪ್ರಶ್ನೋತ್ತರವನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ.',
     page: Page.MD_MESSAGE,
     totalSteps: 7, // 7 quiz questions
     completedSteps: 0,
@@ -1909,7 +1909,7 @@ export const ADVANCED_MODULES = [
   },
   {
     id: 'M3',
-    title: 'Basics of measurement & metrology',
+    title: 'Basics of machining and Metrology',
     titleKn: 'ಅಳತೆ ಮತ್ತು ಮಾಪನಶಾಸ್ತ್ರದ ಮೂಲಭೂತ ಅಂಶಗಳು', // Alate mattu mapanashastrada mulabhutha amshagalu (Basics of Measurement and Metrology)
     videos: [
       { id: 'mdRTq2_qI9Y', title: 'CNC Machines', titleKn: 'ಸಿಎನ್‌ಸಿ ಯಂತ್ರಗಳು' }, // CNC Yantragalu
