@@ -25,7 +25,7 @@ type ProfileRow = {
 };
 
 const Admin: React.FC = () => {
-  const { currentUser } = useContext(AppContext);
+  const { currentUser, logout } = useContext(AppContext);
   const [profiles, setProfiles] = useState<ProfileRow[]>([]);
   const [selectedView, setSelectedView] = useState<'dashboard' | 'stats' | 'registrations'>('stats');
   const [selectedAnalytics, setSelectedAnalytics] = useState<'none' | 'videoCompletion' | 'mdMessage' | 'slogan'>('none');
@@ -399,16 +399,6 @@ const Admin: React.FC = () => {
           </button>
 
           <button
-            onClick={() => { setSelectedView('registrations'); setSelectedAnalytics('none'); }}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${
-              selectedView === 'registrations' ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'
-            }`}
-          >
-            <Users size={20} />
-            <span className="font-medium">Registrations Summary</span>
-          </button>
-
-          <button
             onClick={async () => {
               setSelectedAnalytics('slogan');
               await fetchSlogans();
@@ -418,7 +408,7 @@ const Admin: React.FC = () => {
             }`}
           >
             <FileText size={20} />
-            <span className="font-medium">Slogan Competition</span>
+            <span className="font-medium">Slogan Competition Analytics</span>
           </button>
 
           <button
@@ -444,6 +434,22 @@ const Admin: React.FC = () => {
             <span className="font-medium">MD Message Completion</span>
           </button>
         </div>
+      </div>
+      {/* Logout button - bottom left */}
+      <div className="fixed left-4 bottom-6 z-40">
+        <button
+          onClick={async () => {
+            try {
+              await logout();
+            } catch (e) {
+              console.error('Logout failed', e);
+            }
+          }}
+          className="flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-lg shadow hover:bg-gray-900 transition-colors"
+        >
+          <X size={16} />
+          <span className="text-sm font-medium">Logout</span>
+        </button>
       </div>
 
       {/* Main Content */}
