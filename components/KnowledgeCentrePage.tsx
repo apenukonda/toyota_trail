@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { ADVANCED_MODULES } from '../constants';
 import { ChevronLeftIcon, XCircleIcon } from './icons';
 import { AppContext } from '../context/AppContext';
@@ -7,6 +7,13 @@ import { Page, VideoModule, VideoItem } from '../types';
 const KnowledgeCentrePage: React.FC = () => {
   const { setCurrentPage, language, t } = useContext(AppContext);
   const [selectedModule, setSelectedModule] = useState<VideoModule | null>(null);
+  // pageIndex controls which page of videos is visible in the modal (3 items per page)
+  const [pageIndex, setPageIndex] = useState(0);
+
+  useEffect(() => {
+    // reset page whenever a new module is selected
+    setPageIndex(0);
+  }, [selectedModule]);
 
   return (
   <div className="min-h-screen p-6 pt-20 bg-gray-50">
@@ -55,18 +62,37 @@ const KnowledgeCentrePage: React.FC = () => {
               <div className="p-6">
               <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">{language === 'kn' ? (selectedModule.titleKn || selectedModule.title) : selectedModule.title}</h2>
               <p className="text-sm text-gray-500 mb-4">{selectedModule.videos.length} {t('videos') || (language === 'kn' ? 'ವೀಡಿಯೋಗಳು' : 'videos')}</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {selectedModule.videos.map((vid: VideoItem) => (
-                  <a key={vid.id} href={`https://www.youtube.com/watch?v=${vid.id}`} target="_blank" rel="noopener noreferrer" className="block bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all">
-                    <div className="flex items-center gap-4 p-3">
-                      <img src={`https://img.youtube.com/vi/${vid.id}/mqdefault.jpg`} alt={vid.title} className="w-24 sm:w-36 h-14 sm:h-20 object-cover rounded-md flex-shrink-0" />
-                      <div>
-                        <div className="font-semibold text-gray-900">{vid.title}</div>
-                        <div className="text-sm text-gray-500">{t('Play on YouTube') || (language === 'kn' ? 'YouTube ನಲ್ಲಿ ಆಡಿ' : 'Play on YouTube')}</div>
-                      </div>
-                    </div>
-                  </a>
-                ))}
+              <div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {selectedModule.videos
+                    .slice(pageIndex * 3, pageIndex * 3 + 3)
+                    .map((vid: VideoItem) => (
+                      <a key={vid.id} href={`https://www.youtube.com/watch?v=${vid.id}`} target="_blank" rel="noopener noreferrer" className="block bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all">
+                        <div className="flex items-center gap-4 p-3">
+                          <img src={`https://img.youtube.com/vi/${vid.id}/mqdefault.jpg`} alt={vid.title} className="w-24 sm:w-36 h-14 sm:h-20 object-cover rounded-md flex-shrink-0" />
+                          <div>
+                            <div className="font-semibold text-gray-900">{vid.title}</div>
+                            <div className="text-sm text-gray-500">{t('Play on YouTube') || (language === 'kn' ? 'YouTube ನಲ್ಲಿ ಆಡಿ' : 'Play on YouTube')}</div>
+                          </div>
+                        </div>
+                      </a>
+                    ))}
+                </div>
+
+                {/* pagination buttons for modules with more than 3 videos */}
+                {selectedModule.videos.length > 3 && (
+                  <div className="flex justify-center gap-2 mt-4">
+                    {Array.from({ length: Math.ceil(selectedModule.videos.length / 3) }).map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setPageIndex(i)}
+                        className={`px-3 py-1 rounded-full border ${pageIndex === i ? 'bg-red-600 text-white border-red-600' : 'bg-white text-gray-700 border-gray-200'} hover:scale-105 transition-transform`}
+                      >
+                        {i + 1}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>

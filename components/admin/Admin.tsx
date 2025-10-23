@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { AppContext } from '../../context/AppContext';
 import { Department, Designation } from '../../types';
 import supabaseClient from '../../context/supabaseClient';
+import AdminDashboard from './admin_dashboard';
 import {
   BarChart,
   Bar,
@@ -12,6 +13,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import { LayoutDashboard, BarChart3, Users, Video, FileText, Menu, X } from 'lucide-react';
 
 type ProfileRow = {
   id: string;
@@ -22,18 +24,14 @@ type ProfileRow = {
   score?: number | null;
 };
 
-// We'll use Recharts for grouped bar charts. The Admin component prepares two datasets
-// (departmentData and designationData) in the shape [{ category, plan, actual }, ...]
-// and renders them using ResponsiveContainer + BarChart. X axis labels are reduced
-// in font size and rotated to avoid cramped labels.
-
 const Admin: React.FC = () => {
   const { currentUser } = useContext(AppContext);
   const [profiles, setProfiles] = useState<ProfileRow[]>([]);
-  const [selectedView, setSelectedView] = useState<'stats' | 'registrations'>('stats');
+  const [selectedView, setSelectedView] = useState<'dashboard' | 'stats' | 'registrations'>('stats');
   const [selectedAnalytics, setSelectedAnalytics] = useState<'none' | 'videoCompletion' | 'mdMessage'>('none');
   const [showBy, setShowBy] = useState<'department' | 'designation'>('department');
   const [departmentFilter, setDepartmentFilter] = useState<string>('All');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   // Fetch all profiles (live snapshot)
   const fetchProfiles = async () => {
@@ -50,49 +48,41 @@ const Admin: React.FC = () => {
   useEffect(() => {
     fetchProfiles();
 
-    // Realtime subscription to profiles table
     const channel = supabaseClient.channel('public:profiles')
       .on('postgres_changes', { event: '*', schema: 'public', table: 'profiles' }, () => {
-        // For simplicity, re-fetch all profiles on any change
         fetchProfiles();
       })
       .subscribe();
 
     return () => {
-      // unsubscribe
       supabaseClient.removeChannel(channel);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // video completion rows
   const [videoRows, setVideoRows] = useState<Array<any>>([]);
   const [videoDeptFilter, setVideoDeptFilter] = useState<string>('All');
   const [videoDesigFilter, setVideoDesigFilter] = useState<string>('All');
-  // MD Message (task1) completion
   const [mdRows, setMdRows] = useState<Array<any>>([]);
   const [mdDeptFilter, setMdDeptFilter] = useState<string>('All');
   const [mdDesigFilter, setMdDesigFilter] = useState<string>('All');
 
   const fetchVideoCompletions = async () => {
-    // task_id 'task6' refers to video completion entries
     const { data, error } = await supabaseClient
       .from('user_tasks')
-      // user_tasks has no `id` column; select the existing columns
       .select('user_id, task_id, completed_steps')
       .eq('task_id', 'task6');
     if (error) {
       console.error('Error fetching video completions:', error.message || error);
       return;
     }
-  const rows = data || [];
+    const rows = data || [];
     if (rows.length === 0) {
       setVideoRows([]);
       return;
     }
 
-    // fetch profiles for the returned user_ids to ensure proper join
-  const userIds = Array.from(new Set(rows.map((r: any) => r.user_id)));
+    const userIds = Array.from(new Set(rows.map((r: any) => r.user_id)));
     const { data: profilesData, error: profilesError } = await supabaseClient
       .from('profiles')
       .select('id, user_id, name, department, designation')
@@ -101,8 +91,8 @@ const Admin: React.FC = () => {
       console.error('Error fetching profiles for video completions:', profilesError.message || profilesError);
     }
 
-  const profileMap = new Map<string, any>();
-  (profilesData || []).forEach((p: any) => profileMap.set(p.id, p));
+    const profileMap = new Map<string, any>();
+    (profilesData || []).forEach((p: any) => profileMap.set(p.id, p));
 
     const joined = rows.map((r: any) => {
       const profile = profileMap.get(r.user_id) || null;
@@ -122,22 +112,6 @@ const Admin: React.FC = () => {
     setVideoRows(joined);
   };
 
-  useEffect(() => {
-    // fetch video completions when profiles change (so join is accurate)
-    fetchVideoCompletions();
-    fetchMDCompletions();
-    const ch = supabaseClient.channel('public:user_tasks')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'user_tasks' }, () => {
-        fetchVideoCompletions();
-        fetchMDCompletions();
-      })
-      .subscribe();
-
-    return () => supabaseClient.removeChannel(ch);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [profiles]);
-
-  // MD Message (task1) completions
   const fetchMDCompletions = async () => {
     const { data, error } = await supabaseClient
       .from('user_tasks')
@@ -163,7 +137,6 @@ const Admin: React.FC = () => {
     const profileMap = new Map<string, any>();
     (profilesData || []).forEach((p: any) => profileMap.set(p.id, p));
 
-    // Consider a user "finished" if completed_steps >= 7 (all videos)
     const joined = rows.map((r: any) => {
       const profile = profileMap.get(r.user_id) || null;
       const finished = (r.completed_steps || 0) >= 7;
@@ -181,10 +154,21 @@ const Admin: React.FC = () => {
     setMdRows(joined);
   };
 
-  // CSV export helper: accepts array of objects and filename
+  useEffect(() => {
+    fetchVideoCompletions();
+    fetchMDCompletions();
+    const ch = supabaseClient.channel('public:user_tasks')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'user_tasks' }, () => {
+        fetchVideoCompletions();
+        fetchMDCompletions();
+      })
+      .subscribe();
+
+    return () => supabaseClient.removeChannel(ch);
+  }, [profiles]);
+
   const exportToCSV = (rows: Array<any>, filename = 'export.csv') => {
     if (!rows || rows.length === 0) {
-      // create an empty CSV with no rows
       const blob = new Blob([''], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -199,9 +183,8 @@ const Admin: React.FC = () => {
     const header = keys.join(',');
     const csv = [header].concat(rows.map(r => keys.map(k => {
       const v = r[k] === undefined || r[k] === null ? '' : String(r[k]);
-      // escape double quotes
       return `"${v.replace(/"/g, '""')}"`;
-    }).join(',')) ).join('\n');
+    }).join(','))).join('\n');
 
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
@@ -212,11 +195,9 @@ const Admin: React.FC = () => {
     URL.revokeObjectURL(url);
   };
 
-  // Use full lists from enums so all categories appear even if no profiles exist
   const departments = useMemo(() => Object.values(Department), []);
   const designations = useMemo(() => Object.values(Designation), []);
 
-  // Plan numbers from the spreadsheet image (department totals and designation totals)
   const PLAN_BY_DEPARTMENT: Record<string, number> = {
     [Department.AUTO_PRODUCTION]: 41,
     [Department.ENVIRONMENT]: 4,
@@ -260,7 +241,6 @@ const Admin: React.FC = () => {
     'OTHERS': 34,
   };
 
-  // counts of registered users by department / designation
   const registrationsByDept = useMemo(() => {
     const map = new Map<string, number>();
     profiles.forEach(p => {
@@ -279,7 +259,6 @@ const Admin: React.FC = () => {
     return Array.from(map.entries()).map(([key, count]) => ({ key, count }));
   }, [profiles]);
 
-  // Use provided PLAN numbers when available, otherwise fallback to seeded totals
   const employeesByDept = useMemo(() => {
     return (departments as string[]).map(key => ({ key, total: PLAN_BY_DEPARTMENT[key] ?? 0 }));
   }, [departments]);
@@ -288,83 +267,127 @@ const Admin: React.FC = () => {
     return (designations as string[]).map(key => ({ key, total: PLAN_BY_DESIGNATION[key] ?? 0 }));
   }, [designations]);
 
-  // table data filtered by department
   const filteredProfiles = profiles.filter(p => departmentFilter === 'All' ? true : (p.department || 'Unknown') === departmentFilter);
 
-  // determine max value for chart scaling
-  const maxForDept = useMemo(() => {
-    const maxReg = Math.max(...registrationsByDept.map(d => d.count), 1);
-    const maxEmp = Math.max(...employeesByDept.map(e => e.total), 1);
-    return Math.max(maxReg, maxEmp);
-  }, [registrationsByDept, employeesByDept]);
-
-  const maxForDesig = useMemo(() => {
-    const maxReg = Math.max(...registrationsByDesig.map(d => d.count), 1);
-    const maxEmp = Math.max(...employeesByDesig.map(e => e.total), 1);
-    return Math.max(maxReg, maxEmp);
-  }, [registrationsByDesig, employeesByDesig]);
-
   return (
-    <div className="min-h-screen pt-20 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="flex gap-6">
-          <aside className="w-64 bg-white border rounded p-4 h-fit sticky top-24">
-            <h2 className="text-lg font-semibold mb-4">Admin Panel</h2>
-            <div className="flex flex-col gap-2">
-              <button
-                onClick={() => { setSelectedView('stats'); setSelectedAnalytics('none'); }}
-                className={`text-left px-3 py-2 rounded ${selectedView === 'stats' ? 'bg-red-600 text-white' : 'hover:bg-gray-100'}`}
-              >
-                Stats (Charts & Table)
-              </button>
-              <button
-                onClick={() => { setSelectedView('registrations'); setSelectedAnalytics('none'); }}
-                className={`text-left px-3 py-2 rounded ${selectedView === 'registrations' ? 'bg-red-600 text-white' : 'hover:bg-gray-100'}`}
-              >
-                Registrations Summary
-              </button>
-                <button
-                  onClick={async () => {
-                    setSelectedAnalytics('videoCompletion');
-                    await fetchVideoCompletions();
-                  }}
-                  className={`text-left px-3 py-2 rounded ${selectedAnalytics === 'videoCompletion' ? 'bg-red-600 text-white' : 'hover:bg-gray-100'}`}
-                >
-                  Video completion analytics
-                </button>
-                  <button
-                    onClick={async () => { setSelectedAnalytics('mdMessage'); await fetchMDCompletions(); }}
-                    className={`text-left px-3 py-2 rounded ${selectedAnalytics === 'mdMessage' ? 'bg-red-600 text-white' : 'hover:bg-gray-100'}`}
-                  >
-                    MD Message completion status
-                  </button>
+    <div className="flex h-screen bg-gray-50">
+      {/* Sidebar */}
+      <div className={`${isSidebarOpen ? 'w-64' : 'w-0'} transition-all duration-300 bg-white shadow-lg overflow-hidden flex flex-col`}>
+        <div className="p-6 border-b border-gray-200">
+          <div className="flex items-center justify-between mb-4">
+            <h1 className="text-xl font-bold text-gray-800">ADMINS</h1>
+            <button 
+              onClick={() => setIsSidebarOpen(false)}
+              className="lg:hidden p-1 hover:bg-gray-100 rounded"
+            >
+              <X size={20} />
+            </button>
+          </div>
+          
+          <div className="flex flex-col items-center mt-6">
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white text-2xl font-bold mb-3">
+              {currentUser?.name?.substring(0, 2).toUpperCase() || 'AD'}
             </div>
+            <h2 className="text-lg font-semibold text-gray-800">{currentUser?.name || 'Admin'}</h2>
+            <p className="text-sm text-teal-500">Administrator</p>
+          </div>
+        </div>
 
-            <div className="mt-6 text-xs text-gray-500">
-              Logged in as: <div className="font-medium">{currentUser?.name || currentUser?.userId || 'Admin'}</div>
-            </div>
-          </aside>
+        <div className="flex-1 overflow-y-auto p-4">
+          <button
+            onClick={() => { setSelectedView('dashboard'); setSelectedAnalytics('none'); }}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${
+              selectedView === 'dashboard' ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'
+            }`}
+          >
+            <LayoutDashboard size={20} />
+            <span className="font-medium">Dashboard</span>
+          </button>
 
-          <main className="flex-1">
-            {selectedAnalytics === 'videoCompletion' ? (
+          <button
+            onClick={() => { setSelectedView('stats'); setSelectedAnalytics('none'); }}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${
+              selectedView === 'stats' ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'
+            }`}
+          >
+            <BarChart3 size={20} />
+            <span className="font-medium">Stats (Charts & Table)</span>
+          </button>
+
+          <button
+            onClick={() => { setSelectedView('registrations'); setSelectedAnalytics('none'); }}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${
+              selectedView === 'registrations' ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'
+            }`}
+          >
+            <Users size={20} />
+            <span className="font-medium">Registrations Summary</span>
+          </button>
+
+          <button
+            onClick={async () => {
+              setSelectedAnalytics('videoCompletion');
+              await fetchVideoCompletions();
+            }}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${
+              selectedAnalytics === 'videoCompletion' ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'
+            }`}
+          >
+            <Video size={20} />
+            <span className="font-medium">Video Completion Analytics</span>
+          </button>
+
+          <button
+            onClick={async () => { setSelectedAnalytics('mdMessage'); await fetchMDCompletions(); }}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${
+              selectedAnalytics === 'mdMessage' ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'
+            }`}
+          >
+            <FileText size={20} />
+            <span className="font-medium">MD Message Completion</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <div className="bg-white shadow-sm p-4 flex items-center gap-4 border-b border-gray-200">
+          {!isSidebarOpen && (
+            <button 
+              onClick={() => setIsSidebarOpen(true)}
+              className="p-2 hover:bg-gray-100 rounded-lg"
+            >
+              <Menu size={24} className="text-gray-700" />
+            </button>
+          )}
+          <h2 className="text-2xl font-bold text-gray-800">
+            {selectedAnalytics === 'videoCompletion' ? 'Video Completion Analytics' :
+             selectedAnalytics === 'mdMessage' ? 'MD Message Completion Status' :
+             selectedView === 'dashboard' ? 'Dashboard' :
+             selectedView === 'stats' ? 'Stats (Charts & Table)' :
+             'Registrations Summary'}
+          </h2>
+        </div>
+
+        <div className="flex-1 overflow-y-auto p-6">
+          <div className="max-w-full mx-auto">
+            {selectedView === 'dashboard' && selectedAnalytics === 'none' ? (
+              <AdminDashboard />
+            ) : selectedAnalytics === 'videoCompletion' ? (
               <section>
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-semibold">Video Completion Analytics</h3>
-                </div>
-
-                <div className="bg-white border rounded p-4">
+                <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="flex items-center gap-2">
-                      <label className="text-sm text-gray-600">Department:</label>
-                      <select value={videoDeptFilter} onChange={e => setVideoDeptFilter(e.target.value)} className="px-3 py-2 border rounded">
+                      <label className="text-sm font-medium text-gray-700">Department:</label>
+                      <select value={videoDeptFilter} onChange={e => setVideoDeptFilter(e.target.value)} className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
                         <option value="All">All</option>
                         {departments.map(d => <option key={d} value={d}>{d}</option>)}
                       </select>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <label className="text-sm text-gray-600">Designation:</label>
-                      <select value={videoDesigFilter} onChange={e => setVideoDesigFilter(e.target.value)} className="px-3 py-2 border rounded">
+                      <label className="text-sm font-medium text-gray-700">Designation:</label>
+                      <select value={videoDesigFilter} onChange={e => setVideoDesigFilter(e.target.value)} className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
                         <option value="All">All</option>
                         {designations.map(d => <option key={d} value={d}>{d}</option>)}
                       </select>
@@ -376,32 +399,32 @@ const Admin: React.FC = () => {
                       <button onClick={() => {
                         const rows = videoRows.filter(r => (videoDeptFilter === 'All' || r.department === videoDeptFilter) && (videoDesigFilter === 'All' || r.designation === videoDesigFilter)).map(r => ({ employee_id: r.employee_id, name: r.name, department: r.department, designation: r.designation, videosCompleted: r.videosCompleted }));
                         exportToCSV(rows, 'video_completion.csv');
-                      }} className="px-3 py-1 bg-blue-600 text-white rounded text-sm">Export CSV</button>
+                      }} className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors text-sm font-medium">Export CSV</button>
                     </div>
 
-                    <table className="min-w-full divide-y">
-                      <thead>
-                        <tr className="text-left text-sm text-gray-600">
-                          <th className="px-3 py-2">Employee ID</th>
-                          <th className="px-3 py-2">Name</th>
-                          <th className="px-3 py-2">Department</th>
-                          <th className="px-3 py-2">Designation</th>
-                          <th className="px-3 py-2">Videos completed</th>
+                    <table className="min-w-full divide-y divide-gray-200">
+                      <thead className="bg-gray-50">
+                        <tr className="text-left text-sm font-medium text-gray-700">
+                          <th className="px-4 py-3">Employee ID</th>
+                          <th className="px-4 py-3">Name</th>
+                          <th className="px-4 py-3">Department</th>
+                          <th className="px-4 py-3">Designation</th>
+                          <th className="px-4 py-3">Videos Completed</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y">
+                      <tbody className="divide-y divide-gray-200 bg-white">
                         {videoRows.filter(r => (videoDeptFilter === 'All' || r.department === videoDeptFilter) && (videoDesigFilter === 'All' || r.designation === videoDesigFilter)).map(r => (
-                          <tr key={r.id}>
-                            <td className="px-3 py-2">{r.employee_id}</td>
-                            <td className="px-3 py-2">{r.name}</td>
-                            <td className="px-3 py-2">{r.department}</td>
-                            <td className="px-3 py-2">{r.designation}</td>
-                            <td className="px-3 py-2">{r.videosCompleted}</td>
+                          <tr key={r.id} className="hover:bg-gray-50">
+                            <td className="px-4 py-3 text-sm">{r.employee_id}</td>
+                            <td className="px-4 py-3 text-sm">{r.name}</td>
+                            <td className="px-4 py-3 text-sm">{r.department}</td>
+                            <td className="px-4 py-3 text-sm">{r.designation}</td>
+                            <td className="px-4 py-3 text-sm font-medium">{r.videosCompleted}</td>
                           </tr>
                         ))}
                         {videoRows.filter(r => (videoDeptFilter === 'All' || r.department === videoDeptFilter) && (videoDesigFilter === 'All' || r.designation === videoDesigFilter)).length === 0 && (
                           <tr>
-                            <td colSpan={5} className="px-3 py-6 text-center text-gray-500">No video completion data found for selected filters.</td>
+                            <td colSpan={5} className="px-4 py-8 text-center text-gray-500">No video completion data found for selected filters.</td>
                           </tr>
                         )}
                       </tbody>
@@ -410,83 +433,68 @@ const Admin: React.FC = () => {
                 </div>
               </section>
             ) : selectedAnalytics === 'mdMessage' ? (
-              <section>
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-semibold">MD Message Completion Status</h3>
-                </div>
-
-                <div className="bg-white border rounded p-4 mb-6">
-                  <div className="flex gap-4">
-                    <div className="w-16 flex flex-col items-end pr-3 text-sm text-gray-600">
-                      {/* left axis placeholder removed, Recharts will show axis */}
-                    </div>
-                    <div className="flex-1">
-                      <div style={{ width: '100%', maxWidth: 1200, height: 500, margin: '0 auto' }}>
-                        <ResponsiveContainer width="100%" height="100%">
-                          <BarChart
-                            data={(departments as string[]).map(d => ({
-                              category: d,
-                              registered: registrationsByDept.find(r => r.key === d)?.count ?? 0,
-                              finished: mdRows.filter(m => m.department === d && m.finished).length,
-                            }))}
-                            margin={{ top: 24, right: 30, left: 0, bottom: 60 }}
-                          >
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={80} />
-                            <YAxis />
-                            <Tooltip />
-                            <Legend verticalAlign="top" align="right" />
-                            <Bar dataKey="registered" fill="#2563EB" name="Registered" />
-                            <Bar dataKey="finished" fill="#10B981" name="Finished" />
-                          </BarChart>
-                        </ResponsiveContainer>
-                      </div>
-                    </div>
+              <section className="space-y-6">
+                <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Department-wise Completion</h3>
+                  <div style={{ width: '100%', height: 500 }}>
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        data={(departments as string[]).map(d => ({
+                          category: d,
+                          registered: registrationsByDept.find(r => r.key === d)?.count ?? 0,
+                          finished: mdRows.filter(m => m.department === d && m.finished).length,
+                        }))}
+                        margin={{ top: 24, right: 30, left: 0, bottom: 60 }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={80} />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend verticalAlign="top" align="right" />
+                        <Bar dataKey="registered" fill="#2563EB" name="Registered" />
+                        <Bar dataKey="finished" fill="#10B981" name="Finished" />
+                      </BarChart>
+                    </ResponsiveContainer>
                   </div>
                 </div>
 
-                {/* Designation-wise chart */}
-                <div className="bg-white border rounded p-4 mb-6">
-                  <div className="flex gap-4">
-                    <div className="w-16 flex flex-col items-end pr-3 text-sm text-gray-600" />
-                    <div className="flex-1">
-                      <div style={{ width: '100%', maxWidth: 1200, height: 500, margin: '0 auto' }}>
-                        <ResponsiveContainer width="100%" height="100%">
-                          <BarChart
-                            data={(designations as string[]).map(d => ({
-                              category: d,
-                              registered: registrationsByDesig.find(r => r.key === d)?.count ?? 0,
-                              finished: mdRows.filter(m => m.designation === d && m.finished).length,
-                            }))}
-                            margin={{ top: 24, right: 30, left: 0, bottom: 80 }}
-                          >
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={100} />
-                            <YAxis />
-                            <Tooltip />
-                            <Legend verticalAlign="top" align="right" />
-                            <Bar dataKey="registered" fill="#2563EB" name="Registered" />
-                            <Bar dataKey="finished" fill="#10B981" name="Finished" />
-                          </BarChart>
-                        </ResponsiveContainer>
-                      </div>
-                    </div>
+                <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Designation-wise Completion</h3>
+                  <div style={{ width: '100%', height: 500 }}>
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        data={(designations as string[]).map(d => ({
+                          category: d,
+                          registered: registrationsByDesig.find(r => r.key === d)?.count ?? 0,
+                          finished: mdRows.filter(m => m.designation === d && m.finished).length,
+                        }))}
+                        margin={{ top: 24, right: 30, left: 0, bottom: 80 }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={100} />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend verticalAlign="top" align="right" />
+                        <Bar dataKey="registered" fill="#2563EB" name="Registered" />
+                        <Bar dataKey="finished" fill="#10B981" name="Finished" />
+                      </BarChart>
+                    </ResponsiveContainer>
                   </div>
                 </div>
 
-                <div className="bg-white border rounded p-4">
+                <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="flex items-center gap-2">
-                      <label className="text-sm text-gray-600">Department:</label>
-                      <select value={mdDeptFilter} onChange={e => setMdDeptFilter(e.target.value)} className="px-3 py-2 border rounded">
+                      <label className="text-sm font-medium text-gray-700">Department:</label>
+                      <select value={mdDeptFilter} onChange={e => setMdDeptFilter(e.target.value)} className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
                         <option value="All">All</option>
                         {departments.map(d => <option key={d} value={d}>{d}</option>)}
                       </select>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <label className="text-sm text-gray-600">Designation:</label>
-                      <select value={mdDesigFilter} onChange={e => setMdDesigFilter(e.target.value)} className="px-3 py-2 border rounded">
+                      <label className="text-sm font-medium text-gray-700">Designation:</label>
+                      <select value={mdDesigFilter} onChange={e => setMdDesigFilter(e.target.value)} className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
                         <option value="All">All</option>
                         {designations.map(d => <option key={d} value={d}>{d}</option>)}
                       </select>
@@ -498,30 +506,30 @@ const Admin: React.FC = () => {
                       <button onClick={() => {
                         const rows = mdRows.filter(r => (mdDeptFilter === 'All' || r.department === mdDeptFilter) && (mdDesigFilter === 'All' || r.designation === mdDesigFilter)).map(r => ({ employee_id: r.employee_id, name: r.name, designation: r.designation, score: r.score }));
                         exportToCSV(rows, 'md_message_completion.csv');
-                      }} className="px-3 py-1 bg-blue-600 text-white rounded text-sm">Export CSV</button>
+                      }} className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors text-sm font-medium">Export CSV</button>
                     </div>
 
-                    <table className="min-w-full divide-y">
-                      <thead>
-                        <tr className="text-left text-sm text-gray-600">
-                          <th className="px-3 py-2">Employee ID</th>
-                          <th className="px-3 py-2">Name</th>
-                          <th className="px-3 py-2">Designation</th>
-                          <th className="px-3 py-2">Score (task1)</th>
+                    <table className="min-w-full divide-y divide-gray-200">
+                      <thead className="bg-gray-50">
+                        <tr className="text-left text-sm font-medium text-gray-700">
+                          <th className="px-4 py-3">Employee ID</th>
+                          <th className="px-4 py-3">Name</th>
+                          <th className="px-4 py-3">Designation</th>
+                          <th className="px-4 py-3">Score (task1)</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y">
+                      <tbody className="divide-y divide-gray-200 bg-white">
                         {mdRows.filter(r => (mdDeptFilter === 'All' || r.department === mdDeptFilter) && (mdDesigFilter === 'All' || r.designation === mdDesigFilter)).map(r => (
-                          <tr key={r.id}>
-                            <td className="px-3 py-2">{r.employee_id}</td>
-                            <td className="px-3 py-2">{r.name}</td>
-                            <td className="px-3 py-2">{r.designation}</td>
-                            <td className="px-3 py-2">{r.score}</td>
+                          <tr key={r.id} className="hover:bg-gray-50">
+                            <td className="px-4 py-3 text-sm">{r.employee_id}</td>
+                            <td className="px-4 py-3 text-sm">{r.name}</td>
+                            <td className="px-4 py-3 text-sm">{r.designation}</td>
+                            <td className="px-4 py-3 text-sm font-medium">{r.score}</td>
                           </tr>
                         ))}
                         {mdRows.filter(r => (mdDeptFilter === 'All' || r.department === mdDeptFilter) && (mdDesigFilter === 'All' || r.designation === mdDesigFilter)).length === 0 && (
                           <tr>
-                            <td colSpan={4} className="px-3 py-6 text-center text-gray-500">No MD Message completion data found for selected filters.</td>
+                            <td colSpan={4} className="px-4 py-8 text-center text-gray-500">No MD Message completion data found for selected filters.</td>
                           </tr>
                         )}
                       </tbody>
@@ -529,79 +537,68 @@ const Admin: React.FC = () => {
                   </div>
                 </div>
               </section>
-            ) : selectedView === 'stats' && (
+            ) : selectedView === 'stats' && selectedAnalytics === 'none' ? (
               <section>
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-semibold">{showBy === 'department' ? 'Department-wise Stats' : 'Designation-wise Stats'}</h3>
-                  <div className="inline-flex border rounded overflow-hidden">
-                    <button onClick={() => setShowBy('department')} className={`px-3 py-1 ${showBy === 'department' ? 'bg-red-600 text-white' : 'bg-white'}`}>Department</button>
-                    <button onClick={() => setShowBy('designation')} className={`px-3 py-1 ${showBy === 'designation' ? 'bg-red-600 text-white' : 'bg-white'}`}>Designation</button>
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-semibold text-gray-800">{showBy === 'department' ? 'Department-wise Stats' : 'Designation-wise Stats'}</h3>
+                  <div className="inline-flex border border-gray-300 rounded-lg overflow-hidden">
+                    <button onClick={() => setShowBy('department')} className={`px-4 py-2 font-medium transition-colors ${showBy === 'department' ? 'bg-red-500 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'}`}>Department</button>
+                    <button onClick={() => setShowBy('designation')} className={`px-4 py-2 font-medium transition-colors ${showBy === 'designation' ? 'bg-red-500 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'}`}>Designation</button>
                   </div>
                 </div>
 
-                {/* Grouped vertical bar chart with y-axis (fixed pixel heights) */}
-                <div className="bg-white border rounded p-4">
-                  <div>
-                    <div className="flex-1">
-                      <div style={{ width: '100%', maxWidth: 1200, height: 500, margin: '0 auto' }}>
-                        {/* Department / Designation datasets for recharts */}
-                        {showBy === 'department' ? (
-                          <ResponsiveContainer width="100%" height="100%">
-                            <BarChart
-                              data={
-                                (departments as string[]).map(d => ({
-                                  category: d,
-                                  plan: PLAN_BY_DEPARTMENT[d] ?? 0,
-                                  actual: registrationsByDept.find(r => r.key === d)?.count ?? 0,
-                                }))
-                              }
-                              margin={{ top: 48, right: 30, left: 0, bottom: 60 }}
-                            >
-                              <CartesianGrid strokeDasharray="3 3" />
-                              <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={80} />
-                              <YAxis />
-                              <Tooltip />
-                              <Legend verticalAlign="top" align="right" />
-                              <Bar dataKey="plan" fill="#2563EB" name="Plan" />
-                              <Bar dataKey="actual" fill="#F59E0B" name="Actual" />
-                            </BarChart>
-                          </ResponsiveContainer>
-                        ) : (
-                          <ResponsiveContainer width="100%" height="100%">
-                            <BarChart
-                              data={
-                                (designations as string[]).map(d => ({
-                                  category: d,
-                                  plan: PLAN_BY_DESIGNATION[d] ?? 0,
-                                  actual: registrationsByDesig.find(r => r.key === d)?.count ?? 0,
-                                }))
-                              }
-                              margin={{ top: 48, right: 30, left: 0, bottom: 60 }}
-                            >
-                              <CartesianGrid strokeDasharray="3 3" />
-                              <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={80} />
-                              <YAxis />
-                              <Tooltip />
-                              <Legend verticalAlign="top" align="right" />
-                              <Bar dataKey="plan" fill="#2563EB" name="Plan" />
-                              <Bar dataKey="actual" fill="#F59E0B" name="Actual" />
-                            </BarChart>
-                          </ResponsiveContainer>
-                        )}
-                      </div>
-                    </div>
+                <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 mb-6">
+                  <div style={{ width: '100%', height: 500 }}>
+                    {showBy === 'department' ? (
+                      <ResponsiveContainer width="100%" height="100%">
+                        <BarChart
+                          data={(departments as string[]).map(d => ({
+                            category: d,
+                            plan: PLAN_BY_DEPARTMENT[d] ?? 0,
+                            actual: registrationsByDept.find(r => r.key === d)?.count ?? 0,
+                          }))}
+                          margin={{ top: 48, right: 30, left: 0, bottom: 60 }}
+                        >
+                          <CartesianGrid strokeDasharray="3 3" />
+                          <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={80} />
+                          <YAxis />
+                          <Tooltip />
+                          <Legend verticalAlign="top" align="right" />
+                          <Bar dataKey="plan" fill="#2563EB" name="Plan" />
+                          <Bar dataKey="actual" fill="#F59E0B" name="Actual" />
+                        </BarChart>
+                      </ResponsiveContainer>
+                    ) : (
+                      <ResponsiveContainer width="100%" height="100%">
+                        <BarChart
+                          data={(designations as string[]).map(d => ({
+                            category: d,
+                            plan: PLAN_BY_DESIGNATION[d] ?? 0,
+                            actual: registrationsByDesig.find(r => r.key === d)?.count ?? 0,
+                          }))}
+                          margin={{ top: 48, right: 30, left: 0, bottom: 60 }}
+                        >
+                          <CartesianGrid strokeDasharray="3 3" />
+                          <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" interval={0} height={80} />
+                          <YAxis />
+                          <Tooltip />
+                          <Legend verticalAlign="top" align="right" />
+                          <Bar dataKey="plan" fill="#2563EB" name="Plan" />
+                          <Bar dataKey="actual" fill="#F59E0B" name="Actual" />
+                        </BarChart>
+                      </ResponsiveContainer>
+                    )}
                   </div>
                 </div>
 
-                {/* Table with filter */}
-                <div className="mt-8 bg-white border rounded p-4">
+                <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6">
                   <div className="flex justify-between items-center mb-4">
-                    <h4 className="font-medium">Registered Users</h4>
+                    <h4 className="text-lg font-semibold text-gray-800">Registered Users</h4>
                     <div className="flex items-center gap-4">
-                      <div className="text-sm text-gray-600">Total: {profiles.length}</div>
+                      <div className="text-sm font-medium text-gray-600">Total: {profiles.length}</div>
                       <div className="flex items-center gap-2">
-                        <label className="text-sm text-gray-600">Department:</label>
-                        <select value={departmentFilter} onChange={e => setDepartmentFilter(e.target.value)} className="px-3 py-2 border rounded">
+                        <label className="text-sm font-medium text-gray-700">Department:</label>
+                        <select value={departmentFilter} onChange={e => setDepartmentFilter(e.target.value)} className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
                           <option value="All">All</option>
                           {departments.map(d => <option key={d} value={d}>{d}</option>)}
                         </select>
@@ -614,30 +611,30 @@ const Admin: React.FC = () => {
                       <button onClick={() => {
                         const rows = filteredProfiles.map(u => ({ user_id: u.user_id, name: u.name, department: u.department || 'Unknown', score: u.score }));
                         exportToCSV(rows, 'registered_users.csv');
-                      }} className="px-3 py-1 bg-blue-600 text-white rounded text-sm">Export CSV</button>
+                      }} className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors text-sm font-medium">Export CSV</button>
                     </div>
 
-                    <table className="min-w-full divide-y">
-                      <thead>
-                        <tr className="text-left text-sm text-gray-600">
-                          <th className="px-3 py-2">User ID</th>
-                          <th className="px-3 py-2">Name</th>
-                          <th className="px-3 py-2">Department</th>
-                          <th className="px-3 py-2">Score</th>
+                    <table className="min-w-full divide-y divide-gray-200">
+                      <thead className="bg-gray-50">
+                        <tr className="text-left text-sm font-medium text-gray-700">
+                          <th className="px-4 py-3">User ID</th>
+                          <th className="px-4 py-3">Name</th>
+                          <th className="px-4 py-3">Department</th>
+                          <th className="px-4 py-3">Score</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y">
+                      <tbody className="divide-y divide-gray-200 bg-white">
                         {filteredProfiles.map(u => (
-                          <tr key={u.id}>
-                            <td className="px-3 py-2">{u.user_id}</td>
-                            <td className="px-3 py-2">{u.name}</td>
-                            <td className="px-3 py-2">{u.department || 'Unknown'}</td>
-                            <td className="px-3 py-2">{typeof u.score === 'number' ? u.score : '-'}</td>
+                          <tr key={u.id} className="hover:bg-gray-50">
+                            <td className="px-4 py-3 text-sm">{u.user_id}</td>
+                            <td className="px-4 py-3 text-sm">{u.name}</td>
+                            <td className="px-4 py-3 text-sm">{u.department || 'Unknown'}</td>
+                            <td className="px-4 py-3 text-sm font-medium">{typeof u.score === 'number' ? u.score : '-'}</td>
                           </tr>
                         ))}
                         {filteredProfiles.length === 0 && (
                           <tr>
-                            <td colSpan={4} className="px-3 py-6 text-center text-gray-500">No users found for selected department.</td>
+                            <td colSpan={4} className="px-4 py-8 text-center text-gray-500">No users found for selected department.</td>
                           </tr>
                         )}
                       </tbody>
@@ -645,45 +642,45 @@ const Admin: React.FC = () => {
                   </div>
                 </div>
               </section>
-            )}
-
-            
-
-            {selectedAnalytics === 'none' && selectedView === 'registrations' && (
+            ) : selectedView === 'registrations' && selectedAnalytics === 'none' ? (
               <section>
-                <h3 className="text-2xl font-semibold mb-4">Registrations Summary</h3>
-                <div className="bg-white border rounded p-4">
-                  <p className="text-sm text-gray-700 mb-4">Live registration stats (updated in realtime).</p>
+                <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6">
+                  <p className="text-sm text-gray-600 mb-6">Live registration stats (updated in realtime).</p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="p-3 border rounded">
-                      <h4 className="font-medium mb-2">Total Registered Users</h4>
-                      <div className="text-3xl font-bold">{profiles.length}</div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div className="p-6 border border-gray-200 rounded-lg bg-gradient-to-br from-blue-50 to-white">
+                      <h4 className="text-sm font-medium text-gray-600 mb-2">Total Registered Users</h4>
+                      <div className="text-4xl font-bold text-gray-900">{profiles.length}</div>
                     </div>
 
-                    <div className="p-3 border rounded">
-                      <h4 className="font-medium mb-2">Departments</h4>
-                      <ul className="list-disc pl-5 text-sm">
-                        {departments.map(d => <li key={d}>{d}</li>)}
-                      </ul>
+                    <div className="p-6 border border-gray-200 rounded-lg">
+                      <h4 className="text-sm font-medium text-gray-600 mb-3">Departments</h4>
+                      <div className="max-h-40 overflow-y-auto">
+                        <ul className="space-y-1 text-sm text-gray-700">
+                          {departments.map(d => <li key={d} className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-red-500 rounded-full"></span>{d}</li>)}
+                        </ul>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="mt-6">
-                    <h4 className="font-medium mb-2">Recent registrations</h4>
-                    <ul className="space-y-2 text-sm">
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-800 mb-4">Recent Registrations</h4>
+                    <div className="space-y-2">
                       {profiles.slice(0, 8).map(u => (
-                        <li key={u.id} className="flex justify-between border-b pb-2">
-                          <span>{u.user_id} — {u.name} ({u.department || 'Unknown'})</span>
-                          <span className="text-gray-500">{u.score ?? '-'}</span>
-                        </li>
+                        <div key={u.id} className="flex justify-between items-center border-b border-gray-200 pb-3">
+                          <div>
+                            <span className="font-medium text-gray-900">{u.name}</span>
+                            <span className="text-sm text-gray-500 ml-2">({u.department || 'Unknown'})</span>
+                          </div>
+                          <span className="text-sm font-medium text-gray-700">Score: {u.score ?? '-'}</span>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 </div>
               </section>
-            )}
-          </main>
+            ) : null}
+          </div>
         </div>
       </div>
     </div>
