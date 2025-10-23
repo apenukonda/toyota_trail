@@ -22,6 +22,59 @@ import CongratulationsModal from '../CongratulationsModal';
 import TopScoresModal from '../TopScoresModal';
 import KnowledgeCentreModal from '../KnowledgeCentreModel';
 
+// Component: LatestCompletersList
+const LatestCompletersList: React.FC = () => {
+  const [rows, setRows] = useState<Array<{ id: string; user_id: string; name: string; score: number; completed_at: string }>>([]);
+  const [statusMsg, setStatusMsg] = useState<string | null>(null);
+
+  const fetchLatest = async () => {
+      try {
+        // Try calling RPC first
+      const { data, error } = await supabaseClient.rpc('admin_latest_completers', { limit_rows: 8 } as any);
+      console.debug('admin_latest_completers:', data, error);
+      if (!error && Array.isArray(data)) {
+        const mapped = (data as any[]).map(r => ({ id: r.id, user_id: r.user_id, name: r.name || r.user_id, score: Number(r.score || 0), completed_at: r.completed_at }));
+        setRows(mapped);
+        setStatusMsg(mapped.length > 0 ? `${mapped.length} rows` : 'RPC returned 0 rows');
+        return;
+      }
+      setStatusMsg(error ? `RPC error: ${String(error)}` : 'RPC returned unexpected result');
+      } catch (e) {
+        console.debug('admin_latest_completers rpc failed', e);
+        setStatusMsg(`RPC threw: ${String(e)}`);
+      }
+  };
+
+  useEffect(() => { fetchLatest(); }, []);
+
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center justify-between">
+        <div className="text-xs text-gray-500">{statusMsg ?? 'Loading...'}</div>
+        <button onClick={() => fetchLatest()} className="text-sm px-3 py-1 bg-gray-100 rounded">Refresh</button>
+      </div>
+      {rows.length === 0 && (
+        <div className="text-sm text-gray-500">No recent completers found (RPC may be missing or returned 0 rows).</div>
+      )}
+      {rows.map(r => (
+        <div key={r.id} className="flex items-center justify-between bg-white p-3 rounded border border-gray-100 shadow-sm">
+          <div>
+            <div className="text-teal-600 font-semibold">{r.user_id}</div>
+            <div className="text-sm text-gray-600">{r.name}</div>
+          </div>
+          <div className="text-center text-sm text-gray-600">
+            <div>{r.completed_at ? new Date(r.completed_at).toLocaleDateString() : '-'}</div>
+            <div className="text-xs text-gray-400">{r.completed_at ? new Date(r.completed_at).toLocaleTimeString() : ''}</div>
+          </div>
+          <div>
+            <div className="bg-green-200 text-green-800 px-3 py-1 rounded font-medium">{r.score}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 // Sample data for charts
 const revenueData = [
   { name: 'plane', US: 400, France: 300, Japan: 200 },
@@ -128,6 +181,8 @@ const AdminDashboard: React.FC = () => {
   const [quizCompletionData, setQuizCompletionData] = useState<Array<{ task: string; count: number }>>([]);
   // New: per-module counts used for the line chart
   const [quizLineData, setQuizLineData] = useState<Array<{ task: string; m1: number; m2: number; m3: number }>>([]);
+  // counts of distinct users who completed any task in each module (m1/m2/m3)
+  const [quizModuleCounts, setQuizModuleCounts] = useState<{ m1: number; m2: number; m3: number } | null>(null);
   useEffect(() => {
     let mounted = true;
     const fetchQuizCounts = async () => {
@@ -135,10 +190,48 @@ const AdminDashboard: React.FC = () => {
         // Try RPC first
         try {
           const { data: rpcData, error: rpcErr } = await supabaseClient.rpc('admin_quiz_completion_counts');
-            if (!rpcErr && rpcData && Array.isArray(rpcData)) {
+          console.debug('admin_quiz_completion_counts rpcData:', rpcData, 'error:', rpcErr);
+          if (!rpcErr && rpcData && Array.isArray(rpcData)) {
             const lineData = (rpcData as any[]).map(r => ({ task: r.task, m1: Number(r.m1 || 0), m2: Number(r.m2 || 0), m3: Number(r.m3 || 0) }));
             const withZero = [{ task: '0', m1: 0, m2: 0, m3: 0 }, ...lineData];
-            if (mounted) { setQuizLineData(withZero); return; }
+            if (mounted) setQuizLineData(withZero);
+            // Prefer RPC to fetch module totals (avoids RLS problems). Try admin_module_totals RPC first.
+            try {
+              const { data: totals, error: totalsErr } = await supabaseClient.rpc('admin_module_totals');
+              console.debug('admin_module_totals totals:', totals, 'error:', totalsErr);
+              if (!totalsErr && totals && Array.isArray(totals) && totals.length > 0) {
+                const row = totals[0] as any;
+                if (mounted) setQuizModuleCounts({ m1: Number(row.m1 || 0), m2: Number(row.m2 || 0), m3: Number(row.m3 || 0) });
+                return;
+              }
+            } catch (e) {
+              console.debug('admin_module_totals RPC failed:', e);
+              // rpc not available or failed, fall back to client selects
+            }
+
+            // Fallback: fetch module-level distinct user counts (one row per user expected in module progress tables)
+            try {
+              const [m1res, m2res, m3res] = await Promise.all([
+                supabaseClient.from('module_m1_progress').select('user_id'),
+                supabaseClient.from('module_m2_progress').select('user_id'),
+                supabaseClient.from('module_m3_progress').select('user_id'),
+              ]);
+              const m1 = m1res.data || [];
+              const m2 = m2res.data || [];
+              const m3 = m3res.data || [];
+              console.debug('module selects (fallback): m1.length, m2.length, m3.length =>', m1.length, m2.length, m3.length);
+              const m1Count = new Set(m1.map((r: any) => r.user_id)).size;
+              const m2Count = new Set(m2.map((r: any) => r.user_id)).size;
+              const m3Count = new Set(m3.map((r: any) => r.user_id)).size;
+              if (mounted) {
+                setQuizModuleCounts({ m1: m1Count, m2: m2Count, m3: m3Count });
+                console.debug('computed module counts (fallback):', { m1: m1Count, m2: m2Count, m3: m3Count });
+              }
+            } catch (e) {
+              // ignore module count errors
+            }
+
+            return;
           }
         } catch (e) {
           console.debug('admin_quiz_completion_counts RPC not available, falling back to client queries', e);
@@ -149,9 +242,10 @@ const AdminDashboard: React.FC = () => {
           supabaseClient.from('module_m2_progress').select('user_id, task1_completed, task2_completed, task3_completed, task4_completed'),
           supabaseClient.from('module_m3_progress').select('user_id, task1_completed, task2_completed, task3_completed, task4_completed, task5_completed'),
         ]);
-        const m1 = m1res.data || [];
-        const m2 = m2res.data || [];
-        const m3 = m3res.data || [];
+    const m1 = m1res.data || [];
+    const m2 = m2res.data || [];
+    const m3 = m3res.data || [];
+    console.debug('module selects (final fallback): lengths', m1.length, m2.length, m3.length);
 
         const m1Sets: Record<string, Set<string>> = { task1: new Set(), task2: new Set(), task3: new Set(), task4: new Set(), task5: new Set(), task6: new Set() };
         const m2Sets: Record<string, Set<string>> = { task1: new Set(), task2: new Set(), task3: new Set(), task4: new Set(), task5: new Set(), task6: new Set() };
@@ -186,6 +280,15 @@ const AdminDashboard: React.FC = () => {
   const lineData = tasks.map(t => ({ task: t, m1: m1Sets[t].size, m2: m2Sets[t].size, m3: m3Sets[t].size }));
   const withZero = [{ task: '0', m1: 0, m2: 0, m3: 0 }, ...lineData];
   if (mounted) setQuizLineData(withZero);
+        // compute module-level distinct user counts (one row per user expected in module tables)
+        try {
+          const m1Count = new Set((m1 || []).map((r: any) => r.user_id)).size;
+          const m2Count = new Set((m2 || []).map((r: any) => r.user_id)).size;
+          const m3Count = new Set((m3 || []).map((r: any) => r.user_id)).size;
+          if (mounted) setQuizModuleCounts({ m1: m1Count, m2: m2Count, m3: m3Count });
+        } catch (e) {
+          // ignore
+        }
       } catch (e) {
         console.error('Error fetching quiz completion counts', e);
       }
@@ -282,7 +385,7 @@ const AdminDashboard: React.FC = () => {
         {/* Revenue Line Chart */}
         <div className="bg-white rounded-lg shadow p-6 mb-8">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-gray-900">Quiz Completion Per Module</h3>
+            <h3 className="text-lg font-semibold text-gray-900">Quiz Completion (Per Module)</h3>
             {/* <div className="text-2xl font-bold text-gray-900">$59,342.32</div> */}
           </div>
           <div className="h-80">
@@ -316,7 +419,7 @@ const AdminDashboard: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
           {/* User Progress Chart */}
           <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">User Progress</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Registration Targets</h3>
             <div className="h-80 flex flex-col items-center justify-start -mt-2">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -361,29 +464,34 @@ const AdminDashboard: React.FC = () => {
 
           {/* Sales Quantity Chart */}
           <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Sales Quantity</h3>
-            <div className="h-64">
+            <h3 className="text-lg font-semibold text-gray-900 mb-6">Quiz Completion (Per Module)</h3>
+            <div className="h-80 mt-4">{/* increased height and slight downward offset */}
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={[
-                  { name: 'Donut', value: 200 },
-                  { name: 'Kebob', value: 300 },
-                  { name: 'Sandwich', value: 400 },
-                ]}>
+                {/* Show counts per module (m1/m2/m3) as three bars */}
+                <BarChart data={quizModuleCounts ? [
+                  { module: 'm1', count: quizModuleCounts.m1 },
+                  { module: 'm2', count: quizModuleCounts.m2 },
+                  { module: 'm3', count: quizModuleCounts.m3 },
+                ] : [
+                  { module: 'm1', count: 0 },
+                  { module: 'm2', count: 0 },
+                  { module: 'm3', count: 0 },
+                ]} margin={{ left: 0, right: 16 }}>
                   <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
+                  <XAxis dataKey="module" />
+                  <YAxis allowDecimals={false} />
                   <Tooltip />
-                  <Bar dataKey="value" fill="#8884d8" />
+                  <Bar dataKey="count" fill="#8884d8" name="Completed users" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
           </div>
 
-          {/* Geography Chart */}
+          {/* Recent Transactions / Latest Completers */}
           <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Geography Based Traffic</h3>
-            <div className="h-64 flex items-center justify-center">
-              <div className="text-center text-gray-500">World Map Visualization</div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Completions</h3>
+            <div className="h-64 overflow-y-auto">
+              <LatestCompletersList />
             </div>
           </div>
         </div>

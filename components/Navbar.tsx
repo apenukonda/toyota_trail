@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
   const initials = currentUser?.name ? currentUser.name.split(' ').map(n => n[0]).join('').slice(0,2).toUpperCase() : 'U';
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/75 backdrop-blur-md border-b border-gray-200/30 dark:border-gray-800/50 shadow-sm z-50 animate-fade-in">
+  <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/75 backdrop-blur-md shadow-sm z-50 animate-fade-in">
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         <div className="flex items-center space-x-6">
               <button onClick={() => setCurrentPage(Page.DASHBOARD)} className="flex items-center gap-2 text-gray-800 dark:text-white hover:text-red-600 dark:hover:text-red-500 transition-colors">
