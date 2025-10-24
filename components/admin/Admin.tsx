@@ -1560,8 +1560,23 @@ type ProfileRow = {
 const Admin: React.FC = () => {
   const { currentUser, logout } = useContext(AppContext);
   const [profiles, setProfiles] = useState<ProfileRow[]>([]);
-  const [selectedView, setSelectedView] = useState<'dashboard' | 'stats' | 'registrations'>('stats');
-  const [selectedAnalytics, setSelectedAnalytics] = useState<'none' | 'videoCompletion' | 'mdMessage' | 'slogan' | 'cartoon' | 'suggestion'>('none');
+
+  // Read initial state from URL params so refresh preserves the current admin tab
+  const readUrlState = () => {
+    if (typeof window === 'undefined') return { view: 'dashboard' as const, analytics: 'none' as const };
+    const params = new URLSearchParams(window.location.search);
+    const viewParam = params.get('view');
+    const analyticsParam = params.get('analytics');
+    // If URL params are provided, prefer them. Otherwise try localStorage (preserve last tab across reloads)
+    const lsView = window.localStorage.getItem('admin:selectedView');
+    const lsAnalytics = window.localStorage.getItem('admin:selectedAnalytics');
+    const view = (viewParam === 'dashboard' || viewParam === 'stats' || viewParam === 'registrations') ? viewParam : (lsView === 'dashboard' || lsView === 'stats' || lsView === 'registrations' ? lsView : 'dashboard');
+    const analytics = (analyticsParam === 'videoCompletion' || analyticsParam === 'mdMessage' || analyticsParam === 'slogan' || analyticsParam === 'cartoon' || analyticsParam === 'suggestion') ? analyticsParam : (lsAnalytics === 'videoCompletion' || lsAnalytics === 'mdMessage' || lsAnalytics === 'slogan' || lsAnalytics === 'cartoon' || lsAnalytics === 'suggestion' ? lsAnalytics : 'none');
+    return { view: view as 'dashboard' | 'stats' | 'registrations', analytics: analytics as 'none' | 'videoCompletion' | 'mdMessage' | 'slogan' | 'cartoon' | 'suggestion' };
+  };
+
+  const [selectedView, setSelectedView] = useState<'dashboard' | 'stats' | 'registrations'>(() => readUrlState().view);
+  const [selectedAnalytics, setSelectedAnalytics] = useState<'none' | 'videoCompletion' | 'mdMessage' | 'slogan' | 'cartoon' | 'suggestion'>(() => readUrlState().analytics);
   const [showBy, setShowBy] = useState<'department' | 'designation'>('department');
   const [departmentFilter, setDepartmentFilter] = useState<string>('All');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -1639,6 +1654,44 @@ const Admin: React.FC = () => {
       }
     };
     // run once on mount
+  }, []);
+
+  // Keep URL in sync with selectedView/selectedAnalytics so refresh preserves state
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      const params = new URLSearchParams(window.location.search);
+      params.set('view', selectedView);
+      if (selectedAnalytics && selectedAnalytics !== 'none') {
+        params.set('analytics', selectedAnalytics);
+      } else {
+        params.delete('analytics');
+      }
+      const newUrl = window.location.pathname + (params.toString() ? `?${params.toString()}` : '');
+      // replaceState so navigation stack isn't polluted on normal tab switches
+      window.history.replaceState({}, '', newUrl);
+      // persist to localStorage as a fallback for environments where query may be stripped
+      try {
+        window.localStorage.setItem('admin:selectedView', selectedView);
+        window.localStorage.setItem('admin:selectedAnalytics', selectedAnalytics);
+      } catch (e) {
+        // ignore localStorage errors (e.g., private mode)
+      }
+    } catch (e) {
+      // ignore
+    }
+  }, [selectedView, selectedAnalytics]);
+
+  // Respond to browser navigation (back/forward) by reading URL params
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const onPop = () => {
+      const { view, analytics } = readUrlState();
+      setSelectedView(view);
+      setSelectedAnalytics(analytics);
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
   }, []);
 
   // video, md, slogans, images, suggestions
@@ -2355,15 +2408,21 @@ const Admin: React.FC = () => {
         <div className="flex-1 overflow-y-auto p-4">
           <button
             onClick={() => { setSelectedView('dashboard'); setSelectedAnalytics('none'); }}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${selectedView === 'dashboard' ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${(selectedView === 'dashboard' && selectedAnalytics === 'none') ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
           >
-            <LayoutDashboard size={20} />
-            <span className="font-medium">Dashboard</span>
+            <LayoutDashboard size={22} />
+            <span className="font-medium">  Dashboard</span>
           </button>
-
+           <button
+            onClick={async () => { setSelectedAnalytics('mdMessage'); await fetchMDCompletions(); }}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${selectedAnalytics === 'mdMessage' ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+          >
+            <FileText size={20} />
+            <span className="font-medium">MD Message Completion</span>
+          </button>
           <button
             onClick={() => { setSelectedView('stats'); setSelectedAnalytics('none'); }}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${selectedView === 'stats' ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${(selectedView === 'stats' && selectedAnalytics === 'none') ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
           >
             <BarChart3 size={20} />
             <span className="font-medium">Stats (Charts & Table)</span>
@@ -2413,13 +2472,7 @@ const Admin: React.FC = () => {
             <span className="font-medium">Video Completion</span>
           </button>
 
-          <button
-            onClick={async () => { setSelectedAnalytics('mdMessage'); await fetchMDCompletions(); }}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${selectedAnalytics === 'mdMessage' ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
-          >
-            <FileText size={20} />
-            <span className="font-medium">MD Message Completion</span>
-          </button>
+          
         </div>
 
         <div className="p-4 border-t border-gray-200">
@@ -2441,6 +2494,7 @@ const Admin: React.FC = () => {
           </button>
         </div>
       </div>
+
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">

@@ -209,23 +209,24 @@ const AdminDashboard: React.FC = () => {
               // rpc not available or failed, fall back to client selects
             }
 
-            // Fallback: fetch module-level distinct user counts (one row per user expected in module progress tables)
+            // Fallback: fetch module-level progress including per-task flags so we can
+            // compute counts of users who completed ALL tasks in each module.
             try {
               const [m1res, m2res, m3res] = await Promise.all([
-                supabaseClient.from('module_m1_progress').select('user_id'),
-                supabaseClient.from('module_m2_progress').select('user_id'),
-                supabaseClient.from('module_m3_progress').select('user_id'),
+                supabaseClient.from('module_m1_progress').select('user_id, task1_completed, task2_completed, task3_completed, task4_completed, task5_completed, task6_completed'),
+                supabaseClient.from('module_m2_progress').select('user_id, task1_completed, task2_completed, task3_completed, task4_completed'),
+                supabaseClient.from('module_m3_progress').select('user_id, task1_completed, task2_completed, task3_completed, task4_completed, task5_completed'),
               ]);
               const m1 = m1res.data || [];
               const m2 = m2res.data || [];
               const m3 = m3res.data || [];
-              console.debug('module selects (fallback): m1.length, m2.length, m3.length =>', m1.length, m2.length, m3.length);
-              const m1Count = new Set(m1.map((r: any) => r.user_id)).size;
-              const m2Count = new Set(m2.map((r: any) => r.user_id)).size;
-              const m3Count = new Set(m3.map((r: any) => r.user_id)).size;
+              console.debug('module selects (fallback with flags): m1.length, m2.length, m3.length =>', m1.length, m2.length, m3.length);
+              const m1CompleteCount = (m1 || []).filter((r: any) => r.task1_completed && r.task2_completed && r.task3_completed && r.task4_completed && r.task5_completed && r.task6_completed).length;
+              const m2CompleteCount = (m2 || []).filter((r: any) => r.task1_completed && r.task2_completed && r.task3_completed && r.task4_completed).length;
+              const m3CompleteCount = (m3 || []).filter((r: any) => r.task1_completed && r.task2_completed && r.task3_completed && r.task4_completed && r.task5_completed).length;
               if (mounted) {
-                setQuizModuleCounts({ m1: m1Count, m2: m2Count, m3: m3Count });
-                console.debug('computed module counts (fallback):', { m1: m1Count, m2: m2Count, m3: m3Count });
+                setQuizModuleCounts({ m1: m1CompleteCount, m2: m2CompleteCount, m3: m3CompleteCount });
+                console.debug('computed module completion counts (fallback):', { m1: m1CompleteCount, m2: m2CompleteCount, m3: m3CompleteCount });
               }
             } catch (e) {
               // ignore module count errors
@@ -280,12 +281,12 @@ const AdminDashboard: React.FC = () => {
   const lineData = tasks.map(t => ({ task: t, m1: m1Sets[t].size, m2: m2Sets[t].size, m3: m3Sets[t].size }));
   const withZero = [{ task: '0', m1: 0, m2: 0, m3: 0 }, ...lineData];
   if (mounted) setQuizLineData(withZero);
-        // compute module-level distinct user counts (one row per user expected in module tables)
+        // compute module-level counts of users who have COMPLETED ALL tasks in each module
         try {
-          const m1Count = new Set((m1 || []).map((r: any) => r.user_id)).size;
-          const m2Count = new Set((m2 || []).map((r: any) => r.user_id)).size;
-          const m3Count = new Set((m3 || []).map((r: any) => r.user_id)).size;
-          if (mounted) setQuizModuleCounts({ m1: m1Count, m2: m2Count, m3: m3Count });
+          const m1Complete = (m1 || []).filter((r: any) => r.task1_completed && r.task2_completed && r.task3_completed && r.task4_completed && r.task5_completed && r.task6_completed).length;
+          const m2Complete = (m2 || []).filter((r: any) => r.task1_completed && r.task2_completed && r.task3_completed && r.task4_completed).length;
+          const m3Complete = (m3 || []).filter((r: any) => r.task1_completed && r.task2_completed && r.task3_completed && r.task4_completed && r.task5_completed).length;
+          if (mounted) setQuizModuleCounts({ m1: m1Complete, m2: m2Complete, m3: m3Complete });
         } catch (e) {
           // ignore
         }
