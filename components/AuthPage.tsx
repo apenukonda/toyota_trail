@@ -34,6 +34,8 @@ const AuthPage: React.FC = () => {
   const [newDepartment, setNewDepartment] = useState<Department | ''>('');
   const [newDesignation, setNewDesignation] = useState<Designation | ''>('');
   const [signupMessage, setSignupMessage] = useState('');
+  const [agreeDeclaration, setAgreeDeclaration] = useState(false);
+  const [agreeError, setAgreeError] = useState('');
 
 
   const validateUserId = (id: string): string | null => {
@@ -129,6 +131,11 @@ const AuthPage: React.FC = () => {
         return;
     }
 
+    if (!agreeDeclaration) {
+      setAgreeError('Please confirm that the details provided are voluntarily by you.');
+      return;
+    }
+
     setLoading(true);
     setError('');
     setSignupMessage('');
@@ -157,13 +164,18 @@ const AuthPage: React.FC = () => {
     setError('');
     setSignupMessage('');
     setUserId('');
+    setAgreeDeclaration(false);
+    setAgreeError('');
     setCurrentPage(isLogin ? Page.SIGNUP : Page.LOGIN);
   };
 
   const inputClass = "w-full px-4 py-3 bg-gray-200/50 border-2 border-transparent rounded-lg focus:outline-none focus:border-red-500 transition-colors";
+  // Support/help WhatsApp number (use international format without +). Change if needed.
+  const supportPhone = '919775398660'; // e.g. 91 for India + phone
+  const supportWhatsAppUrl = `https://wa.me/${supportPhone}`;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white animate-fade-in p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white animate-fade-in p-4">
       <div className="relative w-full max-w-md bg-white backdrop-blur-lg p-8 rounded-2xl shadow-2xl">
         <div className="flex justify-center mb-6">
             <img src="/company-logo.png" alt="company logo" className="h-12" />
@@ -294,9 +306,23 @@ const AuthPage: React.FC = () => {
               />
             </div>
 
+            <div className="flex items-start gap-3 mt-2">
+              <input
+                id="agreeDeclaration"
+                type="checkbox"
+                checked={agreeDeclaration}
+                onChange={e => { setAgreeDeclaration(e.target.checked); setAgreeError(''); setError(''); }}
+                className="mt-1 w-4 h-4 text-red-600 bg-white border-gray-300 rounded focus:ring-red-500"
+              />
+              <label htmlFor="agreeDeclaration" className="text-sm text-gray-700">
+               I am voluntarily providing this information to be registered for the competition.
+              </label>
+            </div>
+
             {passcodeError && <p className="text-red-500 text-sm">{passcodeError}</p>}
-             {error && <p className="text-red-500 text-sm">{error}</p>}
-             {signupMessage && <p className="text-green-500 text-sm">{signupMessage}</p>}
+            {agreeError && <p className="text-red-500 text-sm">{agreeError}</p>}
+            {error && <p className="text-red-500 text-sm">{error}</p>}
+            {signupMessage && <p className="text-green-500 text-sm">{signupMessage}</p>}
             <button type="submit" disabled={loading} className="w-full py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors transform hover:scale-105 disabled:bg-red-400 disabled:scale-100">
               {loading ? 'Creating...' : 'Create Account'}
             </button>
@@ -305,6 +331,13 @@ const AuthPage: React.FC = () => {
             </p>
           </form>
         )}
+      </div>
+
+      {/* Help link below the form layout (outside the form) */}
+      <div className="w-full max-w-md mx-auto mt-4 text-center">
+        <a href={supportWhatsAppUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-red-600 hover:underline">
+          Need help? Press this link to get in touch with us.
+        </a>
       </div>
 
       {showModal && (
