@@ -171,7 +171,7 @@ const AuthPage: React.FC = () => {
 
   const inputClass = "w-full px-4 py-3 bg-gray-200/50 border-2 border-transparent rounded-lg focus:outline-none focus:border-red-500 transition-colors";
   // Support/help WhatsApp number (use international format without +). Change if needed.
-  const supportPhone = '919775398660'; // e.g. 91 for India + phone
+  const supportPhone = '917975398660'; // e.g. 91 for India + phone
   const supportWhatsAppUrl = `https://wa.me/${supportPhone}`;
 
   return (
@@ -315,7 +315,7 @@ const AuthPage: React.FC = () => {
                 className="mt-1 w-4 h-4 text-red-600 bg-white border-gray-300 rounded focus:ring-red-500"
               />
               <label htmlFor="agreeDeclaration" className="text-sm text-gray-700">
-               I am voluntarily providing this information to be registered for the competition.
+              I agree that above details provided are accurate and can be used for competition and organizational communication purposes.
               </label>
             </div>
 
