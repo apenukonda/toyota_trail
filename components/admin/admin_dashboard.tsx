@@ -427,7 +427,7 @@ const AdminDashboard: React.FC = () => {
                   {
                     (() => {
                       const registered = totalUsers ?? 0;
-                      const target = 2000;
+                      const target = 1671;
                       const remaining = Math.max(target - registered, 0);
                       const data = [
                         { name: 'Registered', value: registered },
@@ -458,7 +458,7 @@ const AdminDashboard: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <span className="w-3 h-3 inline-block bg-[#fde68a] rounded-sm" />
-                <span className="text-gray-600">Remaining to 2000</span>
+                <span className="text-gray-600">Remaining to 1671</span>
               </div>
             </div>
           </div>
