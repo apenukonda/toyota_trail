@@ -1579,6 +1579,7 @@ const Admin: React.FC = () => {
   const [selectedAnalytics, setSelectedAnalytics] = useState<'none' | 'videoCompletion' | 'mdMessage' | 'slogan' | 'cartoon' | 'suggestion'>(() => readUrlState().analytics);
   const [showBy, setShowBy] = useState<'department' | 'designation'>('department');
   const [departmentFilter, setDepartmentFilter] = useState<string>('All');
+  const [designationFilter, setDesignationFilter] = useState<string>('All');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   console.log('View:', selectedView, 'Analytics:', selectedAnalytics);
 
@@ -2329,7 +2330,11 @@ const Admin: React.FC = () => {
     return (designations as string[]).map(key => ({ key, total: PLAN_BY_DESIGNATION[key] ?? 0 }));
   }, [designations]);
 
-  const filteredProfiles = profiles.filter(p => departmentFilter === 'All' ? true : (p.department || 'Unknown') === departmentFilter);
+  const filteredProfiles = profiles.filter(p => {
+    const deptOk = departmentFilter === 'All' ? true : (p.department || 'Unknown') === departmentFilter;
+    const desigOk = designationFilter === 'All' ? true : (p.designation || 'Unknown') === designationFilter;
+    return deptOk && desigOk;
+  });
 
   const displayedProfiles = useMemo(() => {
     return filteredProfiles.slice().sort((a, b) => (b.score || 0) - (a.score || 0));
@@ -2411,32 +2416,34 @@ const Admin: React.FC = () => {
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${(selectedView === 'dashboard' && selectedAnalytics === 'none') ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
           >
             <LayoutDashboard size={22} />
-            <span className="font-medium">  Dashboard</span>
+            <span className="font-medium">Dashboard</span>
           </button>
-           <button
+
+          <button
+            onClick={() => { setSelectedView('stats'); setSelectedAnalytics('none'); }}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${(selectedView === 'stats' && selectedAnalytics === 'none') ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+          >
+            <BarChart3 size={20} />
+            <span className="font-medium">Registration Status</span>
+          </button>
+
+          <button
             onClick={async () => { setSelectedAnalytics('mdMessage'); await fetchMDCompletions(); }}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${selectedAnalytics === 'mdMessage' ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
           >
             <FileText size={20} />
             <span className="font-medium">MD Message Completion</span>
           </button>
-          <button
-            onClick={() => { setSelectedView('stats'); setSelectedAnalytics('none'); }}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${(selectedView === 'stats' && selectedAnalytics === 'none') ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
-          >
-            <BarChart3 size={20} />
-            <span className="font-medium">Stats (Charts & Table)</span>
-          </button>
 
           <button
             onClick={async () => {
-              setSelectedAnalytics('slogan');
-              await fetchSlogans();
+              setSelectedAnalytics('videoCompletion');
+              await fetchVideoCompletions();
             }}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${selectedAnalytics === 'slogan' ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${selectedAnalytics === 'videoCompletion' ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
           >
-            <FileText size={20} />
-            <span className="font-medium">Slogan Competition Analytics</span>
+            <Video size={20} />
+            <span className="font-medium">Video Completion</span>
           </button>
 
           <button
@@ -2452,6 +2459,17 @@ const Admin: React.FC = () => {
 
           <button
             onClick={async () => {
+              setSelectedAnalytics('slogan');
+              await fetchSlogans();
+            }}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${selectedAnalytics === 'slogan' ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+          >
+            <FileText size={20} />
+            <span className="font-medium">Slogan Competition Analytics</span>
+          </button>
+
+          <button
+            onClick={async () => {
               setSelectedAnalytics('suggestion');
               await fetchSuggestionSubmissions();
             }}
@@ -2460,19 +2478,6 @@ const Admin: React.FC = () => {
             <FileText size={20} />
             <span className="font-medium">Suggestion Submission Analytics</span>
           </button>
-
-          <button
-            onClick={async () => {
-              setSelectedAnalytics('videoCompletion');
-              await fetchVideoCompletions();
-            }}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${selectedAnalytics === 'videoCompletion' ? 'bg-red-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
-          >
-            <Video size={20} />
-            <span className="font-medium">Video Completion</span>
-          </button>
-
-          
         </div>
 
         <div className="p-4 border-t border-gray-200">
@@ -3079,9 +3084,28 @@ const Admin: React.FC = () => {
                 <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6">
                   <div className="flex items-center justify-between mb-4">
                     <h4 className="text-lg font-semibold">Top Registrations</h4>
-                    <div className="text-sm text-gray-600">Total registered: {profiles.length}</div>
+                    <div className="text-sm text-gray-600">Showing <span className="font-medium">{displayedProfiles.length}</span> of <span className="font-medium">{profiles.length}</span> registered</div>
                   </div>
 
+                  <div className="mb-4 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <label className="text-sm font-medium text-gray-700">Department:</label>
+                      <select value={departmentFilter} onChange={e => setDepartmentFilter(e.target.value)} className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                        <option value="All">All</option>
+                        {departments.map(d => <option key={d} value={d}>{d}</option>)}
+                      </select>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <label className="text-sm font-medium text-gray-700">Designation:</label>
+                      <select value={designationFilter} onChange={e => setDesignationFilter(e.target.value)} className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                        <option value="All">All</option>
+                        {designations.map(d => <option key={d} value={d}>{d}</option>)}
+                      </select>
+                    </div>
+                    <div className="ml-auto">
+                      <button onClick={() => { const rows = displayedProfiles.map(u => ({ user_id: u.user_id, name: u.name, department: u.department || 'Unknown', designation: u.designation || 'Unknown', score: u.score })); exportToCSV(rows, 'registered_users.csv'); }} className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors text-sm font-medium">Export CSV</button>
+                    </div>
+                  </div>
                   <div className="overflow-x-auto">
                     <table className="min-w-full divide-y divide-gray-200">
                       <thead className="bg-gray-50">
