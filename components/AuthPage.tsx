@@ -140,6 +140,9 @@ const AuthPage: React.FC = () => {
     setError('');
     setSignupMessage('');
 
+    // ensure dashboard sees the welcome-video flag immediately after signup
+    try { if (typeof window !== 'undefined') localStorage.setItem('show_welcome_video', '1'); } catch (e) {}
+
   const result = await signup({
     userId: newUserId,
     name: newName,
@@ -152,7 +155,7 @@ const AuthPage: React.FC = () => {
         setSignupMessage("Account created! Redirecting to dashboard...");
         // After signup, the user is automatically logged in.
         // The onAuthStateChange listener in AppContext will handle redirecting to the dashboard.
-        // We no longer need to manually switch back to the login form.
+        // We already set the localStorage flag before calling signup so Dashboard shows the video immediately.
     } else {
         setError(result.error || "Failed to create account. User ID might already be in use.");
     }

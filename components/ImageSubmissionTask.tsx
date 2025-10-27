@@ -202,8 +202,8 @@ const ImageSubmissionTask: React.FC = () => {
     <li>
       {t('drawing_size') || 
         (language === 'kn' 
-          ? 'ಚಿತ್ರವು A3 ಅಥವಾ A2 ಗಾತ್ರದ ಕಾಗದದಲ್ಲಿ ಇರಬೇಕು. ಯಾವುದೇ ರೀತಿಯ ಚಿತ್ರ (ಉದಾ: ಪೆನ್ಸಿಲ್ ಚಿತ್ರ, ವಾಟರ್‌ಕಲರ್ ಇತ್ಯಾದಿ) ಸ್ವೀಕಾರಾರ್ಹ.' 
-          : 'The drawing should be on A3 or A2 size paper. Any type of drawing is accepted (e.g., pencil sketch, watercolor, etc.).')}
+          ? 'ಚಿತ್ರವು A3 ಅಥವಾ A4 ಗಾತ್ರದ ಕಾಗದದಲ್ಲಿ ಇರಬೇಕು. ಯಾವುದೇ ರೀತಿಯ ಚಿತ್ರ (ಉದಾ: ಪೆನ್ಸಿಲ್ ಚಿತ್ರ, ವಾಟರ್‌ಕಲರ್ ಇತ್ಯಾದಿ) ಸ್ವೀಕಾರಾರ್ಹ.' 
+          : 'The drawing should be on A3 or A4 size paper. Any type of drawing is accepted (e.g., pencil sketch, watercolor, etc.).')}
     </li>
     <li>
       {t('unique_idea') || 
