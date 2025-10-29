@@ -235,17 +235,15 @@ const AuthPage: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white animate-fade-in p-4">
       <button
-        type="button"
         onClick={() => setShowWelcomeVideo(true)}
-        aria-label="Play welcome video"
-        className="text-sm text-red-600 hover:text-red-700 px-2 py-1 rounded-md"
+        className="flex items-center gap-2 text-gray-800 dark:text-red-600 hover:text-red-600 dark:hover:text-red-500 transition-colors px-2 py-1 rounded"
       >
         Watch Tutorial
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 inline"
+          className="w-5 h-5"
           viewBox="0 0 24 24"
-          fill="none"
+          fill="red"
           stroke="currentColor"
           strokeWidth="1.5"
         >

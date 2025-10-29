@@ -11,6 +11,7 @@ const ProfileMenu: React.FC<{ initials: string }> = ({ initials }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
+   const [showWelcomeVideo, setShowWelcomeVideo] = useState(false);
 
   useEffect(() => {
     const onDocClick = (e: MouseEvent) => {
@@ -75,6 +76,66 @@ const ProfileMenu: React.FC<{ initials: string }> = ({ initials }) => {
               </div>
             </div>
           </div>
+          <button
+            onClick={() => setShowWelcomeVideo(true)}
+            className="flex items-center gap-2 text-gray-800 dark:text-red-600 hover:text-red-600 dark:hover:text-red-500 transition-colors px-2 py-1 rounded"
+          >
+            Watch Tutorial
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="red"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M5 3v18l15-9L5 3z"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+           
+          </button>
+                {showWelcomeVideo &&
+        createPortal(
+          <div
+            onClick={() => setShowWelcomeVideo(false)}
+            className="fixed inset-0 bg-black/70 flex items-center justify-center p-4"
+            style={{ zIndex: 99999 }}
+          >
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="bg-black rounded-lg w-full max-w-3xl relative shadow-2xl overflow-hidden"
+            >
+              {/* Header area: contains title / close button, outside the video container so it doesn't overlap the video */}
+              <div className="flex items-center justify-between px-4 py-3 bg-black/80">
+                <div className="text-white text-sm font-medium">Welcome</div>
+                <div>
+                  <button
+                    onClick={() => setShowWelcomeVideo(false)}
+                    aria-label="Close video"
+                    className="text-white bg-white/10 hover:bg-white/20 rounded-md px-3 py-1 text-sm"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+              <div className="p-4 bg-black">
+                <div className="w-full h-auto rounded-lg max-h-[80vh] overflow-hidden">
+                  <video
+                    src="/welcome.mp4"
+                    controls
+                    autoPlay
+                    playsInline
+                    className="w-full h-auto bg-black"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
 
           <div className="p-2">
             {/* Language selector (English / Kannada) */}
@@ -181,7 +242,7 @@ const Navbar: React.FC = () => {
         .slice(0, 2)
         .toUpperCase()
     : "U";
-  const [showWelcomeVideo, setShowWelcomeVideo] = useState(false);
+ 
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/75 backdrop-blur-md shadow-sm z-50 animate-fade-in">
@@ -204,7 +265,7 @@ const Navbar: React.FC = () => {
         </div>
 
         <div className="flex items-center space-x-3">
-          <button
+          {/* <button
             onClick={() => setShowWelcomeVideo(true)}
             className="flex items-center gap-2 text-gray-800 dark:text-white hover:text-red-600 dark:hover:text-red-500 transition-colors px-2 py-1 rounded"
           >
@@ -223,8 +284,8 @@ const Navbar: React.FC = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            {/* <span className="hidden md:inline text-sm"></span> */}
-          </button>
+           
+          </button> */}
           {/* score display left of avatar for desktop */}
           <div className="hidden sm:flex flex-col items-end mr-2 text-right">
             <span className="text-sm text-gray-600 dark:text-gray-300">
@@ -250,45 +311,6 @@ const Navbar: React.FC = () => {
           <ProfileMenu initials={initials} />
         </div>
       </div>
-      {showWelcomeVideo &&
-        createPortal(
-          <div
-            onClick={() => setShowWelcomeVideo(false)}
-            className="fixed inset-0 bg-black/70 flex items-center justify-center p-4"
-            style={{ zIndex: 99999 }}
-          >
-            <div
-              onClick={(e) => e.stopPropagation()}
-              className="bg-black rounded-lg w-full max-w-3xl relative shadow-2xl overflow-hidden"
-            >
-              {/* Header area: contains title / close button, outside the video container so it doesn't overlap the video */}
-              <div className="flex items-center justify-between px-4 py-3 bg-black/80">
-                <div className="text-white text-sm font-medium">Welcome</div>
-                <div>
-                  <button
-                    onClick={() => setShowWelcomeVideo(false)}
-                    aria-label="Close video"
-                    className="text-white bg-white/10 hover:bg-white/20 rounded-md px-3 py-1 text-sm"
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
-              <div className="p-4 bg-black">
-                <div className="w-full h-auto rounded-lg max-h-[80vh] overflow-hidden">
-                  <video
-                    src="/welcome.mp4"
-                    controls
-                    autoPlay
-                    playsInline
-                    className="w-full h-auto bg-black"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>,
-          document.body
-        )}
     </header>
   );
 };
