@@ -520,7 +520,7 @@ const AdminDashboard: React.FC = () => {
     {
       id: "registered",
       title: "Registered Users",
-      value: totalUsers !== null ? String(totalUsers) : "—",
+      value: totalUsers !== null ? String(totalUsers-1) : "—",
       change: "",
       trend: "up",
       icon: (
@@ -722,7 +722,7 @@ const AdminDashboard: React.FC = () => {
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   {(() => {
-                    const registered = totalUsers ?? 0;
+                    const registered = totalUsers-1;
                     const target = 1671;
                     const remaining = Math.max(target - registered, 0);
                     const data = [
@@ -754,7 +754,7 @@ const AdminDashboard: React.FC = () => {
               </ResponsiveContainer>
               <div className="-mt-52 text-center">
                 <div className="text-lg font-semibold text-gray-900">
-                  {totalUsers ?? "—"}
+                  {(totalUsers-1)}
                 </div>
                 <div className="text-xs text-gray-500">Registered</div>
               </div>

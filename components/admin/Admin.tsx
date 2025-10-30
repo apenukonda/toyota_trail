@@ -104,35 +104,7 @@
 //         return;
 //       } else if (rpcErr) {
 //         console.debug('fetchSlogans: get_slogan_submissions RPC returned error', rpcErr);
-//       }
-//     } catch (e) {
-//       console.debug('fetchSlogans: get_slogan_submissions RPC not available or failed', e);
-//     }
-
-//     // RPC not available - fetch slogans directly from user_slogans
-//     // Note: user_slogans has no 'id' column; we'll create a stable composite id for React keys.
-//     const { data, error } = await supabaseClient
-//       .from('user_slogans')
-//       .select('user_id, slogan, created_at');
-//     if (error) {
-//       console.error('Error fetching user_slogans:', error.message || error);
-//       setSloganRows([]);
-//       return;
-//     }
-
-//     const rows = data || [];
-//     console.debug('fetchSlogans: raw user_slogans rows count=', rows.length, 'sample=', rows.slice(0,3));
-//     if (rows.length === 0) {
-//       setSloganRows([]);
-//       return;
-//     }
-
-//     // user_slogans.user_id stores the profiles.id (UUID). Fetch profiles by id.
-//     const userIds = Array.from(new Set(rows.map((r: any) => String(r.user_id))));
-//     let profileMap = new Map<string, any>();
-//     try {
-//       // First attempt: profiles.id (UUID) — this is the common case in this project
-//       const { data: profilesDataById, error: profilesErrorById } = await supabaseClient
+      
 //         .from('profiles')
 //         .select('id, user_id, name, department, designation')
 //         .in('id', userIds as string[]);
@@ -1567,6 +1539,20 @@ const Admin: React.FC = () => {
   const { currentUser, logout } = useContext(AppContext);
   const [profiles, setProfiles] = useState<ProfileRow[]>([]);
 
+  // Helper: check whether a given user id (or profile id) is present in loaded profiles
+  // and therefore has role === 'user' (we only load profiles with role='user').
+  const hasUserProfile = (userId: any) => {
+    try {
+      if (!userId) return false;
+      const s = String(userId);
+      return profiles.some(
+        (p) => String(p.user_id) === s || String(p.id) === s
+      );
+    } catch (e) {
+      return false;
+    }
+  };
+
   // Read initial state from URL params so refresh preserves the current admin tab
   const readUrlState = () => {
     if (typeof window === "undefined")
@@ -1630,19 +1616,28 @@ const Admin: React.FC = () => {
   const [departmentFilter, setDepartmentFilter] = useState<string>("All");
   const [designationFilter, setDesignationFilter] = useState<string>("All");
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  console.log("View:", selectedView, "Analytics:", selectedAnalytics);
+  // console.log("View:", selectedView, "Analytics:", selectedAnalytics);
 
   // Profiles
   const fetchProfiles = async () => {
     try {
       const { data, error } = await supabaseClient
         .from("profiles")
-        .select("id, user_id, name, department, designation, score");
+        .select("id, user_id, name, department, designation, score, role")
+        .eq("role", "user");
       if (error) {
         console.error("Error fetching profiles:", error.message || error);
         return;
       }
-      setProfiles((data || []) as ProfileRow[]);
+      // normalize to ProfileRow shape (role not stored on ProfileRow typically)
+      setProfiles(((data || []) as any[]).map((d) => ({
+        id: d.id,
+        user_id: d.user_id,
+        name: d.name,
+        department: d.department,
+        designation: d.designation,
+        score: d.score,
+      })) as ProfileRow[]);
     } catch (e) {
       console.error("Unexpected error in fetchProfiles", e);
     }
@@ -1805,13 +1800,15 @@ const Admin: React.FC = () => {
             slogan: r.slogan || "",
             created_at: r.created_at || null,
           }));
+          // Only include rows that correspond to loaded profiles with role='user'.
+          const filtered = joined.filter((jr) => hasUserProfile(jr.user_id));
           console.debug(
             "fetchSlogans: loaded via RPC count=",
-            joined.length,
+            filtered.length,
             "sample=",
-            joined.slice(0, 3)
+            filtered.slice(0, 3)
           );
-          setSloganRows(joined);
+          setSloganRows(filtered);
           return;
         } else if (rpcErr) {
           console.debug(
@@ -1852,8 +1849,9 @@ const Admin: React.FC = () => {
         const { data: profilesDataById, error: profilesErrorById } =
           await supabaseClient
             .from("profiles")
-            .select("id, user_id, name, department, designation")
-            .in("id", userIds as string[]);
+            .select("id, user_id, name, department, designation, role")
+            .in("id", userIds as string[])
+            .eq("role", "user");
 
         let profilesData = profilesDataById || [];
         let usedJoin = "id";
@@ -1864,8 +1862,9 @@ const Admin: React.FC = () => {
           const { data: profilesDataByUserId, error: profilesErrorByUserId } =
             await supabaseClient
               .from("profiles")
-              .select("id, user_id, name, department, designation")
-              .in("user_id", userIds as string[]);
+              .select("id, user_id, name, department, designation, role")
+              .in("user_id", userIds as string[])
+              .eq("role", "user");
           if (profilesErrorByUserId) {
             console.error(
               "Error fetching profiles for slogans by user_id:",
@@ -1894,22 +1893,25 @@ const Admin: React.FC = () => {
         console.error("Unexpected error fetching profiles for slogans", e);
       }
 
-      const joined = rows.map((r: any, idx: number) => {
-        const profile = profileMap.get(String(r.user_id)) || null;
-        const compositeId = `${String(r.user_id)}_${String(
-          r.created_at || idx
-        )}`;
-        return {
-          id: compositeId,
-          user_id: r.user_id,
-          employee_id: profile?.user_id || r.user_id,
-          name: profile?.name || r.user_id,
-          department: profile?.department || "Unknown",
-          designation: profile?.designation || "Unknown",
-          slogan: r.slogan || "",
-          created_at: r.created_at || null,
-        };
-      });
+      const joined = rows
+        .map((r: any, idx: number) => {
+          const profile = profileMap.get(String(r.user_id)) || null;
+          if (!profile) return null; // skip if profile not a role='user' profile
+          const compositeId = `${String(r.user_id)}_${String(
+            r.created_at || idx
+          )}`;
+          return {
+            id: compositeId,
+            user_id: r.user_id,
+            employee_id: profile?.user_id || r.user_id,
+            name: profile?.name || r.user_id,
+            department: profile?.department || "Unknown",
+            designation: profile?.designation || "Unknown",
+            slogan: r.slogan || "",
+            created_at: r.created_at || null,
+          };
+        })
+        .filter(Boolean) as any[];
       console.debug(
         "fetchSlogans: joined rows count=",
         joined.length,
@@ -1944,13 +1946,15 @@ const Admin: React.FC = () => {
             designation: r.designation || "Unknown",
             created_at: r.created_at || null,
           }));
+          // Only include rows that correspond to loaded profiles with role='user'.
+          const filtered = joined.filter((jr) => hasUserProfile(jr.user_id));
           console.debug(
             "fetchImageSubmissions: loaded via RPC count=",
-            joined.length,
+            filtered.length,
             "sample=",
-            joined.slice(0, 3)
+            filtered.slice(0, 3)
           );
-          setImageRows(joined);
+          setImageRows(filtered);
           return;
         } else if (rpcErr) {
           console.debug(
@@ -1994,8 +1998,9 @@ const Admin: React.FC = () => {
         const { data: profilesDataById, error: profilesErrorById } =
           await supabaseClient
             .from("profiles")
-            .select("id, user_id, name, department, designation")
-            .in("id", userIds as string[]);
+            .select("id, user_id, name, department, designation, role")
+            .in("id", userIds as string[])
+            .eq("role", "user");
 
         let profilesData = profilesDataById || [];
         let usedJoin = "id";
@@ -2006,8 +2011,9 @@ const Admin: React.FC = () => {
           const { data: profilesDataByUserId, error: profilesErrorByUserId } =
             await supabaseClient
               .from("profiles")
-              .select("id, user_id, name, department, designation")
-              .in("user_id", userIds as string[]);
+              .select("id, user_id, name, department, designation, role")
+              .in("user_id", userIds as string[])
+              .eq("role", "user");
           if (profilesErrorByUserId) {
             console.error(
               "Error fetching profiles for image_submissions by user_id:",
@@ -2038,21 +2044,24 @@ const Admin: React.FC = () => {
         );
       }
 
-      const joined = rows.map((r: any, idx: number) => {
-        const profile = profileMap.get(String(r.user_id)) || null;
-        const compositeId = `${String(r.user_id)}_${String(
-          r.created_at || idx
-        )}`;
-        return {
-          id: compositeId,
-          user_id: r.user_id,
-          employee_id: profile?.user_id || r.user_id,
-          name: profile?.name || r.user_id,
-          department: profile?.department || "Unknown",
-          designation: profile?.designation || "Unknown",
-          created_at: r.created_at || null,
-        };
-      });
+      const joined = rows
+        .map((r: any, idx: number) => {
+          const profile = profileMap.get(String(r.user_id)) || null;
+          if (!profile) return null; // skip rows without a role='user' profile
+          const compositeId = `${String(r.user_id)}_${String(
+            r.created_at || idx
+          )}`;
+          return {
+            id: compositeId,
+            user_id: r.user_id,
+            employee_id: profile?.user_id || r.user_id,
+            name: profile?.name || r.user_id,
+            department: profile?.department || "Unknown",
+            designation: profile?.designation || "Unknown",
+            created_at: r.created_at || null,
+          };
+        })
+        .filter(Boolean) as any[];
       console.debug(
         "fetchImageSubmissions: joined rows count=",
         joined.length,
@@ -2084,13 +2093,15 @@ const Admin: React.FC = () => {
             designation: r.designation || "Unknown",
             created_at: r.created_at || null,
           }));
+          // Filter RPC results to only include users that exist in profiles with role='user'
+          const filtered = joined.filter((jr) => hasUserProfile(jr.user_id));
           console.debug(
             "fetchSuggestionSubmissions: loaded via RPC count=",
-            joined.length,
+            filtered.length,
             "sample=",
-            joined.slice(0, 3)
+            filtered.slice(0, 3)
           );
-          setSuggestionRows(joined);
+          setSuggestionRows(filtered);
           return;
         } else if (rpcErr) {
           console.debug(
@@ -2136,8 +2147,9 @@ const Admin: React.FC = () => {
         const { data: profilesDataById, error: profilesErrorById } =
           await supabaseClient
             .from("profiles")
-            .select("id, user_id, name, department, designation")
-            .in("id", userIds as string[]);
+            .select("id, user_id, name, department, designation, role")
+            .in("id", userIds as string[])
+            .eq("role", "user");
 
         let profilesData = profilesDataById || [];
         let usedJoin = "id";
@@ -2148,8 +2160,9 @@ const Admin: React.FC = () => {
           const { data: profilesDataByUserId, error: profilesErrorByUserId } =
             await supabaseClient
               .from("profiles")
-              .select("id, user_id, name, department, designation")
-              .in("user_id", userIds as string[]);
+              .select("id, user_id, name, department, designation, role")
+              .in("user_id", userIds as string[])
+              .eq("role", "user");
           if (profilesErrorByUserId) {
             console.error(
               "Error fetching profiles for suggestions by user_id:",
@@ -2177,21 +2190,24 @@ const Admin: React.FC = () => {
         console.error("Unexpected error fetching profiles for suggestions", e);
       }
 
-      const joined = rows.map((r: any, idx: number) => {
-        const profile = profileMap.get(String(r.user_id)) || null;
-        const compositeId = `${String(r.user_id)}_${String(
-          r.updated_at || r.completed_steps || idx
-        )}`;
-        return {
-          id: compositeId,
-          user_id: r.user_id,
-          employee_id: profile?.user_id || r.user_id,
-          name: profile?.name || r.user_id,
-          department: profile?.department || "Unknown",
-          designation: profile?.designation || "Unknown",
-          created_at: r.updated_at || null,
-        };
-      });
+      const joined = rows
+        .map((r: any, idx: number) => {
+          const profile = profileMap.get(String(r.user_id)) || null;
+          if (!profile) return null;
+          const compositeId = `${String(r.user_id)}_${String(
+            r.updated_at || r.completed_steps || idx
+          )}`;
+          return {
+            id: compositeId,
+            user_id: r.user_id,
+            employee_id: profile?.user_id || r.user_id,
+            name: profile?.name || r.user_id,
+            department: profile?.department || "Unknown",
+            designation: profile?.designation || "Unknown",
+            created_at: r.updated_at || null,
+          };
+        })
+        .filter(Boolean) as any[];
       console.debug(
         "fetchSuggestionSubmissions: joined rows count=",
         joined.length,
