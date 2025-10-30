@@ -1512,216 +1512,216 @@ export const ADVANCED_MODULES = [
     quizzes: [
       // Dummy quiz for M2 Video 1: 7 questions
       [
-        { text: "What does QMS stand for?", options: ["Quality Management System", "Quality Maintenance Standard", "Quick Management Service", "Qualified Management System"], correctAnswer: "Quality Management System" },
+        { text: "What does QMS stand for?", options: ["Quick Management Service", "Qualified Management System", "Quality Maintenance Standard", "Quality Management System"], correctAnswer: "Quality Management System" },
       
-        { text: "Who defined the term QMS in 1991?", options: ["Ken Crosher", "Edward Deming", "Joseph Juran", "Phillips Crosby"], correctAnswer: "Ken Crosher" },
+        { text: "Who defined the term QMS in 1991?", options: ["Joseph Juran", "Phillips Crosby", "Edward Deming", "Ken Crosher"], correctAnswer: "Ken Crosher" },
       
-        { text: "Which two pillars form the basis of a quality management system?", options: ["Quality control and quality assurance", "Quality inspection and auditing", "Process optimization and cost reduction", "Customer service and marketing"], correctAnswer: "Quality control and quality assurance" },
+        { text: "Which two pillars form the basis of a quality management system?", options: ["Process optimization and cost reduction", "Customer service and marketing", "Quality inspection and auditing", "Quality control and quality assurance"], correctAnswer: "Quality control and quality assurance" },
       
-        { text: "What is the first element of a typical QMS hierarchy?", options: ["Quality policy", "Quality manual", "Work instructions", "Records and forms"], correctAnswer: "Quality policy" },
+        { text: "What is the first element of a typical QMS hierarchy?", options: ["Work instructions", "Records and forms", "Quality manual", "Quality policy"], correctAnswer: "Quality policy" },
       
-        { text: "What does a quality policy specify?", options: ["Overall direction and objectives of the organization", "Daily employee schedules", "Marketing strategies", "Equipment maintenance"], correctAnswer: "Overall direction and objectives of the organization" },
+        { text: "What does a quality policy specify?", options: ["Marketing strategies", "Equipment maintenance", "Daily employee schedules", "Overall direction and objectives of the organization"], correctAnswer: "Overall direction and objectives of the organization" },
       
-        { text: "What is the role of a quality manual?", options: ["Specifies how the company will operate", "Records employee attendance", "Lists raw materials", "Controls customer feedback"], correctAnswer: "Specifies how the company will operate" },
+        { text: "What is the role of a quality manual?", options: ["Lists raw materials", "Controls customer feedback", "Records employee attendance", "Specifies how the company will operate"], correctAnswer: "Specifies how the company will operate" },
       
         { text: "What determines the structure and content of a quality manual?", options: ["Organization size, complexity, and employee competency", "Market share and competition", "Government regulations only", "Customer complaints"], correctAnswer: "Organization size, complexity, and employee competency" },
       
-        { text: "What are quality procedures designed to do?", options: ["Specify activities to be performed at each step of the production process", "List employees' duties", "Track sales figures", "Maintain machinery"], correctAnswer: "Specify activities to be performed at each step of the production process" },
+        { text: "What are quality procedures designed to do?", options: ["Track sales figures", "Maintain machinery", "List employees' duties", "Specify activities to be performed at each step of the production process"], correctAnswer: "Specify activities to be performed at each step of the production process" },
       
-        { text: "What are work instructions in a QMS?", options: ["Step-by-step written guidelines for performing tasks", "Company policies on holidays", "Financial reporting templates", "Marketing brochures"], correctAnswer: "Step-by-step written guidelines for performing tasks" },
+        { text: "What are work instructions in a QMS?", options: ["Financial reporting templates", "Marketing brochures", "Company policies on holidays", "Step-by-step written guidelines for performing tasks"], correctAnswer: "Step-by-step written guidelines for performing tasks" },
       
-        { text: "Work instructions are also called what?", options: ["How-to instructions", "Task sheets", "SOP manuals", "Procedure guides"], correctAnswer: "How-to instructions" },
+        { text: "Work instructions are also called what?", options: ["SOP manuals", "Procedure guides", "Task sheets", "How-to instructions"], correctAnswer: "How-to instructions" },
       
         { text: "How should work instructions be used?", options: ["In conjunction with manuals, procedures, and records", "Alone without referencing other documents", "Only for managers", "Only during audits"], correctAnswer: "In conjunction with manuals, procedures, and records" },
       
-        { text: "What is the role of records and forms in a QMS?", options: ["Provide objective evidence that quality management is implemented and effective", "Track employee attendance", "Record marketing metrics", "Track inventory only"], correctAnswer: "Provide objective evidence that quality management is implemented and effective" },
+        { text: "What is the role of records and forms in a QMS?", options: ["Record marketing metrics", "Track inventory only", "Track employee attendance", "Provide objective evidence that quality management is implemented and effective"], correctAnswer: "Provide objective evidence that quality management is implemented and effective" },
       
-        { text: "Records in QMS need to be:", options: ["Maintained for a specific period of time", "Disposed immediately", "Kept only digitally", "Reviewed yearly only"], correctAnswer: "Maintained for a specific period of time" },
+        { text: "Records in QMS need to be:", options: ["Kept only digitally", "Reviewed yearly only", "Disposed immediately", "Maintained for a specific period of time"], correctAnswer: "Maintained for a specific period of time" },
       
-        { text: "What are forms in QMS?", options: ["Blank templates to be filled with information for records", "Completed documents only", "Marketing materials", "Employee evaluations"], correctAnswer: "Blank templates to be filled with information for records" },
+        { text: "What are forms in QMS?", options: ["Marketing materials", "Employee evaluations", "Completed documents only", "Blank templates to be filled with information for records"], correctAnswer: "Blank templates to be filled with information for records" },
       
-        { text: "Which standard is the most common international QMS standard?", options: ["ISO 9001", "ISO 13485", "ISO 14001", "ISO 27001"], correctAnswer: "ISO 9001" },
+        { text: "Which standard is the most common international QMS standard?", options: ["ISO 14001", "ISO 27001", "ISO 13485", "ISO 9001"], correctAnswer: "ISO 9001" },
       
-        { text: "ISO 13485 is a quality management standard for which industry?", options: ["Medical devices", "Automotive", "Information security", "Environmental management"], correctAnswer: "Medical devices" },
+        { text: "ISO 13485 is a quality management standard for which industry?", options: ["Information security", "Environmental management", "Automotive", "Medical devices"], correctAnswer: "Medical devices" },
       
-        { text: "ISO TS 16949 is a quality management standard for which industry?", options: ["Automotive industry", "Medical devices", "Information technology", "Environmental services"], correctAnswer: "Automotive industry" },
+        { text: "ISO TS 16949 is a quality management standard for which industry?", options: ["Information technology", "Environmental services", "Medical devices", "Automotive industry"], correctAnswer: "Automotive industry" },
       
-        { text: "ISO 27001 focuses on what aspect?", options: ["Information security management", "Medical devices quality", "Environmental management", "Automotive standards"], correctAnswer: "Information security management" },
+        { text: "ISO 27001 focuses on what aspect?", options: ["Environmental management", "Automotive standards", "Medical devices quality", "Information security management"], correctAnswer: "Information security management" },
       
         { text: "What are the typical elements of a QMS?", options: ["Quality policies, procedures/manuals, work instructions, records/forms", "Marketing plans, financial records, manuals, SOPs", "Employee evaluations, payroll, attendance, benefits", "Inventory, logistics, procurement, sales"], correctAnswer: "Quality policies, procedures/manuals, work instructions, records/forms" },
       
-        { text: "What is the main purpose of a QMS?", options: ["Direct and control the organization in consistently meeting customer requirements and enhancing satisfaction", "Increase marketing reach", "Reduce taxes", "Streamline HR processes"], correctAnswer: "Direct and control the organization in consistently meeting customer requirements and enhancing satisfaction" },
+        { text: "What is the main purpose of a QMS?", options: ["Reduce taxes", "Streamline HR processes", "Increase marketing reach", "Direct and control the organization in consistently meeting customer requirements and enhancing satisfaction"], correctAnswer: "Direct and control the organization in consistently meeting customer requirements and enhancing satisfaction" },
       
-        { text: "Why did quality become increasingly important during World War II?", options: ["Because products like bullets and rifles had to match standards across countries", "Because factories were larger", "Due to energy shortages", "Due to labor strikes"], correctAnswer: "Because products like bullets and rifles had to match standards across countries" },
+        { text: "Why did quality become increasingly important during World War II?", options: ["Due to energy shortages", "Due to labor strikes", "Because factories were larger", "Because products like bullets and rifles had to match standards across countries"], correctAnswer: "Because products like bullets and rifles had to match standards across countries" },
       
-        { text: "Which quality guru defined quality as 'fitness for use'?", options: ["Joseph M. Juran", "Edward Deming", "Phillips Crosby", "Ken Crosher"], correctAnswer: "Joseph M. Juran" },
+        { text: "Which quality guru defined quality as 'fitness for use'?", options: ["Phillips Crosby", "Ken Crosher", "Edward Deming", "Joseph M. Juran"], correctAnswer: "Joseph M. Juran" },
       
-        { text: "Which quality guru developed the 'zero defect' concept?", options: ["Phillips Crosby", "Edward Deming", "Joseph M. Juran", "Ken Crosher"], correctAnswer: "Phillips Crosby" },
+        { text: "Which quality guru developed the 'zero defect' concept?", options: ["Joseph M. Juran", "Ken Crosher", "Edward Deming", "Phillips Crosby"], correctAnswer: "Phillips Crosby" },
       
-        { text: "According to Edward Deming, what does quality mean?", options: ["Efficient production of quality that the market expects", "Achieving perfection", "Zero defects in production", "Maximum output"], correctAnswer: "Efficient production of quality that the market expects" },
+        { text: "According to Edward Deming, what does quality mean?", options: ["Zero defects in production", "Maximum output", "Achieving perfection", "Efficient production of quality that the market expects"], correctAnswer: "Efficient production of quality that the market expects" },
       
         { text: "How does QMS simplify an organization?", options: ["By improving processes, documentation, and creating a culture of quality", "By reducing employees", "By outsourcing tasks", "By automating marketing"], correctAnswer: "By improving processes, documentation, and creating a culture of quality" },
       
-        { text: "What benefits does QMS provide to employees?", options: ["Motivates employees and creates a quality culture", "Reduces working hours only", "Provides higher salaries", "Tracks attendance"], correctAnswer: "Motivates employees and creates a quality culture" },
+        { text: "What benefits does QMS provide to employees?", options: ["Provides higher salaries", "Tracks attendance", "Reduces working hours only", "Motivates employees and creates a quality culture"], correctAnswer: "Motivates employees and creates a quality culture" },
       
-        { text: "How does QMS improve customer satisfaction?", options: ["By consistently meeting customer requirements and ensuring product quality", "By offering discounts", "By improving website design", "By faster delivery only"], correctAnswer: "By consistently meeting customer requirements and ensuring product quality" },
+        { text: "How does QMS improve customer satisfaction?", options: ["By improving website design", "By faster delivery only", "By offering discounts", "By consistently meeting customer requirements and ensuring product quality"], correctAnswer: "By consistently meeting customer requirements and ensuring product quality" },
       
-        { text: "How does QMS reduce cost and waste?", options: ["By streamlining processes and improving efficiency", "By firing employees", "By using cheaper materials only", "By outsourcing production"], correctAnswer: "By streamlining processes and improving efficiency" },
+        { text: "How does QMS reduce cost and waste?", options: ["By using cheaper materials only", "By outsourcing production", "By firing employees", "By streamlining processes and improving efficiency"], correctAnswer: "By streamlining processes and improving efficiency" },
       
-        { text: "What is the impact of successfully implementing a QMS on a company?", options: ["It affects all aspects of the company's performance positively", "It only affects marketing", "It only affects HR", "It only affects IT systems"], correctAnswer: "It affects all aspects of the company's performance positively" },
+        { text: "What is the impact of successfully implementing a QMS on a company?", options: ["It only affects HR", "It only affects IT systems", "It only affects marketing", "It affects all aspects of the company's performance positively"], correctAnswer: "It affects all aspects of the company's performance positively" },
       
-        { text: "What type of evidence do records and forms provide in a QMS?", options: ["Objective evidence of implementation and effectiveness", "Financial proof", "Employee satisfaction scores", "Marketing statistics"], correctAnswer: "Objective evidence of implementation and effectiveness" }
+        { text: "What type of evidence do records and forms provide in a QMS?", options: ["Employee satisfaction scores", "Marketing statistics", "Financial proof", "Objective evidence of implementation and effectiveness"], correctAnswer: "Objective evidence of implementation and effectiveness" }
       ]
       ,
       [
         { 
           text: "What are the Seven QC Tools primarily used for?", 
-          options: ["Solving quality problems and process improvement", "Marketing strategy planning", "Financial auditing", "Employee performance tracking"], 
+          options: ["Financial auditing", "Employee performance tracking", "Marketing strategy planning", "Solving quality problems and process improvement"], 
           correctAnswer: "Solving quality problems and process improvement" 
         },
         { 
           text: "Who said that 95% of quality problems can be solved with seven fundamental tools?", 
-          options: ["Kaoru Ishikawa", "Edward Deming", "Joseph Juran", "Phillips Crosby"], 
+          options: ["Joseph Juran", "Phillips Crosby", "Edward Deming", "Kaoru Ishikawa"], 
           correctAnswer: "Kaoru Ishikawa" 
         },
         { 
           text: "Which QC tool visually represents the sequence of steps in a process?", 
-          options: ["Flowchart", "Check Sheet", "Pareto Chart", "Histogram"], 
+          options: ["Pareto Chart", "Histogram", "Check Sheet", "Flowchart"], 
           correctAnswer: "Flowchart" 
         },
         { 
           text: "What is the main purpose of a flowchart?", 
-          options: ["Simplifies complex processes and promotes common understanding", "Measures employee productivity", "Tracks sales data", "Calculates process costs"], 
+          options: ["Tracks sales data", "Calculates process costs", "Measures employee productivity", "Simplifies complex processes and promotes common understanding"], 
           correctAnswer: "Simplifies complex processes and promotes common understanding" 
         },
         { 
           text: "Which QC tool helps collect and organize data for analysis?", 
-          options: ["Check Sheet", "Flowchart", "Control Chart", "Cause and Effect Diagram"], 
+          options: ["Control Chart", "Cause and Effect Diagram", "Flowchart", "Check Sheet"], 
           correctAnswer: "Check Sheet" 
         },
         { 
           text: "Why is it important to include metadata in a check sheet?", 
-          options: ["To ensure data integrity and accuracy", "To make charts colorful", "To simplify calculations", "To reduce number of pages"], 
+          options: ["To simplify calculations", "To reduce number of pages", "To make charts colorful", "To ensure data integrity and accuracy"], 
           correctAnswer: "To ensure data integrity and accuracy" 
         },
         { 
           text: "Which QC tool helps identify the vital few problems that contribute most to defects?", 
-          options: ["Pareto Chart", "Scatter Diagram", "Histogram", "Flowchart"], 
+          options: ["Histogram", "Flowchart", "Scatter Diagram", "Pareto Chart"], 
           correctAnswer: "Pareto Chart" 
         },
         { 
           text: "What principle is the Pareto Chart based on?", 
-          options: ["80-20 rule", "50-50 rule", "10-90 rule", "70-30 rule"], 
+          options: ["10-90 rule", "70-30 rule", "50-50 rule", "80-20 rule"], 
           correctAnswer: "80-20 rule" 
         },
         { 
           text: "Which QC tool is also called a Fishbone Diagram?", 
-          options: ["Cause and Effect Diagram", "Histogram", "Control Chart", "Check Sheet"], 
+          options: ["Control Chart", "Check Sheet", "Histogram", "Cause and Effect Diagram"], 
           correctAnswer: "Cause and Effect Diagram" 
         },
         { 
           text: "What is the first step in creating a Cause and Effect Diagram?", 
-          options: ["Define the problem statement", "Collect data", "Create flowchart", "Draw control limits"], 
+          options: ["Create flowchart", "Draw control limits", "Collect data", "Define the problem statement"], 
           correctAnswer: "Define the problem statement" 
         },
         { 
           text: "Which QC tool plots pairs of data to examine relationships between variables?", 
-          options: ["Scatter Diagram", "Pareto Chart", "Flowchart", "Histogram"], 
+          options: ["Flowchart", "Histogram", "Pareto Chart", "Scatter Diagram"], 
           correctAnswer: "Scatter Diagram" 
         },
         { 
           text: "Why is it important not to assume causation in a scatter diagram?", 
-          options: ["Correlation does not imply causation", "Charts may be colorful", "Data may be incomplete", "Only managers analyze data"], 
+          options: ["Data may be incomplete", "Only managers analyze data", "Charts may be colorful", "Correlation does not imply causation"], 
           correctAnswer: "Correlation does not imply causation" 
         },
         { 
           text: "Which QC tool shows frequency of occurrence of data points?", 
-          options: ["Histogram", "Scatter Diagram", "Flowchart", "Check Sheet"], 
+          options: ["Flowchart", "Check Sheet", "Scatter Diagram", "Histogram"], 
           correctAnswer: "Histogram" 
         },
         { 
           text: "What does a histogram help analyze?", 
-          options: ["Process variation and distribution", "Employee attendance", "Marketing reach", "Cost of materials"], 
+          options: ["Marketing reach", "Cost of materials", "Employee attendance", "Process variation and distribution"], 
           correctAnswer: "Process variation and distribution" 
         },
         { 
           text: "Which QC tool monitors a process over time to ensure it remains stable?", 
-          options: ["Control Chart", "Histogram", "Check Sheet", "Pareto Chart"], 
+          options: ["Check Sheet", "Pareto Chart", "Histogram", "Control Chart"], 
           correctAnswer: "Control Chart" 
         },
         { 
           text: "After implementing a process change, which QC tool would you use to ensure defect rates remain low over time?", 
-          options: ["Control Chart", "Check Sheet", "Flowchart", "Pareto Chart"], 
+          options: ["Flowchart", "Pareto Chart", "Check Sheet", "Control Chart"], 
           correctAnswer: "Control Chart" 
         },
         { 
           text: "Which QC tool is useful in the planning phase to define a process?", 
-          options: ["Flowchart", "Histogram", "Control Chart", "Pareto Chart"], 
+          options: ["Control Chart", "Pareto Chart", "Histogram", "Flowchart"], 
           correctAnswer: "Flowchart" 
         },
         { 
           text: "What should be done after collecting data with a check sheet?", 
-          options: ["Analyze and prioritize defects", "Delete the data", "Make flowcharts only", "Send reports to marketing"], 
+          options: ["Make flowcharts only", "Send reports to marketing", "Delete the data", "Analyze and prioritize defects"], 
           correctAnswer: "Analyze and prioritize defects" 
         },
         { 
           text: "Which QC tool helps identify potential root causes of problems?", 
-          options: ["Cause and Effect Diagram", "Histogram", "Control Chart", "Pareto Chart"], 
+          options: ["Control Chart", "Pareto Chart", "Histogram", "Cause and Effect Diagram"], 
           correctAnswer: "Cause and Effect Diagram" 
         },
         { 
           text: "What is the purpose of a Pareto analysis?", 
-          options: ["Focus on the most impactful problems", "Measure employee satisfaction", "Track sales", "Evaluate marketing campaigns"], 
+          options: ["Track sales", "Evaluate marketing campaigns", "Measure employee satisfaction", "Focus on the most impactful problems"], 
           correctAnswer: "Focus on the most impactful problems" 
         },
         { 
           text: "How does a scatter diagram help in quality improvement?", 
-          options: ["Shows relationships between variables", "Organizes employee schedules", "Records inventory", "Tracks marketing performance"], 
+          options: ["Records inventory", "Tracks marketing performance", "Organizes employee schedules", "Shows relationships between variables"], 
           correctAnswer: "Shows relationships between variables" 
         },
         { 
           text: "What does the control chart indicate if all points are within control limits?", 
-          options: ["Process is in control and only normal variation exists", "Process is failing", "Employees need training", "Defects are ignored"], 
+          options: ["Employees need training", "Defects are ignored", "Process is failing", "Process is in control and only normal variation exists"], 
           correctAnswer: "Process is in control and only normal variation exists" 
         },
         { 
           text: "Which QC tool would you use to track defects over a week and identify trends?", 
-          options: ["Control Chart", "Check Sheet", "Pareto Chart", "Flowchart"], 
+          options: ["Pareto Chart", "Flowchart", "Check Sheet", "Control Chart"], 
           correctAnswer: "Control Chart" 
         },
         { 
           text: "What does the cumulative line in a Pareto Chart show?", 
-          options: ["Total percentage of defects accounted for", "Employee performance", "Process steps", "Cost savings"], 
+          options: ["Process steps", "Cost savings", "Employee performance", "Total percentage of defects accounted for"], 
           correctAnswer: "Total percentage of defects accounted for" 
         },
         { 
           text: "Why is teamwork important when creating a Cause and Effect Diagram?", 
-          options: ["To gather expertise from multiple areas", "To reduce costs", "To speed up production", "To design marketing campaigns"], 
+          options: ["To speed up production", "To design marketing campaigns", "To reduce costs", "To gather expertise from multiple areas"], 
           correctAnswer: "To gather expertise from multiple areas" 
         },
         { 
           text: "Which QC tool is best for visually identifying patterns in process data?", 
-          options: ["Histogram", "Check Sheet", "Flowchart", "Cause and Effect Diagram"], 
+          options: ["Flowchart", "Cause and Effect Diagram", "Check Sheet", "Histogram"], 
           correctAnswer: "Histogram" 
         },
         { 
           text: "What is the role of brainstorming in quality problem solving?", 
-          options: ["Identify potential root causes", "Increase production speed", "Reduce employee costs", "Design new products"], 
+          options: ["Reduce employee costs", "Design new products", "Increase production speed", "Identify potential root causes"], 
           correctAnswer: "Identify potential root causes" 
         },
         { 
           text: "Which QC tool can help quantify the strength of the relationship between two variables?", 
-          options: ["Scatter Diagram", "Control Chart", "Histogram", "Flowchart"], 
+          options: ["Histogram", "Flowchart", "Control Chart", "Scatter Diagram"], 
           correctAnswer: "Scatter Diagram" 
         },
         { 
           text: "How can process improvement impact defect rates?", 
-          options: ["By reducing variability and controlling causes", "By firing employees", "By changing office layout", "By changing suppliers only"], 
+          options: ["By changing office layout", "By changing suppliers only", "By firing employees", "By reducing variability and controlling causes"], 
           correctAnswer: "By reducing variability and controlling causes" 
         },
         { 
           text: "Why is it important to focus on the 'vital few' defects in Pareto analysis?", 
-          options: ["They contribute most to overall defects", "They are easy to fix", "They are documented first", "They are cheapest to solve"], 
+          options: ["They are documented first", "They are cheapest to solve", "They are easy to fix", "They contribute most to overall defects"], 
           correctAnswer: "They contribute most to overall defects" 
         }
       ]
@@ -1729,87 +1729,87 @@ export const ADVANCED_MODULES = [
       [
         {
           text: "What does APQP stand for in automotive quality management?",
-          options: ["Advanced Product Quality Planning", "Automated Process Quality Procedure", "Applied Product Quality Process", "Automotive Production Quality Plan"],
+          options: ["Applied Product Quality Process", "Automotive Production Quality Plan", "Automated Process Quality Procedure", "Advanced Product Quality Planning"],
           correctAnswer: "Advanced Product Quality Planning"
         },
         {
           text: "Which core tool ensures structured planning of product and process development?",
-          options: ["APQP", "PPAP", "FMEA", "MSA"],
+          options: ["FMEA", "MSA", "PPAP", "APQP"],
           correctAnswer: "APQP"
         },
         {
           text: "What is the main goal of APQP?",
-          options: ["Deliver the right product the right way the first time", "Monitor process variation", "Approve supplier parts", "Analyze measurement systems"],
+          options: ["Approve supplier parts", "Analyze measurement systems", "Monitor process variation", "Deliver the right product the right way the first time"],
           correctAnswer: "Deliver the right product the right way the first time"
         },
         {
           text: "Which phase of APQP involves converting customer needs into product design?",
-          options: ["Product Design and Development", "Plan and Define Program", "Process Design and Development", "Feedback Assessment"],
+          options: ["Process Design and Development", "Feedback Assessment", "Plan and Define Program", "Product Design and Development"],
           correctAnswer: "Product Design and Development"
         },
         {
           text: "Which APQP phase plans the manufacturing process to ensure quality?",
-          options: ["Process Design and Development", "Product Design and Development", "Plan and Define Program", "Validation"],
+          options: ["Plan and Define Program", "Validation", "Product Design and Development", "Process Design and Development"],
           correctAnswer: "Process Design and Development"
         },
         {
           text: "What is the purpose of PPAP?",
-          options: ["To verify that the supplier can consistently manufacture parts meeting customer requirements", "To monitor process variation", "To evaluate measurement systems", "To identify potential product failures"],
+          options: ["To evaluate measurement systems", "To identify potential product failures", "To monitor process variation", "To verify that the supplier can consistently manufacture parts meeting customer requirements"],
           correctAnswer: "To verify that the supplier can consistently manufacture parts meeting customer requirements"
         },
         {
           text: "Which of these documents is NOT typically part of a PPAP submission?",
-          options: ["Marketing strategy plan", "Design Records", "Process FMEA", "Control Plan"],
+          options: ["Process FMEA", "Control Plan", "Design Records", "Marketing strategy plan"],
           correctAnswer: "Marketing strategy plan"
         },
         {
           text: "How does PPAP benefit the supplier and customer?",
-          options: ["Reduces risk of defective parts reaching customer", "Speeds up internal meetings", "Increases marketing reach", "Reduces inventory cost only"],
+          options: ["Increases marketing reach", "Reduces inventory cost only", "Speeds up internal meetings", "Reduces risk of defective parts reaching customer"],
           correctAnswer: "Reduces risk of defective parts reaching customer"
         },
         {
           text: "FMEA stands for:",
-          options: ["Failure Mode and Effects Analysis", "Factory Measurement and Evaluation Analysis", "Failure Monitoring and Efficiency Assessment", "Functional Measurement and Error Analysis"],
+          options: ["Failure Monitoring and Efficiency Assessment", "Functional Measurement and Error Analysis", "Factory Measurement and Evaluation Analysis", "Failure Mode and Effects Analysis"],
           correctAnswer: "Failure Mode and Effects Analysis"
         },
         {
           text: "What is the main purpose of FMEA?",
-          options: ["Identify potential failures early and prioritize preventive actions", "Approve supplier parts", "Monitor process performance", "Validate measurement systems"],
+          options: ["Monitor process performance", "Validate measurement systems", "Approve supplier parts", "Identify potential failures early and prioritize preventive actions"],
           correctAnswer: "Identify potential failures early and prioritize preventive actions"
         },
         {
           text: "Which type of FMEA focuses on potential failures in the product design stage?",
-          options: ["Design FMEA (DFMEA)", "Process FMEA (PFMEA)", "Measurement FMEA", "Supplier FMEA"],
+          options: ["Measurement FMEA", "Supplier FMEA", "Process FMEA (PFMEA)", "Design FMEA (DFMEA)"],
           correctAnswer: "Design FMEA (DFMEA)"
         },
         {
           text: "Which type of FMEA focuses on failures during manufacturing?",
-          options: ["Process FMEA (PFMEA)", "Design FMEA (DFMEA)", "APQP FMEA", "PPAP FMEA"],
+          options: ["APQP FMEA", "PPAP FMEA", "Design FMEA (DFMEA)", "Process FMEA (PFMEA)"],
           correctAnswer: "Process FMEA (PFMEA)"
         },
         {
           text: "In FMEA, the risk priority number (RPN) is calculated using which formula?",
-          options: ["Severity x Occurrence x Detection", "Plan x Design x Process", "Accuracy x Precision x Stability", "Upper Control Limit x Lower Control Limit x Average"],
+          options: ["Accuracy x Precision x Stability", "Upper Control Limit x Lower Control Limit x Average", "Plan x Design x Process", "Severity x Occurrence x Detection"],
           correctAnswer: "Severity x Occurrence x Detection"
         },
         {
           text: "What does the severity rating (S) in FMEA indicate?",
-          options: ["Impact of a failure on the customer or process", "Frequency of failure occurrence", "Ease of detecting failure", "Cost of failure"],
+          options: ["Ease of detecting failure", "Cost of failure", "Frequency of failure occurrence", "Impact of a failure on the customer or process"],
           correctAnswer: "Impact of a failure on the customer or process"
         },
         {
           text: "What does the occurrence rating (O) in FMEA indicate?",
-          options: ["How often a failure is likely to happen", "Impact of failure", "Ease of detecting failure", "Supplier compliance"],
+          options: ["Ease of detecting failure", "Supplier compliance", "Impact of failure", "How often a failure is likely to happen"],
           correctAnswer: "How often a failure is likely to happen"
         },
         {
           text: "What does the detection rating (D) in FMEA indicate?",
-          options: ["How easily the failure can be detected before reaching the customer", "Severity of failure", "Process efficiency", "Measurement system bias"],
+          options: ["Process efficiency", "Measurement system bias", "Severity of failure", "How easily the failure can be detected before reaching the customer"],
           correctAnswer: "How easily the failure can be detected before reaching the customer"
         },
         {
           text: "MSA stands for:",
-          options: ["Measurement System Analysis", "Manufacturing Standards Assessment", "Monitoring Statistical Accuracy", "Machine System Automation"],
+          options: ["Monitoring Statistical Accuracy", "Machine System Automation", "Manufacturing Standards Assessment", "Measurement System Analysis"],
           correctAnswer: "Measurement System Analysis"
         },
         {
@@ -1819,47 +1819,47 @@ export const ADVANCED_MODULES = [
         },
         {
           text: "What does repeatability in MSA measure?",
-          options: ["Consistency of measurements by the same operator using the same tool", "Accuracy of measurement system", "Variation in manufacturing process", "Effect of special cause variation"],
+          options: ["Variation in manufacturing process", "Effect of special cause variation", "Accuracy of measurement system", "Consistency of measurements by the same operator using the same tool"],
           correctAnswer: "Consistency of measurements by the same operator using the same tool"
         },
         {
           text: "What does reproducibility in MSA measure?",
-          options: ["Consistency of measurements across different operators using the same tool", "Stability of process", "Severity of failure", "Occurrence of defects"],
+          options: ["Severity of failure", "Occurrence of defects", "Stability of process", "Consistency of measurements across different operators using the same tool"],
           correctAnswer: "Consistency of measurements across different operators using the same tool"
         },
         {
           text: "SPC stands for:",
-          options: ["Statistical Process Control", "Supplier Process Compliance", "Standardized Product Check", "Structured Process Calibration"],
+          options: ["Standardized Product Check", "Structured Process Calibration", "Supplier Process Compliance", "Statistical Process Control"],
           correctAnswer: "Statistical Process Control"
         },
         {
           text: "What is the primary purpose of SPC?",
-          options: ["Monitor and control production processes to maintain consistent quality", "Validate supplier design", "Document PPAP submissions", "Evaluate FMEA risk scores"],
+          options: ["Document PPAP submissions", "Evaluate FMEA risk scores", "Validate supplier design", "Monitor and control production processes to maintain consistent quality"],
           correctAnswer: "Monitor and control production processes to maintain consistent quality"
         },
         {
           text: "In SPC, what is common cause variation?",
-          options: ["Natural random variation within a stable process", "Variation due to unusual events or problems", "Errors in measurement systems", "Variation in design specifications"],
+          options: ["Errors in measurement systems", "Variation in design specifications", "Variation due to unusual events or problems", "Natural random variation within a stable process"],
           correctAnswer: "Natural random variation within a stable process"
         },
         {
           text: "In SPC, what is special cause variation?",
-          options: ["Variation caused by unusual events that need investigation", "Normal process variation", "Measurement errors", "Standard deviation"],
+          options: ["Measurement errors", "Standard deviation", "Normal process variation", "Variation caused by unusual events that need investigation"],
           correctAnswer: "Variation caused by unusual events that need investigation"
         },
         {
           text: "Which charts are primarily used in SPC?",
-          options: ["Control charts", "Pareto charts", "Scatter diagrams", "Histograms"],
+          options: ["Scatter diagrams", "Histograms", "Pareto charts", "Control charts"],
           correctAnswer: "Control charts"
         },
         {
           text: "What does an X-bar chart monitor in SPC?",
-          options: ["Average of a process sample over time", "Measurement system bias", "Supplier compliance", "Failure modes and effects"],
+          options: ["Supplier compliance", "Failure modes and effects", "Measurement system bias", "Average of a process sample over time"],
           correctAnswer: "Average of a process sample over time"
         },
         {
           text: "What does an R chart monitor in SPC?",
-          options: ["Range of values in a sample to observe variation", "Average of process samples", "Severity of failures", "PPAP compliance"],
+          options: ["Severity of failures", "PPAP compliance", "Average of process samples", "Range of values in a sample to observe variation"],
           correctAnswer: "Range of values in a sample to observe variation"
         },
         {
@@ -1869,41 +1869,41 @@ export const ADVANCED_MODULES = [
         },
         {
           text: "How do automotive core tools work together?",
-          options: ["Ensure quality from design through production and support IATF16949 compliance", "Monitor marketing campaigns", "Reduce employee working hours", "Increase inventory turnover"],
+          options: ["Reduce employee working hours", "Increase inventory turnover", "Monitor marketing campaigns", "Ensure quality from design through production and support IATF16949 compliance"],
           correctAnswer: "Ensure quality from design through production and support IATF16949 compliance"
         }
       ]
       ,
       [
-        { text: "What does APQP stand for in automotive quality management?", options: ["Advanced Product Quality Planning", "Automated Process Quality Procedure", "Applied Product Quality Process", "Automotive Production Quality Plan"], correctAnswer: "Advanced Product Quality Planning" },
-        { text: "Which core tool ensures structured planning of product and process development?", options: ["APQP", "PPAP", "FMEA", "MSA"], correctAnswer: "APQP" },
-        { text: "What is the main goal of APQP?", options: ["Deliver the right product the right way the first time", "Monitor process variation", "Approve supplier parts", "Analyze measurement systems"], correctAnswer: "Deliver the right product the right way the first time" },
-        { text: "Which phase of APQP involves converting customer needs into product design?", options: ["Product Design and Development", "Plan and Define Program", "Process Design and Development", "Feedback Assessment"], correctAnswer: "Product Design and Development" },
-        { text: "Which APQP phase plans the manufacturing process to ensure quality?", options: ["Process Design and Development", "Product Design and Development", "Plan and Define Program", "Validation"], correctAnswer: "Process Design and Development" },
-        { text: "What is the purpose of PPAP?", options: ["To verify that the supplier can consistently manufacture parts meeting customer requirements", "To monitor process variation", "To evaluate measurement systems", "To identify potential product failures"], correctAnswer: "To verify that the supplier can consistently manufacture parts meeting customer requirements" },
-        { text: "Which of these documents is NOT typically part of a PPAP submission?", options: ["Marketing strategy plan", "Design Records", "Process FMEA", "Control Plan"], correctAnswer: "Marketing strategy plan" },
-        { text: "How does PPAP benefit the supplier and customer?", options: ["Reduces risk of defective parts reaching customer", "Speeds up internal meetings", "Increases marketing reach", "Reduces inventory cost only"], correctAnswer: "Reduces risk of defective parts reaching customer" },
-        { text: "FMEA stands for:", options: ["Failure Mode and Effects Analysis", "Factory Measurement and Evaluation Analysis", "Failure Monitoring and Efficiency Assessment", "Functional Measurement and Error Analysis"], correctAnswer: "Failure Mode and Effects Analysis" },
-        { text: "What is the main purpose of FMEA?", options: ["Identify potential failures early and prioritize preventive actions", "Approve supplier parts", "Monitor process performance", "Validate measurement systems"], correctAnswer: "Identify potential failures early and prioritize preventive actions" },
-        { text: "Which type of FMEA focuses on potential failures in the product design stage?", options: ["Design FMEA (DFMEA)", "Process FMEA (PFMEA)", "Measurement FMEA", "Supplier FMEA"], correctAnswer: "Design FMEA (DFMEA)" },
-        { text: "Which type of FMEA focuses on failures during manufacturing?", options: ["Process FMEA (PFMEA)", "Design FMEA (DFMEA)", "APQP FMEA", "PPAP FMEA"], correctAnswer: "Process FMEA (PFMEA)" },
-        { text: "In FMEA, the risk priority number (RPN) is calculated using which formula?", options: ["Severity x Occurrence x Detection", "Plan x Design x Process", "Accuracy x Precision x Stability", "Upper Control Limit x Lower Control Limit x Average"], correctAnswer: "Severity x Occurrence x Detection" },
-        { text: "What does the severity rating (S) in FMEA indicate?", options: ["Impact of a failure on the customer or process", "Frequency of failure occurrence", "Ease of detecting failure", "Cost of failure"], correctAnswer: "Impact of a failure on the customer or process" },
-        { text: "What does the occurrence rating (O) in FMEA indicate?", options: ["How often a failure is likely to happen", "Impact of failure", "Ease of detecting failure", "Supplier compliance"], correctAnswer: "How often a failure is likely to happen" },
-        { text: "What does the detection rating (D) in FMEA indicate?", options: ["How easily the failure can be detected before reaching the customer", "Severity of failure", "Process efficiency", "Measurement system bias"], correctAnswer: "How easily the failure can be detected before reaching the customer" },
-        { text: "MSA stands for:", options: ["Measurement System Analysis", "Manufacturing Standards Assessment", "Monitoring Statistical Accuracy", "Machine System Automation"], correctAnswer: "Measurement System Analysis" },
+        { text: "What does APQP stand for in automotive quality management?", options: ["Applied Product Quality Process", "Automotive Production Quality Plan", "Automated Process Quality Procedure", "Advanced Product Quality Planning"], correctAnswer: "Advanced Product Quality Planning" },
+        { text: "Which core tool ensures structured planning of product and process development?", options: ["FMEA", "MSA", "PPAP", "APQP"], correctAnswer: "APQP" },
+        { text: "What is the main goal of APQP?", options: ["Approve supplier parts", "Analyze measurement systems", "Monitor process variation", "Deliver the right product the right way the first time"], correctAnswer: "Deliver the right product the right way the first time" },
+        { text: "Which phase of APQP involves converting customer needs into product design?", options: ["Process Design and Development", "Feedback Assessment", "Plan and Define Program", "Product Design and Development"], correctAnswer: "Product Design and Development" },
+        { text: "Which APQP phase plans the manufacturing process to ensure quality?", options: ["Plan and Define Program", "Validation", "Product Design and Development", "Process Design and Development"], correctAnswer: "Process Design and Development" },
+        { text: "What is the purpose of PPAP?", options: ["To evaluate measurement systems", "To identify potential product failures", "To monitor process variation", "To verify that the supplier can consistently manufacture parts meeting customer requirements"], correctAnswer: "To verify that the supplier can consistently manufacture parts meeting customer requirements" },
+        { text: "Which of these documents is NOT typically part of a PPAP submission?", options: ["Process FMEA", "Control Plan", "Design Records", "Marketing strategy plan"], correctAnswer: "Marketing strategy plan" },
+        { text: "How does PPAP benefit the supplier and customer?", options: ["Increases marketing reach", "Reduces inventory cost only", "Speeds up internal meetings", "Reduces risk of defective parts reaching customer"], correctAnswer: "Reduces risk of defective parts reaching customer" },
+        { text: "FMEA stands for:", options: ["Failure Monitoring and Efficiency Assessment", "Functional Measurement and Error Analysis", "Factory Measurement and Evaluation Analysis", "Failure Mode and Effects Analysis"], correctAnswer: "Failure Mode and Effects Analysis" },
+        { text: "What is the main purpose of FMEA?", options: ["Monitor process performance", "Validate measurement systems", "Approve supplier parts", "Identify potential failures early and prioritize preventive actions"], correctAnswer: "Identify potential failures early and prioritize preventive actions" },
+        { text: "Which type of FMEA focuses on potential failures in the product design stage?", options: ["Measurement FMEA", "Supplier FMEA", "Process FMEA (PFMEA)", "Design FMEA (DFMEA)"], correctAnswer: "Design FMEA (DFMEA)" },
+        { text: "Which type of FMEA focuses on failures during manufacturing?", options: ["APQP FMEA", "PPAP FMEA", "Design FMEA (DFMEA)", "Process FMEA (PFMEA)"], correctAnswer: "Process FMEA (PFMEA)" },
+        { text: "In FMEA, the risk priority number (RPN) is calculated using which formula?", options: ["Accuracy x Precision x Stability", "Upper Control Limit x Lower Control Limit x Average", "Plan x Design x Process", "Severity x Occurrence x Detection"], correctAnswer: "Severity x Occurrence x Detection" },
+        { text: "What does the severity rating (S) in FMEA indicate?", options: ["Ease of detecting failure", "Cost of failure", "Frequency of failure occurrence", "Impact of a failure on the customer or process"], correctAnswer: "Impact of a failure on the customer or process" },
+        { text: "What does the occurrence rating (O) in FMEA indicate?", options: ["Ease of detecting failure", "Supplier compliance", "Impact of failure", "How often a failure is likely to happen"], correctAnswer: "How often a failure is likely to happen" },
+        { text: "What does the detection rating (D) in FMEA indicate?", options: ["Process efficiency", "Measurement system bias", "Severity of failure", "How easily the failure can be detected before reaching the customer"], correctAnswer: "How easily the failure can be detected before reaching the customer" },
+        { text: "MSA stands for:", options: ["Monitoring Statistical Accuracy", "Machine System Automation", "Manufacturing Standards Assessment", "Measurement System Analysis"], correctAnswer: "Measurement System Analysis" },
         { text: "What is the main purpose of MSA?", options: ["Ensure accuracy, precision, and reliability of measurement systems", "Approve supplier parts", "Monitor process control limits", "Identify product failures"], correctAnswer: "Ensure accuracy, precision, and reliability of measurement systems" },
-        { text: "What does repeatability in MSA measure?", options: ["Consistency of measurements by the same operator using the same tool", "Accuracy of measurement system", "Variation in manufacturing process", "Effect of special cause variation"], correctAnswer: "Consistency of measurements by the same operator using the same tool" },
-        { text: "What does reproducibility in MSA measure?", options: ["Consistency of measurements across different operators using the same tool", "Stability of process", "Severity of failure", "Occurrence of defects"], correctAnswer: "Consistency of measurements across different operators using the same tool" },
-        { text: "SPC stands for:", options: ["Statistical Process Control", "Supplier Process Compliance", "Standardized Product Check", "Structured Process Calibration"], correctAnswer: "Statistical Process Control" },
-        { text: "What is the primary purpose of SPC?", options: ["Monitor and control production processes to maintain consistent quality", "Validate supplier design", "Document PPAP submissions", "Evaluate FMEA risk scores"], correctAnswer: "Monitor and control production processes to maintain consistent quality" },
-        { text: "In SPC, what is common cause variation?", options: ["Natural random variation within a stable process", "Variation due to unusual events or problems", "Errors in measurement systems", "Variation in design specifications"], correctAnswer: "Natural random variation within a stable process" },
-        { text: "In SPC, what is special cause variation?", options: ["Variation caused by unusual events that need investigation", "Normal process variation", "Measurement errors", "Standard deviation"], correctAnswer: "Variation caused by unusual events that need investigation" },
-        { text: "Which charts are primarily used in SPC?", options: ["Control charts", "Pareto charts", "Scatter diagrams", "Histograms"], correctAnswer: "Control charts" },
-        { text: "What does an X-bar chart monitor in SPC?", options: ["Average of a process sample over time", "Measurement system bias", "Supplier compliance", "Failure modes and effects"], correctAnswer: "Average of a process sample over time" },
-        { text: "What does an R chart monitor in SPC?", options: ["Range of values in a sample to observe variation", "Average of process samples", "Severity of failures", "PPAP compliance"], correctAnswer: "Range of values in a sample to observe variation" },
+        { text: "What does repeatability in MSA measure?", options: ["Variation in manufacturing process", "Effect of special cause variation", "Accuracy of measurement system", "Consistency of measurements by the same operator using the same tool"], correctAnswer: "Consistency of measurements by the same operator using the same tool" },
+        { text: "What does reproducibility in MSA measure?", options: ["Severity of failure", "Occurrence of defects", "Stability of process", "Consistency of measurements across different operators using the same tool"], correctAnswer: "Consistency of measurements across different operators using the same tool" },
+        { text: "SPC stands for:", options: ["Standardized Product Check", "Structured Process Calibration", "Supplier Process Compliance", "Statistical Process Control"], correctAnswer: "Statistical Process Control" },
+        { text: "What is the primary purpose of SPC?", options: ["Document PPAP submissions", "Evaluate FMEA risk scores", "Validate supplier design", "Monitor and control production processes to maintain consistent quality"], correctAnswer: "Monitor and control production processes to maintain consistent quality" },
+        { text: "In SPC, what is common cause variation?", options: ["Errors in measurement systems", "Variation in design specifications", "Variation due to unusual events or problems", "Natural random variation within a stable process"], correctAnswer: "Natural random variation within a stable process" },
+        { text: "In SPC, what is special cause variation?", options: ["Measurement errors", "Standard deviation", "Normal process variation", "Variation caused by unusual events that need investigation"], correctAnswer: "Variation caused by unusual events that need investigation" },
+        { text: "Which charts are primarily used in SPC?", options: ["Scatter diagrams", "Histograms", "Pareto charts", "Control charts"], correctAnswer: "Control charts" },
+        { text: "What does an X-bar chart monitor in SPC?", options: ["Supplier compliance", "Failure modes and effects", "Measurement system bias", "Average of a process sample over time"], correctAnswer: "Average of a process sample over time" },
+        { text: "What does an R chart monitor in SPC?", options: ["Severity of failures", "PPAP compliance", "Average of process samples", "Range of values in a sample to observe variation"], correctAnswer: "Range of values in a sample to observe variation" },
         { text: "What action is required if a data point falls outside control limits in SPC?", options: ["Investigate and correct the special cause", "Ignore, it is common variation", "Submit a PPAP", "Conduct an MSA study"], correctAnswer: "Investigate and correct the special cause" },
-        { text: "How do automotive core tools work together?", options: ["Ensure quality from design through production and support IATF16949 compliance", "Monitor marketing campaigns", "Reduce employee working hours", "Increase inventory turnover"], correctAnswer: "Ensure quality from design through production and support IATF16949 compliance" }
+        { text: "How do automotive core tools work together?", options: ["Reduce employee working hours", "Increase inventory turnover", "Monitor marketing campaigns", "Ensure quality from design through production and support IATF16949 compliance"], correctAnswer: "Ensure quality from design through production and support IATF16949 compliance" }
         ],
     ]
   },

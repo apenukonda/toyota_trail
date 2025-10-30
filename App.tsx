@@ -14,8 +14,10 @@ import KnowledgeCentrePage from './components/KnowledgeCentrePage';
 import KnFontScaler from './components/KnFontScaler';
 import Admin from './components/admin/Admin';
 import KaizenSuggestionTask from './components/KaizenSuggestionTask';
+import { Analytics } from "@vercel/analytics/next"
 
 const App: React.FC = () => {
+  <Analytics/>
   const { currentPage, theme, currentUser } = useContext(AppContext);
   const { language } = useContext(AppContext);
 
